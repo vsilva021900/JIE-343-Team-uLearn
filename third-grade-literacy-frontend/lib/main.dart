@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'testing.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    title: '3rd Grade Literacy App',
+    home: MyApp()
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +21,7 @@ class MyApp extends StatelessWidget {
           children: <Widget>[
             sideBar,
             Expanded(
-              child: mainSections,
+              child: mainSections(context),
             )
           ],
         )
@@ -53,70 +57,180 @@ Widget sideBar = Container(
   )
 );
 
-Widget mainSections = Container(
-  color: const Color(0xff6ec6d4),
-  child: Column(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: <Widget>[
-      Text(
-        'Word Structures',
-        style: TextStyle(
-          fontFamily: 'Comic',
-          fontSize: 30,
-        )
-      ),
-      Row(
+Widget mainSections(BuildContext context) {
+  return Container(
+      color: const Color(0xff6ec6d4),
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Container(
-            color: const Color(0xff96e4a2),
-            child: Text('\n 1 \n Base Words and Endings \n ed ing \n',
-              style: TextStyle(
-                fontFamily: 'Comic',
-                fontSize: 15
+        children: <Widget>[
+          Text(
+              'Word Structures',
+              style: textStyle(30)
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                    decoration: boxDecoration(const Color(0xff96e4a2)),
+                    child: sections('1', 'Base Words and Endings', 'ed ing')
+                ),
               ),
-              textAlign: TextAlign.center,
-            )
-          ),
-          Container(
-              color: const Color(0xff66cf69),
-              child: Text('\n 2 \n Base Words and Endings \n s es \n',
-                style: TextStyle(
-                    fontFamily: 'Comic',
-                    fontSize: 15
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xff66cf69)),
+                  child: sections('2', 'Base Words and Endings', 's es')
+                )
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xfffdf885)),
+                  child: sections('3', 'Comparative', 'Endings')
                 ),
-                textAlign: TextAlign.center,
               )
+            ],
           ),
-          Container(
-              color: const Color(0xfffdf885),
-              child: Text('\n 3 \n Comparative \n Endings \n',
-                style: TextStyle(
-                    fontFamily: 'Comic',
-                    fontSize: 15
-                ),
-                textAlign: TextAlign.center,
-              )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xffbc8f75)),
+                  child: sections('4', 'Plurals', '')
+                )
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xfff3b2c8)),
+                  child: sections('5', 'Possessives', '')
+                )
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xfff3b98c)),
+                  child: sections('6', 'Contractions', '')
+                )
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xffb87cbe)),
+                  child: sections('7', 'Compound', 'Words')
+                )
+              ),
+            ],
           ),
-        ],
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text('4'),
-          Text('5'),
-          Text('6'),
-          Text('7'),
-        ],
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text('8'),
-          Text('9'),
-          Text('10'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xff6abad7)),
+                  child: sections('8', 'Prefixes', '')
+                )
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xfffcf351)),
+                  child: sections('9', 'Suffixes', '')
+                )
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xffee8640)),
+                  child: sections('10', 'Syllables', '')
+                )
+              ),
+            ],
+          )
         ],
       )
-    ],
-  )
-);
+  );
+}
+
+
+// helper methods to reduce duplicate code
+BoxDecoration boxDecoration(Color col) {
+  return BoxDecoration(
+    color: col,
+    border: Border.all(color: Colors.black, width: 3),
+    borderRadius: BorderRadius.all(Radius.circular(15)),
+  );
+}
+
+TextStyle textStyle(double size) {
+  return TextStyle(
+    color: Colors.black,
+    fontFamily: 'Comic',
+    fontSize: size,
+  );
+}
+
+Padding sections(String a, String b, String c) {
+  return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 13),
+      child: Text('\n ' + a + ' \n ' + b + ' \n ' + c + ' \n',
+        style: textStyle(15),
+        textAlign: TextAlign.center,
+      )
+  );
+}
