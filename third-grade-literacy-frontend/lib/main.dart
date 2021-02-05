@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Word Structures',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,10 +26,42 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Row(
+        children: <Widget>[
+          sideBar,
+          Center(
+            child: Text('Word Structures')
+          )
+        ],
+      ),
     );
   }
 }
+
+Widget sideBar = Column(
+  children: <Widget>[
+    Material(
+      child: IconButton(
+        icon: Image.asset('assets/placeholder_back_button.png'),
+        onPressed: () {  },
+      )
+    ),
+    Material(
+      child: IconButton(
+        icon: Image.asset('assets/placeholder_home_button.png'),
+        onPressed: () {  },
+      )
+    ),
+    Spacer(flex: 5),
+    Material(
+      child: IconButton(
+        icon: Image.asset('assets/placeholder_piggy_button.png'),
+        onPressed: () {  }
+      )
+    ),
+  ]
+);
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
