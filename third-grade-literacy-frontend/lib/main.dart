@@ -61,17 +61,14 @@ Widget mainSections(BuildContext context) {
   return Container(
       color: const Color(0xff6ec6d4),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text(
               'Word Structures',
-              style: TextStyle(
-                fontFamily: 'Comic',
-                fontSize: 30,
-              )
+              style: textStyle(30)
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
                 onTap: () {
@@ -81,113 +78,86 @@ Widget mainSections(BuildContext context) {
                   );
                 },
                 child: Container(
-                    color: const Color(0xff96e4a2),
-                    child: Text('\n 1 \n Base Words and Endings \n ed ing \n',
-                      style: TextStyle(
-                          fontFamily: 'Comic',
-                          fontSize: 15
-                      ),
-                      textAlign: TextAlign.center,
+                    decoration: boxDecoration(const Color(0xff96e4a2)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text('\n 1 \n Base Words and Endings \n ed ing \n',
+                        style: textStyle(15),
+                        textAlign: TextAlign.center,
+                      )
                     )
                 ),
               ),
               Container(
-                  color: const Color(0xff66cf69),
+                decoration: boxDecoration(const Color(0xff66cf69)),
                   child: Text('\n 2 \n Base Words and Endings \n s es \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
               Container(
-                  color: const Color(0xfffdf885),
+                decoration: boxDecoration(const Color(0xfffdf885)),
                   child: Text('\n 3 \n Comparative \n Endings \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                  color: const Color(0xffbc8f75),
+                  decoration: boxDecoration(const Color(0xffbc8f75)),
                   child: Text('\n 4 \n Plurals \n  \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
               Container(
-                  color: const Color(0xfff3b2c8),
+                decoration: boxDecoration(const Color(0xfff3b2c8)),
                   child: Text('\n 5 \n Possessives \n  \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
               Container(
-                  color: const Color(0xfff3b98c),
+                decoration: boxDecoration(const Color(0xfff3b98c)),
                   child: Text('\n 6 \n Contractions \n  \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
               Container(
-                  color: const Color(0xffb87cbe),
+                decoration: boxDecoration(const Color(0xffb87cbe)),
                   child: Text('\n 7 \n Compound \n Words \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                  color: const Color(0xff6abad7),
+                decoration: boxDecoration(const Color(0xff6abad7)),
                   child: Text('\n 8 \n Prefixes \n  \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
               Container(
-                  color: const Color(0xfffcf351),
+                decoration: boxDecoration(const Color(0xfffcf351)),
                   child: Text('\n 9 \n Suffixes \n  \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
               Container(
-                  color: const Color(0xffee8640),
+                decoration: boxDecoration(const Color(0xffee8640)),
                   child: Text('\n 10 \n Syllables \n  \n',
-                    style: TextStyle(
-                        fontFamily: 'Comic',
-                        fontSize: 15
-                    ),
+                    style: textStyle(15),
                     textAlign: TextAlign.center,
                   )
               ),
@@ -198,3 +168,18 @@ Widget mainSections(BuildContext context) {
   );
 }
 
+BoxDecoration boxDecoration(Color col) {
+  return BoxDecoration(
+    color: col,
+    border: Border.all(color: Colors.black, width: 3),
+    borderRadius: BorderRadius.all(Radius.circular(15)),
+  );
+}
+
+TextStyle textStyle(double size) {
+  return TextStyle(
+    color: Colors.black,
+    fontFamily: 'Comic',
+    fontSize: size,
+  );
+}
