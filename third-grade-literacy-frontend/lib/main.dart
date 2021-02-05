@@ -79,28 +79,16 @@ Widget mainSections(BuildContext context) {
                 },
                 child: Container(
                     decoration: boxDecoration(const Color(0xff96e4a2)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text('\n 1 \n Base Words and Endings \n ed ing \n',
-                        style: textStyle(15),
-                        textAlign: TextAlign.center,
-                      )
-                    )
+                    child: sections('1', 'Base Words and Endings', 'ed ing')
                 ),
               ),
               Container(
                 decoration: boxDecoration(const Color(0xff66cf69)),
-                  child: Text('\n 2 \n Base Words and Endings \n s es \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                child: sections('2', 'Base Words and Endings', 's es')
               ),
               Container(
                 decoration: boxDecoration(const Color(0xfffdf885)),
-                  child: Text('\n 3 \n Comparative \n Endings \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                child: sections('3', 'Comparative', 'Endings')
               ),
             ],
           ),
@@ -109,31 +97,19 @@ Widget mainSections(BuildContext context) {
             children: [
               Container(
                   decoration: boxDecoration(const Color(0xffbc8f75)),
-                  child: Text('\n 4 \n Plurals \n  \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                  child: sections('4', 'Plurals', '')
               ),
               Container(
                 decoration: boxDecoration(const Color(0xfff3b2c8)),
-                  child: Text('\n 5 \n Possessives \n  \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                  child: sections('5', 'Possessives', '')
               ),
               Container(
                 decoration: boxDecoration(const Color(0xfff3b98c)),
-                  child: Text('\n 6 \n Contractions \n  \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                  child: sections('6', 'Contractions', '')
               ),
               Container(
                 decoration: boxDecoration(const Color(0xffb87cbe)),
-                  child: Text('\n 7 \n Compound \n Words \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                  child: sections('7', 'Compound', 'Words')
               ),
             ],
           ),
@@ -142,24 +118,15 @@ Widget mainSections(BuildContext context) {
             children: [
               Container(
                 decoration: boxDecoration(const Color(0xff6abad7)),
-                  child: Text('\n 8 \n Prefixes \n  \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                  child: sections('8', 'Prefixes', '')
               ),
               Container(
                 decoration: boxDecoration(const Color(0xfffcf351)),
-                  child: Text('\n 9 \n Suffixes \n  \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                  child: sections('9', 'Suffixes', '')
               ),
               Container(
                 decoration: boxDecoration(const Color(0xffee8640)),
-                  child: Text('\n 10 \n Syllables \n  \n',
-                    style: textStyle(15),
-                    textAlign: TextAlign.center,
-                  )
+                  child: sections('10', 'Syllables', '')
               ),
             ],
           )
@@ -181,5 +148,15 @@ TextStyle textStyle(double size) {
     color: Colors.black,
     fontFamily: 'Comic',
     fontSize: size,
+  );
+}
+
+Padding sections(String a, String b, String c) {
+  return Padding(
+      padding: const EdgeInsets.only(left: 7, right: 10),
+      child: Text('\n ' + a + ' \n ' + b + ' \n ' + c + ' \n',
+        style: textStyle(15),
+        textAlign: TextAlign.center,
+      )
   );
 }
