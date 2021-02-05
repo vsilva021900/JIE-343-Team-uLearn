@@ -46,7 +46,7 @@ flutter:
   assets:
     - assets/
   fonts:
-    - family: ComicSans
+    - family: Comic
       fonts:
         - asset: assets/comic-sans-ms/COMIC.TTF
 

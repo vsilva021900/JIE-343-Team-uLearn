@@ -61,15 +61,43 @@ Widget mainSections = Container(
       Text(
         'Word Structures',
         style: TextStyle(
-
+          fontFamily: 'Comic',
+          fontSize: 30,
         )
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text('1'),
-          Text('2'),
-          Text('3')
+          Container(
+            color: const Color(0xff96e4a2),
+            child: Text('\n 1 \n Base Words and Endings \n ed ing \n',
+              style: TextStyle(
+                fontFamily: 'Comic',
+                fontSize: 15
+              ),
+              textAlign: TextAlign.center,
+            )
+          ),
+          Container(
+              color: const Color(0xff66cf69),
+              child: Text('\n 2 \n Base Words and Endings \n s es \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
+          Container(
+              color: const Color(0xfffdf885),
+              child: Text('\n 3 \n Comparative \n Endings \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
         ],
       ),
       Row(
