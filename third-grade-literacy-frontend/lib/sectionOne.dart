@@ -10,14 +10,7 @@ class MainOne extends StatelessWidget {
           children: <Widget>[
             sideBar(context),
             Expanded(
-              child: Column(
-                children: <Widget>[
-                  Text('1.1 blah blah blah'),
-                  Text('1.2 blah blah blah'),
-                  Text('1.3 blah blah blah'),
-                  Text('1.4 blah blah blah'),
-                ],
-              )
+              child: subSections(context)
             )
           ],
         )
@@ -60,5 +53,138 @@ Widget sideBar(BuildContext context) {
             ),
           ]
       )
+  );
+}
+
+Widget subSections(BuildContext context) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      // title
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // can probably simplify with RichText
+          Text('Base Words and Endings - ',
+            style: textStyle(Colors.black, 30)
+          ),
+          Text('ed',
+            style: textStyle(Colors.red, 30)
+          ),
+          Text(', ',
+            style: textStyle(Colors.black, 30)
+          ),
+          Text('ing',
+              style: textStyle(Colors.red, 30)
+          )
+        ],
+      ),
+      // section 1.1
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('1.1   just add ',
+            style: textStyle(Colors.black, 20)
+          ),
+          Text('ed ',
+              style: textStyle(Colors.red, 20)
+          ),
+          Text('or ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('ing ',
+              style: textStyle(Colors.red, 20)
+          ),
+        ],
+      ),
+      // section 1.2
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('1.2   double final constant, add ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('ed ',
+              style: textStyle(Colors.red, 20)
+          ),
+          Text('or ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('ing ',
+              style: textStyle(Colors.red, 20)
+          ),
+        ],
+      ),
+      // section 1.3
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('1.3   drop final ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('e',
+              style: textStyle(Colors.green, 20)
+          ),
+          Text(', add ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('ed ',
+              style: textStyle(Colors.red, 20)
+          ),
+          Text('or ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('ing ',
+              style: textStyle(Colors.red, 20)
+          ),
+        ],
+      ),
+      // section 1.4
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('1.4   change ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('y ',
+              style: textStyle(Colors.green, 20)
+          ),
+          Text('to ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('i ',
+              style: textStyle(Colors.red, 20)
+          ),
+          Text('add ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('ed',
+              style: textStyle(Colors.red, 20)
+          ),
+          Text(', keep ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('y ',
+              style: textStyle(Colors.green, 20)
+          ),
+          Text('add ',
+              style: textStyle(Colors.black, 20)
+          ),
+          Text('ing ',
+              style: textStyle(Colors.red, 20)
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
+
+
+TextStyle textStyle(Color col, double size) {
+  return TextStyle(
+    color: col,
+    fontFamily: 'Comic',
+    fontSize: size,
   );
 }
