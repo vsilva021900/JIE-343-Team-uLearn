@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'testing.dart';
+import 'sectionOne.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -74,7 +75,7 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      MaterialPageRoute(builder: (context) => MainOne())
                   );
                 },
                 child: Container(
