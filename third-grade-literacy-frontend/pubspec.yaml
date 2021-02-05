@@ -45,6 +45,34 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/dropbox/1 Base Words and Endings - ed, ing/1.1 verb end ordinary/
+    - assets/dropbox/1 Base Words and Endings - ed, ing/1.2 verb end short vowel + consonant/
+    - assets/dropbox/1 Base Words and Endings - ed, ing/1.3 verb end with e/
+    - assets/dropbox/1 Base Words and Endings - ed, ing/1.3 verb end with e/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.1 most action words to s/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.2 y to ies/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.3 ch end words/2.3 ch end words/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.4 s end words/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.5 sh end words/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.6 x end words/
+    - assets/dropbox/3 Comparative Endings/3.1 most words (er, est)/
+    - assets/dropbox/3 Comparative Endings/3.2 words end in e (er, est)/
+    - assets/dropbox/3 Comparative Endings/3.2 words end in e (er, est)/
+    - assets/dropbox/3 Comparative Endings/3.3 words end in Y (er, est)/
+    - assets/dropbox/3 Comparative Endings/3.4 short vowel and consonant (er, est)/
+    - assets/dropbox/4 Plural Endings/4.1 S many words add s/
+    - assets/dropbox/4 Plural Endings/4.2 add es - base word ends in s/
+    - assets/dropbox/4 Plural Endings/4.3 add es - base word ends in sh/
+    - assets/dropbox/4 Plural Endings/4.4 add es - base word ends in ch/
+    - assets/dropbox/4 Plural Endings/4.5 add es - base word ends in x/
+    - assets/dropbox/4 Plural Endings/4.6 ies - change y to i and add es/
+    - assets/dropbox/4 Plural Endings/4.7 ves - change f or fe to v and add es/
+    - assets/dropbox/4 Plural Endings/4.8 Irregular Plurals/
+    - assets/dropbox/4 Plural Endings/4.9 Fun Special Plurals/
+    - assets/dropbox/4 Plural Endings/4.10 No Change Plurals/
+    - assets/dropbox/5 Possessives/5.1 Possessives - Singular/
+    - assets/dropbox/5 Possessives/5.2 Possessives - Plural/
+    - assets/dropbox/5 Possessives/5.3 Possessives - Plural Irregular/
   fonts:
     - family: Comic
       fonts:
