@@ -45,6 +45,21 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/dropbox/1 Base Words and Endings - ed, ing/1.1 verb end ordinary/
+    - assets/dropbox/1 Base Words and Endings - ed, ing/1.2 verb end short vowel + consonant/
+    - assets/dropbox/1 Base Words and Endings - ed, ing/1.3 verb end with e/
+    - assets/dropbox/1 Base Words and Endings - ed, ing/1.3 verb end with e/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.1 most action words to s/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.2 y to ies/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.3 ch end words/2.3 ch end words/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.4 s end words/
+    - assets/dropbox/dropbox/2 Base Word Endings - present tense - s, es/2.5 sh end words/
+    - assets/dropbox/2 Base Word Endings - present tense - s, es/2.6 x end words/
+    - assets/dropbox/3 Comparative Endings/3.1 most words (er, est)/
+    - assets/dropbox/3 Comparative Endings/3.2 words end in e (er, est)/
+    - assets/dropbox/3 Comparative Endings/3.2 words end in e (er, est)/
+    - assets/dropbox/3 Comparative Endings/3.3 words end in Y (er, est)/
+    - assets/dropbox/3 Comparative Endings/3.4 short vowel and consonant (er, est)/
   fonts:
     - family: Comic
       fonts:
