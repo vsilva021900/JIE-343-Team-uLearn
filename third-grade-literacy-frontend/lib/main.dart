@@ -82,51 +82,123 @@ Widget mainSections(BuildContext context) {
                     child: sections('1', 'Base Words and Endings', 'ed ing')
                 ),
               ),
-              Container(
-                decoration: boxDecoration(const Color(0xff66cf69)),
-                child: sections('2', 'Base Words and Endings', 's es')
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xff66cf69)),
+                  child: sections('2', 'Base Words and Endings', 's es')
+                )
               ),
-              Container(
-                decoration: boxDecoration(const Color(0xfffdf885)),
-                child: sections('3', 'Comparative', 'Endings')
-              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xfffdf885)),
+                  child: sections('3', 'Comparative', 'Endings')
+                ),
+              )
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
                   decoration: boxDecoration(const Color(0xffbc8f75)),
                   child: sections('4', 'Plurals', '')
+                )
               ),
-              Container(
-                decoration: boxDecoration(const Color(0xfff3b2c8)),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xfff3b2c8)),
                   child: sections('5', 'Possessives', '')
+                )
               ),
-              Container(
-                decoration: boxDecoration(const Color(0xfff3b98c)),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xfff3b98c)),
                   child: sections('6', 'Contractions', '')
+                )
               ),
-              Container(
-                decoration: boxDecoration(const Color(0xffb87cbe)),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xffb87cbe)),
                   child: sections('7', 'Compound', 'Words')
+                )
               ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                decoration: boxDecoration(const Color(0xff6abad7)),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xff6abad7)),
                   child: sections('8', 'Prefixes', '')
+                )
               ),
-              Container(
-                decoration: boxDecoration(const Color(0xfffcf351)),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xfffcf351)),
                   child: sections('9', 'Suffixes', '')
+                )
               ),
-              Container(
-                decoration: boxDecoration(const Color(0xffee8640)),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Test())
+                  );
+                },
+                child: Container(
+                  decoration: boxDecoration(const Color(0xffee8640)),
                   child: sections('10', 'Syllables', '')
+                )
               ),
             ],
           )
@@ -135,6 +207,8 @@ Widget mainSections(BuildContext context) {
   );
 }
 
+
+// helper methods to reduce duplicate code
 BoxDecoration boxDecoration(Color col) {
   return BoxDecoration(
     color: col,
