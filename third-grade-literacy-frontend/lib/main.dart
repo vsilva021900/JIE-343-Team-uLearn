@@ -76,7 +76,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                        pageBuilder: (context, _, __) => Test(),
+                        pageBuilder: (context, _, __) => MainOne(),
                         transitionDuration: Duration(seconds: 0)
                       )
                   );
