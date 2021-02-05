@@ -10,15 +10,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Word Structures',
-      home: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          sideBar,
-          Expanded(
-            child: mainSections,
-          )
-        ],
-      ),
+      theme: ThemeData(),
+      home: Material(
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            sideBar,
+            Expanded(
+              child: mainSections,
+            )
+          ],
+        )
+      )
     );
   }
 }
@@ -53,12 +56,37 @@ Widget sideBar = Container(
 Widget mainSections = Container(
   color: const Color(0xff6ec6d4),
   child: Column(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
-      Text('Word Structures'),
+      Text(
+        'Word Structures',
+        style: TextStyle(
+
+        )
+      ),
       Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text('1'),
-          Text('2')
+          Text('2'),
+          Text('3')
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text('4'),
+          Text('5'),
+          Text('6'),
+          Text('7'),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text('8'),
+          Text('9'),
+          Text('10'),
         ],
       )
     ],
