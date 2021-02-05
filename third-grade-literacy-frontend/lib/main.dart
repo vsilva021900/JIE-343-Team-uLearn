@@ -103,18 +103,81 @@ Widget mainSections = Container(
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text('4'),
-          Text('5'),
-          Text('6'),
-          Text('7'),
+          Container(
+              color: const Color(0xffbc8f75),
+              child: Text('\n 4 \n Plurals \n  \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
+          Container(
+              color: const Color(0xfff3b2c8),
+              child: Text('\n 5 \n Possessives \n  \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
+          Container(
+              color: const Color(0xfff3b98c),
+              child: Text('\n 6 \n Contractions \n  \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
+          Container(
+              color: const Color(0xffb87cbe),
+              child: Text('\n 7 \n Compound \n Words \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
         ],
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text('8'),
-          Text('9'),
-          Text('10'),
+          Container(
+              color: const Color(0xff6abad7),
+              child: Text('\n 8 \n Prefixes \n  \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
+          Container(
+              color: const Color(0xfffcf351),
+              child: Text('\n 9 \n Suffixes \n  \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
+          Container(
+              color: const Color(0xffee8640),
+              child: Text('\n 10 \n Syllables \n  \n',
+                style: TextStyle(
+                    fontFamily: 'Comic',
+                    fontSize: 15
+                ),
+                textAlign: TextAlign.center,
+              )
+          ),
         ],
       )
     ],
