@@ -4,9 +4,12 @@ class Test extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-            body: Text('TESTING navigation\n LALALALA')
-        )
+      home: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Text('TESTING navigation\n LALALALA')
+      )
     );
   }
 }
