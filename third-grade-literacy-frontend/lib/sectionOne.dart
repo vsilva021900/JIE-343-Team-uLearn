@@ -80,7 +80,17 @@ Widget subSections(BuildContext context) {
         ],
       ),
       // section 1.1
-      Row(
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context,
+              PageRouteBuilder(
+                  pageBuilder: (context, _, __) => OnePointOne(1),
+                  transitionDuration: Duration(seconds: 0)
+              )
+          );
+        },
+        child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('1.1   just add ',
@@ -96,6 +106,7 @@ Widget subSections(BuildContext context) {
               style: textStyle(Colors.red, 20)
           ),
         ],
+      ),
       ),
       // section 1.2
       Row(
@@ -176,6 +187,79 @@ Widget subSections(BuildContext context) {
         ],
       ),
     ],
+  );
+}
+
+
+
+class OnePointOne extends StatelessWidget {
+  OnePointOne(this.page);
+  final int page;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Material(
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            sideBarWithReplay(context),
+            Expanded(
+              child: lessonOneOne(context)
+            )
+          ],
+        )
+      )
+    );
+  }
+}
+
+Widget sideBarWithReplay(BuildContext context) {
+  return Container(
+      color: const Color(0xffc4e8e6),
+      child: Column(
+          children: <Widget>[
+            Material(
+                child: IconButton(
+                  icon: Image.asset('assets/placeholder_back_button.png'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )
+            ),
+            Material(
+                child: IconButton(
+                  icon: Image.asset('assets/placeholder_home_button.png'),
+                  onPressed: () {},
+                )
+            ),
+            Spacer(flex: 5),
+            Material(
+                child: IconButton(
+                    icon: Image.asset('assets/placeholder_quiz_button.png'),
+                    onPressed: () {}
+                )
+            ),
+            Material(
+              child: IconButton(
+                icon: Image.asset('assets/placeholder_replay_button.png'),
+                onPressed: () {}
+              )
+            ),
+            Material(
+                child: IconButton(
+                    icon: Image.asset('assets/placeholder_piggy_button.png'),
+                    onPressed: () {}
+                )
+            ),
+          ]
+      )
+  );
+}
+
+Widget lessonOneOne(BuildContext context) {
+  return Container(
+    child: Text('Testing')
   );
 }
 
