@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'testing.dart';
+import 'sectionOne.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -74,7 +75,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                        pageBuilder: (context, _, __) => MainOne(),
+                        transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -86,7 +90,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -98,7 +105,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -115,7 +125,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -127,7 +140,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -139,7 +155,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -151,7 +170,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -168,7 +190,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -180,7 +205,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
@@ -192,7 +220,10 @@ Widget mainSections(BuildContext context) {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Test())
+                      PageRouteBuilder(
+                          pageBuilder: (context, _, __) => Test(),
+                          transitionDuration: Duration(seconds: 0)
+                      )
                   );
                 },
                 child: Container(
