@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: OnePointOne()
+      home: OnePointTwo()
   ));
 }
-class OnePointOne extends StatelessWidget {
+class OnePointTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -109,38 +109,38 @@ Widget sideBarWithReplay(BuildContext context) {
 
 Widget sub(BuildContext context) {
   return Column(
-    children: [
-      // title
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // can probably simplify with RichText
-          Text('Many actions words just add ',
-              style: textStyle(Colors.black, 30)
-          ),
-          Text('ed ',
-              style: textStyle(Colors.red, 30)
-          ),
-          Text('and ',
-              style: textStyle(Colors.black, 30)
-          ),
-          Text('ing',
-              style: textStyle(Colors.red, 30)
-          ),
-          Text(' to the',
-              style: textStyle(Colors.black, 30)
-          )
-        ],
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(' base word without making any other changes.',
-            style: textStyle(Colors.black, 30)
-          )
-        ],
-      ),
-    ]
+      children: [
+        // title
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // can probably simplify with RichText
+            Text('Many actions words just add ',
+                style: textStyle(Colors.black, 30)
+            ),
+            Text('ed ',
+                style: textStyle(Colors.red, 30)
+            ),
+            Text('and ',
+                style: textStyle(Colors.black, 30)
+            ),
+            Text('ing',
+                style: textStyle(Colors.red, 30)
+            ),
+            Text(' to the',
+                style: textStyle(Colors.black, 30)
+            )
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(' base word without making any other changes.',
+                style: textStyle(Colors.black, 30)
+            )
+          ],
+        ),
+      ]
   );
 }
 TextStyle textStyle(Color col, double size) {
