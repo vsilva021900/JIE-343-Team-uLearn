@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'testing.dart';
 import 'sectionOne.dart';
-import 'sectionTen.dart';
-import 'sectionNine.dart';
-import 'sectionEight.dart';
-import 'sectionSeven.dart';
+import 'sectionTwo.dart';
 import 'sectionSix.dart';
+import 'sectionSeven.dart';
+import 'sectionEight.dart';
+import 'sectionNine.dart';
+import 'sectionTen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -99,14 +100,14 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainTwo(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
                 },
                 child: Container(
                   decoration: boxDecoration(const Color(0xff66cf69)),
-                  child: sections('2', 'Base Words and Endings', 's es')
+                  child: sections('2', 'Base Words and Endings', 's ies es')
                 )
               ),
               GestureDetector(
