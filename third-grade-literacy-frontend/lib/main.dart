@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'testing.dart';
 import 'sectionOne.dart';
+import 'sectionTen.dart';
+import 'sectionNine.dart';
+import 'sectionEight.dart';
+import 'sectionSeven.dart';
+import 'sectionSix.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -156,7 +161,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainSix(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -171,7 +176,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainSeven(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -191,7 +196,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainEight(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -206,7 +211,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainNine(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -221,7 +226,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainTen(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
