@@ -45,6 +45,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/dropbox/Cropped/
     - assets/dropbox/1 Base Words and Endings - ed, ing/1.1 verb end ordinary/
     - assets/dropbox/1 Base Words and Endings - ed, ing/1.2 verb end short vowel + consonant/
     - assets/dropbox/1 Base Words and Endings - ed, ing/1.3 verb end with e/
