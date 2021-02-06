@@ -45,6 +45,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/dropbox/Cropped/
     - assets/dropbox/sectionOne/OnePointOne/
     - assets/dropbox/sectionOne/OnePointTwo/
     - assets/dropbox/sectionOne/OnePointThree/
