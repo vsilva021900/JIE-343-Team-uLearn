@@ -65,7 +65,6 @@ Widget sideBar(BuildContext context) {
 
 Widget subSections(BuildContext context) {
   return Container(
-      color: const Color(0xffd5f0f7),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -73,127 +72,129 @@ Widget subSections(BuildContext context) {
           Text('Base Words and Endings - s, ies, es',
               style: textStyle(Colors.black, 30)
           ),
-          // subsections and clown
+          // 2.1 and 2.2
           Row (
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              // 1.1 and 1.2
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  // 1.1
-                  Row(
-                      children: [
-                        // spacer
-                        Container(
-                          width: screenHeight / 15,
-                        ),
-                        // 1.1
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                      pageBuilder: (context, _, __) => Test(),
-                                      transitionDuration: Duration(seconds: 0)
-                                  )
-                              );
-                            },
-                            child: Container(
-                                width: screenHeight / 3,
-                                height: screenHeight / 3,
-                                child: Image.asset('assets/dropbox/Cropped/Icon_1.1.png',
-                                  fit: BoxFit.contain,
-                                )
-                            )
-                        )
-                      ]
-                  ),
-                  // effectively a spacer
-                  Container(
-                    height: screenHeight / 25,
-                  ),
-                  // 1.2
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
-                                transitionDuration: Duration(seconds: 0)
-                            )
-                        );
-                      },
-                      child: Container(
-                          width: screenHeight / 3,
-                          height: screenHeight / 3,
-                          child: Image.asset('assets/dropbox/Cropped/Icon_1.2.png',
-                            fit: BoxFit.contain,
-                          )
-                      )
-                  )
-                ],
-              ),
-              // Clown
-              Container(
-                  height: screenHeight * 0.8,
-                  child: Image.asset('assets/dropbox/Cropped/Clown_1.png',
+              // 2.1
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, _, __) => Test(),
+                      transitionDuration: Duration(seconds: 0)
+                    )
+                  );
+                },
+                child: Container(
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_2.1.png',
                     fit: BoxFit.contain,
                   )
+                )
               ),
-              // 1.3 and 1.4
-              Column(
-                children: [
-                  // 1.3
-                  Row(
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
-                                    transitionDuration: Duration(seconds: 0)
-                                )
-                            );
-                          },
-                          child: Container(
-                              width: screenHeight / 3,
-                              height: screenHeight / 3,
-                              child: Image.asset('assets/dropbox/Cropped/Icon_1.3.png',
-                                fit: BoxFit.contain,
-                              )
-                          )
-                      ),
-                      Container(
-                          width: screenHeight / 9
-                      )
-                    ],
-                  ),
-                  // effectively a spacer
-                  Container(
-                    height: screenHeight / 8,
-                  ),
-                  // 1.4
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
-                                transitionDuration: Duration(seconds: 0)
-                            )
-                        );
-                      },
-                      child: Container(
-                          width: screenHeight / 3,
-                          height: screenHeight / 3,
-                          child: Image.asset('assets/dropbox/Cropped/Icon_1.4.png',
-                            fit: BoxFit.contain,
-                          )
-                      )
+              // 2.2
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, _, __) => Test(),
+                      transitionDuration: Duration(seconds: 0)
+                    )
+                  );
+                },
+                child: Container(
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_2.2.png',
+                    fit: BoxFit.contain,
                   )
-                ],
+                )
+              )
+            ],
+          ),
+          // 2.3 and 2.4
+          Row (
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              // 2.3
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, _, __) => Test(),
+                      transitionDuration: Duration(seconds: 0)
+                    )
+                  );
+                },
+                child: Container(
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_2.3.png',
+                    fit: BoxFit.contain,
+                  )
+                )
+              ),
+              // 2.4
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, _, __) => Test(),
+                      transitionDuration: Duration(seconds: 0)
+                    )
+                  );
+                },
+                child: Container(
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_2.4.png',
+                    fit: BoxFit.contain,
+                  )
+                )
+              )
+            ],
+          ),
+          // 2.5 and 2.6
+          Row (
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              // 2.5
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, _, __) => Test(),
+                      transitionDuration: Duration(seconds: 0)
+                    )
+                  );
+                },
+                child: Container(
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_2.5.png',
+                    fit: BoxFit.contain,
+                  )
+                )
+              ),
+              // 2.6
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, _, __) => Test(),
+                      transitionDuration: Duration(seconds: 0)
+                    )
+                  );
+                },
+                child: Container(
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_2.6.png',
+                    fit: BoxFit.contain,
+                  )
+                )
               )
             ],
           )
