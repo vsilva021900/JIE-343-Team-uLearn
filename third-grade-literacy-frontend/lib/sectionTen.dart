@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'testing.dart';
 
 class MainTen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
         home: Material(
             child: Row(
@@ -57,15 +60,21 @@ Widget sideBar(BuildContext context) {
 }
 
 Widget subSections(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/dropbox/wordStructuresMenu/sectionTenMenu.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: null /* add child content here */,
-      ),
-    );
+  return Container(
+      color: const Color(0xffd5f0f7),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+        ],
+      )
+  );
+}
+
+double screenHeight, screenWidth;
+TextStyle textStyle(Color col, double size) {
+  return TextStyle(
+    color: col,
+    fontFamily: 'Comic',
+    fontSize: size,
+  );
 }
