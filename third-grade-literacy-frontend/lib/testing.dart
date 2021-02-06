@@ -8,7 +8,7 @@ class Test extends StatelessWidget {
         onTap: () {
           Navigator.pop(context);
         },
-        child: Text('TESTING navigation\n LALALALA')
+        child: Text('TESTING navigation\n LALALALA \n click anywhere to navigate back')
       )
     );
   }
