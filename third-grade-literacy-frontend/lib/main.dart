@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'testing.dart';
 import 'sectionOne.dart';
 import 'sectionTwo.dart';
+import 'sectionThree.dart';
+import 'sectionFour.dart';
+import 'sectionFive.dart';
 import 'sectionSix.dart';
 import 'sectionSeven.dart';
 import 'sectionEight.dart';
@@ -115,7 +118,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainThree(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -135,7 +138,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainFour(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -150,7 +153,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainFive(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
