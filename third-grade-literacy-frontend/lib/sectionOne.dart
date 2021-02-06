@@ -114,11 +114,22 @@ Widget subSections(BuildContext context) {
                   height: screenHeight / 25,
                 ),
                 // 1.2
-                Container(
-                  width: screenHeight / 3,
-                  height: screenHeight / 3,
-                  child: Image.asset('assets/dropbox/Cropped/Icon_1.2.png',
-                    fit: BoxFit.contain,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, _, __) => Test(),
+                        transitionDuration: Duration(seconds: 0)
+                      )
+                    );
+                  },
+                  child: Container(
+                    width: screenHeight / 3,
+                    height: screenHeight / 3,
+                    child: Image.asset('assets/dropbox/Cropped/Icon_1.2.png',
+                      fit: BoxFit.contain,
+                    )
                   )
                 )
               ],
@@ -136,12 +147,23 @@ Widget subSections(BuildContext context) {
                 // 1.3
                 Row(
                   children: [
-                    Container(
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, _, __) => Test(),
+                            transitionDuration: Duration(seconds: 0)
+                          )
+                        );
+                      },
+                      child: Container(
                         width: screenHeight / 3,
                         height: screenHeight / 3,
                         child: Image.asset('assets/dropbox/Cropped/Icon_1.3.png',
                           fit: BoxFit.contain,
                         )
+                      )
                     ),
                     Container(
                         width: screenHeight / 9
@@ -153,11 +175,22 @@ Widget subSections(BuildContext context) {
                   height: screenHeight / 8,
                 ),
                 // 1.4
-                Container(
-                  width: screenHeight / 3,
-                  height: screenHeight / 3,
-                  child: Image.asset('assets/dropbox/Cropped/Icon_1.4.png',
-                    fit: BoxFit.contain,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, _, __) => Test(),
+                        transitionDuration: Duration(seconds: 0)
+                      )
+                    );
+                  },
+                  child: Container(
+                    width: screenHeight / 3,
+                    height: screenHeight / 3,
+                    child: Image.asset('assets/dropbox/Cropped/Icon_1.4.png',
+                      fit: BoxFit.contain,
+                    )
                   )
                 )
               ],
