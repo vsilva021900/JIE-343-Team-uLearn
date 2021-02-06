@@ -65,7 +65,7 @@ Widget sideBar(BuildContext context) {
 
 Widget subSections(BuildContext context) {
   return Container(
-      color: const Color(0xffc4e9f2),
+      color: const Color(0xffccecf4),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
