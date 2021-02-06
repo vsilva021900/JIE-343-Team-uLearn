@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'testing.dart';
 import 'package:flutter/material.dart';
 
 class MainOne extends StatelessWidget {
@@ -88,13 +88,25 @@ Widget subSections(BuildContext context) {
                     Container(
                       width: screenHeight / 15,
                     ),
-                    Container(
+                    // 1.1
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, _, __) => Test(),
+                            transitionDuration: Duration(seconds: 0)
+                          )
+                        );
+                      },
+                      child: Container(
                         width: screenHeight / 3,
                         height: screenHeight / 3,
                         child: Image.asset('assets/dropbox/Cropped/Icon_1.1.png',
                           fit: BoxFit.contain,
                         )
-                    ),
+                    )
+                    )
                   ]
                 ),
                 // effectively a spacer
