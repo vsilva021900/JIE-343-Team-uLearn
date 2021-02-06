@@ -65,34 +65,42 @@ Widget subSections(BuildContext context) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        // title
+        // section title
         Text('Base Words and Endings - ed, ing',
           style: textStyle(Colors.black, 30)
         ),
         // subsections and clown
         Row (
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // 1.1 and 1.2
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 // 1.1
-                Container(
-                  width: screenHeight / 4,
-                  height: screenHeight / 4,
-                  child: Image.asset('assets/dropbox/Cropped/Icon_1.1.png',
-                    fit: BoxFit.contain,
-                  )
+                Row(
+                  children: [
+                    // spacer
+                    Container(
+                      width: screenHeight / 15,
+                    ),
+                    Container(
+                        width: screenHeight / 3,
+                        height: screenHeight / 3,
+                        child: Image.asset('assets/dropbox/Cropped/Icon_1.1.png',
+                          fit: BoxFit.contain,
+                        )
+                    ),
+                  ]
                 ),
                 // effectively a spacer
                 Container(
-                  height: screenHeight / 8,
+                  height: screenHeight / 25,
                 ),
                 // 1.2
                 Container(
-                  width: screenHeight / 4,
-                  height: screenHeight / 4,
+                  width: screenHeight / 3,
+                  height: screenHeight / 3,
                   child: Image.asset('assets/dropbox/Cropped/Icon_1.2.png',
                     fit: BoxFit.contain,
                   )
@@ -110,12 +118,19 @@ Widget subSections(BuildContext context) {
             Column(
               children: [
                 // 1.3
-                Container(
-                  width: screenHeight / 4,
-                  height: screenHeight / 4,
-                  child: Image.asset('assets/dropbox/Cropped/Icon_1.3.png',
-                    fit: BoxFit.contain,
-                  )
+                Row(
+                  children: [
+                    Container(
+                        width: screenHeight / 3,
+                        height: screenHeight / 3,
+                        child: Image.asset('assets/dropbox/Cropped/Icon_1.3.png',
+                          fit: BoxFit.contain,
+                        )
+                    ),
+                    Container(
+                        width: screenHeight / 9
+                    )
+                  ],
                 ),
                 // effectively a spacer
                 Container(
@@ -123,8 +138,8 @@ Widget subSections(BuildContext context) {
                 ),
                 // 1.4
                 Container(
-                  width: screenHeight / 4,
-                  height: screenHeight / 4,
+                  width: screenHeight / 3,
+                  height: screenHeight / 3,
                   child: Image.asset('assets/dropbox/Cropped/Icon_1.4.png',
                     fit: BoxFit.contain,
                   )
