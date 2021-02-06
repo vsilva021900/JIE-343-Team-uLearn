@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'testing.dart';
 import 'sectionOne.dart';
+import 'sectionTen.dart';
+import 'sectionNine.dart';
+import 'sectionEight.dart';
+import 'sectionSeven.dart';
+import 'sectionSix.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -36,12 +41,14 @@ Widget sideBar = Container(
   child: Column(
     children: <Widget>[
       Material(
+        color: const Color(0xffc4e8e6),
         child: IconButton(
           icon: Image.asset('assets/placeholder_back_button.png'),
           onPressed: () {  },
         )
       ),
       Material(
+        color: const Color(0xffc4e8e6),
         child: IconButton(
           icon: Image.asset('assets/placeholder_home_button.png'),
           onPressed: () {  },
@@ -49,6 +56,7 @@ Widget sideBar = Container(
       ),
       Spacer(flex: 5),
       Material(
+        color: const Color(0xffc4e8e6),
         child: IconButton(
           icon: Image.asset('assets/placeholder_piggy_button.png'),
           onPressed: () {  }
@@ -156,7 +164,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainSix(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -171,7 +179,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainSeven(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -191,7 +199,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainEight(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -206,7 +214,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainNine(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
@@ -221,7 +229,7 @@ Widget mainSections(BuildContext context) {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, _, __) => Test(),
+                          pageBuilder: (context, _, __) => MainTen(),
                           transitionDuration: Duration(seconds: 0)
                       )
                   );
