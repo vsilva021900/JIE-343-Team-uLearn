@@ -36,12 +36,14 @@ Widget sideBar = Container(
   child: Column(
     children: <Widget>[
       Material(
+        color: const Color(0xffc4e8e6),
         child: IconButton(
           icon: Image.asset('assets/placeholder_back_button.png'),
           onPressed: () {  },
         )
       ),
       Material(
+        color: const Color(0xffc4e8e6),
         child: IconButton(
           icon: Image.asset('assets/placeholder_home_button.png'),
           onPressed: () {  },
@@ -49,6 +51,7 @@ Widget sideBar = Container(
       ),
       Spacer(flex: 5),
       Material(
+        color: const Color(0xffc4e8e6),
         child: IconButton(
           icon: Image.asset('assets/placeholder_piggy_button.png'),
           onPressed: () {  }
