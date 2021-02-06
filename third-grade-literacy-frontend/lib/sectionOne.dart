@@ -69,11 +69,13 @@ Widget subSections(BuildContext context) {
       ),
       // subsections and clown
       Row (
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           // 1.1 and 1.2
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              // 1.1
               Container(
                 width: screenHeight / 4,
                 height: screenHeight / 4,
@@ -81,6 +83,11 @@ Widget subSections(BuildContext context) {
                   fit: BoxFit.contain,
                 )
               ),
+              // effectively a spacer
+              Container(
+                height: screenHeight / 8,
+              ),
+              // 1.2
               Container(
                   width: screenHeight / 4,
                   height: screenHeight / 4,
@@ -91,12 +98,35 @@ Widget subSections(BuildContext context) {
             ],
           ),
           // Clown
-          Image.asset('assets/dropbox/Cropped/Clown_1.png'),
+          Container(
+            height: screenHeight * 0.8,
+            child: Image.asset('assets/dropbox/Cropped/Clown_1.png',
+              fit: BoxFit.contain,
+            )
+          ),
           // 1.3 and 1.4
           Column(
             children: [
-              Image.asset('assets/dropbox/Cropped/Icon_1.3.png'),
-              Image.asset('assets/dropbox/Cropped/Icon_1.4.png')
+              // 1.3
+              Container(
+                  width: screenHeight / 4,
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_1.3.png',
+                    fit: BoxFit.contain,
+                  )
+              ),
+              // effectively a spacer
+              Container(
+                height: screenHeight / 8,
+              ),
+              // 1.4
+              Container(
+                  width: screenHeight / 4,
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_1.4.png',
+                    fit: BoxFit.contain,
+                  )
+              )
             ],
           )
         ],
