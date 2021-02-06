@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
       home: Material(
         child: Row(
@@ -61,131 +64,43 @@ Widget subSections(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
       // title
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      Text('Base Words and Endings - ed, ing',
+        style: textStyle(Colors.black, 30)
+      ),
+      // subsections and clown
+      Row (
         children: [
-          // can probably simplify with RichText
-          Text('Base Words and Endings - ',
-            style: textStyle(Colors.black, 30)
+          // 1.1 and 1.2
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                width: screenHeight / 4,
+                height: screenHeight / 4,
+                child: Image.asset('assets/dropbox/Cropped/Icon_1.1.png',
+                  fit: BoxFit.contain,
+                )
+              ),
+              Container(
+                  width: screenHeight / 4,
+                  height: screenHeight / 4,
+                  child: Image.asset('assets/dropbox/Cropped/Icon_1.2.png',
+                    fit: BoxFit.contain,
+                  )
+              )
+            ],
           ),
-          Text('ed',
-            style: textStyle(Colors.red, 30)
-          ),
-          Text(', ',
-            style: textStyle(Colors.black, 30)
-          ),
-          Text('ing',
-              style: textStyle(Colors.red, 30)
+          // Clown
+          Image.asset('assets/dropbox/Cropped/Clown_1.png'),
+          // 1.3 and 1.4
+          Column(
+            children: [
+              Image.asset('assets/dropbox/Cropped/Icon_1.3.png'),
+              Image.asset('assets/dropbox/Cropped/Icon_1.4.png')
+            ],
           )
         ],
-      ),
-      // section 1.1
-      GestureDetector(
-        onTap: () {
-          Navigator.push(
-              context,
-              PageRouteBuilder(
-                  pageBuilder: (context, _, __) => OnePointOne(1),
-                  transitionDuration: Duration(seconds: 0)
-              )
-          );
-        },
-        child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('1.1   just add ',
-            style: textStyle(Colors.black, 20)
-          ),
-          Text('ed ',
-              style: textStyle(Colors.red, 20)
-          ),
-          Text('or ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('ing ',
-              style: textStyle(Colors.red, 20)
-          ),
-        ],
-      ),
-      ),
-      // section 1.2
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('1.2   double final constant, add ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('ed ',
-              style: textStyle(Colors.red, 20)
-          ),
-          Text('or ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('ing ',
-              style: textStyle(Colors.red, 20)
-          ),
-        ],
-      ),
-      // section 1.3
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('1.3   drop final ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('e',
-              style: textStyle(Colors.green, 20)
-          ),
-          Text(', add ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('ed ',
-              style: textStyle(Colors.red, 20)
-          ),
-          Text('or ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('ing ',
-              style: textStyle(Colors.red, 20)
-          ),
-        ],
-      ),
-      // section 1.4
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('1.4   change ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('y ',
-              style: textStyle(Colors.green, 20)
-          ),
-          Text('to ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('i ',
-              style: textStyle(Colors.red, 20)
-          ),
-          Text('add ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('ed',
-              style: textStyle(Colors.red, 20)
-          ),
-          Text(', keep ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('y ',
-              style: textStyle(Colors.green, 20)
-          ),
-          Text('add ',
-              style: textStyle(Colors.black, 20)
-          ),
-          Text('ing ',
-              style: textStyle(Colors.red, 20)
-          ),
-        ],
-      ),
+      )
     ],
   );
 }
@@ -282,6 +197,8 @@ Widget lessonOneOne(BuildContext context) {
 
 
 
+// helper functions and variables
+double screenHeight, screenWidth;
 TextStyle textStyle(Color col, double size) {
   return TextStyle(
     color: col,
