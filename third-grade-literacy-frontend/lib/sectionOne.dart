@@ -1,4 +1,5 @@
 import 'testing.dart';
+import 'OnePointOneLesson.dart';
 import 'package:flutter/material.dart';
 
 class MainOne extends StatelessWidget {
@@ -94,7 +95,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => OnePointOne(),
                             transitionDuration: Duration(seconds: 0)
                           )
                         );
@@ -204,27 +205,27 @@ Widget subSections(BuildContext context) {
 
 
 
-class OnePointOne extends StatelessWidget {
-  OnePointOne(this.page);
-  final int page;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Material(
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            sideBarWithReplay(context),
-            Expanded(
-              child: lessonOneOne(context)
-            )
-          ],
-        )
-      )
-    );
-  }
-}
+// class OnePointOne extends StatelessWidget {
+//   OnePointOne(this.page);
+//   final int page;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Material(
+//         child: Row(
+//           mainAxisSize: MainAxisSize.max,
+//           children: [
+//             sideBarWithReplay(context),
+//             Expanded(
+//               child: lessonOneOne(context)
+//             )
+//           ],
+//         )
+//       )
+//     );
+//   }
+// }
 
 Widget sideBarWithReplay(BuildContext context) {
   return Container(
@@ -269,32 +270,32 @@ Widget sideBarWithReplay(BuildContext context) {
   );
 }
 
-Widget lessonOneOne(BuildContext context) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-    children: [
-      Text('Many action words just add ',
-          style: textStyle(Colors.black, 30)
-      ),
-      Text('ed ',
-          style: textStyle(Colors.red, 30)
-      ),
-      Text('and ',
-          style: textStyle(Colors.black, 30)
-      ),
-      Text('ing ',
-          style: textStyle(Colors.red, 30)
-      ),
-      Text('1.1   just add ',
-          style: textStyle(Colors.black, 20)
-      ),
-    ],
-  );
-}
+// Widget lessonOneOne(BuildContext context) {
+//   return Column(
+//     mainAxisAlignment: MainAxisAlignment.spaceAround,
+//     children: [
+//       Text('Many action words just add ',
+//           style: textStyle(Colors.black, 30)
+//       ),
+//       Text('ed ',
+//           style: textStyle(Colors.red, 30)
+//       ),
+//       Text('and ',
+//           style: textStyle(Colors.black, 30)
+//       ),
+//       Text('ing ',
+//           style: textStyle(Colors.red, 30)
+//       ),
+//       Text('1.1   just add ',
+//           style: textStyle(Colors.black, 20)
+//       ),
+//     ],
+//   );
+// }
 
 
 
-// helper functions and variables
+/* helper functions and variables */
 double screenHeight, screenWidth;
 TextStyle textStyle(Color col, double size) {
   return TextStyle(
