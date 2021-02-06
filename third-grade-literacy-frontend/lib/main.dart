@@ -106,7 +106,7 @@ Widget mainSections(BuildContext context) {
                 },
                 child: Container(
                   decoration: boxDecoration(const Color(0xff66cf69)),
-                  child: sections('2', 'Base Words and Endings', 's es')
+                  child: sections('2', 'Base Words and Endings', 's ies es')
                 )
               ),
               GestureDetector(
