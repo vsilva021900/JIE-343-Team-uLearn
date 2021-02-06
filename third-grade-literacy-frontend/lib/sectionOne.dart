@@ -258,8 +258,25 @@ Widget sideBarWithReplay(BuildContext context) {
 }
 
 Widget lessonOneOne(BuildContext context) {
-  return Container(
-    child: Text('Testing')
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      Text('Many action words just add ',
+          style: textStyle(Colors.black, 30)
+      ),
+      Text('ed ',
+          style: textStyle(Colors.red, 30)
+      ),
+      Text('and ',
+          style: textStyle(Colors.black, 30)
+      ),
+      Text('ing ',
+          style: textStyle(Colors.red, 30)
+      ),
+      Text('1.1   just add ',
+          style: textStyle(Colors.black, 20)
+      ),
+    ],
   );
 }
 
