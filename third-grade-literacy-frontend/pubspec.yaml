@@ -66,6 +66,57 @@ flutter:
     - assets/move_moved_moving.mp3
     - assets/tickle_tickled_tickling.mp3
     - assets/tumble_tumbled_tumbling.mp3
+    - assets/carry_carried_carrying.mp3
+    - assets/cry_cried_crying.mp3
+    - assets/dirty_dirtied_dirtying.mp3
+    - assets/empty_emptied_emptying.mp3
+    - assets/fry_fried_frying.mp3
+    - assets/try_tried_trying.mp3
+    - assets/help_helps.mp3
+    - assets/jump_jumps.mp3
+    - assets/kick_kicks.mp3
+    - assets/sing_sings.mp3
+    - assets/bully_bullies.mp3
+    - assets/carry_carries.mp3
+    - assets/cry_cries.mp3
+    - assets/dirty_dirties.mp3
+    - assets/fly_flies.mp3
+    - assets/spy_spies.mp3
+    - assets/try_tries.mp3
+    - assets/hitch_hitches.mp3
+    - assets/scratch_scratches.mp3
+    - assets/teach_teaches.mp3
+    - assets/touch_touches.mp3
+    - assets/watch_watches.mp3
+    - assets/guess_guesses.mp3
+    - assets/hiss_hisses.mp3
+    - assets/kiss_kisses.mp3
+    - assets/miss_misses.mp3
+    - assets/pass_passes.mp3
+    - assets/toss_tosses.mp3
+    - assets/crash_crashes.mp3
+    - assets/fish_fishes.mp3
+    - assets/push_pushes.mp3
+    - assets/vanish_vanishes.mp3
+    - assets/wash_washes.mp3
+    - assets/wish_wishes.mp3
+    - assets/box_boxes.mp3
+    - assets/fix_fixes.mp3
+    - assets/mix_mixes.mp3
+    - assets/relax_relaxes.mp3
+    - assets/wax_waxes.mp3
+    - assets/dark.mp3
+    - assets/hard.mp3
+    - assets/long.mp3
+    - assets/quiet.mp3
+    - assets/small.mp3
+    - assets/strong.mp3
+    - assets/sweet.mp3
+    - assets/young.mp3
+    - sleep_sleeps.mp3
+    - talk_talks.mp3
+    - think_thinks.mp3
+    - assets/work_works.mp3
     - assets/dropbox/sectionOne/OnePointTwo/
     - assets/dropbox/sectionOne/OnePointThree/
     - assets/dropbox/sectionOne/OnePointFour/

@@ -1,5 +1,6 @@
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
@@ -11,6 +12,8 @@ class OnePointFourLesson extends StatefulWidget {
   OnePointFour createState() => OnePointFour();
 }
 class OnePointFour extends State<OnePointFourLesson> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointFour/carry.png'),
     Image.asset('assets/dropbox/sectionOne/OnePointFour/cry.png'),
     Image.asset('assets/dropbox/sectionOne/OnePointFour/dirty.png'),
@@ -23,6 +26,12 @@ class OnePointFour extends State<OnePointFourLesson> {
     ['empty', 'emptied', "emptying"],
     ['fry', 'fried', "frying"],
     ['try', 'tried', "trying"]];
+  var music = ["carry_carried_carrying.mp3",
+    "cry_cried_crying.mp3",
+    "dirty_dirtied_dirtying.mp3",
+    "empty_emptied_emptying.mp3",
+    "fry_fried_frying.mp3",
+    "try_tried_trying.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +42,7 @@ class OnePointFour extends State<OnePointFourLesson> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                sideBar(context),
+                sideBarWithReplay(context),
                 Expanded(
                     child: sub(context)
                 )
@@ -43,51 +52,13 @@ class OnePointFour extends State<OnePointFourLesson> {
     );
   }
 
-  Widget sideBar(BuildContext context) {
-    return Container(
-        color: const Color(0xffc4e8e6),
-        child: Column(
-            children: <Widget>[
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
-                  )
-              ),
-              Spacer(flex: 5),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-            ]
-        )
-    );
-  }
-
-// same as above except include replay button for audio files
-// use for lesson pages
   Widget sideBarWithReplay(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
@@ -96,6 +67,7 @@ class OnePointFour extends State<OnePointFourLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {},
@@ -103,18 +75,23 @@ class OnePointFour extends State<OnePointFourLesson> {
               ),
               Spacer(flex: 5),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {}
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
@@ -135,7 +112,7 @@ class OnePointFour extends State<OnePointFourLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Many action words end with y. These words',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
@@ -143,13 +120,13 @@ class OnePointFour extends State<OnePointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('change y to i when they add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   ),
                   Text('ed',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 24)
                   ),
                   Text(', but they keep',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
@@ -157,13 +134,13 @@ class OnePointFour extends State<OnePointFourLesson> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('the y when they add ',
-                        style: textStyle(Colors.black, 30)
+                        style: textStyle(Colors.black, screenWidth / 24)
                   ),
                     Text('ing',
-                        style: textStyle(Colors.red, 30)
+                        style: textStyle(Colors.red, screenWidth / 24)
                     ),
                     Text('.',
-                        style: textStyle(Colors.black, 30)
+                        style: textStyle(Colors.black, screenWidth / 24)
                     )
                   ]
               ),
@@ -178,6 +155,7 @@ class OnePointFour extends State<OnePointFourLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -195,6 +173,7 @@ class OnePointFour extends State<OnePointFourLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
