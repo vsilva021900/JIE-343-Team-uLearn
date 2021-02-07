@@ -47,6 +47,9 @@ flutter:
   assets:
     - assets/
     - assets/dropbox/Cropped/
+    - assets/dropbox/Cropped/Icon_7.1.png
+    - assets/dropbox/Cropped/Icon_7.2.png
+    - assets/dropbox/Cropped/Icon_7.3.png
     - assets/dropbox/sectionOne/OnePointOne/
     - assets/fix_fixed_fixing.mp3
     - assets/help_helped_helping.mp3
@@ -63,6 +66,27 @@ flutter:
     - assets/move_moved_moving.mp3
     - assets/tickle_tickled_tickling.mp3
     - assets/tumble_tumbled_tumbling.mp3
+    - assets/carry_carried_carrying.mp3
+    - assets/cry_cried_crying.mp3
+    - assets/dirty_dirtied_dirtying.mp3
+    - assets/empty_emptied_emptying.mp3
+    - assets/fry_fried_frying.mp3
+    - assets/try_tried_trying.mp3
+    - assets/help_helps.mp3
+    - assets/jump_jumps.mp3
+    - assets/kick_kicks.mp3
+    - assets/sing_sings.mp3
+    - assets/bully_bullies.mp3
+    - assets/carry_carries.mp3
+    - assets/cry_cries.mp3
+    - assets/dirty_dirties.mp3
+    - assets/fly_flies.mp3
+    - assets/spy_spies.mp3
+    - assets/try_tries.mp3
+    - sleep_sleeps.mp3
+    - talk_talks.mp3
+    - think_thinks.mp3
+    - assets/work_works.mp3
     - assets/dropbox/sectionOne/OnePointTwo/
     - assets/dropbox/sectionOne/OnePointThree/
     - assets/dropbox/sectionOne/OnePointFour/
