@@ -86,7 +86,7 @@ Widget subSections(BuildContext context) {
                 children: [
                   // spacer
                   Container(
-                    height: screenHeight / 5,
+                    height: screenHeight * 0.20,
                   ),
                   // 3.3
                   GestureDetector(
@@ -100,7 +100,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          width: screenWidth / 7,
+                          constraints: BoxConstraints(maxHeight: screenHeight * 0.6, maxWidth: screenWidth * 0.15),
                           child: Image.asset('assets/dropbox/Cropped/Icon_3.3.png',
                             fit: BoxFit.contain,
                           )
@@ -123,7 +123,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          width: screenWidth / 7,
+                          constraints: BoxConstraints(maxHeight: screenHeight * 0.67, maxWidth: screenWidth * 0.15),
                           child: Image.asset('assets/dropbox/Cropped/Icon_3.1.png',
                             fit: BoxFit.contain,
                           )
@@ -131,12 +131,13 @@ Widget subSections(BuildContext context) {
                   ),
                   // spacer
                   Container(
-                    height: screenHeight / 4,
+                    height: screenHeight * 0.13,
                   )
                 ],
               ),
               // Clown
               Container(
+                constraints: BoxConstraints(maxHeight: screenHeight * 0.8, maxWidth: screenWidth * 0.3),
                 height: screenHeight * 0.8,
                 child: Image.asset('assets/dropbox/Cropped/Clown_3.png',
                   fit: BoxFit.contain,
@@ -147,7 +148,7 @@ Widget subSections(BuildContext context) {
                 children: [
                   // spacer
                   Container(
-                    height: screenHeight / 3,
+                    height: screenHeight * 0.33,
                   ),
                   // 3.4
                   GestureDetector(
@@ -161,7 +162,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          width: screenWidth / 7,
+                          constraints: BoxConstraints(maxHeight: screenHeight * 0.43, maxWidth: screenWidth * 0.15),
                           child: Image.asset('assets/dropbox/Cropped/Icon_3.4.png',
                             fit: BoxFit.contain,
                           )
@@ -184,7 +185,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          width: screenWidth / 7,
+                          constraints: BoxConstraints(maxHeight: screenHeight * 0.6, maxWidth: screenWidth * 0.15),
                           child: Image.asset('assets/dropbox/Cropped/Icon_3.2.png',
                             fit: BoxFit.contain,
                           )
@@ -192,7 +193,7 @@ Widget subSections(BuildContext context) {
                   ),
                   // spacer
                   Container(
-                    height: screenHeight / 5,
+                    height: screenHeight * 0.10,
                   )
                 ],
               )

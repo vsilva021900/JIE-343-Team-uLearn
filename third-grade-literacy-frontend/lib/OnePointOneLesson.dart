@@ -6,6 +6,7 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
@@ -47,7 +48,7 @@ class OnePointOne extends State<OnePointOneLesson> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                sideBar(context),
+                sideBarWithReplay(context),
                 Expanded(
                     child: sub(context)
                 )
@@ -56,7 +57,6 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
-
   Widget sideBar(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
@@ -67,6 +67,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
                       Navigator.pop(context);
+                      audioCache.play("fix_fixed_fixing.mp3");
                     },
                   )
               ),
@@ -93,7 +94,6 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
-
 // same as above except include replay button for audio files
 // use for lesson pages
   Widget sideBarWithReplay(BuildContext context) {
@@ -138,7 +138,6 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
-
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -230,7 +229,6 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
-
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(
@@ -240,3 +238,4 @@ class OnePointOne extends State<OnePointOneLesson> {
     );
   }
 }
+
