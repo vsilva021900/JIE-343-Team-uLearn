@@ -39,7 +39,7 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                sideBar(context),
+                sideBarWithReplay(context),
                 Expanded(
                     child: sub(context)
                 )
@@ -49,51 +49,13 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
     );
   }
 
-  Widget sideBar(BuildContext context) {
-    return Container(
-        color: const Color(0xffc4e8e6),
-        child: Column(
-            children: <Widget>[
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
-                  )
-              ),
-              Spacer(flex: 5),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-            ]
-        )
-    );
-  }
-
-// same as above except include replay button for audio files
-// use for lesson pages
   Widget sideBarWithReplay(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
@@ -102,6 +64,7 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {},
@@ -109,12 +72,14 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
               ),
               Spacer(flex: 5),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {}
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
@@ -123,6 +88,7 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
@@ -142,30 +108,30 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words, to say',
-                      style: textStyle(Colors.black, 30)
+                  Text('For third person singular action words,',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('someone or something does something, base words',
-                      style: textStyle(Colors.black, 30)
+                  Text('to say someone or something does something,',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('that end with sh add ',
-                        style: textStyle(Colors.black, 30)
+                    Text('base words that end with sh add ',
+                        style: textStyle(Colors.black, screenWidth / 24)
                     ),
                     Text('es',
-                        style: textStyle(Colors.red, 30)
+                        style: textStyle(Colors.red, screenWidth / 24)
                     ),
                     Text('.',
-                        style: textStyle(Colors.black, 30)
+                        style: textStyle(Colors.black, screenWidth / 24)
                     ),
                   ]
               ),
