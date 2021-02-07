@@ -36,7 +36,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                sideBar(context),
+                sideBarWithReplay(context),
                 Expanded(
                     child: sub(context)
                 )
@@ -46,51 +46,13 @@ class TwoPointSix extends State<TwoPointSixLesson> {
     );
   }
 
-  Widget sideBar(BuildContext context) {
-    return Container(
-        color: const Color(0xffc4e8e6),
-        child: Column(
-            children: <Widget>[
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
-                  )
-              ),
-              Spacer(flex: 5),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-            ]
-        )
-    );
-  }
-
-// same as above except include replay button for audio files
-// use for lesson pages
   Widget sideBarWithReplay(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
@@ -99,6 +61,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {},
@@ -106,12 +69,14 @@ class TwoPointSix extends State<TwoPointSixLesson> {
               ),
               Spacer(flex: 5),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {}
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
@@ -120,6 +85,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
@@ -129,7 +95,6 @@ class TwoPointSix extends State<TwoPointSixLesson> {
         )
     );
   }
-
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
