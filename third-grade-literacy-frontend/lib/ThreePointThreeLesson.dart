@@ -3,23 +3,26 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: TwoPointFiveLesson()
+      home: ThreePointThreeLesson()
   ));
 }
-class TwoPointFiveLesson extends StatefulWidget {
+class ThreePointThreeLesson extends StatefulWidget {
   @override
-  TwoPointFive createState() => TwoPointFive();
+  ThreePointThree createState() => ThreePointThree();
 }
-class TwoPointFive extends State<TwoPointFiveLesson> {
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointFive/crash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/fish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/push.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/vanish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wish.png')];
-  var words = [['crash', 'crashes'], ['fish', 'fishes'],
-    ['push', 'pushes'], ['vanish', 'vanishes'], ['wash', 'washes'],
-    ['wish', 'wishes']];
+class ThreePointThree extends State<ThreePointThreeLesson> {
+  var pictures = [Image.asset('assets/dropbox/sectionThree/ThreePointThree/1_4_cranky-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointThree/2_4_friendly-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointThree/3_4_happy-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointThree/4_4_icy-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointThree/5_4_pretty-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointThree/6_4_silly-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointThree/7_4_sneaky_er_est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointThree/8_4_sorry-er-est.png')];
+  var words = [['cranky', 'crankier', 'crankiest'], ['friendly', 'friendlier', 'friendliest'],
+    ['happy', 'happier', 'happiest'], ['icy', 'icier', 'iciest'],
+    ['pretty', 'prettier', 'prettiest'], ['silly', 'sillier', 'silliest'],
+    ['sneaky', 'sneakier', 'sneakiest'], ['sorry', 'sorrier', 'sorriest']];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -131,7 +134,7 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words, to say',
+                  Text('When comparing things, words that end in a',
                       style: textStyle(Colors.black, 30)
                   )
                 ],
@@ -139,24 +142,27 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('someone or something does something, base words',
+                  Text('consonant and y change the y to i and add ',
                       style: textStyle(Colors.black, 30)
+                  ),
+                  Text('er ',
+                      style: textStyle(Colors.red, 30)
                   )
                 ],
               ),
               Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('that end with sh add ',
-                        style: textStyle(Colors.black, 30)
-                    ),
-                    Text('es',
-                        style: textStyle(Colors.red, 30)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, 30)
-                    ),
-                  ]
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('or ',
+                      style: textStyle(Colors.black, 30)
+                  ),
+                  Text('est',
+                      style: textStyle(Colors.red, 30)
+                  ),
+                  Text('.',
+                      style: textStyle(Colors.black, 30)
+                  )
+                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -202,6 +208,10 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                   Container (
                       child:
                       Text(words[tracker][1], style: textStyle(Colors.black, 30))
+                  ),
+                  Container (
+                      child:
+                      Text(words[tracker][2], style: textStyle(Colors.black, 30))
                   )
                 ],
               )
