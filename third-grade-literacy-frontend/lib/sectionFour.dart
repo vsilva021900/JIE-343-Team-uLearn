@@ -1,5 +1,15 @@
 import 'testing.dart';
 import 'package:flutter/material.dart';
+import 'FourPointOneLesson.dart';
+import 'FourPointTwoLesson.dart';
+import 'FourPointThreeLesson.dart';
+import 'FourPointFourLesson.dart';
+import 'FourPointFiveLesson.dart';
+import 'FourPointSixLesson.dart';
+import 'FourPointSevenLesson.dart';
+import 'FourPointEightLesson.dart';
+import 'FourPointNineLesson.dart';
+import 'FourPointTenLesson.dart';
 
 class MainFour extends StatelessWidget {
   @override
@@ -86,7 +96,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointOneLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -104,7 +114,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointTwoLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -122,7 +132,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointFiveLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -140,7 +150,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointEightLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -163,7 +173,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointThreeLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -181,7 +191,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointSixLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -199,7 +209,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointNineLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -222,7 +232,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointFourLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -240,7 +250,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointSevenLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -258,7 +268,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FourPointTenLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
