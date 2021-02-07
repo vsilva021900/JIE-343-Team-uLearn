@@ -84,7 +84,7 @@ Widget subSections(BuildContext context) {
                             );
                           },
                           child: Container(
-                              height: screenHeight / 3.75,
+                              height: screenHeight / 2.25,
                               child: Image.asset('assets/dropbox/Cropped/Icon_7.1.png',
                                 fit: BoxFit.fitHeight,
                               )
@@ -93,6 +93,9 @@ Widget subSections(BuildContext context) {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          Container(
+                              height: screenHeight * 0.075
+                          ),
                           Text('compound',
                               style: textStyle(Colors.black, 30)
                           ),
@@ -112,7 +115,7 @@ Widget subSections(BuildContext context) {
                             );
                           },
                           child: Container(
-                              height: screenHeight / 3.75,
+                              height: screenHeight / 2.25,
                               child: Image.asset('assets/dropbox/Cropped/Icon_7.2.png',
                                 fit: BoxFit.fitHeight,
                               )
@@ -134,7 +137,7 @@ Widget subSections(BuildContext context) {
                             );
                           },
                           child: Container(
-                              height: screenHeight / 3.75,
+                              height: screenHeight / 2.25,
                               child: Image.asset('assets/dropbox/Cropped/Icon_7.3.png',
                                 fit: BoxFit.fitHeight,
                               )

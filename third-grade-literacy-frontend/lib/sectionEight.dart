@@ -385,6 +385,7 @@ Widget subSections(BuildContext context) {
                             fit: BoxFit.fitHeight,
                           )
                       ),
+                      //Spacer
                       Container(
                           width: screenWidth * 0.075
                       ),

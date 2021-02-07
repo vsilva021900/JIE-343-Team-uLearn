@@ -47,6 +47,9 @@ flutter:
   assets:
     - assets/
     - assets/dropbox/Cropped/
+    - assets/dropbox/Cropped/Icon_7.1.png
+    - assets/dropbox/Cropped/Icon_7.2.png
+    - assets/dropbox/Cropped/Icon_7.3.png
     - assets/dropbox/sectionOne/OnePointOne/
     - assets/fix_fixed_fixing.mp3
     - assets/help_helped_helping.mp3
