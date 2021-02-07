@@ -145,19 +145,7 @@ Widget sub(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // can probably simplify with RichText
-                Text('Many actions words just add ',
-                    style: textStyle(Colors.black, 30)
-                ),
-                Text('ed ',
-                    style: textStyle(Colors.red, 30)
-                ),
-                Text('and ',
-                    style: textStyle(Colors.black, 30)
-                ),
-                Text('ing',
-                    style: textStyle(Colors.red, 30)
-                ),
-                Text(' to the',
+                Text('Many action words end with a short vowel and',
                     style: textStyle(Colors.black, 30)
                 )
               ],
@@ -165,7 +153,27 @@ Widget sub(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(' base word without making any other changes.',
+                Text('consonant. These base words double the final',
+                    style: textStyle(Colors.black, 30)
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('consonant and add ',
+                  style: textStyle(Colors.black, 30)
+                ),
+                Text('ed ',
+                    style: textStyle(Colors.red, 30)
+                ),
+                Text('or ',
+                    style: textStyle(Colors.black, 30)
+                ),
+                Text('ing',
+                    style: textStyle(Colors.red, 30)
+                ),
+                Text('.',
                     style: textStyle(Colors.black, 30)
                 )
               ],
@@ -174,7 +182,7 @@ Widget sub(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  height: screenHeight * 0.6,
+                  height: screenHeight * 0.5,
                   child: Transform.scale(
                     scale: 1,
                     child: IconButton(
@@ -187,12 +195,12 @@ Widget sub(BuildContext context) {
                   ),
                 ),
                 Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: pictures[tracker],
                       width: 200
                 ),
                 Container(
-                  height: screenHeight * 0.6,
+                  height: screenHeight * 0.5,
                   child: Transform.scale(
                     scale: 1,
                     child: IconButton(
