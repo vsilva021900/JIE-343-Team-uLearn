@@ -92,7 +92,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 5, maxWidth: screenWidth / 5),
+                          constraints: BoxConstraints(maxWidth: screenWidth / 5),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.1.png',
                             fit: BoxFit.contain,
                           )
@@ -110,7 +110,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 5, maxWidth: screenWidth / 5),
+                          constraints: BoxConstraints(maxWidth: screenWidth / 5),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.2.png',
                             fit: BoxFit.contain,
                           )
@@ -128,7 +128,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 5, maxWidth: screenWidth / 5),
+                          constraints: BoxConstraints(maxWidth: screenWidth / 5),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.5.png',
                             fit: BoxFit.contain,
                           )
@@ -146,7 +146,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 5, maxWidth: screenWidth / 5),
+                          constraints: BoxConstraints(maxWidth: screenWidth / 5),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.8.png',
                             fit: BoxFit.contain,
                           )
@@ -169,7 +169,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 2.5, maxWidth: screenWidth * 0.181),
+                          constraints: BoxConstraints(maxWidth: screenWidth * 0.181),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.3.png',
                             fit: BoxFit.contain,
                           )
@@ -187,7 +187,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 5, maxWidth: screenWidth * 0.181),
+                          constraints: BoxConstraints(maxWidth: screenWidth * 0.181),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.6.png',
                             fit: BoxFit.contain,
                           )
@@ -205,7 +205,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 5, maxWidth: screenWidth * 0.181),
+                          constraints: BoxConstraints(maxWidth: screenWidth * 0.181),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.9.png',
                             fit: BoxFit.contain,
                           )
@@ -228,7 +228,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 2.5, maxWidth: screenWidth * 0.179),
+                          constraints: BoxConstraints(maxWidth: screenWidth * 0.179),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.4.png',
                             fit: BoxFit.contain,
                           )
@@ -246,7 +246,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 5, maxWidth: screenWidth * 0.179),
+                          constraints: BoxConstraints(maxWidth: screenWidth * 0.179),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.7.png',
                             fit: BoxFit.contain,
                           )
@@ -264,7 +264,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          constraints: BoxConstraints(maxHeight: screenHeight / 5, maxWidth: screenWidth * 0.179),
+                          constraints: BoxConstraints(maxWidth: screenWidth * 0.179),
                           child: Image.asset('assets/dropbox/Cropped/Icon_4.10.png',
                             fit: BoxFit.contain,
                           )
