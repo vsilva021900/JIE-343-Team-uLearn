@@ -58,6 +58,11 @@ flutter:
     - assets/nap_napped_napping.mp3
     - assets/skip_skipped_skipping.mp3
     - assets/stop_stopped_stopping.mp3
+    - assets/bake_baked_baking.mp3
+    - assets/dance_danced_dancing.mp3
+    - assets/move_moved_moving.mp3
+    - assets/tickle_tickled_tickling.mp3
+    - assets/tumble_tumbled_tumbling.mp3
     - assets/dropbox/sectionOne/OnePointTwo/
     - assets/dropbox/sectionOne/OnePointThree/
     - assets/dropbox/sectionOne/OnePointFour/
