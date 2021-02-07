@@ -152,13 +152,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Many base words just add ',
-                      style: textStyle(Colors.black, 30)
-                  ),
-                  Text('s ',
-                      style: textStyle(Colors.red, 30)
-                  ),
-                  Text('and make no other',
+                  Text('When just one person or thing possesses',
                       style: textStyle(Colors.black, 30)
                   )
                 ],
@@ -166,7 +160,13 @@ class FivePointOne extends State<FivePointOneLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('change to turn the base word into a plural.',
+                  Text('something or has something, just add ',
+                      style: textStyle(Colors.black, 30)
+                  ),
+                  Text('’s',
+                      style: textStyle(Colors.red, 30)
+                  ),
+                  Text('.',
                       style: textStyle(Colors.black, 30)
                   )
                 ],
@@ -182,20 +182,15 @@ class FivePointOne extends State<FivePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
                   ),
                   Container(
                       height: screenHeight * 0.6,
-                      child: pictures[tracker][0],
-                      width: 200
-                  ),
-                  Container(
-                      height: screenHeight * 0.6,
-                      child: pictures[tracker][1],
+                      child: pictures[tracker],
                       width: 200
                   ),
                   Container(
@@ -206,8 +201,8 @@ class FivePointOne extends State<FivePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -219,11 +214,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                 children: [
                   Container(
                       child:
-                      Text(words[tracker][0], style: textStyle(Colors.black, 30))
-                  ),
-                  Container (
-                      child:
-                      Text(words[tracker][1], style: textStyle(Colors.black, 30))
+                      Text(words[tracker], style: textStyle(Colors.black, 30))
                   )
                 ],
               )

@@ -165,7 +165,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => FivePointThreeLesson,
+                                pageBuilder: (context, _, __) => FivePointThreeLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );

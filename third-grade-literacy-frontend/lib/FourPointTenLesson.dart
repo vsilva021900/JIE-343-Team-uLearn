@@ -193,11 +193,6 @@ class FourPointTen extends State<FourPointTenLesson> {
                       width: 200
                   ),
                   Container(
-                      height: screenHeight * 0.5,
-                      child: pictures[tracker],
-                      width: 200
-                  ),
-                  Container(
                     height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
