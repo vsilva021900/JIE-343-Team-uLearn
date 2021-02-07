@@ -1,5 +1,6 @@
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
@@ -11,6 +12,8 @@ class OnePointTwoLesson extends StatefulWidget {
   OnePointTwo createState() => OnePointTwo();
 }
 class OnePointTwo extends State<OnePointTwoLesson> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointTwo/drop.png'),
     Image.asset('assets/dropbox/sectionOne/OnePointTwo/fib.png'),
     Image.asset('assets/dropbox/sectionOne/OnePointTwo/hug.png'),
@@ -23,6 +26,12 @@ class OnePointTwo extends State<OnePointTwoLesson> {
     ['nap', 'napped', "napping"],
     ['skip', 'skipped', "skipping"],
     ['stop', 'stopped', "stopping"]];
+  var music = ["drop_dropped_dropping.mp3",
+    "fib_fibbed_fibbing.mp3",
+    "hug_hugged_hugging.mp3",
+    "nap_napped_napping.mp3",
+    "skip_skipped_skipping.mp3",
+    "stop_stopped_stopping.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -111,7 +120,9 @@ Widget sideBarWithReplay(BuildContext context) {
             Material(
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_replay_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      audioCache.play(music[tracker]);
+                    }
                 )
             ),
             Material(
@@ -170,6 +181,7 @@ Widget sub(BuildContext context) {
                       icon: Image.asset('assets/placeholder_back_button.png'),
                       onPressed: () {
                         setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                        audioCache.play(music[tracker]);
                       },
                     ),
                   ),
@@ -187,6 +199,7 @@ Widget sub(BuildContext context) {
                       icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                       onPressed: () {
                         setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                        audioCache.play(music[tracker]);
                       },
                     ),
                   ),

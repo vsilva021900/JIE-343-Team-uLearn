@@ -53,7 +53,11 @@ flutter:
     - assets/jump_jumped_jumping.mp3
     - assets/own_owned_owning.mp3
     - assets/paint_painted_painting.mp3
-    - assets/talk_talked_talking.mp3
+    - assets/drop_dropped_dropping.mp3
+    - assets/fib_fibbed_fibbing.mp3
+    - assets/nap_napped_napping.mp3
+    - assets/skip_skipped_skipping.mp3
+    - assets/stop_stopped_stopping.mp3
     - assets/dropbox/sectionOne/OnePointTwo/
     - assets/dropbox/sectionOne/OnePointThree/
     - assets/dropbox/sectionOne/OnePointFour/

@@ -67,7 +67,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
                       Navigator.pop(context);
-                      audioCache.play("fix_fixed_fixing.mp3");
+                      //audioCache.play("fix_fixed_fixing.mp3");
                     },
                   )
               ),
@@ -112,7 +112,8 @@ class OnePointOne extends State<OnePointOneLesson> {
               Material(
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
+                    onPressed: () {
+                    },
                   )
               ),
               Spacer(flex: 5),
@@ -125,7 +126,9 @@ class OnePointOne extends State<OnePointOneLesson> {
               Material(
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
@@ -183,7 +186,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          advancedPlayer.play(music[tracker]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),

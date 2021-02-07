@@ -1,5 +1,8 @@
 import 'testing.dart';
 import 'OnePointOneLesson.dart';
+import 'OnePointTwoLesson.dart';
+import 'OnePointThreeLesson.dart';
+import 'OnePointFourLesson.dart';
 import 'package:flutter/material.dart';
 
 class MainOne extends StatelessWidget {
@@ -95,7 +98,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, _, __) => OnePointOneLesson();
+                            pageBuilder: (context, _, __) => OnePointOneLesson(),
 
                             transitionDuration: Duration(seconds: 0)
                           )
@@ -121,7 +124,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                       context,
                       PageRouteBuilder(
-                        pageBuilder: (context, _, __) => Test(),
+                        pageBuilder: (context, _, __) => OnePointTwoLesson(),
                         transitionDuration: Duration(seconds: 0)
                       )
                     );
@@ -154,7 +157,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => OnePointThreeLesson(),
                             transitionDuration: Duration(seconds: 0)
                           )
                         );
@@ -182,7 +185,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                       context,
                       PageRouteBuilder(
-                        pageBuilder: (context, _, __) => Test(),
+                        pageBuilder: (context, _, __) => OnePointFourLesson(),
                         transitionDuration: Duration(seconds: 0)
                       )
                     );
