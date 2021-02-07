@@ -109,30 +109,30 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words, to say',
-                      style: textStyle(Colors.black, 30)
+                  Text('For third person singular action words,',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('someone or something does something, base words',
-                      style: textStyle(Colors.black, 30)
+                  Text('to say someone or something does something,',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('that end with ch add ',
-                        style: textStyle(Colors.black, 30)
+                    Text('base words that end with ch add ',
+                        style: textStyle(Colors.black, screenWidth / 24)
                     ),
                     Text('es',
-                        style: textStyle(Colors.red, 30)
+                        style: textStyle(Colors.red, screenWidth / 24)
                     ),
                     Text('.',
-                        style: textStyle(Colors.black, 30)
+                        style: textStyle(Colors.black, screenWidth / 24)
                     ),
                   ]
               ),

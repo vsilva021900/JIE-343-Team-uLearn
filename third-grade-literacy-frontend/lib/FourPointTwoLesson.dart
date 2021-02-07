@@ -119,14 +119,29 @@ class FourPointTwo extends State<FourPointTwoLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // can probably simplify with RichText
-
+                  Text('Base words that end with ',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
+                  Text('s ',
+                      style: textStyle(Colors.green, screenWidth / 26)
+                  ),
+                  Text('just add ',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
+                  Text('es ',
+                      style: textStyle(Colors.red, screenWidth / 26)
+                  ),
+                  Text('and make ',
+                    style: textStyle(Colors.black, screenWidth / 26)
+                  )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
+                  Text('no other change to turn the base word into a plural.',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
                 ],
               ),
               Row(

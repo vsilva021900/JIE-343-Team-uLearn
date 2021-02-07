@@ -101,7 +101,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('When comparing things, words that end in e',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
@@ -109,19 +109,19 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('drop the e and add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                   Text('er ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 23)
                   ),
                   Text('or ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                   Text('est',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 23)
                   ),
                   Text('.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),

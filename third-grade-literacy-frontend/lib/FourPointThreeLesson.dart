@@ -124,13 +124,13 @@ class FourPointThree extends State<FourPointThreeLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Base words that end with sh just add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 26)
                   ),
                   Text('es ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 26)
                   ),
                   Text('and make',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 26)
                   )
                 ],
               ),
@@ -138,7 +138,7 @@ class FourPointThree extends State<FourPointThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('no other change to turn the word into a plural.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 26)
                   )
                 ],
               ),

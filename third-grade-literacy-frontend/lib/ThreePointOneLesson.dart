@@ -114,27 +114,24 @@ class ThreePointOne extends State<ThreePointOneLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Most words that compare things add ',
-                      style: textStyle(Colors.black, 30)
-                  ),
-                  Text('er ',
-                      style: textStyle(Colors.red, 30)
-                  ),
-                  Text('to say',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('more or add ',
-                      style: textStyle(Colors.black, 30)
+                  Text('er ',
+                      style: textStyle(Colors.red, screenWidth / 23)
+                  ),
+                  Text('to say more or add ',
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                   Text('est ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 23)
                   ),
                   Text('to say most.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                 ],
               ),
