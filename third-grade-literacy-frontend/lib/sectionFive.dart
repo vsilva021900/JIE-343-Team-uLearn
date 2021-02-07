@@ -91,7 +91,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          width: screenWidth / 4,
+                          constraints: BoxConstraints(maxHeight: screenHeight / 3, maxWidth: screenWidth / 4),
                           child: Image.asset('assets/dropbox/Cropped/Icon_5.1.png',
                             fit: BoxFit.contain,
                           )
@@ -106,7 +106,7 @@ Widget subSections(BuildContext context) {
                       ),
                       // creature 5.1
                       Container(
-                          height: screenHeight * 0.4,
+                          constraints: BoxConstraints(maxHeight: screenHeight * 0.4, maxWidth: screenWidth / 6),
                           child: Image.asset('assets/dropbox/Cropped/Creature_5.1.png',
                             fit: BoxFit.contain,
                           )
@@ -130,7 +130,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          width: screenWidth / 4,
+                          constraints: BoxConstraints(maxHeight: screenHeight / 3, maxWidth: screenWidth / 4),
                           child: Image.asset('assets/dropbox/Cropped/Icon_5.2.png',
                             fit: BoxFit.contain,
                           )
@@ -141,7 +141,7 @@ Widget subSections(BuildContext context) {
                     children: [
                       // creature 5.1
                       Container(
-                          height: screenHeight * 0.4,
+                          constraints: BoxConstraints(maxHeight: screenHeight * 0.4, maxWidth: screenWidth / 6),
                           child: Image.asset('assets/dropbox/Cropped/Creature_5.2.png',
                             fit: BoxFit.contain,
                           )
@@ -168,7 +168,7 @@ Widget subSections(BuildContext context) {
                         );
                       },
                       child: Container(
-                          width: screenWidth / 4,
+                          constraints: BoxConstraints(maxHeight: screenHeight / 3, maxWidth: screenWidth / 4),
                           child: Image.asset('assets/dropbox/Cropped/Icon_5.3.png',
                             fit: BoxFit.contain,
                           )
@@ -179,7 +179,7 @@ Widget subSections(BuildContext context) {
                     children: [
                       // creature 5.1
                       Container(
-                          height: screenHeight * 0.4,
+                          constraints: BoxConstraints(maxHeight: screenHeight * 0.4, maxWidth: screenWidth / 6),
                           child: Image.asset('assets/dropbox/Cropped/Creature_5.3.png',
                             fit: BoxFit.contain,
                           )
