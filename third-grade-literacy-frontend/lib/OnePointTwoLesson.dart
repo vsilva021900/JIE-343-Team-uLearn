@@ -135,7 +135,7 @@ Widget sub(BuildContext context) {
               children: [
                 // can probably simplify with RichText
                 Text('Many action words end with a short vowel and',
-                    style: textStyle(Colors.black, 30)
+                    style: textStyle(Colors.black, screenWidth / 24)
                 )
               ],
             ),
@@ -143,7 +143,7 @@ Widget sub(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('consonant. These base words double the final',
-                    style: textStyle(Colors.black, 30)
+                    style: textStyle(Colors.black, screenWidth / 24)
                 )
               ],
             ),
@@ -151,19 +151,19 @@ Widget sub(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('consonant and add ',
-                  style: textStyle(Colors.black, 30)
+                  style: textStyle(Colors.black, screenWidth / 24)
                 ),
                 Text('ed ',
-                    style: textStyle(Colors.red, 30)
+                    style: textStyle(Colors.red, screenWidth / 24)
                 ),
                 Text('or ',
-                    style: textStyle(Colors.black, 30)
+                    style: textStyle(Colors.black, screenWidth / 24)
                 ),
                 Text('ing',
-                    style: textStyle(Colors.red, 30)
+                    style: textStyle(Colors.red, screenWidth / 24)
                 ),
                 Text('.',
-                    style: textStyle(Colors.black, 30)
+                    style: textStyle(Colors.black, screenWidth / 24)
                 )
               ],
             ),

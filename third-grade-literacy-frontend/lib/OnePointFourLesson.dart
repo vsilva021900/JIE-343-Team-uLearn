@@ -135,7 +135,7 @@ class OnePointFour extends State<OnePointFourLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Many action words end with y. These words',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
@@ -143,13 +143,13 @@ class OnePointFour extends State<OnePointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('change y to i when they add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   ),
                   Text('ed',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 24)
                   ),
                   Text(', but they keep',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
@@ -157,13 +157,13 @@ class OnePointFour extends State<OnePointFourLesson> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('the y when they add ',
-                        style: textStyle(Colors.black, 30)
+                        style: textStyle(Colors.black, screenWidth / 24)
                   ),
                     Text('ing',
-                        style: textStyle(Colors.red, 30)
+                        style: textStyle(Colors.red, screenWidth / 24)
                     ),
                     Text('.',
-                        style: textStyle(Colors.black, 30)
+                        style: textStyle(Colors.black, screenWidth / 24)
                     )
                   ]
               ),

@@ -135,7 +135,7 @@ class OnePointThree extends State<OnePointThreeLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Many action words end with e. These words drop',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 25)
                   )
                 ],
               ),
@@ -143,19 +143,19 @@ class OnePointThree extends State<OnePointThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('the final e and add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 25)
                   ),
                   Text('ed ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 25)
                   ),
                   Text('or ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 25)
                   ),
                   Text('ing ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 25)
                   ),
                   Text('to the base word.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 25)
                   )
                 ],
               ),
