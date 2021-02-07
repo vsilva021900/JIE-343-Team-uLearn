@@ -57,51 +57,14 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
-  Widget sideBar(BuildContext context) {
-    return Container(
-        color: const Color(0xffc4e8e6),
-        child: Column(
-            children: <Widget>[
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                      //audioCache.play("fix_fixed_fixing.mp3");
-                    },
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
-                  )
-              ),
-              Spacer(flex: 5),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-            ]
-        )
-    );
-  }
-// same as above except include replay button for audio files
-// use for lesson pages
+
   Widget sideBarWithReplay(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
@@ -110,6 +73,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
@@ -118,12 +82,14 @@ class OnePointOne extends State<OnePointOneLesson> {
               ),
               Spacer(flex: 5),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {}
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
@@ -132,6 +98,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
@@ -151,19 +118,19 @@ class OnePointOne extends State<OnePointOneLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Many action words just add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   ),
                   Text('ed ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 24)
                   ),
                   Text('or ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   ),
                   Text('ing',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 24)
                   ),
                   Text(' to the',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
@@ -171,7 +138,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(' base word without making any other changes.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),

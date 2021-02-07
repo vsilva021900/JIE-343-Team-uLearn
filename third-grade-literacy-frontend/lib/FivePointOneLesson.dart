@@ -30,7 +30,7 @@ class FivePointOne extends State<FivePointOneLesson> {
     Image.asset("assets/dropbox/sectionFive/FivePointOne/tooth's_point.png"), Image.asset("assets/dropbox/sectionFive/FivePointOne/woman's_headband.png"),
     Image.asset("assets/dropbox/sectionFive/FivePointOne/worker's_hardhat.png")
   ];
-  var words = ["the boot's shoestring", "the child's book",
+  var words = ["the boot's bootstring", "the child's book",
     "the dog's hot dog", "the dress's collar", "the elf's lantern",
     "the firefly's head", "the flower's stem", "the foot's toenails",
     "the fox's tail", "the goose's feet", "the man's saw",
@@ -63,50 +63,14 @@ class FivePointOne extends State<FivePointOneLesson> {
         )
     );
   }
-  Widget sideBar(BuildContext context) {
-    return Container(
-        color: const Color(0xffc4e8e6),
-        child: Column(
-            children: <Widget>[
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
-                  )
-              ),
-              Spacer(flex: 5),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-            ]
-        )
-    );
-  }
-// same as above except include replay button for audio files
-// use for lesson pages
+
   Widget sideBarWithReplay(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
@@ -115,6 +79,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {},
@@ -122,18 +87,23 @@ class FivePointOne extends State<FivePointOneLesson> {
               ),
               Spacer(flex: 5),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {}
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
@@ -153,7 +123,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('When just one person or thing possesses',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
@@ -161,13 +131,13 @@ class FivePointOne extends State<FivePointOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('something or has something, just add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                   Text('’s',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 23)
                   ),
                   Text('.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
@@ -182,7 +152,6 @@ class FivePointOne extends State<FivePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker]);
                           audioCache.play(music[tracker]);
                         },
                       ),
@@ -201,7 +170,6 @@ class FivePointOne extends State<FivePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
                           audioCache.play(music[tracker]);
                         },
                       ),
