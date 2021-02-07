@@ -11,6 +11,19 @@ class OnePointTwoLesson extends StatefulWidget {
   OnePointTwo createState() => OnePointTwo();
 }
 class OnePointTwo extends State<OnePointTwoLesson> {
+  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointTwo/drop.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/fib.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/hug.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/nap.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/skip.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/stop.png')];
+  var words = [['drop', 'dropped', 'dropping'],
+    ['fib', 'fibbed', "fibbing"],
+    ['hug', 'hugged', "hugging"],
+    ['nap', 'napped', "napping"],
+    ['skip', 'skipped', "skipping"],
+    ['stop', 'stopped', "stopping"]];
+  int tracker = 0;
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
@@ -113,7 +126,6 @@ Widget sideBarWithReplay(BuildContext context) {
 }
 
 Widget sub(BuildContext context) {
-  tracker = 0;
   return Container(
       color: const Color(0xFFFFFF),
       child: Column(
@@ -157,17 +169,15 @@ Widget sub(BuildContext context) {
                     child: IconButton(
                       icon: Image.asset('assets/placeholder_back_button.png'),
                       onPressed: () {
-                        tracker = (tracker - 1) & pictures.length;
+                        setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
                       },
                     ),
                   ),
                 ),
                 Container(
                     height: screenHeight * 0.6,
-                    child: Image.asset(pictures[tracker],
-                      height: 200,
-                      width: 200,
-                    )
+                    child: pictures[tracker],
+                      width: 200
                 ),
                 Container(
                   height: screenHeight * 0.6,
@@ -176,7 +186,7 @@ Widget sub(BuildContext context) {
                     child: IconButton(
                       icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                       onPressed: () {
-                        tracker = (tracker + 1) & pictures.length;
+                        setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
                       },
                     ),
                   ),
@@ -205,19 +215,6 @@ Widget sub(BuildContext context) {
   );
 }
 
-var pictures = ['assets/dropbox/sectionOne/OnePointTwo/drop.png',
-  'assets/dropbox/sectionOne/OnePointTwo/fib.png',
-  'assets/dropbox/sectionOne/OnePointTwo/hug.png',
-  'assets/dropbox/sectionOne/OnePointTwo/nap.png',
-  'assets/dropbox/sectionOne/OnePointTwo/skip.png',
-  'assets/dropbox/sectionOne/OnePointTwo/stop.png'];
-var words = [['drop', 'dropped', 'dropping'],
-  ['fib', 'fibbed', "fibbing"],
-  ['hug', 'hugged', "hugging"],
-  ['nap', 'napped', "napping"],
-  ['skip', 'skipped', "skipping"],
-  ['stop', 'stopped', "stopping"]];
-int tracker;
 double screenHeight, screenWidth;
 TextStyle textStyle(Color col, double size) {
   return TextStyle(
