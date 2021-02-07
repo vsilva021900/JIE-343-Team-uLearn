@@ -1,3 +1,5 @@
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,6 +13,8 @@ class TwoPointOneLesson extends StatefulWidget {
   TwoPointOne createState() => TwoPointOne();
 }
 class TwoPointOne extends State<TwoPointOneLesson> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointOne/helps.png'),
     Image.asset('assets/dropbox/sectionTwo/TwoPointOne/jumps.jpg'),
     Image.asset('assets/dropbox/sectionTwo/TwoPointOne/kicks.png'),
@@ -22,6 +26,15 @@ class TwoPointOne extends State<TwoPointOneLesson> {
   var words = [['help', 'helps'], ['jump', 'jumps'],
     ['kick', 'kicks'], ['sing', 'sings'], ['sleep', 'sleeps'],
     ['talk', 'talks'], ['think', 'thinks'], ['work', 'works']];
+  var music = ["help_helps.mp3",
+    "jump_jumps.mp3",
+    "kick_kicks.mp3",
+    "sing_sings.mp3",
+    "sleep_sleeps.mp3",
+    "talk_talks.mp3",
+    "think_thinks.mp3",
+    "work_works.mp3"
+  ];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -110,7 +123,9 @@ class TwoPointOne extends State<TwoPointOneLesson> {
               Material(
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
@@ -171,6 +186,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -188,6 +204,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),

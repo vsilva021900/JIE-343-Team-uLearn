@@ -99,6 +99,7 @@ Widget subSections(BuildContext context) {
                           context,
                           PageRouteBuilder(
                             pageBuilder: (context, _, __) => OnePointOneLesson(),
+
                             transitionDuration: Duration(seconds: 0)
                           )
                         );
