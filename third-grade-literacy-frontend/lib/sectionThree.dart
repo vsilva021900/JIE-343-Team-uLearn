@@ -97,6 +97,7 @@ Widget subSections(BuildContext context) {
                       },
                       child: Container(
                           height: screenHeight * 0.6,
+                          width: screenWidth * 0.15,
                           child: Image.asset('assets/dropbox/Cropped/Icon_3.3.png',
                             fit: BoxFit.contain,
                           )
@@ -120,6 +121,7 @@ Widget subSections(BuildContext context) {
                       },
                       child: Container(
                           height: screenHeight * 0.67,
+                          width: screenWidth * 0.15,
                           child: Image.asset('assets/dropbox/Cropped/Icon_3.1.png',
                             fit: BoxFit.contain,
                           )
@@ -158,6 +160,7 @@ Widget subSections(BuildContext context) {
                       },
                       child: Container(
                           height: screenHeight * 0.43,
+                          width: screenWidth * 0.15,
                           child: Image.asset('assets/dropbox/Cropped/Icon_3.4.png',
                             fit: BoxFit.contain,
                           )
@@ -181,6 +184,7 @@ Widget subSections(BuildContext context) {
                       },
                       child: Container(
                           height: screenHeight * 0.6,
+                          width: screenWidth * 0.15,
                           child: Image.asset('assets/dropbox/Cropped/Icon_3.2.png',
                             fit: BoxFit.contain,
                           )
