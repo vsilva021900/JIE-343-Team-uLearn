@@ -1,5 +1,6 @@
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
@@ -11,6 +12,8 @@ class OnePointFourLesson extends StatefulWidget {
   OnePointFour createState() => OnePointFour();
 }
 class OnePointFour extends State<OnePointFourLesson> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointFour/carry.png'),
     Image.asset('assets/dropbox/sectionOne/OnePointFour/cry.png'),
     Image.asset('assets/dropbox/sectionOne/OnePointFour/dirty.png'),
@@ -23,6 +26,12 @@ class OnePointFour extends State<OnePointFourLesson> {
     ['empty', 'emptied', "emptying"],
     ['fry', 'fried', "frying"],
     ['try', 'tried', "trying"]];
+  var music = ["carry_carried_carrying.mp3",
+    "cry_cried_crying.mp3",
+    "dirty_dirtied_dirtying.mp3",
+    "empty_emptied_emptying.mp3",
+    "fry_fried_frying.mp3",
+    "try_tried_trying.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -111,7 +120,9 @@ class OnePointFour extends State<OnePointFourLesson> {
               Material(
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
@@ -178,6 +189,7 @@ class OnePointFour extends State<OnePointFourLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -195,6 +207,7 @@ class OnePointFour extends State<OnePointFourLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),

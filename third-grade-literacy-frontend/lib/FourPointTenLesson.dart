@@ -149,13 +149,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Many base words just add ',
-                      style: textStyle(Colors.black, 30)
-                  ),
-                  Text('s ',
-                      style: textStyle(Colors.red, 30)
-                  ),
-                  Text('and make no other',
+                  Text('Some special base words are exactly the same for',
                       style: textStyle(Colors.black, 30)
                   )
                 ],
@@ -163,7 +157,15 @@ class FourPointTen extends State<FourPointTenLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('change to turn the base word into a plural.',
+                  Text('both singular and plural, so we just have to',
+                      style: textStyle(Colors.black, 30)
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('remember that these words don’t change.',
                       style: textStyle(Colors.black, 30)
                   )
                 ],
@@ -172,7 +174,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -186,17 +188,17 @@ class FourPointTen extends State<FourPointTenLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.6,
+                      height: screenHeight * 0.5,
                       child: pictures[tracker],
                       width: 200
                   ),
                   Container(
-                      height: screenHeight * 0.6,
+                      height: screenHeight * 0.5,
                       child: pictures[tracker],
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(

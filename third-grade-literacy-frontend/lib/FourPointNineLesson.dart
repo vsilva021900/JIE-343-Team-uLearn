@@ -141,23 +141,11 @@ class FourPointNine extends State<FourPointNineLesson> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // can probably simplify with RichText
-                  Text('Many base words just add ',
-                      style: textStyle(Colors.black, 30)
-                  ),
-                  Text('s ',
-                      style: textStyle(Colors.red, 30)
-                  ),
-                  Text('and make no other',
-                      style: textStyle(Colors.black, 30)
-                  )
-                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('change to turn the base word into a plural.',
+                  Text('Fun special plurals that most people don’t know:',
                       style: textStyle(Colors.black, 30)
                   )
                 ],

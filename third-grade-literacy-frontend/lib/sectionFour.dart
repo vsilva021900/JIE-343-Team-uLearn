@@ -1,15 +1,15 @@
 import 'testing.dart';
 import 'package:flutter/material.dart';
-import 'FourPointOneLesson.dart'
-import 'FourPointTwoLesson.dart'
-import 'FourPointThreeLesson.dart'
-import 'FourPointFourLesson.dart'
-import 'FourPointFiveLesson.dart'
-import 'FourPointSixLesson.dart'
-import 'FourPointSevenLesson.dart'
-import 'FourPointEightLesson.dart'
-import 'FourPointNineLesson.dart'
-import 'FourPointTenLesson.dart'
+import 'FourPointOneLesson.dart';
+import 'FourPointTwoLesson.dart';
+import 'FourPointThreeLesson.dart';
+import 'FourPointFourLesson.dart';
+import 'FourPointFiveLesson.dart';
+import 'FourPointSixLesson.dart';
+import 'FourPointSevenLesson.dart';
+import 'FourPointEightLesson.dart';
+import 'FourPointNineLesson.dart';
+import 'FourPointTenLesson.dart';
 
 class MainFour extends StatelessWidget {
   @override
