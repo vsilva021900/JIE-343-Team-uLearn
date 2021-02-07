@@ -1,5 +1,9 @@
 import 'testing.dart';
 import 'package:flutter/material.dart';
+import 'ThreePointOneLesson.dart';
+import 'ThreePointTwoLesson.dart';
+import 'ThreePointThreeLesson.dart';
+import 'ThreePointFourLesson.dart';
 
 class MainThree extends StatelessWidget {
   @override
@@ -90,7 +94,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => ThreePointThreeLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -113,7 +117,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => ThreePointOneLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -151,7 +155,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => ThreePointFourLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -174,7 +178,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => ThreePointTwoLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );

@@ -1,5 +1,11 @@
 import 'testing.dart';
 import 'package:flutter/material.dart';
+import 'TwoPointOneLesson.dart';
+import 'TwoPointTwoLesson.dart';
+import 'TwoPointThreeLesson.dart';
+import 'TwoPointFourLesson.dart';
+import 'TwoPointFiveLesson.dart';
+import 'TwoPointSixLesson.dart';
 
 class MainTwo extends StatelessWidget {
   @override
@@ -82,7 +88,7 @@ Widget subSections(BuildContext context) {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, _, __) => Test(),
+                      pageBuilder: (context, _, __) => TwoPointOneLesson(),
                       transitionDuration: Duration(seconds: 0)
                     )
                   );
@@ -100,7 +106,7 @@ Widget subSections(BuildContext context) {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, _, __) => Test(),
+                      pageBuilder: (context, _, __) => TwoPointTwoLesson(),
                       transitionDuration: Duration(seconds: 0)
                     )
                   );
@@ -124,7 +130,7 @@ Widget subSections(BuildContext context) {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, _, __) => Test(),
+                      pageBuilder: (context, _, __) => TwoPointThreeLesson(),
                       transitionDuration: Duration(seconds: 0)
                     )
                   );
@@ -142,7 +148,7 @@ Widget subSections(BuildContext context) {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, _, __) => Test(),
+                      pageBuilder: (context, _, __) => TwoPointFourLesson(),
                       transitionDuration: Duration(seconds: 0)
                     )
                   );
@@ -166,7 +172,7 @@ Widget subSections(BuildContext context) {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, _, __) => Test(),
+                      pageBuilder: (context, _, __) => TwoPointFiveLesson(),
                       transitionDuration: Duration(seconds: 0)
                     )
                   );
@@ -184,7 +190,7 @@ Widget subSections(BuildContext context) {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, _, __) => Test(),
+                      pageBuilder: (context, _, __) => TwoPointSixLesson(),
                       transitionDuration: Duration(seconds: 0)
                     )
                   );
