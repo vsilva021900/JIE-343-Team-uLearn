@@ -183,7 +183,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          advancedPlayer.play(music[tracker]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -238,3 +238,4 @@ class OnePointOne extends State<OnePointOneLesson> {
     );
   }
 }
+

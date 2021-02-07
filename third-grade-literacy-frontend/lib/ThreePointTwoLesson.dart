@@ -3,23 +3,26 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: TwoPointFiveLesson()
+      home: ThreePointTwoLesson()
   ));
 }
-class TwoPointFiveLesson extends StatefulWidget {
+class ThreePointTwoLesson extends StatefulWidget {
   @override
-  TwoPointFive createState() => TwoPointFive();
+  ThreePointTwo createState() => ThreePointTwo();
 }
-class TwoPointFive extends State<TwoPointFiveLesson> {
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointFive/crash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/fish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/push.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/vanish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wish.png')];
-  var words = [['crash', 'crashes'], ['fish', 'fishes'],
-    ['push', 'pushes'], ['vanish', 'vanishes'], ['wash', 'washes'],
-    ['wish', 'wishes']];
+class ThreePointTwo extends State<ThreePointTwoLesson> {
+  var pictures = [Image.asset('assets/dropbox/sectionThree/ThreePointTwo/1_4_blue-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointTwo/2_4_large-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointTwo/3_4_little-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointTwo/4_4_nice-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointTwo/5_4_rude-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointTwo/6_4_strange-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointTwo/7_4_tame-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointTwo/8_4_wide-er-est.png')];
+  var words = [['blue', 'bluer', 'bluest'], ['large', 'larger', 'largest'],
+    ['little', 'littler', 'littlest'], ['nice', 'nicer', 'nicest'],
+    ['rude', 'ruder', 'rudest'], ['strange', 'stranger', 'strangest'],
+    ['tame', 'tamer', 'tamest'], ['wide', 'wider', 'widest']];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -131,7 +134,7 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words, to say',
+                  Text('When comparing things, words that end in e',
                       style: textStyle(Colors.black, 30)
                   )
                 ],
@@ -139,30 +142,28 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('someone or something does something, base words',
+                  Text('drop the e and add ',
+                      style: textStyle(Colors.black, 30)
+                  ),
+                  Text('er ',
+                      style: textStyle(Colors.red, 30)
+                  ),
+                  Text('or ',
+                      style: textStyle(Colors.black, 30)
+                  ),
+                  Text('est',
+                      style: textStyle(Colors.red, 30)
+                  ),
+                  Text('.',
                       style: textStyle(Colors.black, 30)
                   )
                 ],
               ),
               Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('that end with sh add ',
-                        style: textStyle(Colors.black, 30)
-                    ),
-                    Text('es',
-                        style: textStyle(Colors.red, 30)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, 30)
-                    ),
-                  ]
-              ),
-              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -174,12 +175,12 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.5,
+                      height: screenHeight * 0.6,
                       child: pictures[tracker],
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -202,6 +203,10 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                   Container (
                       child:
                       Text(words[tracker][1], style: textStyle(Colors.black, 30))
+                  ),
+                  Container (
+                      child:
+                      Text(words[tracker][2], style: textStyle(Colors.black, 30))
                   )
                 ],
               )
