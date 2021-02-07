@@ -3,12 +3,31 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: OnePointTwo()
+      home: OnePointTwoLesson()
   ));
 }
-class OnePointTwo extends StatelessWidget {
+class OnePointTwoLesson extends StatefulWidget {
+  @override
+  OnePointTwo createState() => OnePointTwo();
+}
+class OnePointTwo extends State<OnePointTwoLesson> {
+  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointTwo/drop.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/fib.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/hug.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/nap.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/skip.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointTwo/stop.png')];
+  var words = [['drop', 'dropped', 'dropping'],
+    ['fib', 'fibbed', "fibbing"],
+    ['hug', 'hugged', "hugging"],
+    ['nap', 'napped', "napping"],
+    ['skip', 'skipped', "skipping"],
+    ['stop', 'stopped', "stopping"]];
+  int tracker = 0;
   @override
   Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
         home: Material(
             child: Row(
@@ -23,7 +42,6 @@ class OnePointTwo extends StatelessWidget {
         )
     );
   }
-}
 
 Widget sideBar(BuildContext context) {
   return Container(
@@ -108,45 +126,109 @@ Widget sideBarWithReplay(BuildContext context) {
 }
 
 Widget sub(BuildContext context) {
-  return Column(
-      children: [
-        // title
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+  return Container(
+      color: const Color(0xFFFFFF),
+      child: Column(
           children: [
-            // can probably simplify with RichText
-            Text('Many actions words just add ',
-                style: textStyle(Colors.black, 30)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // can probably simplify with RichText
+                Text('Many action words end with a short vowel and',
+                    style: textStyle(Colors.black, 30)
+                )
+              ],
             ),
-            Text('ed ',
-                style: textStyle(Colors.red, 30)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('consonant. These base words double the final',
+                    style: textStyle(Colors.black, 30)
+                )
+              ],
             ),
-            Text('and ',
-                style: textStyle(Colors.black, 30)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('consonant and add ',
+                  style: textStyle(Colors.black, 30)
+                ),
+                Text('ed ',
+                    style: textStyle(Colors.red, 30)
+                ),
+                Text('or ',
+                    style: textStyle(Colors.black, 30)
+                ),
+                Text('ing',
+                    style: textStyle(Colors.red, 30)
+                ),
+                Text('.',
+                    style: textStyle(Colors.black, 30)
+                )
+              ],
             ),
-            Text('ing',
-                style: textStyle(Colors.red, 30)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  height: screenHeight * 0.5,
+                  child: Transform.scale(
+                    scale: 1,
+                    child: IconButton(
+                      icon: Image.asset('assets/placeholder_back_button.png'),
+                      onPressed: () {
+                        setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                      },
+                    ),
+                  ),
+                ),
+                Container(
+                    height: screenHeight * 0.5,
+                    child: pictures[tracker],
+                      width: 200
+                ),
+                Container(
+                  height: screenHeight * 0.5,
+                  child: Transform.scale(
+                    scale: 1,
+                    child: IconButton(
+                      icon: Image.asset('assets/placeholder_back_button_reversed.png'),
+                      onPressed: () {
+                        setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                      },
+                    ),
+                  ),
+                )
+              ],
             ),
-            Text(' to the',
-                style: textStyle(Colors.black, 30)
+            Row (
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                    child:
+                    Text(words[tracker][0], style: textStyle(Colors.black, 30))
+                ),
+                Container (
+                    child:
+                    Text(words[tracker][1], style: textStyle(Colors.black, 30))
+                ),
+                Container (
+                    child:
+                    Text(words[tracker][2], style: textStyle(Colors.black, 30))
+                )
+              ],
             )
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(' base word without making any other changes.',
-                style: textStyle(Colors.black, 30)
-            )
-          ],
-        ),
-      ]
+          ]
+      )
   );
 }
+
+double screenHeight, screenWidth;
 TextStyle textStyle(Color col, double size) {
   return TextStyle(
     color: col,
     fontFamily: 'Comic',
     fontSize: size,
   );
+}
 }

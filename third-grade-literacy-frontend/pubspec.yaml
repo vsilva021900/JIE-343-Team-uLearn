@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  audioplayers: ^0.15.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -47,6 +48,12 @@ flutter:
     - assets/
     - assets/dropbox/Cropped/
     - assets/dropbox/sectionOne/OnePointOne/
+    - assets/fix_fixed_fixing.mp3
+    - assets/help_helped_helping.mp3
+    - assets/jump_jumped_jumping.mp3
+    - assets/own_owned_owning.mp3
+    - assets/paint_painted_painting.mp3
+    - assets/talk_talked_talking.mp3
     - assets/dropbox/sectionOne/OnePointTwo/
     - assets/dropbox/sectionOne/OnePointThree/
     - assets/dropbox/sectionOne/OnePointFour/

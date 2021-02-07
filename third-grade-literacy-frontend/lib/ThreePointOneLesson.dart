@@ -1,43 +1,28 @@
-import 'dart:async';
-//import 'dart:html';
-import 'dart:io';
-
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: OnePointOneLesson()
+      home: ThreePointOneLesson()
   ));
 }
-class OnePointOneLesson extends StatefulWidget {
+class ThreePointOneLesson extends StatefulWidget {
   @override
-  OnePointOne createState() => OnePointOne();
+  ThreePointOne createState() => ThreePointOne();
 }
-class OnePointOne extends State<OnePointOneLesson> {
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointOne/fix.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/help.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/jump.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/own.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/paint.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/talk.png')];
-  var words = [['fix', 'fixed', 'fixing'],
-    ['help', 'helped', "helping"],
-    ['jump', 'jumped', "jumping"],
-    ['own', 'owned', "owning"],
-    ['paint', 'painted', "painting"],
-    ['talk', 'talked', "talking"]];
-  var music = ["fix_fixed_fixing.mp3",
-    "help_helped_helping.mp3",
-    "jump_jumped_jumping.mp3",
-    "own_owned_owning.mp3",
-    "paint_painted_painting.mp3",
-    "talk_talked_talking.mp3"];
+class ThreePointOne extends State<ThreePointOneLesson> {
+  var pictures = [Image.asset('assets/dropbox/sectionThree/ThreePointOne/1_4_dark-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointOne/2_4_hard-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointOne/3_4_long-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointOne/4_4_quiet-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointOne/5_4_small-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointOne/6_4_strong-er-est.png'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointOne/7_4_sweet-er-est.jpg'),
+    Image.asset('assets/dropbox/sectionThree/ThreePointOne/8_4_young-er-est.png')];
+  var words = [['dark', 'darker', 'darkest'], ['hard', 'harder', 'hardest'],
+    ['long', 'longer', 'longest'], ['quiet', 'quieter', 'quietest'],
+    ['small', 'smaller', 'smallest'], ['strong', 'stronger', 'strongest'],
+    ['sweet', 'sweeter', 'sweetest'], ['young', 'younger', 'youngest']];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -48,7 +33,7 @@ class OnePointOne extends State<OnePointOneLesson> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                sideBarWithReplay(context),
+                sideBar(context),
                 Expanded(
                     child: sub(context)
                 )
@@ -57,6 +42,7 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
+
   Widget sideBar(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
@@ -67,7 +53,6 @@ class OnePointOne extends State<OnePointOneLesson> {
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
                       Navigator.pop(context);
-                      audioCache.play("fix_fixed_fixing.mp3");
                     },
                   )
               ),
@@ -94,6 +79,7 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
+
 // same as above except include replay button for audio files
 // use for lesson pages
   Widget sideBarWithReplay(BuildContext context) {
@@ -138,6 +124,7 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
+
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -147,29 +134,29 @@ class OnePointOne extends State<OnePointOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Many action words just add ',
+                  Text('Most words that compare things add ',
                       style: textStyle(Colors.black, 30)
                   ),
-                  Text('ed ',
+                  Text('er ',
                       style: textStyle(Colors.red, 30)
                   ),
-                  Text('or ',
+                  Text('to say',
                       style: textStyle(Colors.black, 30)
                   ),
-                  Text('ing',
-                      style: textStyle(Colors.red, 30)
-                  ),
-                  Text(' to the',
-                      style: textStyle(Colors.black, 30)
-                  )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(' base word without making any other changes.',
+                  Text('more or add ',
                       style: textStyle(Colors.black, 30)
-                  )
+                  ),
+                  Text('est ',
+                      style: textStyle(Colors.red, 30)
+                  ),
+                  Text('to say most.',
+                      style: textStyle(Colors.black, 30)
+                  ),
                 ],
               ),
               Row(
@@ -183,7 +170,6 @@ class OnePointOne extends State<OnePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -201,7 +187,6 @@ class OnePointOne extends State<OnePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -229,6 +214,7 @@ class OnePointOne extends State<OnePointOneLesson> {
         )
     );
   }
+
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(
@@ -238,4 +224,3 @@ class OnePointOne extends State<OnePointOneLesson> {
     );
   }
 }
-
