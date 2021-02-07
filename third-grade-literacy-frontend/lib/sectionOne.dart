@@ -95,7 +95,8 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, _, __) => OnePointOne(),
+                            pageBuilder: (context, _, __) => OnePointOneLesson();
+
                             transitionDuration: Duration(seconds: 0)
                           )
                         );

@@ -1,4 +1,5 @@
 import 'dart:async';
+//import 'dart:html';
 import 'dart:io';
 
 import 'package:audioplayers/audio_cache.dart';
@@ -12,7 +13,6 @@ void main() {
       home: OnePointOneLesson()
   ));
 }
-double screenHeight, screenWidth;
 class OnePointOneLesson extends StatefulWidget {
   @override
   OnePointOne createState() => OnePointOne();
@@ -20,33 +20,26 @@ class OnePointOneLesson extends StatefulWidget {
 class OnePointOne extends State<OnePointOneLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  final player = AudioCache();
-
+  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointOne/fix.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/help.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/jump.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/own.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/paint.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/talk.png')];
+  var words = [['fix', 'fixed', 'fixing'],
+    ['help', 'helped', "helping"],
+    ['jump', 'jumped', "jumping"],
+    ['own', 'owned', "owning"],
+    ['paint', 'painted', "painting"],
+    ['talk', 'talked', "talking"]];
+  var music = ["fix_fixed_fixing.mp3",
+    "help_helped_helping.mp3",
+    "jump_jumped_jumping.mp3",
+    "own_owned_owning.mp3",
+    "paint_painted_painting.mp3",
+    "talk_talked_talking.mp3"];
+  int tracker = 0;
   @override
-  void initState() {
-    super.initState();
-
-    Future<int> _getDuration() async {
-      File audiofile = await audioCache.load('fix_fixed_fixing.mp3');
-      await advancedPlayer.setUrl(
-        audiofile.path,
-      );
-      int duration = await Future.delayed(
-          Duration(seconds: 2), () => advancedPlayer.getDuration());
-      return duration;
-    }
-    getLocalFileDuration() {
-      return FutureBuilder<int>(
-          future: _getDuration(),
-          builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
-            return Text(
-                'sample.mp3 duration is: ${Duration(
-                    milliseconds: snapshot.data)}');
-          }
-      );
-    }
-  }
-    @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
@@ -55,199 +48,193 @@ class OnePointOne extends State<OnePointOneLesson> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                sideBar(context),
+                sideBarWithReplay(context),
                 Expanded(
                     child: sub(context)
-                ),
-                ElevatedButton(
-                    child: Text("Play Audio"),
-                    onPressed: () => player.play('fix_fixed_fixing.mp3')),
-                SizedBox(height: 30),
+                )
               ],
             )
         )
     );
   }
-}
-
-Widget sideBar(BuildContext context) {
-  return Container(
-      color: const Color(0xffc4e8e6),
-      child: Column(
-          children: <Widget>[
-            Material(
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-            ),
-            Material(
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {},
-                )
-            ),
-            Spacer(flex: 5),
-            Material(
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {}
-                )
-            ),
-            Material(
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
-                )
-            ),
-          ]
-      )
-  );
-}
-
+  Widget sideBar(BuildContext context) {
+    return Container(
+        color: const Color(0xffc4e8e6),
+        child: Column(
+            children: <Widget>[
+              Material(
+                  child: IconButton(
+                    icon: Image.asset('assets/placeholder_back_button.png'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      audioCache.play("fix_fixed_fixing.mp3");
+                    },
+                  )
+              ),
+              Material(
+                  child: IconButton(
+                    icon: Image.asset('assets/placeholder_home_button.png'),
+                    onPressed: () {},
+                  )
+              ),
+              Spacer(flex: 5),
+              Material(
+                  child: IconButton(
+                      icon: Image.asset('assets/placeholder_quiz_button.png'),
+                      onPressed: () {}
+                  )
+              ),
+              Material(
+                  child: IconButton(
+                      icon: Image.asset('assets/placeholder_piggy_button.png'),
+                      onPressed: () {}
+                  )
+              ),
+            ]
+        )
+    );
+  }
 // same as above except include replay button for audio files
 // use for lesson pages
-Widget sideBarWithReplay(BuildContext context) {
-  return Container(
-      color: const Color(0xffc4e8e6),
-      child: Column(
-          children: <Widget>[
-            Material(
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-            ),
-            Material(
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {},
-                )
-            ),
-            Spacer(flex: 5),
-            Material(
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {}
-                )
-            ),
-            Material(
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_replay_button.png'),
-                    onPressed: () {}
-                )
-            ),
-            Material(
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
-                )
-            ),
-          ]
-      )
-  );
-}
-
-Widget sub(BuildContext context) {
-  return Container(
-    child: Column (
-      children: [
-      // title
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // can probably simplify with RichText
-            Text('Many actions words just add ',
-                style: textStyle(Colors.black, 30)
-            ),
-            Text('ed ',
-                style: textStyle(Colors.red, 30)
-            ),
-            Text('and ',
-                style: textStyle(Colors.black, 30)
-            ),
-            Text('ing',
-                style: textStyle(Colors.red, 30)
-            ),
-            Text(' to the',
-                style: textStyle(Colors.black, 30)
-            )
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(' base word without making any other changes.',
-              style: textStyle(Colors.black, 30)
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              height: screenHeight * 0.6,
-              child: Transform.scale(
-                scale: 1,
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
+  Widget sideBarWithReplay(BuildContext context) {
+    return Container(
+        color: const Color(0xffc4e8e6),
+        child: Column(
+            children: <Widget>[
+              Material(
+                  child: IconButton(
+                    icon: Image.asset('assets/placeholder_back_button.png'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  )
               ),
-            ),
-            Container(
-                height: screenHeight * 0.6,
-                child: Image.asset('assets/dropbox/sectionOne/OnePointOne/fix.png',
-                  height: 200,
-                  width: 200,
-                )
-            ),
-            Container(
-              height: screenHeight * 0.6,
-              child: Transform.scale(
-                scale: 1,
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button_reversed.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
+              Material(
+                  child: IconButton(
+                    icon: Image.asset('assets/placeholder_home_button.png'),
+                    onPressed: () {},
+                  )
               ),
-            )
-          ],
-        ),
-        Row (
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              child:
-                Text("a", style: textStyle(Colors.black, 30))
-            ),
-            Container (
-              child:
-                Text("b", style: textStyle(Colors.black, 30))
-            ),
-            Container (
-              child:
-                Text("c", style: textStyle(Colors.black, 30))
-            )
-          ],
+              Spacer(flex: 5),
+              Material(
+                  child: IconButton(
+                      icon: Image.asset('assets/placeholder_quiz_button.png'),
+                      onPressed: () {}
+                  )
+              ),
+              Material(
+                  child: IconButton(
+                      icon: Image.asset('assets/placeholder_replay_button.png'),
+                      onPressed: () {}
+                  )
+              ),
+              Material(
+                  child: IconButton(
+                      icon: Image.asset('assets/placeholder_piggy_button.png'),
+                      onPressed: () {}
+                  )
+              ),
+            ]
         )
-      ]
-    )
-  );
-}
-
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
-  );
+    );
+  }
+  Widget sub(BuildContext context) {
+    return Container(
+        color: const Color(0xFFFFFF),
+        child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // can probably simplify with RichText
+                  Text('Many action words just add ',
+                      style: textStyle(Colors.black, 30)
+                  ),
+                  Text('ed ',
+                      style: textStyle(Colors.red, 30)
+                  ),
+                  Text('or ',
+                      style: textStyle(Colors.black, 30)
+                  ),
+                  Text('ing',
+                      style: textStyle(Colors.red, 30)
+                  ),
+                  Text(' to the',
+                      style: textStyle(Colors.black, 30)
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(' base word without making any other changes.',
+                      style: textStyle(Colors.black, 30)
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    height: screenHeight * 0.6,
+                    child: Transform.scale(
+                      scale: 1,
+                      child: IconButton(
+                        icon: Image.asset('assets/placeholder_back_button.png'),
+                        onPressed: () {
+                          setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                          advancedPlayer.play(music[tracker]);
+                        },
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: screenHeight * 0.6,
+                      child: pictures[tracker],
+                      width: 200
+                  ),
+                  Container(
+                    height: screenHeight * 0.6,
+                    child: Transform.scale(
+                      scale: 1,
+                      child: IconButton(
+                        icon: Image.asset('assets/placeholder_back_button_reversed.png'),
+                        onPressed: () {
+                          setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                          audioCache.play(music[tracker]);
+                        },
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Row (
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                      child:
+                      Text(words[tracker][0], style: textStyle(Colors.black, 30))
+                  ),
+                  Container (
+                      child:
+                      Text(words[tracker][1], style: textStyle(Colors.black, 30))
+                  ),
+                  Container (
+                      child:
+                      Text(words[tracker][2], style: textStyle(Colors.black, 30))
+                  )
+                ],
+              )
+            ]
+        )
+    );
+  }
+  double screenHeight, screenWidth;
+  TextStyle textStyle(Color col, double size) {
+    return TextStyle(
+      color: col,
+      fontFamily: 'Comic',
+      fontSize: size,
+    );
+  }
 }
