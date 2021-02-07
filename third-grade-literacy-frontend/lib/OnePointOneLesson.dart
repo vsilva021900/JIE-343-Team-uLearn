@@ -1,3 +1,9 @@
+import 'dart:async';
+//import 'dart:html';
+import 'dart:io';
+
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,6 +17,8 @@ class OnePointOneLesson extends StatefulWidget {
   OnePointOne createState() => OnePointOne();
 }
 class OnePointOne extends State<OnePointOneLesson> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointOne/fix.png'),
     Image.asset('assets/dropbox/sectionOne/OnePointOne/help.png'),
     Image.asset('assets/dropbox/sectionOne/OnePointOne/jump.png'),
@@ -23,6 +31,12 @@ class OnePointOne extends State<OnePointOneLesson> {
     ['own', 'owned', "owning"],
     ['paint', 'painted', "painting"],
     ['talk', 'talked', "talking"]];
+  var music = ["fix_fixed_fixing.mp3",
+    "help_helped_helping.mp3",
+    "jump_jumped_jumping.mp3",
+    "own_owned_owning.mp3",
+    "paint_painted_painting.mp3",
+    "talk_talked_talking.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -170,6 +184,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -187,6 +202,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
