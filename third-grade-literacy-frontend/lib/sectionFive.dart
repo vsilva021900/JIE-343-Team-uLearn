@@ -1,4 +1,7 @@
 import 'testing.dart';
+import 'FivePointOneLesson.dart';
+import 'FivePointTwoLesson.dart';
+import 'FivePointThreeLesson.dart';
 import 'package:flutter/material.dart';
 
 class MainFive extends StatelessWidget {
@@ -85,7 +88,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FivePointOneLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -124,7 +127,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FivePointTwoLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -162,7 +165,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => FivePointThreeLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
