@@ -1,3 +1,5 @@
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,6 +13,8 @@ class TwoPointThreeLesson extends StatefulWidget {
   TwoPointThree createState() => TwoPointThree();
 }
 class TwoPointThree extends State<TwoPointThreeLesson> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointThree/catches.png'),
     Image.asset('assets/dropbox/sectionTwo/TwoPointThree/hitches.png'),
     Image.asset('assets/dropbox/sectionTwo/TwoPointThree/scratches.png'),
@@ -20,6 +24,12 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
   var words = [['catch', 'catches'], ['hitch', 'hitches'],
     ['scratch', 'scratches'], ['teach', 'teaches'], ['touch', 'touches'],
     ['watch', 'watches']];
+  var music = ["catch_catches.mp3",
+    "hitch_hitches.mp3",
+    "scratch_scratches.mp3",
+    "teach_teaches.mp3",
+    "touch_touches.mp3",
+    "watch_watches.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -108,7 +118,9 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
               Material(
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
@@ -169,6 +181,7 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -186,6 +199,7 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
