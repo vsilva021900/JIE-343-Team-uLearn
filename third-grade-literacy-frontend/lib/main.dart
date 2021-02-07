@@ -270,8 +270,8 @@ TextStyle textStyle(double size) {
 
 Padding sections(String a, String b, String c) {
   return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 13),
-      child: Text('\n ' + a + ' \n ' + b + ' \n ' + c + ' \n',
+      padding: const EdgeInsets.only(left: 10, right: 13, top: 12, bottom: 12),
+      child: Text(a + ' \n ' + b + ' \n ' + c,
         style: textStyle(15),
         textAlign: TextAlign.center,
       )
