@@ -123,7 +123,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('When just one person or thing possesses',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
@@ -131,13 +131,13 @@ class FivePointOne extends State<FivePointOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('something or has something, just add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                   Text('’s',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 23)
                   ),
                   Text('.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),

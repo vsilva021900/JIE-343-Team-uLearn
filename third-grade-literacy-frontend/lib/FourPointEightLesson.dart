@@ -126,24 +126,24 @@ class FourPointEight extends State<FourPointEightLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Some special base words don’t make regular changes',
-                      style: textStyle(Colors.black, 30)
+                  Text('Some special base words don’t make regular',
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('to turn into a plural, so we have to remember',
-                      style: textStyle(Colors.black, 30)
+                  Text('changes to turn into a plural, so we have to',
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('the different plural words.',
-                      style: textStyle(Colors.black, 30)
+                  Text('remember the different plural words.',
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),

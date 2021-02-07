@@ -117,7 +117,7 @@ class FourPointNine extends State<FourPointNineLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Fun special plurals that most people don’t know:',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),

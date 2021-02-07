@@ -112,7 +112,7 @@ class FivePointThree extends State<FivePointThreeLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Some plurals don’t follow the rules - to show',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 25)
                   )
                 ],
               ),
@@ -120,7 +120,7 @@ class FivePointThree extends State<FivePointThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('these plural words are possessive, that they',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 25)
                   )
                 ],
               ),
@@ -128,13 +128,13 @@ class FivePointThree extends State<FivePointThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('have something, you need to remember to add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 25)
                   ),
                   Text('’s',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 25)
                   ),
                   Text('.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 25)
                   )
                 ],
               ),

@@ -114,30 +114,30 @@ class FivePointTwo extends State<FivePointTwoLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('When more than one person or thing possesses or',
-                      style: textStyle(Colors.black, 30)
+                  Text('When more than one person or thing possesses',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('has something, and there is already an s at the,',
-                      style: textStyle(Colors.black, 30)
+                  Text('or has something and there is already an s at',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('end, don’t add an extra s, just add the ',
-                      style: textStyle(Colors.black, 30)
+                  Text('the end, don’t add an extra s, just add the ',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   ),
                   Text('‘',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 24)
                   ),
                   Text('.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),

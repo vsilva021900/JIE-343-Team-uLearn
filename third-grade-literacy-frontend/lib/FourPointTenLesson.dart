@@ -119,24 +119,24 @@ class FourPointTen extends State<FourPointTenLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Some special base words are exactly the same for',
-                      style: textStyle(Colors.black, 30)
+                  Text('Some special base words are exactly the same',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('both singular and plural, so we just have to',
-                      style: textStyle(Colors.black, 30)
+                  Text('for both singular and plural, so we just have',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('remember that these words don’t change.',
-                      style: textStyle(Colors.black, 30)
+                  Text('to remember that these words don’t change.',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),

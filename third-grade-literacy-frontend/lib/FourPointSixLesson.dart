@@ -124,7 +124,7 @@ class FourPointSix extends State<FourPointSixLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Base words that end with y change the y to i',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
@@ -132,13 +132,13 @@ class FourPointSix extends State<FourPointSixLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('and add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                   Text('es ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 23)
                   ),
                   Text('to turn the word into a plural.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
