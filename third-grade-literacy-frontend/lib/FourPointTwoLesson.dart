@@ -34,12 +34,12 @@ class FourPointTwo extends State<FourPointTwoLesson> {
     ['kiss', 'kisses'],
     ['walrus', 'walruses']
   ];
-  var music = [['bus.mp3', 'buses.mp3'],
-    ['dress.mp3', 'dresses.mp3'],
-    ['glass.mp3', 'glasses.mp3'],
-    ['guess.mp3', 'guesses.mp3'],
-    ['kiss.mp3', 'kisses.mp3'],
-    ['walrus.mp3', 'walruses.mp3']
+  var music = ['bus_buses.mp3',
+    'dress_dresses.mp3',
+    'glass_glasses.mp3',
+    'guess_guesses.mp3',
+    'kiss_kisses.mp3',
+    'walrus_walruses.mp3'
   ];
   int tracker = 0;
   @override
@@ -60,50 +60,14 @@ class FourPointTwo extends State<FourPointTwoLesson> {
         )
     );
   }
-  Widget sideBar(BuildContext context) {
-    return Container(
-        color: const Color(0xffc4e8e6),
-        child: Column(
-            children: <Widget>[
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
-                  )
-              ),
-              Spacer(flex: 5),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-            ]
-        )
-    );
-  }
-// same as above except include replay button for audio files
-// use for lesson pages
+
   Widget sideBarWithReplay(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
@@ -112,6 +76,7 @@ class FourPointTwo extends State<FourPointTwoLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {},
@@ -119,18 +84,23 @@ class FourPointTwo extends State<FourPointTwoLesson> {
               ),
               Spacer(flex: 5),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {}
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
@@ -148,14 +118,29 @@ class FourPointTwo extends State<FourPointTwoLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // can probably simplify with RichText
-
+                  Text('Base words that end with ',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
+                  Text('s ',
+                      style: textStyle(Colors.green, screenWidth / 26)
+                  ),
+                  Text('just add ',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
+                  Text('es ',
+                      style: textStyle(Colors.red, screenWidth / 26)
+                  ),
+                  Text('and make ',
+                    style: textStyle(Colors.black, screenWidth / 26)
+                  )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
+                  Text('no other change to turn the base word into a plural.',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
                 ],
               ),
               Row(
@@ -169,8 +154,7 @@ class FourPointTwo extends State<FourPointTwoLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -193,8 +177,7 @@ class FourPointTwo extends State<FourPointTwoLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),

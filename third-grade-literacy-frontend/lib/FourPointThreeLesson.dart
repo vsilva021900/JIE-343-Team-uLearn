@@ -36,13 +36,13 @@ class FourPointThree extends State<FourPointThreeLesson> {
     ['radish', 'radishes'],
     ['splash', 'splashes']
   ];
-  var music = [['blush.mp3', 'blushes.mp3'],
-    ['brush.mp3', 'brushes.mp3'],
-    ['bush.mp3', 'bushes.mp3'],
-    ['dish.mp3', 'dishes.mp3'],
-    ['eyelash.mp3', 'eyelashes.mp3'],
-    ['radish.mp3', 'radishes.mp3'],
-    ['splash.mp3', 'splashes.mp3']
+  var music = ['blush_blushes.mp3',
+    'brush_brushes.mp3',
+    'bush_bushes.mp3',
+    'dish_dishes.mp3',
+    'eyelash_eyelashes.mp3',
+    'radish_radishes.mp3',
+    'splash_splashes.mp3'
   ];
   int tracker = 0;
   @override
@@ -63,50 +63,14 @@ class FourPointThree extends State<FourPointThreeLesson> {
         )
     );
   }
-  Widget sideBar(BuildContext context) {
-    return Container(
-        color: const Color(0xffc4e8e6),
-        child: Column(
-            children: <Widget>[
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
-                  )
-              ),
-              Spacer(flex: 5),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-            ]
-        )
-    );
-  }
-// same as above except include replay button for audio files
-// use for lesson pages
+
   Widget sideBarWithReplay(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
@@ -115,6 +79,7 @@ class FourPointThree extends State<FourPointThreeLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {},
@@ -122,18 +87,23 @@ class FourPointThree extends State<FourPointThreeLesson> {
               ),
               Spacer(flex: 5),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {}
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
@@ -153,13 +123,13 @@ class FourPointThree extends State<FourPointThreeLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Base words that end with sh just add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 26)
                   ),
                   Text('es ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 26)
                   ),
                   Text('and make',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 26)
                   )
                 ],
               ),
@@ -167,7 +137,7 @@ class FourPointThree extends State<FourPointThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('no other change to turn the word into a plural.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 26)
                   )
                 ],
               ),
@@ -182,8 +152,7 @@ class FourPointThree extends State<FourPointThreeLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -206,8 +175,7 @@ class FourPointThree extends State<FourPointThreeLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
