@@ -1,5 +1,6 @@
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
@@ -11,6 +12,8 @@ class ThreePointThreeLesson extends StatefulWidget {
   ThreePointThree createState() => ThreePointThree();
 }
 class ThreePointThree extends State<ThreePointThreeLesson> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionThree/ThreePointThree/1_4_cranky-er-est.png'),
     Image.asset('assets/dropbox/sectionThree/ThreePointThree/2_4_friendly-er-est.png'),
     Image.asset('assets/dropbox/sectionThree/ThreePointThree/3_4_happy-er-est.png'),
@@ -23,6 +26,14 @@ class ThreePointThree extends State<ThreePointThreeLesson> {
     ['happy', 'happier', 'happiest'], ['icy', 'icier', 'iciest'],
     ['pretty', 'prettier', 'prettiest'], ['silly', 'sillier', 'silliest'],
     ['sneaky', 'sneakier', 'sneakiest'], ['sorry', 'sorrier', 'sorriest']];
+  var music = ["cranky.mp3",
+    "friendly.mp3",
+    "happy.mp3",
+    "icy.mp3",
+    "pretty.mp3",
+    "silly.mp3",
+    "sneaky.mp3",
+    "sorry.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -76,7 +87,9 @@ class ThreePointThree extends State<ThreePointThreeLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () { }
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
@@ -141,6 +154,7 @@ class ThreePointThree extends State<ThreePointThreeLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -158,6 +172,7 @@ class ThreePointThree extends State<ThreePointThreeLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
