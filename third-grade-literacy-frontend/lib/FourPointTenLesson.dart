@@ -24,22 +24,18 @@ class FourPointTen extends State<FourPointTenLesson> {
     Image.asset('assets/dropbox/sectionFour/FourPointTen/deer.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/elk.png'),
     Image.asset('assets/dropbox/sectionFour/FourPointTen/fish.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/jellyfish.png'),
     Image.asset('assets/dropbox/sectionFour/FourPointTen/moose.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/reindeer.png'),
-    Image.asset('assets/dropbox/sectionFour/FourPointTen/rocket.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/sheep.png'),
-    Image.asset('assets/dropbox/sectionFour/FourPointTen/spacecraft.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/watercraft.png'),
+    Image.asset('assets/dropbox/sectionFour/FourPointTen/sheep.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/spacecraft.png'),
+    Image.asset('assets/dropbox/sectionFour/FourPointTen/watercraft.png'),
   ];
   var words = ['aircraft', 'bison',
-    'deer', 'elf',
+    'deer', 'elk',
     'fish', 'jellyfish',
     'moose', 'reindeer',
-    'rocket', 'sheep',
-    'spacecraft', 'watercraft'
+    'sheep', 'spacecraft', 'watercraft'
   ];
   var music = ['aircraft.mp3', 'bison.mp3',
-  'deer.mp3', 'elf.mp3',
-  'fish.mp3', 'jellyfish.mp3',
-  'moose.mp3', 'reindeer.mp3',
-  'rocket.mp3', 'sheep.mp3',
-  'spacecraft.mp3', 'watercraft.mp3'
+  'deer.mp3', 'elk.mp3', 'fish.mp3', 'jellyfish.mp3',
+  'moose.mp3', 'reindeer.mp3', 'sheep.mp3', 'spacecraft.mp3', 'watercraft.mp3'
   ];
   int tracker = 0;
   @override
@@ -180,10 +176,6 @@ class FourPointTen extends State<FourPointTenLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                      child:
-                      Text(words[tracker], style: textStyle(Colors.black, 30))
-                  ),
-                  Container (
                       child:
                       Text(words[tracker], style: textStyle(Colors.black, 30))
                   )

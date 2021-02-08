@@ -34,12 +34,12 @@ class FourPointFive extends State<FourPointFiveLesson> {
     ['six', 'sixes'],
     ['wax', 'waxes']
   ];
-  var music = [['box.mp3', 'boxes.mp3'],
-    ['fox.mp3', 'foxes.mp3'],
-    ['lynx.mp3', 'lynxes.mp3'],
-    ['mix.mp3', 'mixes.mp3'],
-    ['six.mp3', 'sixes.mp3'],
-    ['wax.mp3', 'waxes.mp3']
+  var music = ['box_boxes.mp3',
+    'fox_foxes.mp3',
+    'lynx_lynxes.mp3',
+    'mix_mixes.mp3',
+    'six_sixes.mp3',
+    'wax_waxes.mp3'
   ];
   int tracker = 0;
   @override
@@ -95,8 +95,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        audioCache.play(music[tracker][0]);
-                        audioCache.play(music[tracker][1]);
+                        audioCache.play(music[tracker]);
                       }
                   )
               ),
@@ -150,8 +149,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -174,8 +172,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
