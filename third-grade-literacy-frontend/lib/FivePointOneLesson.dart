@@ -39,7 +39,7 @@ class FivePointOne extends State<FivePointOneLesson> {
   ];
   var music = ["boot's_theboot'sbootstring.mp3", "child's_thechild'sbook.mp3",
     "dog's_thedog'scollar.mp3", "dress's_thedress'scollar.mp3", "elf's_theelf'slantern.mp3",
-    "firefly's_thefirefly'shead.mp3", "flower's_theflower'sstem/mp3", "foot's_thefoot'stoenails.mp3",
+    "firefly's_thefirefly'shead.mp3", "flower's_theflower'sstem.mp3", "foot's_thefoot'stoenails.mp3",
     "fox's_thefox'stail.mp3", "goose's_thegoose'sfeet.mp3", "man's_theman'ssaw.mp3",
     "mouse's_themouse'snose.mp3", "peach's_thepeach'sseed.mp3", "person's_theperson'sguitar.mp3",
     "tooth's_thetooth'spoint.mp3", "woman's_thewoman'sheadband.mp3", "worker's_theworker'shardhat.mp3"

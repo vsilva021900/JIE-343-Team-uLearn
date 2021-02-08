@@ -34,12 +34,12 @@ class FourPointSeven extends State<FourPointSevenLesson> {
     ['thief', 'thieves'],
     ['wolf', 'wolves']
   ];
-  var music = [['elf.mp3', 'elves.mp3'],
-    ['knife.mp3', 'knives.mp3'],
-    ['leaf.mp3', 'leaves.mp3'],
-    ['loaf.mp3', 'loaves.mp3'],
-    ['thief.mp3', 'thieves.mp3'],
-    ['wolf.mp3', 'wolves.mp3']
+  var music = ['elf_elves.mp3',
+    'knife_knives.mp3',
+    'leaf_leaves.mp3',
+    'loaf_loaves.mp3',
+    'thief_thieves.mp3',
+    'wolf_wolves.mp3'
   ];
   int tracker = 0;
   @override
@@ -95,8 +95,7 @@ class FourPointSeven extends State<FourPointSevenLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        audioCache.play(music[tracker][0]);
-                        audioCache.play(music[tracker][1]);
+                        audioCache.play(music[tracker]);
                       }
                   )
               ),
@@ -150,8 +149,7 @@ class FourPointSeven extends State<FourPointSevenLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -174,8 +172,7 @@ class FourPointSeven extends State<FourPointSevenLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
