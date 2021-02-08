@@ -1,5 +1,6 @@
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
@@ -11,6 +12,8 @@ class ThreePointTwoLesson extends StatefulWidget {
   ThreePointTwo createState() => ThreePointTwo();
 }
 class ThreePointTwo extends State<ThreePointTwoLesson> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionThree/ThreePointTwo/1_4_blue-er-est.png'),
     Image.asset('assets/dropbox/sectionThree/ThreePointTwo/2_4_large-er-est.png'),
     Image.asset('assets/dropbox/sectionThree/ThreePointTwo/3_4_little-er-est.png'),
@@ -23,6 +26,14 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
     ['little', 'littler', 'littlest'], ['nice', 'nicer', 'nicest'],
     ['rude', 'ruder', 'rudest'], ['strange', 'stranger', 'strangest'],
     ['tame', 'tamer', 'tamest'], ['wide', 'wider', 'widest']];
+  var music = ["blue.mp3",
+    "large.mp3",
+    "little.mp3",
+    "nice.mp3",
+    "rude.mp3",
+    "strange.mp3",
+    "tame.mp3",
+    "wide.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -111,7 +122,9 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
               Material(
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
@@ -170,6 +183,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -187,6 +201,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
