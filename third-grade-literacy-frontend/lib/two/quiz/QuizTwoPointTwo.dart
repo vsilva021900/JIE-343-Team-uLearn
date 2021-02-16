@@ -93,25 +93,25 @@ class QuizState extends State<QuizTwoPointTwo> {
           children: [
             Column(
               children: [
-                Text('Which word makes no other change but just',
+                Text('To say someone or something does something,',
                     style: textStyle(Colors.black, screenWidth / 24)
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('add ',
+                    Text('which action word changes the final letter to',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text('ed ',
+                    Text('i ',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
-                    Text('and ',
+                    Text('and adds ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text('ing ',
+                    Text('es',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
-                    Text('to the base word?',
+                    Text('?',
                         style: textStyle(Colors.black, screenWidth / 24)
                     )
                   ],
