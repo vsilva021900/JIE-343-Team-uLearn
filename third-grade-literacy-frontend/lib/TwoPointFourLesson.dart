@@ -77,7 +77,15 @@ class TwoPointFour extends State<TwoPointFourLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => QuizTwoPointFour(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
+                      }
                   )
               ),
               Material(
