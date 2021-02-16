@@ -2,33 +2,31 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class QuizOnePointOne extends StatefulWidget {
+class QuizTwoPointTwo extends StatefulWidget {
   @override
   QuizState createState() => QuizState();
 }
 
-class QuizState extends State<QuizOnePointOne> {
+class QuizState extends State<QuizTwoPointTwo> {
   var answers = [
-    ['talk', 'jump', 'paint', 'fix', 'own', 'help'], // 1.1
-    ['nap', 'skip', 'hug', 'drop', 'fib', 'stop'], // 1.2
-    ['dance', 'excite', 'tickle', 'bake', 'move', 'tumble'], // 1.3
-    ['cry', 'try', 'carry', 'fry', 'empty', 'dirty'] // 1.4
+    ['talk', 'jump', 'paint', 'fix', 'own', 'help'], // 2.2
+    ['nap', 'skip', 'hug', 'drop', 'fib', 'stop'], // 2.1
+    ['dance', 'excite', 'tickle', 'bake', 'move', 'tumble'], // 2.3
+    ['cry', 'try', 'carry', 'fry', 'empty', 'dirty'] // 2.4
   ];
   var answerOrder = [0, 1, 2, 3];
+  int prevCorrect = -1;
+
+  int streak = 0; // first try correct answer streak
+  int attempt = 0; // how many tries before answering correctly
 
   @override
   Widget build(BuildContext context) {
-    screenHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
-    screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
 
     answerOrder.shuffle();
-    print(answerOrder);
+    attempt = 0;
 
     return MaterialApp(
         home: Material(
@@ -95,13 +93,8 @@ class QuizState extends State<QuizOnePointOne> {
           children: [
             Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Which word makes no other change but just',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    )
-                  ],
+                Text('Which word makes no other change but just',
+                    style: textStyle(Colors.black, screenWidth / 24)
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -129,16 +122,50 @@ class QuizState extends State<QuizOnePointOne> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 // Box 0
-                Container(
+                GestureDetector(
+                  onTap: () {
+                    // if the choice is correct
+                    if (answerOrder[0] == 0) {
+                      // if this is the first try
+                      if (attempt == 0) {
+                        // increase correct answer streak
+                        streak += 1;
+                      }
+                      setState(() {});
+                    }
+                    // choice is not correct
+                    else {
+                      // increment attempt counter
+                      attempt += 1;
+                      // reset correct answer streak
+                      streak = 0;
+                    }
+                  },
+                  child: Container(
                     width: screenWidth * 0.3,
                     decoration: boxDecoration(),
                     child: padding(getChoice(0), screenWidth / 24)
+                  )
                 ),
                 // Box 1
-                Container(
+                GestureDetector(
+                  onTap: () {
+                    if (answerOrder[1] == 0) {
+                      if (attempt == 0) {
+                        streak += 1;
+                      }
+                      setState(() {});
+                    }
+                    else {
+                      attempt += 1;
+                      streak = 0;
+                    }
+                  },
+                  child: Container(
                     width: screenWidth * 0.3,
                     decoration: boxDecoration(),
                     child: padding(getChoice(1), screenWidth / 24)
+                  )
                 ),
               ],
             ),
@@ -146,16 +173,30 @@ class QuizState extends State<QuizOnePointOne> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 // Box 2
-                Container(
+                GestureDetector(
+                  onTap: () {
+                    if (answerOrder[2] == 0) {
+                      setState(() {});
+                    }
+                  },
+                  child: Container(
                     width: screenWidth * 0.3,
                     decoration: boxDecoration(),
                     child: padding(getChoice(2), screenWidth / 24)
+                  )
                 ),
                 // Box 3
-                Container(
+                GestureDetector(
+                  onTap: () {
+                    if (answerOrder[3] == 0) {
+                      setState(() {});
+                    }
+                  },
+                  child: Container(
                     width: screenWidth * 0.3,
                     decoration: boxDecoration(),
                     child: padding(getChoice(3), screenWidth / 24)
+                  )
                 ),
               ],
             )
@@ -165,7 +206,15 @@ class QuizState extends State<QuizOnePointOne> {
   }
 
   String getChoice(int boxNum) {
-    return answers[answerOrder[boxNum]][random.nextInt(6)];
+    int index = answerOrder[boxNum];
+    int temp = random.nextInt(6);
+    if (index == 0) {
+      while (prevCorrect == temp) {
+        temp = random.nextInt(6);
+      }
+      prevCorrect = temp;
+    }
+    return answers[index][temp];
   }
 }
 
