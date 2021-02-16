@@ -9,13 +9,15 @@ class QuizTwoPointTwo extends StatefulWidget {
 
 class QuizState extends State<QuizTwoPointTwo> {
   var answers = [
-    ['talk', 'jump', 'paint', 'fix', 'own', 'help'], // 2.2
-    ['nap', 'skip', 'hug', 'drop', 'fib', 'stop'], // 2.1
-    ['dance', 'excite', 'tickle', 'bake', 'move', 'tumble'], // 2.3
-    ['cry', 'try', 'carry', 'fry', 'empty', 'dirty'] // 2.4
+    ['bully', 'carry', 'cry', 'dirty', 'fly', 'spy', 'try'], // 2.2
+    ['help', 'jump', 'kick', 'sing', 'sleep', 'talk', 'think', 'work'], // 2.1
+    ['catch', 'hitch', 'scratch', 'teach', 'touch', 'watch', // 2.3
+    'guess', 'hiss', 'kiss', 'miss', 'pass', 'toss'], // 2.4
+    ['crash', 'fish', 'push', 'vanish', 'wash', 'wish', // 2.5
+    'box', 'fix', 'mix', 'relax', 'wax'] // 2.6
   ];
   var answerOrder = [0, 1, 2, 3];
-  int prevCorrect = -1;
+  int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
   int streak = 0; // first try correct answer streak
   int attempt = 0; // how many tries before answering correctly
@@ -96,12 +98,12 @@ class QuizState extends State<QuizTwoPointTwo> {
                 Text('To say someone or something does something,',
                     style: textStyle(Colors.black, screenWidth / 24)
                 ),
+                Text('which action word changes the final letter to',
+                    style: textStyle(Colors.black, screenWidth / 24)
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('which action word changes the final letter to',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
                     Text('i ',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
@@ -176,7 +178,14 @@ class QuizState extends State<QuizTwoPointTwo> {
                 GestureDetector(
                   onTap: () {
                     if (answerOrder[2] == 0) {
+                      if (attempt == 0) {
+                        streak += 1;
+                      }
                       setState(() {});
+                    }
+                    else {
+                      attempt += 1;
+                      streak = 0;
                     }
                   },
                   child: Container(
@@ -189,7 +198,14 @@ class QuizState extends State<QuizTwoPointTwo> {
                 GestureDetector(
                   onTap: () {
                     if (answerOrder[3] == 0) {
+                      if (attempt == 0) {
+                        streak += 1;
+                      }
                       setState(() {});
+                    }
+                    else {
+                      attempt += 1;
+                      streak = 0;
                     }
                   },
                   child: Container(
@@ -207,10 +223,10 @@ class QuizState extends State<QuizTwoPointTwo> {
 
   String getChoice(int boxNum) {
     int index = answerOrder[boxNum];
-    int temp = random.nextInt(6);
+    int temp = random.nextInt(answers[index].length);
     if (index == 0) {
       while (prevCorrect == temp) {
-        temp = random.nextInt(6);
+        temp = random.nextInt(answers[0].length);
       }
       prevCorrect = temp;
     }
