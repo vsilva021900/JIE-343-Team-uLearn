@@ -22,8 +22,6 @@ class QuizState extends State<QuizTwoPointThree> {
 
   @override
   Widget build(BuildContext context) {
-    print(streak);
-
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
 
