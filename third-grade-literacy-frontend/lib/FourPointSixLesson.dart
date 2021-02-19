@@ -36,13 +36,13 @@ class FourPointSix extends State<FourPointSixLesson> {
     ['pony', 'ponies'],
     ['spy', 'spies']
   ];
-  var music = [['baby.mp3', 'babies.mp3'],
-    ['berry.mp3', 'berries.mp3'],
-    ['bunny.mp3', 'bunnies.mp3'],
-    ['fairy.mp3', 'fairies.mp3'],
-    ['fly.mp3', 'flies.mp3'],
-    ['pony.mp3', 'ponies.mp3'],
-    ['spy.mp3', 'spies.mp3']
+  var music = ['baby_babies.mp3',
+    'berry_berries.mp3',
+    'bunny_bunnies.mp3',
+    'fairy_fairies.mp3',
+    'fly_flies.mp3',
+    'pony_ponies.mp3',
+    'spy_spies.mp3'
   ];
   int tracker = 0;
   @override
@@ -63,50 +63,14 @@ class FourPointSix extends State<FourPointSixLesson> {
         )
     );
   }
-  Widget sideBar(BuildContext context) {
-    return Container(
-        color: const Color(0xffc4e8e6),
-        child: Column(
-            children: <Widget>[
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
-                  )
-              ),
-              Spacer(flex: 5),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-              Material(
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
-                  )
-              ),
-            ]
-        )
-    );
-  }
-// same as above except include replay button for audio files
-// use for lesson pages
+
   Widget sideBarWithReplay(BuildContext context) {
     return Container(
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
@@ -115,6 +79,7 @@ class FourPointSix extends State<FourPointSixLesson> {
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {},
@@ -122,18 +87,23 @@ class FourPointSix extends State<FourPointSixLesson> {
               ),
               Spacer(flex: 5),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {}
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
+                  color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
@@ -153,7 +123,7 @@ class FourPointSix extends State<FourPointSixLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('Base words that end with y change the y to i',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
@@ -161,13 +131,13 @@ class FourPointSix extends State<FourPointSixLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('and add ',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   ),
                   Text('es ',
-                      style: textStyle(Colors.red, 30)
+                      style: textStyle(Colors.red, screenWidth / 23)
                   ),
                   Text('to turn the word into a plural.',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
@@ -182,8 +152,7 @@ class FourPointSix extends State<FourPointSixLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
@@ -206,8 +175,7 @@ class FourPointSix extends State<FourPointSixLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker][0]);
-                          audioCache.play(music[tracker][1]);
+                          audioCache.play(music[tracker]);
                         },
                       ),
                     ),
