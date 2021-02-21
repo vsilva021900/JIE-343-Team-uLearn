@@ -33,8 +33,8 @@ class FivePointTwo extends State<FivePointTwoLesson> {
   ];
   var music = ["boots'_theboots'tongues.mp3", "dogs'_thedogs'leashes.mp3",
     "dresses'_thedresses'_sleeves.mp3", "elves'_theelves'caps.mp3", "fireflies'_thefireflies'tails.mp3",
-    "flowers'_theflowers'leaves.mp3", "foxes'_thefoxes'noses/mp3", "peaches'_thepeaches'stems.mp3",
-    "workers'_theworkers' tools.mp3"
+    "flowers'_theflowers'leaves.mp3", "foxes'_thefoxes'noses.mp3", "peaches'_thepeaches'stems.mp3",
+    "workers'_theworkers'_tools.mp3"
   ];
   int tracker = 0;
   @override
@@ -170,7 +170,6 @@ class FivePointTwo extends State<FivePointTwoLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
                           audioCache.play(music[tracker]);
                         },
                       ),

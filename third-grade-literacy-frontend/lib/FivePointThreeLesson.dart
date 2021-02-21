@@ -31,7 +31,7 @@ class FivePointThree extends State<FivePointThreeLesson> {
   ];
   var music = ["children's_thechildren'steacher.mp3", "feet's_thefeet'sbigtoes.mp3",
     "geese's_thegesse'sbeaks.mp3", "men's_themen'shands.mp3", "mice's_themice'stails.mp3",
-    "people's_thepeople'shands.mp3", "teeth's_theteeth'scolor/mp3", "women's_thewomen'sfaces.mp3"
+    "people's_thepeople'shands.mp3", "teeth's_theteeth'scolor.mp3", "women's_thewomen'sfaces.mp3"
   ];
   int tracker = 0;
   @override
