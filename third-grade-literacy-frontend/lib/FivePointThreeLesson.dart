@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/five/quiz/QuizFivePointThree.dart';
+
 
 
 void main() {
@@ -79,7 +81,15 @@ class FivePointThree extends State<FivePointThreeLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => QuizFivePointThree(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
+                      }
                   )
               ),
               Material(
