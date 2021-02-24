@@ -25,7 +25,7 @@ class QuizState extends State<QuizThreePointThree> {
 
   AudioCache audioCache = new AudioCache();
   AudioPlayer audioPlayer = new AudioPlayer();
-  String questionAudio = '3.3_QwhichchangeslastlettertoIaddERorEST';
+  String questionAudio = '3.3_QwhichchangeslastlettertoIaddERorEST.mp3';
 
   @override
   Widget build(BuildContext context) {
@@ -112,25 +112,32 @@ class QuizState extends State<QuizThreePointThree> {
           children: [
             Column(
               children: [
+                Text('Which base word changes the last letter to',
+                    style: textStyle(Colors.black, screenWidth / 24)
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Which base word just adds ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('s',
+                    Text('i',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
-                    Text(' and',
+                    Text(' and then adds ',
                         style: textStyle(Colors.black, screenWidth / 24)
-                    )
+                    ),
+                    Text('er',
+                        style: textStyle(Colors.red, screenWidth / 24)
+                    ),
+                    Text(' to say more and ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
+                    Text('est',
+                        style: textStyle(Colors.red, screenWidth / 24)
+                    ),
                   ],
                 ),
 
-                Text('makes no other change to turn the word',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Text('into a plural?',
+
+                Text('to say most?',
                     style: textStyle(Colors.black, screenWidth / 24)
                 ),
               ],

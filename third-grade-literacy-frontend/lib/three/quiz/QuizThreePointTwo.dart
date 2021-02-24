@@ -112,25 +112,29 @@ class QuizState extends State<QuizThreePointTwo> {
           children: [
             Column(
               children: [
+                Text('Which base word drops the last letter and',
+                    style: textStyle(Colors.black, screenWidth / 24)
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Which base word just adds ',
+                    Text('then adds ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text('s',
+                    Text('er',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
-                    Text(' and',
+                    Text(' to say more and ',
                         style: textStyle(Colors.black, screenWidth / 24)
-                    )
+                    ),
+                    Text('est',
+                        style: textStyle(Colors.red, screenWidth / 24)
+                    ),
                   ],
                 ),
 
-                Text('makes no other change to turn the word',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Text('into a plural?',
+
+                Text('to say most?',
                     style: textStyle(Colors.black, screenWidth / 24)
                 ),
               ],

@@ -124,7 +124,7 @@ class QuizState extends State<QuizThreePointOne> {
                     Text('er',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
-                    Text('to say more or ',
+                    Text(' to say more or ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
                     Text('est',
