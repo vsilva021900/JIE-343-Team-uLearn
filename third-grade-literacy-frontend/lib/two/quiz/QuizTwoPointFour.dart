@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:hearatale_literacy_app/main.dart';
 
 class QuizTwoPointFour extends StatefulWidget {
   @override
@@ -20,6 +23,10 @@ class QuizState extends State<QuizTwoPointFour> {
   int streak = 0; // first try correct answer streak
   int attempt = 0; // how many tries before answering correctly
 
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
+  String questionAudio = '#2.4_QwhichjustaddsES.mp3';
+
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
@@ -27,6 +34,10 @@ class QuizState extends State<QuizTwoPointFour> {
 
     answerOrder.shuffle();
     attempt = 0;
+
+    if (prevCorrect < 0) {
+      audioCache.load(questionAudio);
+    }
 
     return MaterialApp(
         home: Material(
@@ -53,6 +64,7 @@ class QuizState extends State<QuizTwoPointFour> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -61,7 +73,14 @@ class QuizState extends State<QuizTwoPointFour> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
+                    onPressed: () {
+                      stopAudio();
+                      Navigator.pushAndRemoveUntil(context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => MyApp(),
+                              transitionDuration: Duration(seconds: 0)
+                          ), (route) => false);
+                    },
                   )
               ),
               Spacer(flex: 5),
@@ -70,7 +89,7 @@ class QuizState extends State<QuizTwoPointFour> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        // audioCache.play(music[tracker]);
+                        playAudio();
                       }
                   )
               ),
@@ -125,6 +144,7 @@ class QuizState extends State<QuizTwoPointFour> {
                           // increase correct answer streak
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       // choice is not correct
@@ -148,6 +168,7 @@ class QuizState extends State<QuizTwoPointFour> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -173,6 +194,7 @@ class QuizState extends State<QuizTwoPointFour> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -193,6 +215,7 @@ class QuizState extends State<QuizTwoPointFour> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -223,6 +246,14 @@ class QuizState extends State<QuizTwoPointFour> {
       prevCorrect = temp;
     }
     return answers[index][temp];
+  }
+
+  playAudio() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(questionAudio);
+  }
+  stopAudio() {
+    audioPlayer.stop();
   }
 }
 

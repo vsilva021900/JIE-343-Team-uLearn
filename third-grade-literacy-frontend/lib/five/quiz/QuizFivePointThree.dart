@@ -1,58 +1,46 @@
 import 'dart:math';
-
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 
-class QuizTwo extends StatefulWidget {
+class QuizFivePointThree extends StatefulWidget {
   @override
   QuizState createState() => QuizState();
 }
 
-class QuizState extends State<QuizTwo> {
+class QuizState extends State<QuizFivePointThree> {
   var answers = [
-    // 2.1
-    [ ['help', 'jump', 'kick', 'sing', 'sleep', 'talk', 'think', 'work'], // 2.1
-      ['bully', 'carry', 'cry', 'dirty', 'fly', 'spy', 'try'], // 2.2
-      ['catch', 'hitch', 'scratch', 'teach', 'touch', 'watch', // 2.3
-        'guess', 'hiss', 'kiss', 'miss', 'pass', 'toss'], // 2.4
-      ['crash', 'fish', 'push', 'vanish', 'wash', 'wish', // 2.5
-        'box', 'fix', 'mix', 'relax', 'wax'] // 2.6
+    ["the children's teacher", "the feet's big toes",
+      "the geese's beaks", "the men's hands", "the mice's tails",
+      "the people's hands", "the teeth's color", "the women's faces"
+    ], // 5.3
+    ["the boot's bootstring", "the child's book",
+      "the dog's hot dog", "the dress's collar", "the elf's lantern",
+      "the firefly's head", "the flower's stem", "the foot's toenails",
+      "the fox's tail", "the goose's feet", "the man's saw",
+      "the mouse's nose", "the peach's seed", "the person's guitar",
+      "the tooth's point", "the woman's headband", "the worker's hardhat",
     ],
-    // 2.2
-    [ ['bully', 'carry', 'cry', 'dirty', 'fly', 'spy', 'try'], // 2.2
-      ['help', 'jump', 'kick', 'sing', 'sleep', 'talk', 'think', 'work'], // 2.1
-      ['catch', 'hitch', 'scratch', 'teach', 'touch', 'watch', // 2.3
-        'guess', 'hiss', 'kiss', 'miss', 'pass', 'toss'], // 2.4
-      ['crash', 'fish', 'push', 'vanish', 'wash', 'wish', // 2.5
-        'box', 'fix', 'mix', 'relax', 'wax'] // 2.6
+    ["thieves", "watches",
+      "wolves", "puddles", "vehicles",
+      "itches", "giraffes", "crutches",
+      "bubbles", "cookies",
+      "creatures", "frogs", "elves",
+      "knives", "leaves", "ostriches",
+      "peaches", "scratches", "stripes"
     ],
-    // 2.3 - 2.6
-    [ ['catch', 'hitch', 'scratch', 'teach', 'touch', 'watch', // 2.3
-      'guess', 'hiss', 'kiss', 'miss', 'pass', 'toss', // 2.4
-      'crash', 'fish', 'push', 'vanish', 'wash', 'wish', // 2.5
-      'box', 'fix', 'mix', 'relax', 'wax'], // 2.6
-      ['sail', 'cough', 'eat', 'hiccup', 'paint', 'ride', 'swim', 'visit'],
-      ['bring', 'dig', 'fool', 'hurt', 'pick', 'rob', 'tell', 'whisper'],
-      ['climb', 'drop', 'hear', 'nap', 'protect', 'see', 'throw', 'yell']
+    ["he'll", "I'll",
+      "she'll", "they'll", "we'll",
+      "you'll", "couldn't", "isn't",
+      "weren't", "can't", "didn't",
+      "doesn't", "shouldn't", "wasn't",
+      "won't", "wouldn't"
     ]
   ];
-  var questionAudio = [
-    'dropbox/sectionTwo/TwoPointOne/#2.1_QwhichactionwordjustaddsS.mp3', // 2.1
-    'dropbox/sectionTwo/TwoPointTwo/#2.2_QwhichlastlettertoIandaddsES.mp3', // 2.2
-    '#2.3_Q_whichwordjustaddsES.mp3' // 2.3 - 2.6
-  ];
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
   int streak = 0; // first try correct answer streak
   int attempt = 0; // how many tries before answering correctly
-
-  int counter = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +49,6 @@ class QuizState extends State<QuizTwo> {
 
     answerOrder.shuffle();
     attempt = 0;
-    counter = (counter + 1) % 3;
-
-    if (prevCorrect < 0) {
-      audioCache.loadAll(questionAudio);
-    }
 
     return MaterialApp(
         home: Material(
@@ -92,7 +75,6 @@ class QuizState extends State<QuizTwo> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
-                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -102,7 +84,6 @@ class QuizState extends State<QuizTwo> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
-                      stopAudio();
                       Navigator.pushAndRemoveUntil(context,
                           PageRouteBuilder(
                               pageBuilder: (context, _, __) => MyApp(),
@@ -117,7 +98,7 @@ class QuizState extends State<QuizTwo> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        playAudio(questionAudio[counter]);
+                        // audioCache.play(music[tracker]);
                       }
                   )
               ),
@@ -138,7 +119,21 @@ class QuizState extends State<QuizTwo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            getQuestion(),
+            Column(
+              children: [
+                Text('Which means more than one person',
+                    style: textStyle(Colors.black, screenWidth / 24)
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('or thing has something?',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    )
+                  ],
+                ),
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -152,7 +147,6 @@ class QuizState extends State<QuizTwo> {
                           // increase correct answer streak
                           streak += 1;
                         }
-                        stopAudio();
                         setState(() {});
                       }
                       // choice is not correct
@@ -176,7 +170,6 @@ class QuizState extends State<QuizTwo> {
                         if (attempt == 0) {
                           streak += 1;
                         }
-                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -202,7 +195,6 @@ class QuizState extends State<QuizTwo> {
                         if (attempt == 0) {
                           streak += 1;
                         }
-                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -223,7 +215,6 @@ class QuizState extends State<QuizTwo> {
                         if (attempt == 0) {
                           streak += 1;
                         }
-                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -246,107 +237,20 @@ class QuizState extends State<QuizTwo> {
 
   String getChoice(int boxNum) {
     int index = answerOrder[boxNum];
-    int temp = random.nextInt(answers[counter][index].length);
+    int temp = random.nextInt(answers[index].length);
     if (index == 0) {
       while (prevCorrect == temp) {
-        temp = random.nextInt(answers[counter][0].length);
+        temp = random.nextInt(answers[0].length);
       }
       prevCorrect = temp;
     }
-    return answers[counter][index][temp];
-  }
-
-  Column getQuestion() {
-    if (counter == 0) {
-      return Column(
-        children: [
-          Text('To say someone or something does something,',
-              style: textStyle(Colors.black, screenWidth / 24)
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('which action word adds only ',
-                  style: textStyle(Colors.black, screenWidth / 24)
-              ),
-              Text('s',
-                  style: textStyle(Colors.red, screenWidth / 24)
-              ),
-              Text('?',
-                  style: textStyle(Colors.black, screenWidth / 24)
-              )
-            ],
-          ),
-        ],
-      );
-    }
-    else if (counter == 1) {
-      return Column(
-        children: [
-          Text('To say someone or something does something,',
-              style: textStyle(Colors.black, screenWidth / 24)
-          ),
-          Text('which action word changes the final letter to',
-              style: textStyle(Colors.black, screenWidth / 24)
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('i ',
-                  style: textStyle(Colors.red, screenWidth / 24)
-              ),
-              Text('and adds ',
-                  style: textStyle(Colors.black, screenWidth / 24)
-              ),
-              Text('es',
-                  style: textStyle(Colors.red, screenWidth / 24)
-              ),
-              Text('?',
-                  style: textStyle(Colors.black, screenWidth / 24)
-              )
-            ],
-          ),
-        ],
-      );
-    }
-    else {
-      return Column(
-        children: [
-          Text('To say someone or something does something,',
-              style: textStyle(Colors.black, screenWidth / 24)
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('which action word just adds ',
-                  style: textStyle(Colors.black, screenWidth / 24)
-              ),
-              Text('es',
-                  style: textStyle(Colors.red, screenWidth / 24)
-              ),
-              Text('?',
-                  style: textStyle(Colors.black, screenWidth / 24)
-              )
-            ],
-          ),
-        ],
-      );
-    }
-  }
-
-  playAudio(String path) async {
-    stopAudio();
-    audioPlayer = await audioCache.play(path);
-  }
-  stopAudio() {
-    audioPlayer.stop();
+    return answers[index][temp];
   }
 }
 
 
 double screenHeight, screenWidth;
 var random = new Random();
-
 
 
 Padding padding(String text, double size) {

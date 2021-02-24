@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointTen.dart';
+import 'package:hearatale_literacy_app/main.dart';
 
 
 void main() {
@@ -75,7 +77,13 @@ class FourPointTen extends State<FourPointTenLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => MyApp(),
+                              transitionDuration: Duration(seconds: 0)
+                          ), (route) => false);
+                    },
                   )
               ),
               Spacer(flex: 5),
@@ -83,7 +91,15 @@ class FourPointTen extends State<FourPointTenLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => QuizFourPointTen(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
+                      }
                   )
               ),
               Material(

@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/five/quiz/QuizFivePointOne.dart';
+import 'package:hearatale_literacy_app/main.dart';
 
 
 void main() {
@@ -82,7 +84,13 @@ class FivePointOne extends State<FivePointOneLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => MyApp(),
+                              transitionDuration: Duration(seconds: 0)
+                          ), (route) => false);
+                    },
                   )
               ),
               Spacer(flex: 5),
@@ -90,7 +98,15 @@ class FivePointOne extends State<FivePointOneLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => QuizFivePointOne(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
+                      }
                   )
               ),
               Material(

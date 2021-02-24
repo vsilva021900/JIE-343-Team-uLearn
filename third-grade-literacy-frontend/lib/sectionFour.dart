@@ -1,3 +1,5 @@
+import 'package:hearatale_literacy_app/main.dart';
+
 import 'testing.dart';
 import 'package:flutter/material.dart';
 import 'FourPointOneLesson.dart';
@@ -10,6 +12,7 @@ import 'FourPointSevenLesson.dart';
 import 'FourPointEightLesson.dart';
 import 'FourPointNineLesson.dart';
 import 'FourPointTenLesson.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFour.dart';
 
 class MainFour extends StatelessWidget {
   @override
@@ -50,7 +53,13 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                   icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => MyApp(),
+                            transitionDuration: Duration(seconds: 0)
+                        ), (route) => false);
+                  },
                 )
             ),
             Spacer(flex: 5),
@@ -58,7 +67,14 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => QuizFour(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );}
                 )
             ),
             Material(
