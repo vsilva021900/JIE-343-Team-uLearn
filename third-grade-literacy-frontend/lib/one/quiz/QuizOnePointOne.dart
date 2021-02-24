@@ -37,6 +37,7 @@ class QuizState extends State<QuizOnePointOne> {
 
     if (prevCorrect < 0) {
       audioCache.load(questionAudio);
+      playAudio();
     }
 
     return MaterialApp(

@@ -35,6 +35,11 @@ class QuizState extends State<QuizTwoPointSix> {
     answerOrder.shuffle();
     attempt = 0;
 
+    if (prevCorrect < 0) {
+      audioCache.load(questionAudio);
+      playAudio();
+    }
+
     return MaterialApp(
         home: Material(
             child: Row(

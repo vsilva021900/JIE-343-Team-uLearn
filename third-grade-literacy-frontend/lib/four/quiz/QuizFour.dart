@@ -132,6 +132,7 @@ class QuizState extends State<QuizFour> {
 
     if (prevCorrect < 0) {
       audioCache.loadAll(questionAudio);
+      playAudio(questionAudio[0]);
     }
 
     return MaterialApp(
