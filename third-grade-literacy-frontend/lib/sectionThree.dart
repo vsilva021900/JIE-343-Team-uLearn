@@ -6,7 +6,6 @@ import 'ThreePointOneLesson.dart';
 import 'ThreePointTwoLesson.dart';
 import 'ThreePointThreeLesson.dart';
 import 'ThreePointFourLesson.dart';
-import 'package:hearatale_literacy_app/three/quiz/QuizThree.dart';
 
 class MainThree extends StatelessWidget {
   @override
@@ -61,14 +60,7 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => QuizThree(),
-                              transitionDuration: Duration(seconds: 0)
-                          )
-                      );}
+                    onPressed: () {}
                 )
             ),
             Material(
