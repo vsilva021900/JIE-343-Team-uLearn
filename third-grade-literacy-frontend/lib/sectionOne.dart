@@ -6,6 +6,8 @@ import 'OnePointTwoLesson.dart';
 import 'OnePointThreeLesson.dart';
 import 'OnePointFourLesson.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/one/quiz/QuizOne.dart';
+
 
 class MainOne extends StatelessWidget {
   @override
@@ -60,7 +62,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => QuizOne(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    }
                 )
             ),
             Material(
