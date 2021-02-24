@@ -1,6 +1,7 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/main.dart';
 
 
 void main() {
@@ -73,6 +74,11 @@ class OnePointOne extends State<OnePointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
+                      Navigator.pushAndRemoveUntil(context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => MyApp(),
+                              transitionDuration: Duration(seconds: 0)
+                          ), (route) => false);
                     },
                   )
               ),
