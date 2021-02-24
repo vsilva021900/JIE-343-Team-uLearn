@@ -1,6 +1,10 @@
 import 'dart:math';
 
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/main.dart';
 
 class QuizTwo extends StatefulWidget {
   @override
@@ -35,6 +39,13 @@ class QuizState extends State<QuizTwo> {
       ['climb', 'drop', 'hear', 'nap', 'protect', 'see', 'throw', 'yell']
     ]
   ];
+  var questionAudio = [
+    'dropbox/sectionTwo/TwoPointOne/#2.1_QwhichactionwordjustaddsS.mp3', // 2.1
+    'dropbox/sectionTwo/TwoPointTwo/#2.2_QwhichlastlettertoIandaddsES.mp3', // 2.2
+    '#2.3_Q_whichwordjustaddsES.mp3' // 2.3 - 2.6
+  ];
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
@@ -51,6 +62,10 @@ class QuizState extends State<QuizTwo> {
     answerOrder.shuffle();
     attempt = 0;
     counter = (counter + 1) % 3;
+
+    if (prevCorrect < 0) {
+      audioCache.loadAll(questionAudio);
+    }
 
     return MaterialApp(
         home: Material(
@@ -77,6 +92,7 @@ class QuizState extends State<QuizTwo> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -85,7 +101,14 @@ class QuizState extends State<QuizTwo> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
+                    onPressed: () {
+                      stopAudio();
+                      Navigator.pushAndRemoveUntil(context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => MyApp(),
+                              transitionDuration: Duration(seconds: 0)
+                          ), (route) => false);
+                    },
                   )
               ),
               Spacer(flex: 5),
@@ -94,7 +117,7 @@ class QuizState extends State<QuizTwo> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        // audioCache.play(music[tracker]);
+                        playAudio(questionAudio[counter]);
                       }
                   )
               ),
@@ -129,6 +152,7 @@ class QuizState extends State<QuizTwo> {
                           // increase correct answer streak
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       // choice is not correct
@@ -152,6 +176,7 @@ class QuizState extends State<QuizTwo> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -177,6 +202,7 @@ class QuizState extends State<QuizTwo> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -197,6 +223,7 @@ class QuizState extends State<QuizTwo> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -239,7 +266,7 @@ class QuizState extends State<QuizTwo> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('which action word add only ',
+              Text('which action word adds only ',
                   style: textStyle(Colors.black, screenWidth / 24)
               ),
               Text('s',
@@ -306,11 +333,20 @@ class QuizState extends State<QuizTwo> {
       );
     }
   }
+
+  playAudio(String path) async {
+    stopAudio();
+    audioPlayer = await audioCache.play(path);
+  }
+  stopAudio() {
+    audioPlayer.stop();
+  }
 }
 
 
 double screenHeight, screenWidth;
 var random = new Random();
+
 
 
 Padding padding(String text, double size) {

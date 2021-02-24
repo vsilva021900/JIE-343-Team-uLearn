@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/main.dart';
 
 class QuizFour extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class QuizFour extends StatefulWidget {
 class QuizState extends State<QuizFour> {
   var answers = [
     // 4.1
-    [ ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicles'], // 4.1
+    [ ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicle'], // 4.1
       ['bus', 'dress', 'glass', 'guess', 'kiss', 'walrus', //4.2
       'blush', 'dish', 'splash', 'bush', 'eyelash', 'brush', 'radish', // 4.3
       'crutch', 'peach', 'itch', 'scratch', 'ostrich', 'watch'], // 4.4
@@ -26,7 +27,7 @@ class QuizState extends State<QuizFour> {
       'blush', 'dish', 'splash', 'bush', 'eyelash', 'brush', 'radish', // 4.3
       'crutch', 'peach', 'itch', 'scratch', 'ostrich', 'watch', // 4.4
       'box', 'six', 'fox', 'wax', 'lynx', 'mix'], // 4.5
-      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicles'], //4.1
+      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicle'], //4.1
       ['baby', 'fairy', 'spy', 'berry', 'fly', 'bunny', 'pony', // 4.6
         'elf', 'loaf', 'knife', 'thief', 'leaf', 'wolf'], //4.7
       ['child', 'mouse', 'foot', 'person', 'goose', 'tooth', 'man', 'woman', // 4.8
@@ -36,7 +37,7 @@ class QuizState extends State<QuizFour> {
     // 4.6
     [
       ['baby', 'fairy', 'spy', 'berry', 'fly', 'bunny', 'pony'], //4.6
-      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicles'], //4.1
+      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicle'], //4.1
       ['bus', 'dress', 'glass', 'guess', 'kiss', 'walrus', //4.2
         'blush', 'dish', 'splash', 'bush', 'eyelash', 'brush', 'radish', //4.3
       'crutch', 'peach', 'itch', 'scratch', 'ostrich', 'watch', //4.4
@@ -49,7 +50,7 @@ class QuizState extends State<QuizFour> {
     //4.7
     [
       ['elf', 'loaf', 'knife', 'thief', 'leaf', 'wolf'], //4.7
-      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicles'], //4.1
+      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicle'], //4.1
       ['bus', 'dress', 'glass', 'guess', 'kiss', 'walrus', //4.2
         'blush', 'dish', 'splash', 'bush', 'eyelash', 'brush', 'radish', //4.3
         'crutch', 'peach', 'itch', 'scratch', 'ostrich', 'watch', //4.4
@@ -62,7 +63,7 @@ class QuizState extends State<QuizFour> {
     //4.8
     [
       ['child', 'mouse', 'foot', 'person', 'goose', 'tooth', 'man', 'woman'], //4.8
-      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicles'], //4.1
+      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicle'], //4.1
       ['bus', 'dress', 'glass', 'guess', 'kiss', 'walrus', //4.2
         'blush', 'dish', 'splash', 'bush', 'eyelash', 'brush', 'radish', //4.3
         'crutch', 'peach', 'itch', 'scratch', 'ostrich', 'watch'], //4.4
@@ -72,7 +73,7 @@ class QuizState extends State<QuizFour> {
     ],
     [
       ['octopus', 'cactus', 'hippopotamus', 'rhinoceros'], //4.9
-      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicles'], //4.1
+      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicle'], //4.1
       ['bus', 'dress', 'glass', 'guess', 'kiss', 'walrus', //4.2
         'blush', 'dish', 'splash', 'bush', 'eyelash', 'brush', 'radish', //4.3
         'crutch', 'peach', 'itch', 'scratch', 'ostrich', 'watch'], //4.4
@@ -82,7 +83,7 @@ class QuizState extends State<QuizFour> {
     ],
     [
       ['aircraft', 'bison', 'moose', 'sheep', 'deer', 'elk', 'fish', 'jellyfish', 'watercraft'], //4.10
-      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicles'], //4.1
+      ['bubble', 'cookie', 'creature', 'frog', 'giraffe', 'puddle', 'stripe', 'vehicle'], //4.1
       ['bus', 'dress', 'glass', 'guess', 'kiss', 'walrus', //4.2
         'blush', 'dish', 'splash', 'bush', 'eyelash', 'brush', 'radish', //4.3
         'crutch', 'peach', 'itch', 'scratch', 'ostrich', 'watch', //4.4
@@ -149,7 +150,13 @@ class QuizState extends State<QuizFour> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => MyApp(),
+                              transitionDuration: Duration(seconds: 0)
+                          ), (route) => false);
+                    },
                   )
               ),
               Spacer(flex: 5),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/main.dart';
 import 'testing.dart';
 
 class MainEight extends StatelessWidget {
@@ -38,7 +39,13 @@ Widget sideBar(BuildContext context) {
             Material(
                 child: IconButton(
                   icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => MyApp(),
+                            transitionDuration: Duration(seconds: 0)
+                        ), (route) => false);
+                  },
                 )
             ),
             Spacer(flex: 5),

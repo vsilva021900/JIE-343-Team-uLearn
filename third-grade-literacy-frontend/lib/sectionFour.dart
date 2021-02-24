@@ -1,3 +1,5 @@
+import 'package:hearatale_literacy_app/main.dart';
+
 import 'testing.dart';
 import 'package:flutter/material.dart';
 import 'FourPointOneLesson.dart';
@@ -51,7 +53,13 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                   icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => MyApp(),
+                            transitionDuration: Duration(seconds: 0)
+                        ), (route) => false);
+                  },
                 )
             ),
             Spacer(flex: 5),
