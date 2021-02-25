@@ -36,6 +36,7 @@ class QuizState extends State<QuizThreePointThree> {
     attempt = 0;
 
     if (prevCorrect < 0) {
+      playAudio();
       audioCache.load(questionAudio);
     }
 

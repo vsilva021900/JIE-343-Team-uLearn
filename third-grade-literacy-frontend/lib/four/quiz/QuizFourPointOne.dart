@@ -42,6 +42,7 @@ class QuizState extends State<QuizFourPointOne> {
     attempt = 0;
 
     if (prevCorrect < 0) {
+      playAudio();
       audioCache.load(questionAudio);
     }
 

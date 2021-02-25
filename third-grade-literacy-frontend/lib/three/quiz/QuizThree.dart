@@ -66,6 +66,11 @@ class QuizState extends State<QuizThree> {
     attempt = 0;
     counter = (counter + 1) % 4;
 
+    if (prevCorrect < 0) {
+      playAudio(questionAudio[0]);
+      audioCache.loadAll(questionAudio);
+    }
+
     return MaterialApp(
         home: Material(
             child: Row(
