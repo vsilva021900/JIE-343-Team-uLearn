@@ -1,9 +1,5 @@
-import 'dart:async';
-//import 'dart:html';
-import 'dart:io';
-
-import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/four/quiz/QuizFourPointTen.dart';
 import 'package:hearatale_literacy_app/main.dart';
@@ -20,8 +16,8 @@ class FourPointTenLesson extends StatefulWidget {
   FourPointTen createState() => FourPointTen();
 }
 class FourPointTen extends State<FourPointTenLesson> {
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionFour/FourPointTen/aircraft.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/bison.png'),
     Image.asset('assets/dropbox/sectionFour/FourPointTen/deer.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/elk.png'),
     Image.asset('assets/dropbox/sectionFour/FourPointTen/fish.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/jellyfish.png'),
@@ -107,7 +103,8 @@ class FourPointTen extends State<FourPointTenLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        audioCache.play(music[tracker]);
+                        stopAudio();
+                        playAudio(music[tracker]);
                       }
                   )
               ),
@@ -163,7 +160,8 @@ class FourPointTen extends State<FourPointTenLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker]);
+                          stopAudio();
+                          playAudio(music[tracker]);
                         },
                       ),
                     ),
@@ -181,7 +179,8 @@ class FourPointTen extends State<FourPointTenLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
+                          stopAudio();
+                          playAudio(music[tracker]);
                         },
                       ),
                     ),
@@ -208,5 +207,12 @@ class FourPointTen extends State<FourPointTenLesson> {
       fontFamily: 'Comic',
       fontSize: size,
     );
+  }
+  playAudio(String path) async {
+    stopAudio();
+    audioPlayer = await audioCache.play(path);
+  }
+  stopAudio() {
+    audioPlayer.stop();
   }
 }
