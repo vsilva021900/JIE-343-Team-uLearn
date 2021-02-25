@@ -105,8 +105,8 @@ class FourPointOne extends State<FourPointOneLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, _, __) => QuizFourPointOne(),
-                              transitionDuration: Duration(seconds: 0)
+                                pageBuilder: (context, _, __) => QuizFourPointOne(),
+                                transitionDuration: Duration(seconds: 0)
                             )
                         );
                       }
