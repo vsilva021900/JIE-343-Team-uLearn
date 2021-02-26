@@ -119,26 +119,30 @@ class QuizState extends State<QuizFourPointSix> {
           children: [
             Column(
               children: [
-                Text('Which base word changes the last letter to ',
-                    style: textStyle(Colors.black, screenWidth / 24)
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Which base word changes the last letter to ',
+                          style: textStyle(Colors.black, screenWidth / 24)
+                      ),
+                      Text('i',
+                          style: textStyle(Colors.red, screenWidth / 24)
+                      ),
+                    ]
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('i',
-                        style: textStyle(Colors.red[900], screenWidth / 24)
-                    ),
-                    Text(' and adds ',
+                    Text('and adds ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
                     Text('es',
                         style: textStyle(Colors.red, screenWidth / 24)
+                    ),
+                    Text(' to turn the word into a plural?',
+                        style: textStyle(Colors.black, screenWidth / 24)
                     )
                   ],
-                ),
-
-                Text('to turn the word into a plural?',
-                    style: textStyle(Colors.black, screenWidth / 24)
                 ),
               ],
             ),

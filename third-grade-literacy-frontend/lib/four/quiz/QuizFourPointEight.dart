@@ -117,12 +117,25 @@ class QuizState extends State<QuizFourPointEight> {
           children: [
             Column(
               children: [
-                Text('Which special base word doesnt make regular changes to turn ',
+                Text("Which special base word doesn’t make",
                     style: textStyle(Colors.black, screenWidth / 24)
                 ),
-                Text('into a plural, so we can have to remember the plural word?',
-                    style: textStyle(Colors.black, screenWidth / 24)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('regular changes to turn into a plural, so we',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    )
+                  ],
                 ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('just have to remember the plural word?',
+                          style: textStyle(Colors.black, screenWidth / 24)
+                      )
+                    ]
+                )
               ],
             ),
             Row(

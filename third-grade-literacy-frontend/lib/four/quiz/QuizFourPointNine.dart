@@ -118,36 +118,38 @@ class QuizState extends State<QuizFourPointNine> {
             Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Which fun words change  ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('us ',
-                        style: textStyle(Colors.green, screenWidth / 24)
-                    ),
-                    Text(' or ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('os',
-                        style: textStyle(Colors.green, screenWidth / 24)
-                    ),
-                  ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Which fun words change ',
+                          style: textStyle(Colors.black, screenWidth / 24)
+                      ),
+                      Text('us ',
+                          style: textStyle(Colors.green, screenWidth / 24)
+                      ),
+                      Text('or ',
+                          style: textStyle(Colors.black, screenWidth / 24)
+                      ),
+                      Text('os ',
+                          style: textStyle(Colors.green, screenWidth / 24)
+                      ),
+                      Text('at the end of',
+                          style: textStyle(Colors.black, screenWidth / 24)
+                      ),
+                    ]
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(' at the end of the base word into  ',
+                    Text('the base word into ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text(' i   ',
+                    Text('i ',
                         style: textStyle(Colors.red, screenWidth / 24)
-                    )
+                    ),
+                    Text('to make a plural?',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
                   ],
-                ),
-
-                Text('to make a plural?',
-                    style: textStyle(Colors.black, screenWidth / 24)
                 ),
               ],
             ),
