@@ -119,25 +119,26 @@ class QuizState extends State<QuizFourPointFour> {
             Column(
               children: [
                 Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Which base word just adds ',
+                          style: textStyle(Colors.black, screenWidth / 24)
+                      ),
+                      Text('es',
+                          style: textStyle(Colors.red, screenWidth / 24)
+                      ),
+                      Text(' and makes no',
+                          style: textStyle(Colors.black, screenWidth / 24)
+                      ),
+                    ]
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Which base word just adds ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('es',
-                        style: textStyle(Colors.red, screenWidth / 24)
-                    ),
-                    Text(' and',
+                    Text('other change to turn the word into a plural?',
                         style: textStyle(Colors.black, screenWidth / 24)
                     )
                   ],
-                ),
-
-                Text('makes no other change to turn the word',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Text('into a plural?',
-                    style: textStyle(Colors.black, screenWidth / 24)
                 ),
               ],
             ),
