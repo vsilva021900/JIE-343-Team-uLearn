@@ -1,7 +1,8 @@
 import 'package:hearatale_literacy_app/main.dart';
 
-import 'testing.dart';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audio_cache.dart';
 import 'FourPointOneLesson.dart';
 import 'FourPointTwoLesson.dart';
 import 'FourPointThreeLesson.dart';
@@ -11,7 +12,7 @@ import 'FourPointSixLesson.dart';
 import 'FourPointSevenLesson.dart';
 import 'FourPointEightLesson.dart';
 import 'FourPointNineLesson.dart';
-import 'FourPointTenLesson.dart';
+import 'four/FourPointTenLesson.dart';
 import 'package:hearatale_literacy_app/four/quiz/QuizFour.dart';
 
 class MainFour extends StatelessWidget {
@@ -33,7 +34,11 @@ class MainFour extends StatelessWidget {
         )
     );
   }
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = AudioPlayer();
+  String questionAudio = '4.10_somewordsdontchange.mp3';
 }
+
 
 Widget sideBar(BuildContext context) {
   return Container(
@@ -90,6 +95,16 @@ Widget sideBar(BuildContext context) {
 }
 
 Widget subSections(BuildContext context) {
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = AudioPlayer();
+  String questionAudio = '4.10_somewordsdontchange.mp3';
+  stopAudio() {
+    audioPlayer.stop();
+  }
+  playAudio(String path) async {
+    stopAudio();
+    audioPlayer = await audioCache.play(path);
+  }
   return Container(
       color: const Color(0xffccecf4),
       child: Column(
