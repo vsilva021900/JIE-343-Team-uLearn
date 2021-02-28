@@ -4,20 +4,19 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
+import 'package:hearatale_literacy_app/one/quiz/QuizOnePointFour.dart';
 
-class QuizTwoPointTwo extends StatefulWidget {
+class QuizOnePointFour extends StatefulWidget {
   @override
   QuizState createState() => QuizState();
 }
 
-class QuizState extends State<QuizTwoPointTwo> {
+class QuizState extends State<QuizOnePointFour> {
   var answers = [
-    ['bully', 'carry', 'cry', 'dirty', 'fly', 'spy', 'try'], // 2.2
-    ['help', 'jump', 'kick', 'sing', 'sleep', 'talk', 'think', 'work'], // 2.1
-    ['catch', 'hitch', 'scratch', 'teach', 'touch', 'watch', // 2.3
-    'guess', 'hiss', 'kiss', 'miss', 'pass', 'toss'], // 2.4
-    ['crash', 'fish', 'push', 'vanish', 'wash', 'wish', // 2.5
-    'box', 'fix', 'mix', 'relax', 'wax'] // 2.6
+    ['cry', 'try', 'carry', 'fry', 'empty', 'dirty'], // 1.4
+    ['dance', 'excite', 'tickle', 'bake', 'move', 'tumble'], // 1.3
+    ['nap', 'skip', 'hug', 'drop', 'fib', 'stop'], //1.2
+    ['fix', 'help', 'jump', 'own', 'paint', 'talk'], //1.1
   ];
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
@@ -27,7 +26,7 @@ class QuizState extends State<QuizTwoPointTwo> {
 
   AudioCache audioCache = new AudioCache();
   AudioPlayer audioPlayer = new AudioPlayer();
-  String questionAudio = 'dropbox/sectionTwo/TwoPointTwo/#2.2_QwhichlastlettertoIandaddsES.mp3';
+  String questionAudio = 'dropbox/sectionOne/OnePointFour/#1.4_QfinallettertoIbutjustaddsING.mp3';
 
   @override
   Widget build(BuildContext context) {
@@ -79,10 +78,10 @@ class QuizState extends State<QuizTwoPointTwo> {
                     onPressed: () {
                       stopAudio();
                       Navigator.pushAndRemoveUntil(context,
-                        PageRouteBuilder(
-                          pageBuilder: (context, _, __) => MyApp(),
-                          transitionDuration: Duration(seconds: 0)
-                        ), (route) => false);
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => MyApp(),
+                              transitionDuration: Duration(seconds: 0)
+                          ), (route) => false);
                     },
                   )
               ),
@@ -115,25 +114,39 @@ class QuizState extends State<QuizTwoPointTwo> {
           children: [
             Column(
               children: [
-                Text('To say someone or something does something,',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Text('which action word changes the final letter to',
+                Text('Which action word changes the final letter',
                     style: textStyle(Colors.black, screenWidth / 24)
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('i ',
-                        style: textStyle(Colors.red, screenWidth / 24)
-                    ),
-                    Text('and adds ',
+                    Text('to',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text('es',
+                    Text(' i ',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
-                    Text('?',
+                    Text('to add ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
+                    Text('ed',
+                        style: textStyle(Colors.red, screenWidth / 24)
+                    ),
+                    Text(', but keeps the final letter',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('to add ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
+                    Text('ing',
+                        style: textStyle(Colors.red, screenWidth / 24)
+                    ),
+                    Text(' to the base word?',
                         style: textStyle(Colors.black, screenWidth / 24)
                     )
                   ],
@@ -145,51 +158,51 @@ class QuizState extends State<QuizTwoPointTwo> {
               children: [
                 // Box 0
                 GestureDetector(
-                  onTap: () {
-                    // if the choice is correct
-                    if (answerOrder[0] == 0) {
-                      // if this is the first try
-                      if (attempt == 0) {
-                        // increase correct answer streak
-                        streak += 1;
+                    onTap: () {
+                      // if the choice is correct
+                      if (answerOrder[0] == 0) {
+                        // if this is the first try
+                        if (attempt == 0) {
+                          // increase correct answer streak
+                          streak += 1;
+                        }
+                        stopAudio();
+                        setState(() {});
                       }
-                      stopAudio();
-                      setState(() {});
-                    }
-                    // choice is not correct
-                    else {
-                      // increment attempt counter
-                      attempt += 1;
-                      // reset correct answer streak
-                      streak = 0;
-                    }
-                  },
-                  child: Container(
-                    width: screenWidth * 0.3,
-                    decoration: boxDecoration(),
-                    child: padding(getChoice(0), screenWidth / 24)
-                  )
+                      // choice is not correct
+                      else {
+                        // increment attempt counter
+                        attempt += 1;
+                        // reset correct answer streak
+                        streak = 0;
+                      }
+                    },
+                    child: Container(
+                        width: screenWidth * 0.3,
+                        decoration: boxDecoration(),
+                        child: padding(getChoice(0), screenWidth / 24)
+                    )
                 ),
                 // Box 1
                 GestureDetector(
-                  onTap: () {
-                    if (answerOrder[1] == 0) {
-                      if (attempt == 0) {
-                        streak += 1;
+                    onTap: () {
+                      if (answerOrder[1] == 0) {
+                        if (attempt == 0) {
+                          streak += 1;
+                        }
+                        stopAudio();
+                        setState(() {});
                       }
-                      stopAudio();
-                      setState(() {});
-                    }
-                    else {
-                      attempt += 1;
-                      streak = 0;
-                    }
-                  },
-                  child: Container(
-                    width: screenWidth * 0.3,
-                    decoration: boxDecoration(),
-                    child: padding(getChoice(1), screenWidth / 24)
-                  )
+                      else {
+                        attempt += 1;
+                        streak = 0;
+                      }
+                    },
+                    child: Container(
+                        width: screenWidth * 0.3,
+                        decoration: boxDecoration(),
+                        child: padding(getChoice(1), screenWidth / 24)
+                    )
                 ),
               ],
             ),
@@ -198,45 +211,45 @@ class QuizState extends State<QuizTwoPointTwo> {
               children: [
                 // Box 2
                 GestureDetector(
-                  onTap: () {
-                    if (answerOrder[2] == 0) {
-                      if (attempt == 0) {
-                        streak += 1;
+                    onTap: () {
+                      if (answerOrder[2] == 0) {
+                        if (attempt == 0) {
+                          streak += 1;
+                        }
+                        stopAudio();
+                        setState(() {});
                       }
-                      stopAudio();
-                      setState(() {});
-                    }
-                    else {
-                      attempt += 1;
-                      streak = 0;
-                    }
-                  },
-                  child: Container(
-                    width: screenWidth * 0.3,
-                    decoration: boxDecoration(),
-                    child: padding(getChoice(2), screenWidth / 24)
-                  )
+                      else {
+                        attempt += 1;
+                        streak = 0;
+                      }
+                    },
+                    child: Container(
+                        width: screenWidth * 0.3,
+                        decoration: boxDecoration(),
+                        child: padding(getChoice(2), screenWidth / 24)
+                    )
                 ),
                 // Box 3
                 GestureDetector(
-                  onTap: () {
-                    if (answerOrder[3] == 0) {
-                      if (attempt == 0) {
-                        streak += 1;
+                    onTap: () {
+                      if (answerOrder[3] == 0) {
+                        if (attempt == 0) {
+                          streak += 1;
+                        }
+                        stopAudio();
+                        setState(() {});
                       }
-                      stopAudio();
-                      setState(() {});
-                    }
-                    else {
-                      attempt += 1;
-                      streak = 0;
-                    }
-                  },
-                  child: Container(
-                    width: screenWidth * 0.3,
-                    decoration: boxDecoration(),
-                    child: padding(getChoice(3), screenWidth / 24)
-                  )
+                      else {
+                        attempt += 1;
+                        streak = 0;
+                      }
+                    },
+                    child: Container(
+                        width: screenWidth * 0.3,
+                        decoration: boxDecoration(),
+                        child: padding(getChoice(3), screenWidth / 24)
+                    )
                 ),
               ],
             )

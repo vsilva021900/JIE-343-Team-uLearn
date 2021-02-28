@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class QuizFour extends StatefulWidget {
   @override
@@ -94,6 +96,17 @@ class QuizState extends State<QuizFour> {
         'elf', 'loaf', 'knife', 'thief', 'leaf', 'wolf'] //4.7
     ]
   ];
+  var questionAudio = [
+    'dropbox/sectionFour/FourPointOne/#4.1_QwhichjustaddsStoturnwordtoplural.mp3', // 4.1
+    'dropbox/sectionFour/FourPointThree/#4.3_Q_whichwordjustaddsES.mp3', // 4.2 - 4.5
+    'dropbox/sectionFour/FourPointSix/#4.6_QchangeslastlettertoIandaddsES.mp3', //4.6
+    'dropbox/sectionFour/FourPointSeven/#4.7_QchangeslastlettertoVaddsES.mp3', //4.7
+    'dropbox/sectionFour/FourPointEight/#4.8_Qwhichirregularneedtoremember.mp3', //4.8
+    'dropbox/sectionFour/FourPointNine/#4.9_QwhichfunwordschangetoItomakeaplural.mp3', //4.9
+    'dropbox/sectionFour/FourPointTen/##4.10_QwhichsameforSingularandPlural.mp3' //4.10
+  ];
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
@@ -115,6 +128,11 @@ class QuizState extends State<QuizFour> {
       counter = 0;
     } else {
       counter = counter + 1;
+    }
+
+    if (prevCorrect < 0) {
+      audioCache.loadAll(questionAudio);
+      playAudio(questionAudio[0]);
     }
 
     return MaterialApp(
@@ -142,6 +160,7 @@ class QuizState extends State<QuizFour> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -151,6 +170,7 @@ class QuizState extends State<QuizFour> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pushAndRemoveUntil(context,
                           PageRouteBuilder(
                               pageBuilder: (context, _, __) => MyApp(),
@@ -165,7 +185,7 @@ class QuizState extends State<QuizFour> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        // audioCache.play(music[tracker]);
+                        playAudio(questionAudio[counter]);
                       }
                   )
               ),
@@ -200,6 +220,7 @@ class QuizState extends State<QuizFour> {
                           // increase correct answer streak
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       // choice is not correct
@@ -223,6 +244,7 @@ class QuizState extends State<QuizFour> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -248,6 +270,7 @@ class QuizState extends State<QuizFour> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -268,6 +291,7 @@ class QuizState extends State<QuizFour> {
                         if (attempt == 0) {
                           streak += 1;
                         }
+                        stopAudio();
                         setState(() {});
                       }
                       else {
@@ -506,6 +530,13 @@ class QuizState extends State<QuizFour> {
         ],
       );
     }
+  }
+  playAudio(String path) async {
+    stopAudio();
+    audioPlayer = await audioCache.play(path);
+  }
+  stopAudio() {
+    audioPlayer.stop();
   }
 }
 

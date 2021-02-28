@@ -1,49 +1,57 @@
 import 'dart:math';
-import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
+
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/main.dart';
 
-class QuizFivePointOne extends StatefulWidget {
+class QuizOne extends StatefulWidget {
   @override
   QuizState createState() => QuizState();
 }
 
-class QuizState extends State<QuizFivePointOne> {
+class QuizState extends State<QuizOne> {
   var answers = [
-    ["the boot's bootstring", "the child's book",
-      "the dog's hot dog", "the dress's collar", "the elf's lantern",
-      "the firefly's head", "the flower's stem", "the foot's toenails",
-      "the fox's tail", "the goose's feet", "the man's saw",
-      "the mouse's nose", "the peach's seed", "the person's guitar",
-      "the tooth's point", "the woman's headband", "the worker's hardhat",
-    ], // 5.1
-    ["the boots' tongues", "the dogs' leashes",
-      "the dresses' sleeves", "the elves' caps", "the fireflies' tails",
-      "the flowers' leaves", "the foxes' noses", "the peaches' stems",
-      "the workers' tools"
+    // 1.1
+    [ ['fix', 'help', 'jump', 'own', 'paint', 'talk'], // 1.1
+      ['nap', 'skip', 'hug', 'drop', 'fib', 'stop'], // 1.2
+      ['dance', 'excite', 'tickle', 'bake', 'move', 'tumble'], // 1.3
+      ['cry', 'try', 'carry', 'fry', 'empty', 'dirty'] // 1.4
     ],
-    ["the children's teacher", "the feet's big toes",
-      "the geese's beaks", "the men's hands", "the mice's tails",
-      "the people's hands", "the teeth's color", "the women's faces"
+    // 1.2
+    [ ['nap', 'skip', 'hug', 'drop', 'fib', 'stop'], // 1.2
+      ['fix', 'help', 'jump', 'own', 'paint', 'talk'], // 1.1
+      ['dance', 'excite', 'tickle', 'bake', 'move', 'tumble'], // 1.3
+      ['cry', 'try', 'carry', 'fry', 'empty', 'dirty'] // 1.4
     ],
-    ["he'll", "I'll",
-      "she'll", "they'll", "we'll",
-      "you'll", "couldn't", "isn't",
-      "weren't", "can't", "didn't",
-      "doesn't", "shouldn't", "wasn't",
-      "won't", "wouldn't"
-    ]
+    // 1.3
+    [ ['dance', 'excite', 'tickle', 'bake', 'move', 'tumble'], // 1.3
+      ['fix', 'help', 'jump', 'own', 'paint', 'talk'], // 1.1
+      ['nap', 'skip', 'hug', 'drop', 'fib', 'stop'], // 1.2
+      ['cry', 'try', 'carry', 'fry', 'empty', 'dirty'] // 1.4
+    ],
+    [ ['cry', 'try', 'carry', 'fry', 'empty', 'dirty'], // 1.4
+      ['dance', 'excite', 'tickle', 'bake', 'move', 'tumble'], // 1.3
+      ['fix', 'help', 'jump', 'own', 'paint', 'talk'], // 1.1
+      ['nap', 'skip', 'hug', 'drop', 'fib', 'stop'], // 1.2
+    ],
   ];
+  var questionAudio = [
+    'dropbox/sectionOne/OnePointOne/#1.1_QwhichwordjustaddsEDorING.mp3', // 1.1
+    'dropbox/sectionOne/OnePointTwo/#1.2_QwhichdoublesconsonantaddsEDorING.mp3', // 1.2
+    'dropbox/sectionOne/OnePointThree/#1.3_QdropsfinalletterandaddsEDorING.mp3', // 1.3
+    'dropbox/sectionOne/OnePointFour/#1.4_QfinallettertoIbutjustaddsING.mp3' // 1.4
+  ];
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
   int streak = 0; // first try correct answer streak
   int attempt = 0; // how many tries before answering correctly
 
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
-  String questionAudio = 'dropbox/sectionFive/FivePointOne/##5.1_Qwhichmeansone_hassomething.mp3';
+  int counter = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +60,11 @@ class QuizState extends State<QuizFivePointOne> {
 
     answerOrder.shuffle();
     attempt = 0;
+    counter = (counter + 1) % 4;
 
     if (prevCorrect < 0) {
-      audioCache.load(questionAudio);
-      playAudio();
+      audioCache.loadAll(questionAudio);
+      playAudio(questionAudio[0]);
     }
 
     return MaterialApp(
@@ -108,7 +117,7 @@ class QuizState extends State<QuizFivePointOne> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        playAudio();
+                        playAudio(questionAudio[counter]);
                       }
                   )
               ),
@@ -129,21 +138,7 @@ class QuizState extends State<QuizFivePointOne> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
-              children: [
-                Text('Which means one person or thing has',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('something?',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    )
-                  ],
-                ),
-              ],
-            ),
+            getQuestion(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -251,18 +246,152 @@ class QuizState extends State<QuizFivePointOne> {
 
   String getChoice(int boxNum) {
     int index = answerOrder[boxNum];
-    int temp = random.nextInt(answers[index].length);
+    int temp = random.nextInt(answers[counter][index].length);
     if (index == 0) {
       while (prevCorrect == temp) {
-        temp = random.nextInt(answers[0].length);
+        temp = random.nextInt(answers[counter][0].length);
       }
       prevCorrect = temp;
     }
-    return answers[index][temp];
+    return answers[counter][index][temp];
   }
-  playAudio() async {
+
+  Column getQuestion() {
+    if (counter == 0) {
+      return Column(
+        children: [
+          Text('Which word makes no other change but just',
+              style: textStyle(Colors.black, screenWidth / 24)
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('adds ',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text('ed ',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text('or ',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text('ing ',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text('to the base word?',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+            ],
+          ),
+        ],
+      );
+    }
+    else if (counter == 1) {
+      return Column(
+        children: [
+          Text('Which word doubles the final consonant and',
+              style: textStyle(Colors.black, screenWidth / 24)
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('adds ',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text('ed ',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text('or ',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text('ing ',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text('to the base word?',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+            ],
+          ),
+        ],
+      );
+    }
+    else if (counter == 2){
+      return Column(
+        children: [
+          Text('Which action word drops the final letter',
+              style: textStyle(Colors.black, screenWidth / 24)
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('and adds ',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text('ed ',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text('or ',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text('ing ',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text('to the base word?',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+            ],
+          ),
+        ],
+      );
+    }
+    else {
+      return Column(
+        children: [
+          Text('Which action word changes the final letter',
+              style: textStyle(Colors.black, screenWidth / 24)
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('to',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text(' i ',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text('to add ',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text('ed',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text(', but keeps the final letter',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('to add ',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              ),
+              Text('ing',
+                  style: textStyle(Colors.red, screenWidth / 24)
+              ),
+              Text(' to the base word?',
+                  style: textStyle(Colors.black, screenWidth / 24)
+              )
+            ],
+          ),
+        ],
+      );
+    }
+  }
+
+  playAudio(String path) async {
     stopAudio();
-    audioPlayer = await audioCache.play(questionAudio);
+    audioPlayer = await audioCache.play(path);
   }
   stopAudio() {
     audioPlayer.stop();
@@ -272,6 +401,7 @@ class QuizState extends State<QuizFivePointOne> {
 
 double screenHeight, screenWidth;
 var random = new Random();
+
 
 
 Padding padding(String text, double size) {
