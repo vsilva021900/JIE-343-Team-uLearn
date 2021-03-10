@@ -7,7 +7,7 @@ class StreakFive {
   static List<int> maxStreak = [0, 0, 0, 0];
 
   static correct(int index) {
-    if (maxStreak[index] < 5) {
+    if (maxStreak[index] < 5 && maxStreak[index] == streak[index]) {
       maxStreak[index] += 1;
     }
     if (streak[index] < 5) {
@@ -16,7 +16,7 @@ class StreakFive {
   }
 
   static incorrect(int index) {
-    if (streak[index] > 0) {
+    if (streak[index] > 0 && streak[index] != 5) {
       streak[index] -= 1;
     }
   }
@@ -32,7 +32,7 @@ class StreakFive {
   static var _imagePaths = [
     // 0 gold
     ["", "assets/stars/one_silver.png", "assets/stars/two_silver.png", "assets/stars/three_silver.png",
-      "assets/stars/four_silver.png", "assets/stars/five_silver.png"],
+      "assets/stars/four_silver.png"],
     // 1 gold
     ["assets/stars/one_gold.png", "assets/stars/one_gold_one_silver.png", "assets/stars/one_gold_two_silver.png",
       "assets/stars/one_gold_three_silver.png", "assets/stars/one_gold_four_silver.png"],
