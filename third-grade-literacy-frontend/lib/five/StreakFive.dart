@@ -5,19 +5,26 @@ class StreakFive {
   // [3] -> 5.3
   static List<int> streak = [0, 0, 0, 0];
   static List<int> maxStreak = [0, 0, 0, 0];
+  static List<bool> checkmark = [false, false, false, false];
 
   static correct(int index) {
-    if (maxStreak[index] < 5 && maxStreak[index] == streak[index]) {
-      maxStreak[index] += 1;
-    }
-    if (streak[index] < 5) {
+    if (!checkmark[index]) {
+      if (maxStreak[index] == streak[index]) {
+        maxStreak[index] += 1;
+      }
       streak[index] += 1;
+
+      if (streak[index] == 5 && maxStreak[index] == 5) {
+        checkmark[index] = true;
+      }
     }
   }
 
   static incorrect(int index) {
-    if (streak[index] > 0 && streak[index] != 5) {
-      streak[index] -= 1;
+    if (!checkmark[index]) {
+      if (streak[index] > 0) {
+        streak[index] -= 1;
+      }
     }
   }
 
