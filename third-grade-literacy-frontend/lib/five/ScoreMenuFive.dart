@@ -83,16 +83,7 @@ Widget sub(BuildContext context) {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              color: Colors.black,
-              width: screenWidth / 4,
-              height: screenHeight / 12
-            ),
-            Container(
-                color: Colors.green,
-                width: screenWidth / 11,
-                height: screenHeight / 12
-            ),
+            starsAndCheck(1),
             Row(
               children: [
                 Text('5.1  singular possessives just add ',
@@ -111,11 +102,7 @@ Widget sub(BuildContext context) {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-                color: Colors.black,
-                width: screenWidth / 5,
-                height: screenHeight / 12
-            ),
+            starsAndCheck(2),
             Row(
               children: [
                 Text('5.2  plurals ending with ',
@@ -140,7 +127,7 @@ Widget sub(BuildContext context) {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            starImage(3),
+            starsAndCheck(3),
             Row(
               children: [
                 Text('5.3  irregular plurals add ',
@@ -155,6 +142,47 @@ Widget sub(BuildContext context) {
         ),
       ]
     )
+  );
+}
+
+Row starsAndCheck(int index) {
+  Container checkmark;
+  if (StreakFive.checkmark[index]) {
+    checkmark = Container(
+      constraints: BoxConstraints(maxWidth: screenHeight / 12, maxHeight: screenHeight / 12),
+      child: Image.asset("assets/stars/placeholder_checkmark.png",
+        fit: BoxFit.contain,
+      )
+    );
+  }
+  else {
+    checkmark = Container(
+      // color: Colors.green,
+      width: screenHeight / 12,
+      height: screenHeight / 12
+    );
+  }
+
+  return Row(
+    children: [
+      Container(
+        // color: Colors.black,
+        width: screenWidth / 40,
+        height: screenHeight / 12
+      ),
+      starImage(index),
+      Container(
+        // color: Colors.black,
+        width: screenWidth * 0.01,
+        height: screenHeight / 12
+      ),
+      checkmark,
+      Container(
+          // color: Colors.black,
+          width: screenWidth / 40,
+          height: screenHeight / 12
+      )
+    ],
   );
 }
 
