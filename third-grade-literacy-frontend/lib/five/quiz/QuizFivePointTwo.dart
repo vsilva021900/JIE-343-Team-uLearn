@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
+import 'package:hearatale_literacy_app/five/StreakFive.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 
@@ -43,7 +44,7 @@ class QuizState extends State<QuizFivePointTwo> {
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int streak = 0; // first try correct answer streak
+  int index = 2; // for calling StreakFive methods
   int attempt = 0; // how many tries before answering correctly
 
   AudioCache audioCache = new AudioCache();
@@ -176,7 +177,7 @@ class QuizState extends State<QuizFivePointTwo> {
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
-                          streak += 1;
+                          StreakFive.correct(index);
                         }
                         stopAudio();
                         setState(() {});
@@ -186,7 +187,7 @@ class QuizState extends State<QuizFivePointTwo> {
                         // increment attempt counter
                         attempt += 1;
                         // reset correct answer streak
-                        streak = 0;
+                        StreakFive.incorrect(index);
                       }
                     },
                     child: Container(
@@ -200,14 +201,14 @@ class QuizState extends State<QuizFivePointTwo> {
                     onTap: () {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakFive.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakFive.incorrect(index);
                       }
                     },
                     child: Container(
@@ -226,14 +227,14 @@ class QuizState extends State<QuizFivePointTwo> {
                     onTap: () {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakFive.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakFive.incorrect(index);
                       }
                     },
                     child: Container(
@@ -247,14 +248,14 @@ class QuizState extends State<QuizFivePointTwo> {
                     onTap: () {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakFive.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakFive.incorrect(index);
                       }
                     },
                     child: Container(
