@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
+import 'package:hearatale_literacy_app/MainScoreMenu.dart';
 import 'package:hearatale_literacy_app/five/StreakFive.dart';
 
 class ScoreFive extends StatelessWidget {
@@ -67,8 +68,19 @@ Widget sub(BuildContext context) {
   return Container(
     child: Column(
       children: [
-        Text('Possessives',
-            style: textStyle(Colors.black, 30)
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, _, __) => MainScore(),
+                transitionDuration: Duration(seconds: 0)
+              )
+            );
+          },
+          child: Text('Possessives',
+              style: textStyle(Colors.black, 30)
+          )
         ),
         Container(
           height: screenHeight / 12
