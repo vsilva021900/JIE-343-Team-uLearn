@@ -234,6 +234,7 @@ flutter:
     - assets/dropbox/sectionFive/FivePointTwo/
     - assets/dropbox/sectionFive/FivePointThree/
     - assets/dropbox/wordStructuresMenu/
+    - assets/stars/
   fonts:
     - family: Comic
       fonts:

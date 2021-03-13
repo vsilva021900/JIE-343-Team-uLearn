@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'testing.dart';
 import 'sectionOne.dart';
 import 'sectionTwo.dart';
 import 'sectionThree.dart';
@@ -10,6 +9,7 @@ import 'sectionSeven.dart';
 import 'sectionEight.dart';
 import 'sectionNine.dart';
 import 'sectionTen.dart';
+import 'MainScoreMenu.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -68,7 +68,7 @@ Widget sideBar(BuildContext context) {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => MainScore(),
                             transitionDuration: Duration(seconds: 0)
                         )
                     );
