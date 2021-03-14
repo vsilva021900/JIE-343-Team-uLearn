@@ -13,6 +13,7 @@ import 'four/FourPointSevenLesson.dart';
 import 'four/FourPointEightLesson.dart';
 import 'four/FourPointNineLesson.dart';
 import 'four/FourPointTenLesson.dart';
+import 'four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/four/quiz/QuizFour.dart';
 
 class MainFour extends StatelessWidget {
@@ -87,13 +88,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                     Navigator.push(
+                         context,
+                         PageRouteBuilder(
+                             pageBuilder: (context, _, __) => ScoreFour(),
+                             transitionDuration: Duration(seconds: 0)
+                         )
+                     );
                   },
                 )
             ),
