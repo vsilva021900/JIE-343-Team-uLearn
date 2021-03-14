@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'TwoPointOneLesson.dart';
-import 'TwoPointTwoLesson.dart';
-import 'TwoPointThreeLesson.dart';
-import 'TwoPointFourLesson.dart';
-import 'TwoPointFiveLesson.dart';
-import 'TwoPointSixLesson.dart';
+import 'two/TwoPointOneLesson.dart';
+import 'two/TwoPointTwoLesson.dart';
+import 'two/TwoPointThreeLesson.dart';
+import 'two/TwoPointFourLesson.dart';
+import 'two/TwoPointFiveLesson.dart';
+import 'two/TwoPointSixLesson.dart';
 import 'package:hearatale_literacy_app/two/quiz/QuizTwo.dart';
 
 class MainTwo extends StatelessWidget {

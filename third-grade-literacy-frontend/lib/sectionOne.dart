@@ -1,10 +1,10 @@
 import 'package:hearatale_literacy_app/main.dart';
 
 import 'testing.dart';
-import 'OnePointOneLesson.dart';
-import 'OnePointTwoLesson.dart';
-import 'OnePointThreeLesson.dart';
-import 'OnePointFourLesson.dart';
+import 'one/OnePointOneLesson.dart';
+import 'one/OnePointTwoLesson.dart';
+import 'one/OnePointThreeLesson.dart';
+import 'one/OnePointFourLesson.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/one/quiz/QuizOne.dart';
 

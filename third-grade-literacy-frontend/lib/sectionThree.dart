@@ -2,10 +2,10 @@ import 'package:hearatale_literacy_app/main.dart';
 
 import 'testing.dart';
 import 'package:flutter/material.dart';
-import 'ThreePointOneLesson.dart';
-import 'ThreePointTwoLesson.dart';
-import 'ThreePointThreeLesson.dart';
-import 'ThreePointFourLesson.dart';
+import 'three/ThreePointOneLesson.dart';
+import 'three/ThreePointTwoLesson.dart';
+import 'three/ThreePointThreeLesson.dart';
+import 'three/ThreePointFourLesson.dart';
 import 'package:hearatale_literacy_app/three/quiz/QuizThree.dart';
 
 class MainThree extends StatelessWidget {
