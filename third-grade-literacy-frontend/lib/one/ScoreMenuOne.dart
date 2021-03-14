@@ -78,8 +78,22 @@ Widget sub(BuildContext context) {
                       )
                   );
                 },
-                child: Text('Base Words and Endings ed ing ',
-                    style: textStyle(Colors.black, 30)
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Base Words and Endings - ',
+                        style: textStyle(Colors.black, 30)
+                    ),
+                    Text('ed',
+                        style: textStyle(Colors.red, 30)
+                    ),
+                    Text(', ',
+                        style: textStyle(Colors.black, 30)
+                    ),
+                    Text('ing',
+                        style: textStyle(Colors.red, 30)
+                    ),
+                  ],
                 )
             ),
             Container(
