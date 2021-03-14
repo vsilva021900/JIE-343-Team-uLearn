@@ -1,8 +1,8 @@
 import 'package:hearatale_literacy_app/main.dart';
 
-import 'FivePointOneLesson.dart';
-import 'FivePointTwoLesson.dart';
-import 'FivePointThreeLesson.dart';
+import 'five/FivePointOneLesson.dart';
+import 'five/FivePointTwoLesson.dart';
+import 'five/FivePointThreeLesson.dart';
 import 'five/ScoreMenuFive.dart';
 import 'package:flutter/material.dart';
 
