@@ -114,7 +114,7 @@ Widget sub(BuildContext context) {
                     Text('for ',
                         style: textStyle(Colors.black, screenWidth / 32)
                     ),
-                    Text('most, ',
+                    Text('most',
                         style: textStyle(Colors.green, screenWidth / 32)
                     ),
                   ],
