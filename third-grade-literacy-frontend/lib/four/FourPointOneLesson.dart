@@ -1,41 +1,55 @@
+import 'dart:async';
+//import 'dart:html';
+import 'dart:io';
+
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/one/quiz/QuizOnePointOne.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointOne.dart';
 
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: OnePointOneLesson()
+      home: FourPointOneLesson()
   ));
 }
-class OnePointOneLesson extends StatefulWidget {
+class FourPointOneLesson extends StatefulWidget {
   @override
-  OnePointOne createState() => OnePointOne();
+  FourPointOne createState() => FourPointOne();
 }
-class OnePointOne extends State<OnePointOneLesson> {
+class FourPointOne extends State<FourPointOneLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointOne/fix.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/help.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/jump.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/own.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/paint.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointOne/talk.png')];
-  var words = [['fix', 'fixed', 'fixing'],
-    ['help', 'helped', "helping"],
-    ['jump', 'jumped', "jumping"],
-    ['own', 'owned', "owning"],
-    ['paint', 'painted', "painting"],
-    ['talk', 'talked', "talking"]];
-  var music = ["fix_fixed_fixing.mp3",
-    "help_helped_helping.mp3",
-    "jump_jumped_jumping.mp3",
-    "own_owned_owning.mp3",
-    "paint_painted_painting.mp3",
-    "talk_talked_talking.mp3"];
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointOne/bubble.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/bubbles.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointOne/cookie.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/cookies.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointOne/creature.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/creatures.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointOne/frog.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/frogs.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointOne/giraffe.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/giraffes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointOne/puddle.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/puddles.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointOne/stripe.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/stripes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointOne/vehicle.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/vehicles.png')]
+  ];
+  var words = [['bubble', 'bubbles'],
+    ['cookie', 'cookies'],
+    ['creature', 'creatures'],
+    ['frog', 'frogs'],
+    ['giraffe', 'giraffes'],
+    ['puddle', 'puddles'],
+    ['stripe', 'stripes'],
+    ['vehicles', 'vehicles']
+  ];
+  var music = ['bubble_bubbles.mp3',
+  'cookie_cookies.mp3',
+  'creature_creatures.mp3',
+  'frog_frogs.mp3',
+  'giraffe_giraffes.mp3',
+  'puddle_puddles.mp3',
+  'stripe_stripes.mp3',
+  'vehicles_vehicles.mp3'
+  ];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -92,7 +106,7 @@ class OnePointOne extends State<OnePointOneLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizOnePointOne(),
+                                pageBuilder: (context, _, __) => QuizFourPointOne(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -113,13 +127,13 @@ class OnePointOne extends State<OnePointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFour(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -143,19 +157,13 @@ class OnePointOne extends State<OnePointOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Many action words just add ',
+                  Text('Many base words just add ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   ),
-                  Text('ed ',
+                  Text('s ',
                       style: textStyle(Colors.red, screenWidth / 24)
                   ),
-                  Text('or ',
-                      style: textStyle(Colors.black, screenWidth / 24)
-                  ),
-                  Text('ing',
-                      style: textStyle(Colors.red, screenWidth / 24)
-                  ),
-                  Text(' to the',
+                  Text('and make no other',
                       style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
@@ -163,7 +171,7 @@ class OnePointOne extends State<OnePointOneLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(' base word without making any other changes.',
+                  Text('change to turn the base word into a plural.',
                       style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
@@ -186,7 +194,12 @@ class OnePointOne extends State<OnePointOneLesson> {
                   ),
                   Container(
                       height: screenHeight * 0.6,
-                      child: pictures[tracker],
+                      child: pictures[tracker][0],
+                      width: 200
+                  ),
+                  Container(
+                      height: screenHeight * 0.6,
+                      child: pictures[tracker][1],
                       width: 200
                   ),
                   Container(
@@ -214,10 +227,6 @@ class OnePointOne extends State<OnePointOneLesson> {
                   Container (
                       child:
                       Text(words[tracker][1], style: textStyle(Colors.black, 30))
-                  ),
-                  Container (
-                      child:
-                      Text(words[tracker][2], style: textStyle(Colors.black, 30))
                   )
                 ],
               )
@@ -234,4 +243,3 @@ class OnePointOne extends State<OnePointOneLesson> {
     );
   }
 }
-

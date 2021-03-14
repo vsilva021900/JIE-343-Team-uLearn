@@ -2,38 +2,41 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointTwo.dart';
+import 'package:hearatale_literacy_app/one/quiz/QuizOnePointOne.dart';
+import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
+
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: TwoPointTwoLesson()
+      home: OnePointOneLesson()
   ));
 }
-class TwoPointTwoLesson extends StatefulWidget {
+class OnePointOneLesson extends StatefulWidget {
   @override
-  TwoPointTwo createState() => TwoPointTwo();
+  OnePointOne createState() => OnePointOne();
 }
-class TwoPointTwo extends State<TwoPointTwoLesson> {
+class OnePointOne extends State<OnePointOneLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/bully.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/carry.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/cry.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/dirty.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/flies.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/spy.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/try.png')];
-  var words = [['bully', 'bullies'], ['carry', 'carries'],
-    ['cry', 'cries'], ['dirty', 'dirties'], ['fly', 'flies'],
-    ['spy', 'spies'], ['try', 'tries']];
-  var music = ["bully_bullies.mp3",
-    "carry_carries.mp3",
-    "cry_cries.mp3",
-    "dirty_dirties.mp3",
-    "fly_flies.mp3",
-    "spy_spies.mp3",
-    "try_tries.mp3"];
+  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointOne/fix.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/help.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/jump.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/own.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/paint.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointOne/talk.png')];
+  var words = [['fix', 'fixed', 'fixing'],
+    ['help', 'helped', "helping"],
+    ['jump', 'jumped', "jumping"],
+    ['own', 'owned', "owning"],
+    ['paint', 'painted', "painting"],
+    ['talk', 'talked', "talking"]];
+  var music = ["fix_fixed_fixing.mp3",
+    "help_helped_helping.mp3",
+    "jump_jumped_jumping.mp3",
+    "own_owned_owning.mp3",
+    "paint_painted_painting.mp3",
+    "talk_talked_talking.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -90,7 +93,7 @@ class TwoPointTwo extends State<TwoPointTwoLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizTwoPointTwo(),
+                                pageBuilder: (context, _, __) => QuizOnePointOne(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -111,13 +114,13 @@ class TwoPointTwo extends State<TwoPointTwoLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreOne(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -132,7 +135,6 @@ class TwoPointTwo extends State<TwoPointTwoLesson> {
         )
     );
   }
-
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -142,41 +144,36 @@ class TwoPointTwo extends State<TwoPointTwoLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words,',
-                      style: textStyle(Colors.black, screenWidth / 23)
+                  Text('Many action words just add ',
+                      style: textStyle(Colors.black, screenWidth / 24)
+                  ),
+                  Text('ed ',
+                      style: textStyle(Colors.red, screenWidth / 24)
+                  ),
+                  Text('or ',
+                      style: textStyle(Colors.black, screenWidth / 24)
+                  ),
+                  Text('ing',
+                      style: textStyle(Colors.red, screenWidth / 24)
+                  ),
+                  Text(' to the',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('base words that end with y change the y to ',
-                      style: textStyle(Colors.black, screenWidth / 23)
-                  ),
-                  Text('i ',
-                      style: textStyle(Colors.red, screenWidth / 23)
-                  ),
+                  Text(' base word without making any other changes.',
+                      style: textStyle(Colors.black, screenWidth / 24)
+                  )
                 ],
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('and add ',
-                        style: textStyle(Colors.black, screenWidth / 23)
-                    ),
-                    Text('es',
-                        style: textStyle(Colors.red, screenWidth / 23)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, 30)
-                    )
-                  ]
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -189,12 +186,12 @@ class TwoPointTwo extends State<TwoPointTwoLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.5,
+                      height: screenHeight * 0.6,
                       child: pictures[tracker],
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -218,6 +215,10 @@ class TwoPointTwo extends State<TwoPointTwoLesson> {
                   Container (
                       child:
                       Text(words[tracker][1], style: textStyle(Colors.black, 30))
+                  ),
+                  Container (
+                      child:
+                      Text(words[tracker][2], style: textStyle(Colors.black, 30))
                   )
                 ],
               )
@@ -225,7 +226,6 @@ class TwoPointTwo extends State<TwoPointTwoLesson> {
         )
     );
   }
-
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(
@@ -235,3 +235,4 @@ class TwoPointTwo extends State<TwoPointTwoLesson> {
     );
   }
 }
+

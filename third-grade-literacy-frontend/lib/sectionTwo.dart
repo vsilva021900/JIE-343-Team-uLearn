@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'TwoPointOneLesson.dart';
-import 'TwoPointTwoLesson.dart';
-import 'TwoPointThreeLesson.dart';
-import 'TwoPointFourLesson.dart';
-import 'TwoPointFiveLesson.dart';
-import 'TwoPointSixLesson.dart';
+import 'two/TwoPointOneLesson.dart';
+import 'two/TwoPointTwoLesson.dart';
+import 'two/TwoPointThreeLesson.dart';
+import 'two/TwoPointFourLesson.dart';
+import 'two/TwoPointFiveLesson.dart';
+import 'two/TwoPointSixLesson.dart';
 import 'package:hearatale_literacy_app/two/quiz/QuizTwo.dart';
+import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 
 class MainTwo extends StatelessWidget {
   @override
@@ -77,13 +78,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreTwo(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
                   },
                 )
             ),

@@ -5,43 +5,44 @@ import 'dart:io';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/four/quiz/QuizFourPointFour.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointFive.dart';
 
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: FourPointFourLesson()
+      home: FourPointFiveLesson()
   ));
 }
-class FourPointFourLesson extends StatefulWidget {
+class FourPointFiveLesson extends StatefulWidget {
   @override
-  FourPointFour createState() => FourPointFour();
+  FourPointFive createState() => FourPointFive();
 }
-class FourPointFour extends State<FourPointFourLesson> {
+class FourPointFive extends State<FourPointFiveLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointFour/crutch.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/crutches.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFour/itch.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/itches.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFour/ostrich.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/ostriches.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFour/peach.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/peaches.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFour/scratch.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/scratches.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFour/watch.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/watches.png')]
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointFive/box.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/boxes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFive/fox.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/foxes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFive/lynx.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/lynxes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFive/mix.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/mixes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFive/six.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/sixes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFive/wax.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/waxes.png')],
   ];
-  var words = [['crutch', 'crutches'],
-    ['itch', 'itches'],
-    ['ostrich', 'ostriches'],
-    ['peach', 'peaches'],
-    ['scratch', 'scratches'],
-    ['watch', 'watches']
+  var words = [['box', 'boxes'],
+    ['fox', 'foxes'],
+    ['lynx', 'lynxes'],
+    ['mix', 'mixes'],
+    ['six', 'sixes'],
+    ['wax', 'waxes']
   ];
-  var music = ['crutch_crutches.mp3',
-    'itch_itches.mp3',
-    'ostrich_ostriches.mp3',
-    'peach_peaches.mp3',
-    'scratch_scratches.mp3',
-    'watch_watches.mp3'
+  var music = ['box_boxes.mp3',
+    'fox_foxes.mp3',
+    'lynx_lynxes.mp3',
+    'mix_mixes.mp3',
+    'six_sixes.mp3',
+    'wax_waxes.mp3'
   ];
   int tracker = 0;
   @override
@@ -99,7 +100,7 @@ class FourPointFour extends State<FourPointFourLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizFourPointFour(),
+                                pageBuilder: (context, _, __) => QuizFourPointFive(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -109,25 +110,25 @@ class FourPointFour extends State<FourPointFourLesson> {
               Material(
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
-                      icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {
-                        audioCache.play(music[tracker]);
-                      }
+                    icon: Image.asset('assets/star_button.png'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFour(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    },
                   )
               ),
               Material(
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
-                    icon: Image.asset('assets/star_button.png'),
-                    onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
-                    },
+                      icon: Image.asset('assets/placeholder_replay_button.png'),
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
@@ -150,7 +151,7 @@ class FourPointFour extends State<FourPointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Base words that end with ch just add ',
+                  Text('Base words that end with x just add ',
                       style: textStyle(Colors.black, screenWidth / 26)
                   ),
                   Text('es ',

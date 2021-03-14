@@ -1,37 +1,43 @@
+import 'dart:async';
+//import 'dart:html';
+import 'dart:io';
+
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointThree.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointNine.dart';
+
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: TwoPointThreeLesson()
+      home: FourPointNineLesson()
   ));
 }
-class TwoPointThreeLesson extends StatefulWidget {
+class FourPointNineLesson extends StatefulWidget {
   @override
-  TwoPointThree createState() => TwoPointThree();
+  FourPointNine createState() => FourPointNine();
 }
-class TwoPointThree extends State<TwoPointThreeLesson> {
+class FourPointNine extends State<FourPointNineLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointThree/catches.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/hitches.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/scratches.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/teaches.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/touch.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/watch.png')];
-  var words = [['catch', 'catches'], ['hitch', 'hitches'],
-    ['scratch', 'scratches'], ['teach', 'teaches'], ['touch', 'touches'],
-    ['watch', 'watches']];
-  var music = ["catch_catches.mp3",
-    "hitch_hitches.mp3",
-    "scratch_scratches.mp3",
-    "teach_teaches.mp3",
-    "touch_touches.mp3",
-    "watch_watches.mp3"];
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointNine/1_octopus.png'), Image.asset('assets/dropbox/sectionFour/FourPointNine/2_octopi.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointNine/3_cactus.png'), Image.asset('assets/dropbox/sectionFour/FourPointNine/4_cacti.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointNine/5_hippopotamus.png'), Image.asset('assets/dropbox/sectionFour/FourPointNine/6_hippopotami.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointNine/7_rhinoceros.png'), Image.asset('assets/dropbox/sectionFour/FourPointNine/8_rhinoceri.png')]
+  ];
+  var words = [['octopus', 'octopi'],
+    ['cactus', 'cacti'],
+    ['hippopotamus', 'hippopotami'],
+    ['rhinoceros', 'rhinoceri']
+  ];
+  var music = ['octopus_octopi.mp3',
+    'cactus_cacti.mp3',
+    'hippopotamus_hippopotami.mp3',
+    'rhinoceros_rhinoceri.mp3'
+  ];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -86,11 +92,11 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {
                         Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, _, __) => QuizTwoPointThree(),
-                            transitionDuration: Duration(seconds: 0)
-                          )
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => QuizFourPointNine(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
                         );
                       }
                   )
@@ -109,13 +115,13 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFour(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -130,7 +136,6 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
         )
     );
   }
-
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -138,40 +143,20 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // can probably simplify with RichText
-                  Text('For third person singular action words,',
-                      style: textStyle(Colors.black, screenWidth / 24)
-                  )
-                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('to say someone or something does something,',
+                  Text('Fun special plurals that most people don’t know:',
                       style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('base words that end with ch add ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('es',
-                        style: textStyle(Colors.red, screenWidth / 24)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                  ]
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -184,12 +169,17 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.5,
-                      child: pictures[tracker],
+                      height: screenHeight * 0.6,
+                      child: pictures[tracker][0],
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.5,
+                      height: screenHeight * 0.6,
+                      child: pictures[tracker][1],
+                      width: 200
+                  ),
+                  Container(
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -220,7 +210,6 @@ class TwoPointThree extends State<TwoPointThreeLesson> {
         )
     );
   }
-
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(

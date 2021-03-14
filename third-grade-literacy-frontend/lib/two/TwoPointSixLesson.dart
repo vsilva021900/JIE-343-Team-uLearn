@@ -1,48 +1,35 @@
-import 'dart:async';
-//import 'dart:html';
-import 'dart:io';
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/four/quiz/QuizFourPointFive.dart';
-
+import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointSix.dart';
+import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: FourPointFiveLesson()
+      home: TwoPointSixLesson()
   ));
 }
-class FourPointFiveLesson extends StatefulWidget {
+class TwoPointSixLesson extends StatefulWidget {
   @override
-  FourPointFive createState() => FourPointFive();
+  TwoPointSix createState() => TwoPointSix();
 }
-class FourPointFive extends State<FourPointFiveLesson> {
+class TwoPointSix extends State<TwoPointSixLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointFive/box.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/boxes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFive/fox.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/foxes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFive/lynx.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/lynxes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFive/mix.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/mixes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFive/six.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/sixes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointFive/wax.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/waxes.png')],
-  ];
-  var words = [['box', 'boxes'],
-    ['fox', 'foxes'],
-    ['lynx', 'lynxes'],
-    ['mix', 'mixes'],
-    ['six', 'sixes'],
-    ['wax', 'waxes']
-  ];
-  var music = ['box_boxes.mp3',
-    'fox_foxes.mp3',
-    'lynx_lynxes.mp3',
-    'mix_mixes.mp3',
-    'six_sixes.mp3',
-    'wax_waxes.mp3'
-  ];
+  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointSix/box.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointSix/fixes.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointSix/mixes.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointSix/relax.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointSix/waxes.png')];
+  var words = [['box', 'boxes'], ['fix', 'fixes'],
+    ['mix', 'mixes'], ['relax', 'relaxes'], ['wax', 'waxes']];
+  var music = ["box_boxes.mp3",
+    "fix_fixes.mp3",
+    "mix_mixes.mp3",
+    "relax_relaxes.mp3",
+    "wax_waxes.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -99,7 +86,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizFourPointFive(),
+                                pageBuilder: (context, _, __) => QuizTwoPointSix(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -109,25 +96,25 @@ class FourPointFive extends State<FourPointFiveLesson> {
               Material(
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
-                    icon: Image.asset('assets/star_button.png'),
-                    onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
-                    },
+                      icon: Image.asset('assets/placeholder_replay_button.png'),
+                      onPressed: () {
+                        audioCache.play(music[tracker]);
+                      }
                   )
               ),
               Material(
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
-                      icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {
-                        audioCache.play(music[tracker]);
-                      }
+                    icon: Image.asset('assets/star_button.png'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreTwo(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    },
                   )
               ),
               Material(
@@ -150,30 +137,38 @@ class FourPointFive extends State<FourPointFiveLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Base words that end with x just add ',
-                      style: textStyle(Colors.black, screenWidth / 26)
-                  ),
-                  Text('es ',
-                      style: textStyle(Colors.red, screenWidth / 26)
-                  ),
-                  Text('and make',
-                      style: textStyle(Colors.black, screenWidth / 26)
+                  Text('For third person singular action words,',
+                      style: textStyle(Colors.black, 30)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('no other change to turn the word into a plural.',
-                      style: textStyle(Colors.black, screenWidth / 26)
+                  Text('to say someone or something does something,',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('base words that end with x add ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
+                    Text('es',
+                        style: textStyle(Colors.red, screenWidth / 24)
+                    ),
+                    Text('.',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
+                  ]
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -186,17 +181,12 @@ class FourPointFive extends State<FourPointFiveLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.6,
-                      child: pictures[tracker][0],
+                      height: screenHeight * 0.5,
+                      child: pictures[tracker],
                       width: 200
                   ),
                   Container(
-                      height: screenHeight * 0.6,
-                      child: pictures[tracker][1],
-                      width: 200
-                  ),
-                  Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -227,6 +217,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
         )
     );
   }
+
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(

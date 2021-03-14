@@ -6,36 +6,48 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/four/quiz/QuizFourPointNine.dart';
-
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointEight.dart';
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: FourPointNineLesson()
+      home: FourPointEightLesson()
   ));
 }
-class FourPointNineLesson extends StatefulWidget {
+class FourPointEightLesson extends StatefulWidget {
   @override
-  FourPointNine createState() => FourPointNine();
+  FourPointEight createState() => FourPointEight();
 }
-class FourPointNine extends State<FourPointNineLesson> {
+class FourPointEight extends State<FourPointEightLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointNine/1_octopus.png'), Image.asset('assets/dropbox/sectionFour/FourPointNine/2_octopi.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointNine/3_cactus.png'), Image.asset('assets/dropbox/sectionFour/FourPointNine/4_cacti.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointNine/5_hippopotamus.png'), Image.asset('assets/dropbox/sectionFour/FourPointNine/6_hippopotami.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointNine/7_rhinoceros.png'), Image.asset('assets/dropbox/sectionFour/FourPointNine/8_rhinoceri.png')]
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointEight/1_child.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/2_children.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointEight/3_foot.png'), Image.asset('4_assets/dropbox/sectionFour/FourPointEight/feet.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointEight/5_goose.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/6_geese.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointEight/7_man.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/8_men.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointEight/9_mouse.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/10_mice.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointEight/11_person.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/12_people.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointEight/13_tooth.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/14_teeth.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointEight/15_woman.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/16_women.png')]
   ];
-  var words = [['octopus', 'octopi'],
-    ['cactus', 'cacti'],
-    ['hippopotamus', 'hippopotami'],
-    ['rhinoceros', 'rhinoceri']
+  var words = [['child', 'children'],
+    ['foot', 'feet'],
+    ['goose', 'geese'],
+    ['man', 'men'],
+    ['mouse', 'mice'],
+    ['person', 'people'],
+    ['tooth', 'teeth'],
+    ['woman', 'women']
   ];
-  var music = ['octopus_octopi.mp3',
-    'cactus_cacti.mp3',
-    'hippopotamus_hippopotami.mp3',
-    'rhinoceros_rhinoceri.mp3'
+  var music = ['child_children.mp3',
+    'foot_feet.mp3',
+    'goose_geese.mp3',
+    'man_men.mp3',
+    'mouse_mice.mp3',
+    'person_people.mp3',
+    'tooth_teeth.mp3',
+    'woman_women.mp3'
   ];
   int tracker = 0;
   @override
@@ -93,7 +105,7 @@ class FourPointNine extends State<FourPointNineLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizFourPointNine(),
+                                pageBuilder: (context, _, __) => QuizFourPointEight(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -114,13 +126,13 @@ class FourPointNine extends State<FourPointNineLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFour(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -142,12 +154,26 @@ class FourPointNine extends State<FourPointNineLesson> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // can probably simplify with RichText
+                  Text('Some special base words don’t make regular',
+                      style: textStyle(Colors.black, screenWidth / 23)
+                  )
+                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Fun special plurals that most people don’t know:',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('changes to turn into a plural, so we have to',
+                      style: textStyle(Colors.black, screenWidth / 23)
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('remember the different plural words.',
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
@@ -155,7 +181,7 @@ class FourPointNine extends State<FourPointNineLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -168,17 +194,17 @@ class FourPointNine extends State<FourPointNineLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.6,
+                      height: screenHeight * 0.5,
                       child: pictures[tracker][0],
                       width: 200
                   ),
                   Container(
-                      height: screenHeight * 0.6,
+                      height: screenHeight * 0.5,
                       child: pictures[tracker][1],
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(

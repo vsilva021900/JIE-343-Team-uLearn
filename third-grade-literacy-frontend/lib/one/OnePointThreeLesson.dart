@@ -2,41 +2,40 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointOne.dart';
+import 'package:hearatale_literacy_app/one/quiz/QuizOnePointThree.dart';
+import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: TwoPointOneLesson()
+      home: OnePointThreeLesson()
   ));
 }
-class TwoPointOneLesson extends StatefulWidget {
+class OnePointThreeLesson extends StatefulWidget {
   @override
-  TwoPointOne createState() => TwoPointOne();
+  OnePointThree createState() => OnePointThree();
 }
-class TwoPointOne extends State<TwoPointOneLesson> {
+class OnePointThree extends State<OnePointThreeLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointOne/helps.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/jumps.jpg'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/kicks.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/sings.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/sleeps.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/talks.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/thinks.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/works.png')];
-  var words = [['help', 'helps'], ['jump', 'jumps'],
-    ['kick', 'kicks'], ['sing', 'sings'], ['sleep', 'sleeps'],
-    ['talk', 'talks'], ['think', 'thinks'], ['work', 'works']];
-  var music = ["help_helps.mp3",
-    "jump_jumps.mp3",
-    "kick_kicks.mp3",
-    "sing_sings.mp3",
-    "sleep_sleeps.mp3",
-    "talk_talks.mp3",
-    "think_thinks.mp3",
-    "work_works.mp3"
-  ];
+  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointThree/bake.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointThree/dance.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointThree/excite.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointThree/move.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointThree/tickle.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointThree/tumble.png')];
+  var words = [['bake', 'baked', 'baking'],
+    ['dance', 'danced', "dancing"],
+    ['excite', 'excited', "exciting"],
+    ['move', 'moved', "moving"],
+    ['tickle', 'tickled', "tickling"],
+    ['tumble', 'tumbled', "tumbling"]];
+  var music = ["bake_baked_baking.mp3",
+    "dance_danced_dancing.mp3",
+    "excite_excited_exciting.mp3",
+    "move_moved_moving.mp3",
+    "tickle_tickled_tickling.mp3",
+    "tumble_tumbled_tumbling.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -93,7 +92,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizTwoPointOne(),
+                                pageBuilder: (context, _, __) => QuizOnePointThree(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -114,13 +113,13 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreOne(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -145,38 +144,36 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words,',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('Many action words end with e. These words drop',
+                      style: textStyle(Colors.black, screenWidth / 25)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('to say someone or something does something, ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('the final e and add ',
+                      style: textStyle(Colors.black, screenWidth / 25)
+                  ),
+                  Text('ed ',
+                      style: textStyle(Colors.red, screenWidth / 25)
+                  ),
+                  Text('or ',
+                      style: textStyle(Colors.black, screenWidth / 25)
+                  ),
+                  Text('ing ',
+                      style: textStyle(Colors.red, screenWidth / 25)
+                  ),
+                  Text('to the base word.',
+                      style: textStyle(Colors.black, screenWidth / 25)
                   )
                 ],
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('most base words just add ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('s',
-                        style: textStyle(Colors.red, screenWidth / 24)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                  ]
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -189,12 +186,12 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.5,
+                      height: screenHeight * 0.6,
                       child: pictures[tracker],
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -218,6 +215,10 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                   Container (
                       child:
                       Text(words[tracker][1], style: textStyle(Colors.black, 30))
+                  ),
+                  Container (
+                      child:
+                      Text(words[tracker][2], style: textStyle(Colors.black, 30))
                   )
                 ],
               )

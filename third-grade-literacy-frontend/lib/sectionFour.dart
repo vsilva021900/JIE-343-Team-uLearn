@@ -3,16 +3,17 @@ import 'package:hearatale_literacy_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:audioplayers/audio_cache.dart';
-import 'FourPointOneLesson.dart';
-import 'FourPointTwoLesson.dart';
-import 'FourPointThreeLesson.dart';
-import 'FourPointFourLesson.dart';
-import 'FourPointFiveLesson.dart';
-import 'FourPointSixLesson.dart';
-import 'FourPointSevenLesson.dart';
-import 'FourPointEightLesson.dart';
-import 'FourPointNineLesson.dart';
+import 'four/FourPointOneLesson.dart';
+import 'four/FourPointTwoLesson.dart';
+import 'four/FourPointThreeLesson.dart';
+import 'four/FourPointFourLesson.dart';
+import 'four/FourPointFiveLesson.dart';
+import 'four/FourPointSixLesson.dart';
+import 'four/FourPointSevenLesson.dart';
+import 'four/FourPointEightLesson.dart';
+import 'four/FourPointNineLesson.dart';
 import 'four/FourPointTenLesson.dart';
+import 'four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/four/quiz/QuizFour.dart';
 
 class MainFour extends StatelessWidget {
@@ -87,13 +88,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                     Navigator.push(
+                         context,
+                         PageRouteBuilder(
+                             pageBuilder: (context, _, __) => ScoreFour(),
+                             transitionDuration: Duration(seconds: 0)
+                         )
+                     );
                   },
                 )
             ),

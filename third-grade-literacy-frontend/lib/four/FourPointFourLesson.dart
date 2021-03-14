@@ -5,46 +5,44 @@ import 'dart:io';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/four/quiz/QuizFourPointThree.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointFour.dart';
 
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: FourPointThreeLesson()
+      home: FourPointFourLesson()
   ));
 }
-class FourPointThreeLesson extends StatefulWidget {
+class FourPointFourLesson extends StatefulWidget {
   @override
-  FourPointThree createState() => FourPointThree();
+  FourPointFour createState() => FourPointFour();
 }
-class FourPointThree extends State<FourPointThreeLesson> {
+class FourPointFour extends State<FourPointFourLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointThree/blush.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/blushes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointThree/brush.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/brushes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointThree/bush.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/bushes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointThree/dish.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/dishes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointThree/eyelash.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/eyelashes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointThree/radish.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/radishes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointThree/splash.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/splashes.png')]
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointFour/crutch.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/crutches.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFour/itch.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/itches.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFour/ostrich.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/ostriches.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFour/peach.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/peaches.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFour/scratch.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/scratches.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointFour/watch.png'), Image.asset('assets/dropbox/sectionFour/FourPointFour/watches.png')]
   ];
-  var words = [['blush', 'blushes'],
-    ['brush', 'brushes'],
-    ['bush', 'bushes'],
-    ['dish', 'dishes'],
-    ['eyelash', 'eyelashes'],
-    ['radish', 'radishes'],
-    ['splash', 'splashes']
+  var words = [['crutch', 'crutches'],
+    ['itch', 'itches'],
+    ['ostrich', 'ostriches'],
+    ['peach', 'peaches'],
+    ['scratch', 'scratches'],
+    ['watch', 'watches']
   ];
-  var music = ['blush_blushes.mp3',
-    'brush_brushes.mp3',
-    'bush_bushes.mp3',
-    'dish_dishes.mp3',
-    'eyelash_eyelashes.mp3',
-    'radish_radishes.mp3',
-    'splash_splashes.mp3'
+  var music = ['crutch_crutches.mp3',
+    'itch_itches.mp3',
+    'ostrich_ostriches.mp3',
+    'peach_peaches.mp3',
+    'scratch_scratches.mp3',
+    'watch_watches.mp3'
   ];
   int tracker = 0;
   @override
@@ -102,7 +100,7 @@ class FourPointThree extends State<FourPointThreeLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizFourPointThree(),
+                                pageBuilder: (context, _, __) => QuizFourPointFour(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -123,13 +121,13 @@ class FourPointThree extends State<FourPointThreeLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFour(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -153,7 +151,7 @@ class FourPointThree extends State<FourPointThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Base words that end with sh just add ',
+                  Text('Base words that end with ch just add ',
                       style: textStyle(Colors.black, screenWidth / 26)
                   ),
                   Text('es ',

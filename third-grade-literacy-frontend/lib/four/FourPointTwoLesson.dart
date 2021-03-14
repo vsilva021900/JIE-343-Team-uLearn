@@ -5,49 +5,44 @@ import 'dart:io';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/four/quiz/QuizFourPointOne.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointTwo.dart';
 
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: FourPointOneLesson()
+      home: FourPointTwoLesson()
   ));
 }
-class FourPointOneLesson extends StatefulWidget {
+class FourPointTwoLesson extends StatefulWidget {
   @override
-  FourPointOne createState() => FourPointOne();
+  FourPointTwo createState() => FourPointTwo();
 }
-class FourPointOne extends State<FourPointOneLesson> {
+class FourPointTwo extends State<FourPointTwoLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointOne/bubble.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/bubbles.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointOne/cookie.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/cookies.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointOne/creature.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/creatures.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointOne/frog.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/frogs.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointOne/giraffe.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/giraffes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointOne/puddle.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/puddles.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointOne/stripe.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/stripes.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointOne/vehicle.png'), Image.asset('assets/dropbox/sectionFour/FourPointOne/vehicles.png')]
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointTwo/bus.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/buses.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/dress.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/dresses.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/glass.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/glasses.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/guess.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/guesses.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/kiss.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/kisses.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/walrus.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/walruses.png')]
   ];
-  var words = [['bubble', 'bubbles'],
-    ['cookie', 'cookies'],
-    ['creature', 'creatures'],
-    ['frog', 'frogs'],
-    ['giraffe', 'giraffes'],
-    ['puddle', 'puddles'],
-    ['stripe', 'stripes'],
-    ['vehicles', 'vehicles']
+  var words = [['bus', 'buses'],
+    ['dress', 'dresses'],
+    ['glass', 'glasses'],
+    ['guess', 'guesses'],
+    ['kiss', 'kisses'],
+    ['walrus', 'walruses']
   ];
-  var music = ['bubble_bubbles.mp3',
-  'cookie_cookies.mp3',
-  'creature_creatures.mp3',
-  'frog_frogs.mp3',
-  'giraffe_giraffes.mp3',
-  'puddle_puddles.mp3',
-  'stripe_stripes.mp3',
-  'vehicles_vehicles.mp3'
+  var music = ['bus_buses.mp3',
+    'dress_dresses.mp3',
+    'glass_glasses.mp3',
+    'guess_guesses.mp3',
+    'kiss_kisses.mp3',
+    'walrus_walruses.mp3'
   ];
   int tracker = 0;
   @override
@@ -105,7 +100,7 @@ class FourPointOne extends State<FourPointOneLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizFourPointOne(),
+                                pageBuilder: (context, _, __) => QuizFourPointTwo(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -126,13 +121,13 @@ class FourPointOne extends State<FourPointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFour(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -155,24 +150,29 @@ class FourPointOne extends State<FourPointOneLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // can probably simplify with RichText
-                  Text('Many base words just add ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('Base words that end with ',
+                      style: textStyle(Colors.black, screenWidth / 26)
                   ),
                   Text('s ',
-                      style: textStyle(Colors.red, screenWidth / 24)
+                      style: textStyle(Colors.green, screenWidth / 26)
                   ),
-                  Text('and make no other',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('just add ',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
+                  Text('es ',
+                      style: textStyle(Colors.red, screenWidth / 26)
+                  ),
+                  Text('and make ',
+                    style: textStyle(Colors.black, screenWidth / 26)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('change to turn the base word into a plural.',
-                      style: textStyle(Colors.black, screenWidth / 24)
-                  )
+                  Text('no other change to turn the base word into a plural.',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
                 ],
               ),
               Row(

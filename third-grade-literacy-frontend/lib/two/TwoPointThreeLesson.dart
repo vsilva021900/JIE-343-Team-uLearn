@@ -2,36 +2,37 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointFive.dart';
+import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointThree.dart';
+import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: TwoPointFiveLesson()
+      home: TwoPointThreeLesson()
   ));
 }
-class TwoPointFiveLesson extends StatefulWidget {
+class TwoPointThreeLesson extends StatefulWidget {
   @override
-  TwoPointFive createState() => TwoPointFive();
+  TwoPointThree createState() => TwoPointThree();
 }
-class TwoPointFive extends State<TwoPointFiveLesson> {
+class TwoPointThree extends State<TwoPointThreeLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointFive/crash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/fish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/push.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/vanish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wish.png')];
-  var words = [['crash', 'crashes'], ['fish', 'fishes'],
-    ['push', 'pushes'], ['vanish', 'vanishes'], ['wash', 'washes'],
-    ['wish', 'wishes']];
-  var music = ["crash_crashes.mp3",
-    "fish_fishes.mp3",
-    "push_pushes.mp3",
-    "vanish_vanishes.mp3",
-    "wash_washes.mp3",
-    "wish_wishes.mp3"];
+  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointThree/catches.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/hitches.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/scratches.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/teaches.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/touch.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointThree/watch.png')];
+  var words = [['catch', 'catches'], ['hitch', 'hitches'],
+    ['scratch', 'scratches'], ['teach', 'teaches'], ['touch', 'touches'],
+    ['watch', 'watches']];
+  var music = ["catch_catches.mp3",
+    "hitch_hitches.mp3",
+    "scratch_scratches.mp3",
+    "teach_teaches.mp3",
+    "touch_touches.mp3",
+    "watch_watches.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -86,11 +87,11 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizTwoPointFive(),
-                                transitionDuration: Duration(seconds: 0)
-                            )
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, _, __) => QuizTwoPointThree(),
+                            transitionDuration: Duration(seconds: 0)
+                          )
                         );
                       }
                   )
@@ -109,13 +110,13 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreTwo(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -156,7 +157,7 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('base words that end with sh add ',
+                    Text('base words that end with ch add ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
                     Text('es',

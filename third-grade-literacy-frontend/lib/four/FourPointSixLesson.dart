@@ -1,37 +1,53 @@
+import 'dart:async';
+//import 'dart:html';
+import 'dart:io';
+
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
+import 'package:hearatale_literacy_app/four/StreakFour.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointFour.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointSix.dart';
+
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: TwoPointFourLesson()
+      home: FourPointSixLesson()
   ));
 }
-class TwoPointFourLesson extends StatefulWidget {
+class FourPointSixLesson extends StatefulWidget {
   @override
-  TwoPointFour createState() => TwoPointFour();
+  FourPointSix createState() => FourPointSix();
 }
-class TwoPointFour extends State<TwoPointFourLesson> {
+class FourPointSix extends State<FourPointSixLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointFour/guess.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFour/hiss.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFour/kiss.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFour/miss.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFour/pass.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFour/toss.png')];
-  var words = [['guess', 'guesses'], ['hiss', 'hisses'],
-    ['kiss', 'kisses'], ['miss', 'misses'], ['pass', 'passes'],
-    ['toss', 'tosses']];
-  var music = ["guess_guesses.mp3",
-    "hiss_hisses.mp3",
-    "kiss_kisses.mp3",
-    "miss_misses.mp3",
-    "pass_passes.mp3",
-    "toss_tosses.mp3"];
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointSix/baby.png'), Image.asset('assets/dropbox/sectionFour/FourPointSix/babies.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointSix/berry.png'), Image.asset('assets/dropbox/sectionFour/FourPointSix/berries.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointSix/bunny.png'), Image.asset('assets/dropbox/sectionFour/FourPointSix/bunnies.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointSix/fairy.png'), Image.asset('assets/dropbox/sectionFour/FourPointSix/fairy.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointSix/fly.png'), Image.asset('assets/dropbox/sectionFour/FourPointSix/flies.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointSix/pony.png'), Image.asset('assets/dropbox/sectionFour/FourPointSix/ponies.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointSix/spy.png'), Image.asset('assets/dropbox/sectionFour/FourPointSix/spies.png')]
+  ];
+  var words = [['baby', 'babies'],
+    ['berry', 'berries'],
+    ['bunny', 'bunnies'],
+    ['fairy', 'fairies'],
+    ['fly', 'flies'],
+    ['pony', 'ponies'],
+    ['spy', 'spies']
+  ];
+  var music = ['baby_babies.mp3',
+    'berry_berries.mp3',
+    'bunny_bunnies.mp3',
+    'fairy_fairies.mp3',
+    'fly_flies.mp3',
+    'pony_ponies.mp3',
+    'spy_spies.mp3'
+  ];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -88,7 +104,7 @@ class TwoPointFour extends State<TwoPointFourLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizTwoPointFour(),
+                                pageBuilder: (context, _, __) => QuizFourPointSix(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -109,13 +125,13 @@ class TwoPointFour extends State<TwoPointFourLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFour(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -130,7 +146,6 @@ class TwoPointFour extends State<TwoPointFourLesson> {
         )
     );
   }
-
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -140,38 +155,30 @@ class TwoPointFour extends State<TwoPointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words,',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('Base words that end with y change the y to i',
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('to say someone or something does something,',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('and add ',
+                      style: textStyle(Colors.black, screenWidth / 23)
+                  ),
+                  Text('es ',
+                      style: textStyle(Colors.red, screenWidth / 23)
+                  ),
+                  Text('to turn the word into a plural.',
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('base words that end with s add ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('es',
-                        style: textStyle(Colors.red, screenWidth / 24)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                  ]
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -184,12 +191,17 @@ class TwoPointFour extends State<TwoPointFourLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.5,
-                      child: pictures[tracker],
+                      height: screenHeight * 0.6,
+                      child: pictures[tracker][0],
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.5,
+                      height: screenHeight * 0.6,
+                      child: pictures[tracker][1],
+                      width: 200
+                  ),
+                  Container(
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -220,7 +232,6 @@ class TwoPointFour extends State<TwoPointFourLesson> {
         )
     );
   }
-
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(

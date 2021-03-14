@@ -1,53 +1,42 @@
-import 'dart:async';
-//import 'dart:html';
-import 'dart:io';
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/four/quiz/QuizFourPointEight.dart';
+import 'package:hearatale_literacy_app/one/quiz/QuizOnePointFour.dart';
+import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
+
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: FourPointEightLesson()
+      home: OnePointFourLesson()
   ));
 }
-class FourPointEightLesson extends StatefulWidget {
+class OnePointFourLesson extends StatefulWidget {
   @override
-  FourPointEight createState() => FourPointEight();
+  OnePointFour createState() => OnePointFour();
 }
-class FourPointEight extends State<FourPointEightLesson> {
+class OnePointFour extends State<OnePointFourLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointEight/1_child.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/2_children.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointEight/3_foot.png'), Image.asset('4_assets/dropbox/sectionFour/FourPointEight/feet.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointEight/5_goose.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/6_geese.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointEight/7_man.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/8_men.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointEight/9_mouse.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/10_mice.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointEight/11_person.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/12_people.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointEight/13_tooth.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/14_teeth.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointEight/15_woman.png'), Image.asset('assets/dropbox/sectionFour/FourPointEight/16_women.png')]
-  ];
-  var words = [['child', 'children'],
-    ['foot', 'feet'],
-    ['goose', 'geese'],
-    ['man', 'men'],
-    ['mouse', 'mice'],
-    ['person', 'people'],
-    ['tooth', 'teeth'],
-    ['woman', 'women']
-  ];
-  var music = ['child_children.mp3',
-    'foot_feet.mp3',
-    'goose_geese.mp3',
-    'man_men.mp3',
-    'mouse_mice.mp3',
-    'person_people.mp3',
-    'tooth_teeth.mp3',
-    'woman_women.mp3'
-  ];
+  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointFour/carry.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointFour/cry.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointFour/dirty.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointFour/empty.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointFour/fry.png'),
+    Image.asset('assets/dropbox/sectionOne/OnePointFour/try.png')];
+  var words = [['carry', 'carried', 'carrying'],
+    ['cry', 'cried', "crying"],
+    ['dirty', 'dirtied', "dirtying"],
+    ['empty', 'emptied', "emptying"],
+    ['fry', 'fried', "frying"],
+    ['try', 'tried', "trying"]];
+  var music = ["carry_carried_carrying.mp3",
+    "cry_cried_crying.mp3",
+    "dirty_dirtied_dirtying.mp3",
+    "empty_emptied_emptying.mp3",
+    "fry_fried_frying.mp3",
+    "try_tried_trying.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -104,7 +93,7 @@ class FourPointEight extends State<FourPointEightLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizFourPointEight(),
+                                pageBuilder: (context, _, __) => QuizOnePointFour(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -125,13 +114,13 @@ class FourPointEight extends State<FourPointEightLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreOne(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -146,6 +135,7 @@ class FourPointEight extends State<FourPointEightLesson> {
         )
     );
   }
+
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -155,26 +145,38 @@ class FourPointEight extends State<FourPointEightLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Some special base words don’t make regular',
-                      style: textStyle(Colors.black, screenWidth / 23)
+                  Text('Many action words end with y. These words',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('changes to turn into a plural, so we have to',
-                      style: textStyle(Colors.black, screenWidth / 23)
+                  Text('change y to i when they add ',
+                      style: textStyle(Colors.black, screenWidth / 24)
+                  ),
+                  Text('ed',
+                      style: textStyle(Colors.red, screenWidth / 24)
+                  ),
+                  Text(', but they keep',
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('remember the different plural words.',
-                      style: textStyle(Colors.black, screenWidth / 23)
-                  )
-                ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('the y when they add ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                  ),
+                    Text('ing',
+                        style: textStyle(Colors.red, screenWidth / 24)
+                    ),
+                    Text('.',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    )
+                  ]
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -194,12 +196,7 @@ class FourPointEight extends State<FourPointEightLesson> {
                   ),
                   Container(
                       height: screenHeight * 0.5,
-                      child: pictures[tracker][0],
-                      width: 200
-                  ),
-                  Container(
-                      height: screenHeight * 0.5,
-                      child: pictures[tracker][1],
+                      child: pictures[tracker],
                       width: 200
                   ),
                   Container(
@@ -227,6 +224,10 @@ class FourPointEight extends State<FourPointEightLesson> {
                   Container (
                       child:
                       Text(words[tracker][1], style: textStyle(Colors.black, 30))
+                  ),
+                  Container (
+                      child:
+                      Text(words[tracker][2], style: textStyle(Colors.black, 30))
                   )
                 ],
               )
@@ -234,6 +235,7 @@ class FourPointEight extends State<FourPointEightLesson> {
         )
     );
   }
+
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(

@@ -1,48 +1,40 @@
-import 'dart:async';
-//import 'dart:html';
-import 'dart:io';
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/four/quiz/QuizFourPointTwo.dart';
-
+import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointTwo.dart';
+import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: FourPointTwoLesson()
+      home: TwoPointTwoLesson()
   ));
 }
-class FourPointTwoLesson extends StatefulWidget {
+class TwoPointTwoLesson extends StatefulWidget {
   @override
-  FourPointTwo createState() => FourPointTwo();
+  TwoPointTwo createState() => TwoPointTwo();
 }
-class FourPointTwo extends State<FourPointTwoLesson> {
+class TwoPointTwo extends State<TwoPointTwoLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointTwo/bus.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/buses.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/dress.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/dresses.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/glass.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/glasses.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/guess.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/guesses.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/kiss.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/kisses.png')],
-    [Image.asset('assets/dropbox/sectionFour/FourPointTwo/walrus.png'), Image.asset('assets/dropbox/sectionFour/FourPointTwo/walruses.png')]
-  ];
-  var words = [['bus', 'buses'],
-    ['dress', 'dresses'],
-    ['glass', 'glasses'],
-    ['guess', 'guesses'],
-    ['kiss', 'kisses'],
-    ['walrus', 'walruses']
-  ];
-  var music = ['bus_buses.mp3',
-    'dress_dresses.mp3',
-    'glass_glasses.mp3',
-    'guess_guesses.mp3',
-    'kiss_kisses.mp3',
-    'walrus_walruses.mp3'
-  ];
+  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/bully.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/carry.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/cry.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/dirty.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/flies.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/spy.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointTwo/try.png')];
+  var words = [['bully', 'bullies'], ['carry', 'carries'],
+    ['cry', 'cries'], ['dirty', 'dirties'], ['fly', 'flies'],
+    ['spy', 'spies'], ['try', 'tries']];
+  var music = ["bully_bullies.mp3",
+    "carry_carries.mp3",
+    "cry_cries.mp3",
+    "dirty_dirties.mp3",
+    "fly_flies.mp3",
+    "spy_spies.mp3",
+    "try_tries.mp3"];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -99,7 +91,7 @@ class FourPointTwo extends State<FourPointTwoLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizFourPointTwo(),
+                                pageBuilder: (context, _, __) => QuizTwoPointTwo(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -120,13 +112,13 @@ class FourPointTwo extends State<FourPointTwoLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreTwo(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -141,6 +133,7 @@ class FourPointTwo extends State<FourPointTwoLesson> {
         )
     );
   }
+
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -149,36 +142,42 @@ class FourPointTwo extends State<FourPointTwoLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Base words that end with ',
-                      style: textStyle(Colors.black, screenWidth / 26)
-                  ),
-                  Text('s ',
-                      style: textStyle(Colors.green, screenWidth / 26)
-                  ),
-                  Text('just add ',
-                      style: textStyle(Colors.black, screenWidth / 26)
-                  ),
-                  Text('es ',
-                      style: textStyle(Colors.red, screenWidth / 26)
-                  ),
-                  Text('and make ',
-                    style: textStyle(Colors.black, screenWidth / 26)
+                  // can probably simplify with RichText
+                  Text('For third person singular action words,',
+                      style: textStyle(Colors.black, screenWidth / 23)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('no other change to turn the base word into a plural.',
-                      style: textStyle(Colors.black, screenWidth / 26)
+                  Text('base words that end with y change the y to ',
+                      style: textStyle(Colors.black, screenWidth / 23)
+                  ),
+                  Text('i ',
+                      style: textStyle(Colors.red, screenWidth / 23)
                   ),
                 ],
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('and add ',
+                        style: textStyle(Colors.black, screenWidth / 23)
+                    ),
+                    Text('es',
+                        style: textStyle(Colors.red, screenWidth / 23)
+                    ),
+                    Text('.',
+                        style: textStyle(Colors.black, 30)
+                    )
+                  ]
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -191,17 +190,12 @@ class FourPointTwo extends State<FourPointTwoLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.6,
-                      child: pictures[tracker][0],
+                      height: screenHeight * 0.5,
+                      child: pictures[tracker],
                       width: 200
                   ),
                   Container(
-                      height: screenHeight * 0.6,
-                      child: pictures[tracker][1],
-                      width: 200
-                  ),
-                  Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.5,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -232,6 +226,7 @@ class FourPointTwo extends State<FourPointTwoLesson> {
         )
     );
   }
+
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(

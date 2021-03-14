@@ -2,33 +2,42 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointSix.dart';
+import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
+import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointOne.dart';
 
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: TwoPointSixLesson()
+      home: TwoPointOneLesson()
   ));
 }
-class TwoPointSixLesson extends StatefulWidget {
+class TwoPointOneLesson extends StatefulWidget {
   @override
-  TwoPointSix createState() => TwoPointSix();
+  TwoPointOne createState() => TwoPointOne();
 }
-class TwoPointSix extends State<TwoPointSixLesson> {
+class TwoPointOne extends State<TwoPointOneLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointSix/box.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointSix/fixes.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointSix/mixes.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointSix/relax.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointSix/waxes.png')];
-  var words = [['box', 'boxes'], ['fix', 'fixes'],
-    ['mix', 'mixes'], ['relax', 'relaxes'], ['wax', 'waxes']];
-  var music = ["box_boxes.mp3",
-    "fix_fixes.mp3",
-    "mix_mixes.mp3",
-    "relax_relaxes.mp3",
-    "wax_waxes.mp3"];
+  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointOne/helps.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/jumps.jpg'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/kicks.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/sings.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/sleeps.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/talks.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/thinks.png'),
+    Image.asset('assets/dropbox/sectionTwo/TwoPointOne/works.png')];
+  var words = [['help', 'helps'], ['jump', 'jumps'],
+    ['kick', 'kicks'], ['sing', 'sings'], ['sleep', 'sleeps'],
+    ['talk', 'talks'], ['think', 'thinks'], ['work', 'works']];
+  var music = ["help_helps.mp3",
+    "jump_jumps.mp3",
+    "kick_kicks.mp3",
+    "sing_sings.mp3",
+    "sleep_sleeps.mp3",
+    "talk_talks.mp3",
+    "think_thinks.mp3",
+    "work_works.mp3"
+  ];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -85,7 +94,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizTwoPointSix(),
+                                pageBuilder: (context, _, __) => QuizTwoPointOne(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -106,13 +115,13 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreTwo(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -127,6 +136,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
         )
     );
   }
+
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -137,14 +147,14 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                 children: [
                   // can probably simplify with RichText
                   Text('For third person singular action words,',
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('to say someone or something does something,',
+                  Text('to say someone or something does something, ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   )
                 ],
@@ -152,10 +162,10 @@ class TwoPointSix extends State<TwoPointSixLesson> {
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('base words that end with x add ',
+                    Text('most base words just add ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text('es',
+                    Text('s',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
                     Text('.',

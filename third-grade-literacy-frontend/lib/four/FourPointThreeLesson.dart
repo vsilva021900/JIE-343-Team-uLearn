@@ -1,39 +1,52 @@
+import 'dart:async';
+//import 'dart:html';
+import 'dart:io';
+
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/one/quiz/QuizOnePointFour.dart';
+import 'package:hearatale_literacy_app/four/quiz/QuizFourPointThree.dart';
+
+
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
-      home: OnePointFourLesson()
+      home: FourPointThreeLesson()
   ));
 }
-class OnePointFourLesson extends StatefulWidget {
+class FourPointThreeLesson extends StatefulWidget {
   @override
-  OnePointFour createState() => OnePointFour();
+  FourPointThree createState() => FourPointThree();
 }
-class OnePointFour extends State<OnePointFourLesson> {
+class FourPointThree extends State<FourPointThreeLesson> {
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [Image.asset('assets/dropbox/sectionOne/OnePointFour/carry.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointFour/cry.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointFour/dirty.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointFour/empty.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointFour/fry.png'),
-    Image.asset('assets/dropbox/sectionOne/OnePointFour/try.png')];
-  var words = [['carry', 'carried', 'carrying'],
-    ['cry', 'cried', "crying"],
-    ['dirty', 'dirtied', "dirtying"],
-    ['empty', 'emptied', "emptying"],
-    ['fry', 'fried', "frying"],
-    ['try', 'tried', "trying"]];
-  var music = ["carry_carried_carrying.mp3",
-    "cry_cried_crying.mp3",
-    "dirty_dirtied_dirtying.mp3",
-    "empty_emptied_emptying.mp3",
-    "fry_fried_frying.mp3",
-    "try_tried_trying.mp3"];
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointThree/blush.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/blushes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointThree/brush.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/brushes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointThree/bush.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/bushes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointThree/dish.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/dishes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointThree/eyelash.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/eyelashes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointThree/radish.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/radishes.png')],
+    [Image.asset('assets/dropbox/sectionFour/FourPointThree/splash.png'), Image.asset('assets/dropbox/sectionFour/FourPointThree/splashes.png')]
+  ];
+  var words = [['blush', 'blushes'],
+    ['brush', 'brushes'],
+    ['bush', 'bushes'],
+    ['dish', 'dishes'],
+    ['eyelash', 'eyelashes'],
+    ['radish', 'radishes'],
+    ['splash', 'splashes']
+  ];
+  var music = ['blush_blushes.mp3',
+    'brush_brushes.mp3',
+    'bush_bushes.mp3',
+    'dish_dishes.mp3',
+    'eyelash_eyelashes.mp3',
+    'radish_radishes.mp3',
+    'splash_splashes.mp3'
+  ];
   int tracker = 0;
   @override
   Widget build(BuildContext context) {
@@ -90,7 +103,7 @@ class OnePointFour extends State<OnePointFourLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizOnePointFour(),
+                                pageBuilder: (context, _, __) => QuizFourPointThree(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -111,13 +124,13 @@ class OnePointFour extends State<OnePointFourLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFour(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
@@ -132,7 +145,6 @@ class OnePointFour extends State<OnePointFourLesson> {
         )
     );
   }
-
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -142,44 +154,30 @@ class OnePointFour extends State<OnePointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('Many action words end with y. These words',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('Base words that end with sh just add ',
+                      style: textStyle(Colors.black, screenWidth / 26)
+                  ),
+                  Text('es ',
+                      style: textStyle(Colors.red, screenWidth / 26)
+                  ),
+                  Text('and make',
+                      style: textStyle(Colors.black, screenWidth / 26)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('change y to i when they add ',
-                      style: textStyle(Colors.black, screenWidth / 24)
-                  ),
-                  Text('ed',
-                      style: textStyle(Colors.red, screenWidth / 24)
-                  ),
-                  Text(', but they keep',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('no other change to turn the word into a plural.',
+                      style: textStyle(Colors.black, screenWidth / 26)
                   )
                 ],
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('the y when they add ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                  ),
-                    Text('ing',
-                        style: textStyle(Colors.red, screenWidth / 24)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    )
-                  ]
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.5,
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -192,12 +190,17 @@ class OnePointFour extends State<OnePointFourLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.5,
-                      child: pictures[tracker],
+                      height: screenHeight * 0.6,
+                      child: pictures[tracker][0],
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.5,
+                      height: screenHeight * 0.6,
+                      child: pictures[tracker][1],
+                      width: 200
+                  ),
+                  Container(
+                    height: screenHeight * 0.6,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -221,10 +224,6 @@ class OnePointFour extends State<OnePointFourLesson> {
                   Container (
                       child:
                       Text(words[tracker][1], style: textStyle(Colors.black, 30))
-                  ),
-                  Container (
-                      child:
-                      Text(words[tracker][2], style: textStyle(Colors.black, 30))
                   )
                 ],
               )
@@ -232,7 +231,6 @@ class OnePointFour extends State<OnePointFourLesson> {
         )
     );
   }
-
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(
