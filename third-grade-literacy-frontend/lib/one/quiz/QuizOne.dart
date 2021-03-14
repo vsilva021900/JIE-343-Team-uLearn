@@ -6,6 +6,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/StreakMain.dart';
+import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
+import 'package:hearatale_literacy_app/one/StreakOne.dart';
+
 
 class QuizOne extends StatefulWidget {
   @override
@@ -127,13 +130,13 @@ class QuizState extends State<QuizOne> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreOne(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),

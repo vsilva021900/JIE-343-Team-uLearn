@@ -3,6 +3,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/one/quiz/QuizOnePointOne.dart';
+import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 
 
 void main() {
@@ -113,13 +114,13 @@ class OnePointOne extends State<OnePointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreOne(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     },
                   )
               ),
