@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'StreakMain.dart';
 import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
+import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
+import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 
 class MainScore extends StatelessWidget {
   @override
@@ -80,16 +83,16 @@ Widget sub(BuildContext context) {
                 starsAndCheck(0),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageRouteBuilder(
-                    //     pageBuilder: (context, _, __) => Test(),
-                    //     transitionDuration: Duration(seconds: 0)
-                    //   )
-                    // );
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreOne(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
                   },
                   child: Text('1   Base Words and Endings - ed, ing',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   ),
                 )
               ],
@@ -100,16 +103,16 @@ Widget sub(BuildContext context) {
                 starsAndCheck(1),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageRouteBuilder(
-                    //     pageBuilder: (context, _, __) => Test(),
-                    //     transitionDuration: Duration(seconds: 0)
-                    //   )
-                    // );
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreTwo(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
                   },
                   child: Text('2   Base Words and Endings - s, ies, es',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   )
                 )
               ],
@@ -129,7 +132,7 @@ Widget sub(BuildContext context) {
                       // );
                     },
                     child: Text('3   Comparative Endings',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 35)
                     ),
                 )
               ],
@@ -140,16 +143,16 @@ Widget sub(BuildContext context) {
                 starsAndCheck(3),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageRouteBuilder(
-                    //     pageBuilder: (context, _, __) => Test(),
-                    //     transitionDuration: Duration(seconds: 0)
-                    //   )
-                    // );
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreFour(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
                   },
                   child: Text('4   Plurals',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   )
                 )
               ],
@@ -169,7 +172,7 @@ Widget sub(BuildContext context) {
                     );
                   },
                   child: Text('5   Possessives',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   )
                 )
               ],
@@ -189,7 +192,7 @@ Widget sub(BuildContext context) {
                     // );
                   },
                   child: Text('6   Contractions',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   )
                 )
               ],
@@ -209,7 +212,7 @@ Widget sub(BuildContext context) {
                     // );
                   },
                   child: Text('7   Compound Words',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   )
                 )
               ],
@@ -229,7 +232,7 @@ Widget sub(BuildContext context) {
                     // );
                   },
                   child: Text('8   Prefixes',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   )
                 )
               ],
@@ -249,7 +252,7 @@ Widget sub(BuildContext context) {
                     // );
                   },
                   child: Text('9   Suffixes',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   )
                 )
               ],
@@ -269,7 +272,7 @@ Widget sub(BuildContext context) {
                     // );
                   },
                   child: Text('10   Syllables',
-                      style: textStyle(Colors.black, screenWidth / 30)
+                      style: textStyle(Colors.black, screenWidth / 35)
                   )
                 )
               ],
