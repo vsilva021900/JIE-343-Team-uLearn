@@ -7,6 +7,7 @@ import 'one/OnePointThreeLesson.dart';
 import 'one/OnePointFourLesson.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/one/quiz/QuizOne.dart';
+import 'one/ScoreMenuOne.dart';
 
 
 class MainOne extends StatelessWidget {
@@ -78,13 +79,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreOne(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
                   },
                 )
             ),
