@@ -1,9 +1,9 @@
 import 'package:hearatale_literacy_app/main.dart';
 
-import 'testing.dart';
 import 'FivePointOneLesson.dart';
 import 'FivePointTwoLesson.dart';
 import 'FivePointThreeLesson.dart';
+import 'five/ScoreMenuFive.dart';
 import 'package:flutter/material.dart';
 
 class MainFive extends StatelessWidget {
@@ -60,6 +60,21 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_quiz_button.png'),
                     onPressed: () {}
+                )
+            ),
+            Material(
+                color: const Color(0xffc4e8e6),
+                child: IconButton(
+                  icon: Image.asset('assets/star_button.png'),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreFive(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
+                  },
                 )
             ),
             Material(

@@ -1,11 +1,8 @@
-import 'dart:async';
-//import 'dart:html';
-import 'dart:io';
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/five/quiz/QuizFivePointTwo.dart';
+import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
 import 'package:hearatale_literacy_app/main.dart';
 
 
@@ -108,6 +105,21 @@ class FivePointTwo extends State<FivePointTwoLesson> {
                       onPressed: () {
                         audioCache.play(music[tracker]);
                       }
+                  )
+              ),
+              Material(
+                  color: const Color(0xffc4e8e6),
+                  child: IconButton(
+                    icon: Image.asset('assets/star_button.png'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => ScoreFive(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    },
                   )
               ),
               Material(

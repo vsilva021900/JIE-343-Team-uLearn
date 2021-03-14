@@ -123,6 +123,21 @@ class FourPointEight extends State<FourPointEightLesson> {
               Material(
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
+                    icon: Image.asset('assets/star_button.png'),
+                    onPressed: () {
+                      // Navigator.push(
+                      //     context,
+                      //     PageRouteBuilder(
+                      //         pageBuilder: (context, _, __) => Test(),
+                      //         transitionDuration: Duration(seconds: 0)
+                      //     )
+                      // );
+                    },
+                  )
+              ),
+              Material(
+                  color: const Color(0xffc4e8e6),
+                  child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {}
                   )
