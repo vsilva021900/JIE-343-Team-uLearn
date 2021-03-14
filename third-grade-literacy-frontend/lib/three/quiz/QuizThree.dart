@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:hearatale_literacy_app/main.dart';
+import 'package:hearatale_literacy_app/StreakMain.dart';
 
 class QuizThree extends StatefulWidget {
   @override
@@ -52,7 +53,7 @@ class QuizState extends State<QuizThree> {
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int streak = 0; // first try correct answer streak
+  int index = 2; // for calling StreakMain methods
   int attempt = 0; // how many tries before answering correctly
 
   int counter = -1;
@@ -167,7 +168,7 @@ class QuizState extends State<QuizThree> {
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
-                          streak += 1;
+                          StreakMain.correct(index);
                         }
                         setState(() {});
                       }
@@ -176,7 +177,7 @@ class QuizState extends State<QuizThree> {
                         // increment attempt counter
                         attempt += 1;
                         // reset correct answer streak
-                        streak = 0;
+                        StreakMain.incorrect(index);
                       }
                     },
                     child: Container(
@@ -190,13 +191,13 @@ class QuizState extends State<QuizThree> {
                     onTap: () {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakMain.correct(index);
                         }
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakMain.incorrect(index);
                       }
                     },
                     child: Container(
@@ -215,13 +216,13 @@ class QuizState extends State<QuizThree> {
                     onTap: () {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakMain.correct(index);
                         }
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakMain.incorrect(index);
                       }
                     },
                     child: Container(
@@ -235,13 +236,13 @@ class QuizState extends State<QuizThree> {
                     onTap: () {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakMain.correct(index);
                         }
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakMain.incorrect(index);
                       }
                     },
                     child: Container(
