@@ -1,3 +1,4 @@
+import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';

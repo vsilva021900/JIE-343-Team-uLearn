@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/three/quiz/QuizThreePointFour.dart';
 import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 void main() {
   runApp(MaterialApp(
