@@ -4,6 +4,8 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
+import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
+import 'package:hearatale_literacy_app/three/StreakThree.dart';
 
 class QuizThreePointThree extends StatefulWidget {
   @override
@@ -20,7 +22,7 @@ class QuizState extends State<QuizThreePointThree> {
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int streak = 0; // first try correct answer streak
+  int index = 3; // first try correct answer streak
   int attempt = 0; // how many tries before answering correctly
 
   AudioCache audioCache = new AudioCache();
@@ -99,13 +101,13 @@ class QuizState extends State<QuizThreePointThree> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                       Navigator.push(
+                           context,
+                           PageRouteBuilder(
+                               pageBuilder: (context, _, __) => ScoreThree(),
+                               transitionDuration: Duration(seconds: 0)
+                           )
+                       );
                     },
                   )
               ),
@@ -169,7 +171,7 @@ class QuizState extends State<QuizThreePointThree> {
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
-                          streak += 1;
+                          StreakThree.correct(index);
                         }
                         stopAudio();
                         setState(() {});
@@ -179,7 +181,7 @@ class QuizState extends State<QuizThreePointThree> {
                         // increment attempt counter
                         attempt += 1;
                         // reset correct answer streak
-                        streak = 0;
+                        StreakThree.incorrect(index);
                       }
                     },
                     child: Container(
@@ -193,14 +195,14 @@ class QuizState extends State<QuizThreePointThree> {
                     onTap: () {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakThree.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakThree.incorrect(index);
                       }
                     },
                     child: Container(
@@ -219,14 +221,14 @@ class QuizState extends State<QuizThreePointThree> {
                     onTap: () {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakThree.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakThree.incorrect(index);
                       }
                     },
                     child: Container(
@@ -240,14 +242,14 @@ class QuizState extends State<QuizThreePointThree> {
                     onTap: () {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
-                          streak += 1;
+                          StreakThree.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        streak = 0;
+                        StreakThree.incorrect(index);
                       }
                     },
                     child: Container(
