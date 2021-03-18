@@ -15,6 +15,7 @@ import 'four/FourPointNineLesson.dart';
 import 'four/FourPointTenLesson.dart';
 import 'four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/four/quiz/QuizFour.dart';
+import 'WordStructures.dart';
 
 class MainFour extends StatelessWidget {
   @override

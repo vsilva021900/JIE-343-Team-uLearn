@@ -6,6 +6,7 @@ import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
+import 'WordStructures.dart';
 
 class MainScore extends StatelessWidget {
   @override

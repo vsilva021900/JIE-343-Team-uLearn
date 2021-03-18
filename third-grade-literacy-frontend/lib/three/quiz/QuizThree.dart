@@ -6,6 +6,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/StreakMain.dart';
 import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 class QuizThree extends StatefulWidget {
   @override

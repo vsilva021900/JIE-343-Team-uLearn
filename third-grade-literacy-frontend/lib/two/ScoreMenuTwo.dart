@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/MainScoreMenu.dart';
 import 'package:hearatale_literacy_app/two/StreakTwo.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 class ScoreTwo extends StatelessWidget {
   @override
