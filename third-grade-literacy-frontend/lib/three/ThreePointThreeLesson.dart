@@ -3,6 +3,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/three/quiz/QuizThreePointThree.dart';
+import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -114,13 +116,13 @@ class ThreePointThree extends State<ThreePointThreeLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                       Navigator.push(
+                           context,
+                           PageRouteBuilder(
+                               pageBuilder: (context, _, __) => ScoreThree(),
+                               transitionDuration: Duration(seconds: 0)
+                           )
+                       );
                     },
                   )
               ),

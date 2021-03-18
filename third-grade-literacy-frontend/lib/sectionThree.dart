@@ -1,12 +1,14 @@
 import 'package:hearatale_literacy_app/main.dart';
 
 import 'testing.dart';
+import 'WordStructures.dart';
 import 'package:flutter/material.dart';
 import 'three/ThreePointOneLesson.dart';
 import 'three/ThreePointTwoLesson.dart';
 import 'three/ThreePointThreeLesson.dart';
 import 'three/ThreePointFourLesson.dart';
 import 'package:hearatale_literacy_app/three/quiz/QuizThree.dart';
+import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
 
 class MainThree extends StatelessWidget {
   @override
@@ -76,13 +78,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                     Navigator.push(
+                         context,
+                         PageRouteBuilder(
+                             pageBuilder: (context, _, __) => ScoreThree(),
+                             transitionDuration: Duration(seconds: 0)
+                         )
+                     );
                   },
                 )
             ),

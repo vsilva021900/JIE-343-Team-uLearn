@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/two/StreakTwo.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 class QuizTwoPointTwo extends StatefulWidget {
   @override

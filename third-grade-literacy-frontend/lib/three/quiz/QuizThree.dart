@@ -5,6 +5,8 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/StreakMain.dart';
+import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 class QuizThree extends StatefulWidget {
   @override
@@ -129,13 +131,13 @@ class QuizState extends State<QuizThree> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         pageBuilder: (context, _, __) => Test(),
-                      //         transitionDuration: Duration(seconds: 0)
-                      //     )
-                      // );
+                       Navigator.push(
+                           context,
+                           PageRouteBuilder(
+                               pageBuilder: (context, _, __) => ScoreThree(),
+                               transitionDuration: Duration(seconds: 0)
+                           )
+                       );
                     },
                   )
               ),

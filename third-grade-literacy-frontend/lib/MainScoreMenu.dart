@@ -5,6 +5,8 @@ import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
 import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
+import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
+import 'WordStructures.dart';
 
 class MainScore extends StatelessWidget {
   @override
@@ -122,14 +124,14 @@ Widget sub(BuildContext context) {
               children: [
                 starsAndCheck(2),
                 GestureDetector(
-                    onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   PageRouteBuilder(
-                      //     pageBuilder: (context, _, __) => Test(),
-                      //     transitionDuration: Duration(seconds: 0)
-                      //   )
-                      // );
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreThree(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                      );
                     },
                     child: Text('3   Comparative Endings',
                         style: textStyle(Colors.black, screenWidth / 35)
