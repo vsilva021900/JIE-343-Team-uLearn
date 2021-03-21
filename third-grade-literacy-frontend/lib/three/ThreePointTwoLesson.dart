@@ -17,8 +17,6 @@ class ThreePointTwoLesson extends StatefulWidget {
   ThreePointTwo createState() => ThreePointTwo();
 }
 class ThreePointTwo extends State<ThreePointTwoLesson> {
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionThree/ThreePointTwo/1_4_blue-er-est.png'),
     Image.asset('assets/dropbox/sectionThree/ThreePointTwo/2_4_large-er-est.png'),
     Image.asset('assets/dropbox/sectionThree/ThreePointTwo/3_4_little-er-est.png'),
@@ -40,10 +38,18 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
     "tame.mp3",
     "wide.mp3"];
   int tracker = 0;
+  bool marker = true;
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
+  String questionAudio = '#3.2_wordsdropEandaddERorEST.mp3';
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
+    if (marker) {
+      playAudio();
+    }
+    marker = false;
     return MaterialApp(
         home: Material(
             child: Row(
@@ -69,6 +75,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -78,6 +85,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pushAndRemoveUntil(context,
                           PageRouteBuilder(
                               pageBuilder: (context, _, __) => MyApp(),
@@ -92,6 +100,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {
+                        stopAudio();
                         Navigator.push(
                             context,
                             PageRouteBuilder(
@@ -107,7 +116,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        audioCache.play(music[tracker]);
+                        playAudio();
                       }
                   )
               ),
@@ -116,6 +125,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                        Navigator.push(
                            context,
                            PageRouteBuilder(
@@ -130,7 +140,9 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]
@@ -183,7 +195,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -201,7 +213,7 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -229,7 +241,17 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
         )
     );
   }
-
+  playAudio() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(questionAudio);
+  }
+  playAudio2() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(music[tracker]);
+  }
+  stopAudio() {
+    audioPlayer.stop();
+  }
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(
