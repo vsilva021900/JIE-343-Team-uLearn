@@ -10,6 +10,7 @@ import 'sectionEight.dart';
 import 'sectionNine.dart';
 import 'sectionTen.dart';
 import 'MainScoreMenu.dart';
+import 'main.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -43,7 +44,6 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/placeholder_back_button.png'),
                   onPressed: () {
-                    Navigator.pop(context);
                   },
                 )
             ),
