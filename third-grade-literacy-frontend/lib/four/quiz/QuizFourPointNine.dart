@@ -105,6 +105,7 @@ class QuizState extends State<QuizFourPointNine> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -119,7 +120,9 @@ class QuizState extends State<QuizFourPointNine> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]

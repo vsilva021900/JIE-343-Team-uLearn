@@ -17,8 +17,6 @@ class FourPointTenLesson extends StatefulWidget {
   FourPointTen createState() => FourPointTen();
 }
 class FourPointTen extends State<FourPointTenLesson> {
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionFour/FourPointTen/aircraft.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/bison.png'),
     Image.asset('assets/dropbox/sectionFour/FourPointTen/deer.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/elk.png'),
     Image.asset('assets/dropbox/sectionFour/FourPointTen/fish.png'), Image.asset('assets/dropbox/sectionFour/FourPointTen/jellyfish.png'),
@@ -37,10 +35,18 @@ class FourPointTen extends State<FourPointTenLesson> {
   'moose.mp3', 'reindeer.mp3', 'sheep.mp3', 'spacecraft.mp3', 'watercraft.mp3'
   ];
   int tracker = 0;
+  bool marker = true;
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
+  String questionAudio = "##4.10_somewordsdon'tchange.mp3";
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
+    if (marker) {
+      playAudio();
+    }
+    marker = false;
     return MaterialApp(
         home: Material(
             child: Row(
@@ -66,6 +72,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -75,6 +82,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pushAndRemoveUntil(context,
                           PageRouteBuilder(
                               pageBuilder: (context, _, __) => MyApp(),
@@ -89,6 +97,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {
+                        stopAudio();
                         Navigator.push(
                             context,
                             PageRouteBuilder(
@@ -104,8 +113,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        stopAudio();
-                        playAudio(music[tracker]);
+                        playAudio();
                       }
                   )
               ),
@@ -114,6 +122,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -128,7 +137,9 @@ class FourPointTen extends State<FourPointTenLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]
@@ -176,8 +187,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          stopAudio();
-                          playAudio(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -195,8 +205,7 @@ class FourPointTen extends State<FourPointTenLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          stopAudio();
-                          playAudio(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -224,9 +233,13 @@ class FourPointTen extends State<FourPointTenLesson> {
       fontSize: size,
     );
   }
-  playAudio(String path) async {
+  playAudio() async {
     stopAudio();
-    audioPlayer = await audioCache.play(path);
+    audioPlayer = await audioCache.play(questionAudio);
+  }
+  playAudio2() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(music[tracker]);
   }
   stopAudio() {
     audioPlayer.stop();
