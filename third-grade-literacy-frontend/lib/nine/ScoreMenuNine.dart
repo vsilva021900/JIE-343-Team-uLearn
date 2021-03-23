@@ -87,7 +87,7 @@ Widget sub(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                starsAndCheck(1),
+                starsAndCheck(0),
                 Row(
                   children: [
                     Text('9.1 ',
@@ -125,7 +125,7 @@ Widget sub(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                starsAndCheck(2),
+                starsAndCheck(1),
                 Row(
                   children: [
                     Text('9.2 ',
@@ -147,7 +147,7 @@ Widget sub(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                starsAndCheck(3),
+                starsAndCheck(2),
                 Row(
                   children: [
                     Text('9.3 ',
@@ -169,7 +169,7 @@ Widget sub(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                starsAndCheck(4),
+                starsAndCheck(3),
                 Row(
                   children: [
                     Text('9.4 ',
@@ -197,7 +197,7 @@ Widget sub(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                starsAndCheck(5),
+                starsAndCheck(4),
                 Row(
                   children: [
                     Text('9.5 ',
@@ -225,7 +225,7 @@ Widget sub(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                starsAndCheck(6),
+                starsAndCheck(5),
                 Row(
                   children: [
                     Text('9.6 ',
@@ -263,7 +263,7 @@ Widget sub(BuildContext context) {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                starsAndCheck(7),
+                starsAndCheck(6),
                 Row(
                   children: [
                     Text('9.7 ',
