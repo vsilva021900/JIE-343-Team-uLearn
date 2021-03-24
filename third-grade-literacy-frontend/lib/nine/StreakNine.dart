@@ -1,4 +1,4 @@
-class StreakFive {
+class StreakNine {
   // [0] -> 9.1
   // [1] -> 9.2
   // [2] -> 9.3
