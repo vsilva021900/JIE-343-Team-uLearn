@@ -295,7 +295,7 @@ Widget sub(BuildContext context) {
 
 Row starsAndCheck(int index) {
   Container checkmark;
-  if (StreakFive.checkmark[index]) {
+  if (StreakNine.checkmark[index]) {
     checkmark = Container(
         constraints: BoxConstraints(maxWidth: screenHeight / 12, maxHeight: screenHeight / 12),
         child: Image.asset("assets/stars/placeholder_checkmark.png",
@@ -332,7 +332,7 @@ Row starsAndCheck(int index) {
 }
 
 Container starImage(int index) {
-  String imagePath = StreakFive.getImagePath(index);
+  String imagePath = StreakNine.getImagePath(index);
   if (imagePath.length == 0) {
     return Container(
         width: screenWidth / 5,
@@ -342,7 +342,7 @@ Container starImage(int index) {
 
   return Container(
       constraints: BoxConstraints(maxWidth: screenWidth / 5),
-      child: Image.asset(StreakFive.getImagePath(index),
+      child: Image.asset(StreakNine.getImagePath(index),
         fit: BoxFit.contain,
       )
   );
