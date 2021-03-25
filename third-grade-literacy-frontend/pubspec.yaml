@@ -233,6 +233,14 @@ flutter:
     - assets/dropbox/sectionFive/FivePointOne/
     - assets/dropbox/sectionFive/FivePointTwo/
     - assets/dropbox/sectionFive/FivePointThree/
+    - assets/dropbox/SectionNine/NinePointZero/
+    - assets/dropbox/SectionNine/NinePointOne/
+    - assets/dropbox/SectionNine/NinePointTwo/
+    - assets/dropbox/SectionNine/NinePointThree/
+    - assets/dropbox/SectionNine/NinePointFour/
+    - assets/dropbox/SectionNine/NinePointFive/
+    - assets/dropbox/SectionNine/NinePointSix/
+    - assets/dropbox/SectionNine/NinePointSeven/
     - assets/dropbox/wordStructuresMenu/
     - assets/stars/
   fonts:
