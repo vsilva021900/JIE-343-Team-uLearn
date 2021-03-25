@@ -32,7 +32,7 @@ class QuizState extends State<QuizNine> {
       "darken", "sharpen" // 9.5 extra
     ],
     ["bendable", "breakable", "enjoyable", "fixable", "flyable", "lovable", // 9.4
-      "preferable", "changeable", "doable", "reliable", "likeable" // 9.4 extra
+      "preferable", "changeable", "doable", "reliable", "likeable", // 9.4 extra
       "badly", "quickly", "softly", "safely", "friendly", "quietly", // 9.6
       "cheerfully", "joyfully", // 9.6 extra
     ],
