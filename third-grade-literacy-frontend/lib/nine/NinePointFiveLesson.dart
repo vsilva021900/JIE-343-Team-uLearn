@@ -155,7 +155,7 @@ class NinePointFive extends State<NinePointFiveLesson> {
   }
 
   Widget sub(BuildContext context) {
-    double fontSize = screenWidth / 27;
+    double fontSize = screenWidth / 29;
     return Container(
         color: const Color(0xFFFFFF),
         child: Column(
