@@ -18,15 +18,15 @@ class QuizState extends State<QuizNine> {
     ['fix', 'help', 'jump', 'own', 'paint', 'talk', // 1.1
       'nap', 'skip', 'hug', 'drop', 'fib', 'stop', // 1.2
       'dance', 'excite', 'tickle', 'bake', 'move', 'tumble', // 1.3
-      'cry', 'try', 'carry', 'fry', 'empty', 'dirty', // 1.4
+      'cry', 'try', 'carry', 'fry', 'empty', // 1.4
       'help', 'jump', 'kick', 'sing', 'sleep', 'talk', 'think', 'work', // 2.1
-      'bully', 'carry', 'cry', 'dirty', 'fly', 'spy', 'try', // 2.2
+      'bully', 'carry', 'cry', 'fly', 'spy', 'try', // 2.2
       'catch', 'hitch', 'scratch', 'teach', 'touch', 'watch', // 2.3
       'guess', 'hiss', 'kiss', 'miss', 'pass', 'toss', // 2.4
       'crash', 'fish', 'push', 'vanish', 'wash', 'wish', // 2.5
       'box', 'fix', 'mix', 'relax', 'wax'], // 2.6
     // incorrect answers from 9.1 - 9.7 divided into 3 parts
-    ["driver", "juggler", "painter", "flier",  "sailor", "educator", "visitor", "protector", // 9.1
+    ["driver", "juggler", "painter", "flier", "sailor", "educator", "visitor", "protector", // 9.1
       "leader", "dancer", "singer", "teacher", // 9.1 extra
       "brighten", "broken", "hidden", "loosen", "strengthen", "tighten", // 9.5
       "darken", "sharpen" // 9.5 extra
