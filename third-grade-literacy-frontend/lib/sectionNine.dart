@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
-import 'testing.dart';
 import 'WordStructures.dart';
+import 'package:hearatale_literacy_app/nine/NinePointOneLesson.dart';
+import 'package:hearatale_literacy_app/nine/NinePointTwoLesson.dart';
+import 'package:hearatale_literacy_app/nine/NinePointThreeLesson.dart';
+import 'package:hearatale_literacy_app/nine/NinePointFourLesson.dart';
+import 'package:hearatale_literacy_app/nine/NinePointFiveLesson.dart';
+import 'package:hearatale_literacy_app/nine/NinePointSixLesson.dart';
+import 'package:hearatale_literacy_app/nine/NinePointSevenLesson.dart';
+import 'package:hearatale_literacy_app/nine/ScoreMenuNine.dart';
+import 'package:hearatale_literacy_app/nine/quiz/QuizNine.dart';
+
 
 class MainNine extends StatelessWidget {
   @override
@@ -56,7 +64,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => QuizNine(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    }
                 )
             ),
             Material(
@@ -64,13 +80,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreNine(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
                   },
                 )
             ),
@@ -123,7 +139,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => NinePointOneLesson(),
                             transitionDuration: Duration(seconds: 0)
                         )
                     );
@@ -140,7 +156,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => NinePointTwoLesson(),
                             transitionDuration: Duration(seconds: 0)
                         )
                     );
@@ -161,7 +177,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => NinePointThreeLesson(),
                             transitionDuration: Duration(seconds: 0)
                         )
                     );
@@ -210,7 +226,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => NinePointFourLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -227,7 +243,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => NinePointFiveLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -244,7 +260,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => NinePointSixLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -261,7 +277,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => NinePointSevenLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
