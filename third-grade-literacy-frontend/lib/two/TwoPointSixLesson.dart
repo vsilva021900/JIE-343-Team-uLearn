@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointSix.dart';
 import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,8 +17,6 @@ class TwoPointSixLesson extends StatefulWidget {
   TwoPointSix createState() => TwoPointSix();
 }
 class TwoPointSix extends State<TwoPointSixLesson> {
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointSix/box.png'),
     Image.asset('assets/dropbox/sectionTwo/TwoPointSix/fixes.png'),
     Image.asset('assets/dropbox/sectionTwo/TwoPointSix/mixes.png'),
@@ -31,10 +30,19 @@ class TwoPointSix extends State<TwoPointSixLesson> {
     "relax_relaxes.mp3",
     "wax_waxes.mp3"];
   int tracker = 0;
+  bool marker = true;
+
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
+  String questionAudio = '#2.6_endwithXaddES.mp3';
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
+    if (marker) {
+      playAudio();
+    }
+    marker = false;
     return MaterialApp(
         home: Material(
             child: Row(
@@ -60,6 +68,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -69,6 +78,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pushAndRemoveUntil(context,
                           PageRouteBuilder(
                               pageBuilder: (context, _, __) => MyApp(),
@@ -83,6 +93,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {
+                        stopAudio();
                         Navigator.push(
                             context,
                             PageRouteBuilder(
@@ -98,7 +109,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        audioCache.play(music[tracker]);
+                        playAudio();
                       }
                   )
               ),
@@ -107,6 +118,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -121,7 +133,9 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]
@@ -175,7 +189,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -193,7 +207,7 @@ class TwoPointSix extends State<TwoPointSixLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -217,7 +231,17 @@ class TwoPointSix extends State<TwoPointSixLesson> {
         )
     );
   }
-
+  playAudio() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(questionAudio);
+  }
+  playAudio2() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(music[tracker]);
+  }
+  stopAudio() {
+    audioPlayer.stop();
+  }
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(

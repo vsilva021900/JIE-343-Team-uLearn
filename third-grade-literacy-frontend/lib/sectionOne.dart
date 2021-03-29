@@ -8,6 +8,7 @@ import 'one/OnePointFourLesson.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/one/quiz/QuizOne.dart';
 import 'one/ScoreMenuOne.dart';
+import 'WordStructures.dart';
 
 
 class MainOne extends StatelessWidget {

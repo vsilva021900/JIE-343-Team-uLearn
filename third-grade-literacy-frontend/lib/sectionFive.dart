@@ -5,6 +5,7 @@ import 'five/FivePointTwoLesson.dart';
 import 'five/FivePointThreeLesson.dart';
 import 'five/ScoreMenuFive.dart';
 import 'package:flutter/material.dart';
+import 'WordStructures.dart';
 
 class MainFive extends StatelessWidget {
   @override

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'WordStructures.dart';
 import 'StreakMain.dart';
-import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
-import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
-import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
+import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
+import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
+import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
+import 'package:hearatale_literacy_app/nine/ScoreMenuNine.dart';
+
 
 class MainScore extends StatelessWidget {
   @override
@@ -244,13 +246,13 @@ Widget sub(BuildContext context) {
                 starsAndCheck(8),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageRouteBuilder(
-                    //     pageBuilder: (context, _, __) => Test(),
-                    //     transitionDuration: Duration(seconds: 0)
-                    //   )
-                    // );
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, _, __) => ScoreNine(),
+                        transitionDuration: Duration(seconds: 0)
+                      )
+                    );
                   },
                   child: Text('9   Suffixes',
                       style: textStyle(Colors.black, screenWidth / 35)

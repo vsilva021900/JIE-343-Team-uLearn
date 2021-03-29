@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/two/StreakTwo.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 class QuizTwoPointTwo extends StatefulWidget {
   @override
@@ -103,6 +104,7 @@ class QuizState extends State<QuizTwoPointTwo> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -117,7 +119,9 @@ class QuizState extends State<QuizTwoPointTwo> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]

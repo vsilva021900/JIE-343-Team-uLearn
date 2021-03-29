@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'testing.dart';
+import 'WordStructures.dart';
 
 class MainSeven extends StatelessWidget {
   @override

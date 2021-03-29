@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/four/quiz/QuizFourPointFive.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 
 void main() {
@@ -21,9 +22,7 @@ class FourPointFiveLesson extends StatefulWidget {
   FourPointFive createState() => FourPointFive();
 }
 class FourPointFive extends State<FourPointFiveLesson> {
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
-  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointFive/box.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/boxes.png')],
+  var pictures = [[Image.asset('assets/dropbox/sectionFour/FourPointFive/box.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/boxes (1).png')],
     [Image.asset('assets/dropbox/sectionFour/FourPointFive/fox.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/foxes.png')],
     [Image.asset('assets/dropbox/sectionFour/FourPointFive/lynx.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/lynxes.png')],
     [Image.asset('assets/dropbox/sectionFour/FourPointFive/mix.png'), Image.asset('assets/dropbox/sectionFour/FourPointFive/mixes.png')],
@@ -45,10 +44,18 @@ class FourPointFive extends State<FourPointFiveLesson> {
     'wax_waxes.mp3'
   ];
   int tracker = 0;
+  bool marker = true;
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
+  String questionAudio = '#4.5_wordsendXjustaddES use this.mp3';
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
+    if (marker) {
+      playAudio();
+    }
+    marker = false;
     return MaterialApp(
         home: Material(
             child: Row(
@@ -74,6 +81,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -83,6 +91,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pushAndRemoveUntil(context,
                           PageRouteBuilder(
                               pageBuilder: (context, _, __) => MyApp(),
@@ -97,6 +106,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {
+                        stopAudio();
                         Navigator.push(
                             context,
                             PageRouteBuilder(
@@ -110,8 +120,18 @@ class FourPointFive extends State<FourPointFiveLesson> {
               Material(
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
+                      icon: Image.asset('assets/placeholder_replay_button.png'),
+                      onPressed: () {
+                        playAudio();
+                      }
+                  )
+              ),
+              Material(
+                  color: const Color(0xffc4e8e6),
+                  child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -125,17 +145,10 @@ class FourPointFive extends State<FourPointFiveLesson> {
               Material(
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
-                      icon: Image.asset('assets/placeholder_replay_button.png'),
-                      onPressed: () {
-                        audioCache.play(music[tracker]);
-                      }
-                  )
-              ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]
@@ -181,7 +194,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -204,7 +217,7 @@ class FourPointFive extends State<FourPointFiveLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -227,6 +240,17 @@ class FourPointFive extends State<FourPointFiveLesson> {
             ]
         )
     );
+  }
+  playAudio() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(questionAudio);
+  }
+  playAudio2() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(music[tracker]);
+  }
+  stopAudio() {
+    audioPlayer.stop();
   }
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {

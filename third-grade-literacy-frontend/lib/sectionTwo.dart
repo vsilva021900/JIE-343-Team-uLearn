@@ -3,6 +3,7 @@ import 'package:hearatale_literacy_app/main.dart';
 import 'two/TwoPointOneLesson.dart';
 import 'two/TwoPointTwoLesson.dart';
 import 'two/TwoPointThreeLesson.dart';
+import 'WordStructures.dart';
 import 'two/TwoPointFourLesson.dart';
 import 'two/TwoPointFiveLesson.dart';
 import 'two/TwoPointSixLesson.dart';

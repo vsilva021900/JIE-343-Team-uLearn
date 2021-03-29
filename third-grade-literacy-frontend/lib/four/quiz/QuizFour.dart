@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/StreakMain.dart';
@@ -197,6 +197,7 @@ class QuizState extends State<QuizFour> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -211,7 +212,9 @@ class QuizState extends State<QuizFour> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]

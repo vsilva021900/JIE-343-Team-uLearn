@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointOne.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,8 +17,6 @@ class TwoPointOneLesson extends StatefulWidget {
   TwoPointOne createState() => TwoPointOne();
 }
 class TwoPointOne extends State<TwoPointOneLesson> {
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointOne/helps.png'),
     Image.asset('assets/dropbox/sectionTwo/TwoPointOne/jumps.jpg'),
     Image.asset('assets/dropbox/sectionTwo/TwoPointOne/kicks.png'),
@@ -39,10 +38,19 @@ class TwoPointOne extends State<TwoPointOneLesson> {
     "work_works.mp3"
   ];
   int tracker = 0;
+  bool marker = true;
+
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
+  String questionAudio = '#2.1_mostbasewordsjustaddS.mp3';
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
+    if (marker) {
+      playAudio();
+    }
+    marker = false;
     return MaterialApp(
         home: Material(
             child: Row(
@@ -68,6 +76,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -77,6 +86,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pushAndRemoveUntil(context,
                           PageRouteBuilder(
                               pageBuilder: (context, _, __) => MyApp(),
@@ -91,6 +101,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {
+                        stopAudio();
                         Navigator.push(
                             context,
                             PageRouteBuilder(
@@ -106,7 +117,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        audioCache.play(music[tracker]);
+                        playAudio();
                       }
                   )
               ),
@@ -115,6 +126,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -129,7 +141,9 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]
@@ -184,7 +198,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -202,7 +216,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -226,7 +240,17 @@ class TwoPointOne extends State<TwoPointOneLesson> {
         )
     );
   }
-
+  playAudio() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(questionAudio);
+  }
+  playAudio2() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(music[tracker]);
+  }
+  stopAudio() {
+    audioPlayer.stop();
+  }
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
     return TextStyle(

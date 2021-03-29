@@ -5,6 +5,7 @@ import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
 import 'package:hearatale_literacy_app/five/StreakFive.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 class QuizFivePointOne extends StatefulWidget {
   @override
@@ -134,7 +135,9 @@ class QuizState extends State<QuizFivePointOne> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]

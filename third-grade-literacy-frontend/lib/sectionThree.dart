@@ -1,6 +1,7 @@
 import 'package:hearatale_literacy_app/main.dart';
 
 import 'testing.dart';
+import 'WordStructures.dart';
 import 'package:flutter/material.dart';
 import 'three/ThreePointOneLesson.dart';
 import 'three/ThreePointTwoLesson.dart';

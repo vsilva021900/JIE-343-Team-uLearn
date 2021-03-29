@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/five/quiz/QuizFivePointOne.dart';
 import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
 import 'package:hearatale_literacy_app/main.dart';
-
+import 'package:hearatale_literacy_app/WordStructures.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -17,8 +17,6 @@ class FivePointOneLesson extends StatefulWidget {
   FivePointOne createState() => FivePointOne();
 }
 class FivePointOne extends State<FivePointOneLesson> {
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
   var pictures = [Image.asset("assets/dropbox/sectionFive/FivePointOne/boot's_shoestring.png"), Image.asset("assets/dropbox/sectionFive/FivePointOne/child's_book.png"),
     Image.asset("assets/dropbox/sectionFive/FivePointOne/dog's_hot_dog.png"), Image.asset("assets/dropbox/sectionFive/FivePointOne/dress's_collar.png"),
     Image.asset("assets/dropbox/sectionFive/FivePointOne/elf's_lantern.png"), Image.asset("assets/dropbox/sectionFive/FivePointOne/firefly's_head.png"),
@@ -44,10 +42,18 @@ class FivePointOne extends State<FivePointOneLesson> {
     "tooth's_thetooth'spoint.mp3", "woman's_thewoman'sheadband.mp3", "worker's_theworker'shardhat.mp3"
   ];
   int tracker = 0;
+  bool marker = true;
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer audioPlayer = new AudioPlayer();
+  String questionAudio = "##5.1_whenonehassomethingadd_'S.mp3";
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
+    if (marker) {
+      playAudio();
+    }
+    marker = false;
     return MaterialApp(
         home: Material(
             child: Row(
@@ -73,6 +79,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_back_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pop(context);
                     },
                   )
@@ -82,6 +89,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/placeholder_home_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.pushAndRemoveUntil(context,
                           PageRouteBuilder(
                               pageBuilder: (context, _, __) => MyApp(),
@@ -96,6 +104,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_quiz_button.png'),
                       onPressed: () {
+                        stopAudio();
                         Navigator.push(
                             context,
                             PageRouteBuilder(
@@ -111,7 +120,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
-                        audioCache.play(music[tracker]);
+                        playAudio();
                       }
                   )
               ),
@@ -120,6 +129,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                   child: IconButton(
                     icon: Image.asset('assets/star_button.png'),
                     onPressed: () {
+                      stopAudio();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -134,7 +144,9 @@ class FivePointOne extends State<FivePointOneLesson> {
                   color: const Color(0xffc4e8e6),
                   child: IconButton(
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {}
+                      onPressed: () {
+                        stopAudio();
+                      }
                   )
               ),
             ]
@@ -180,7 +192,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == 0)? pictures.length - 1 : tracker - 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -198,7 +210,7 @@ class FivePointOne extends State<FivePointOneLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures.length - 1)? 0 : tracker + 1;});
-                          audioCache.play(music[tracker]);
+                          playAudio2();
                         },
                       ),
                     ),
@@ -217,6 +229,17 @@ class FivePointOne extends State<FivePointOneLesson> {
             ]
         )
     );
+  }
+  playAudio() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(questionAudio);
+  }
+  playAudio2() async {
+    stopAudio();
+    audioPlayer = await audioCache.play(music[tracker]);
+  }
+  stopAudio() {
+    audioPlayer.stop();
   }
   double screenHeight, screenWidth;
   TextStyle textStyle(Color col, double size) {
