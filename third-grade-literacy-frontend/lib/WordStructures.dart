@@ -10,6 +10,7 @@ import 'sectionEight.dart';
 import 'sectionNine.dart';
 import 'sectionTen.dart';
 import 'MainScoreMenu.dart';
+import 'main.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -42,7 +43,13 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                   icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => LogInScreen(),
+                            transitionDuration: Duration(seconds: 0)
+                        ), (route) => false);
+                  },
                 )
             ),
             Material(
