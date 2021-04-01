@@ -10,6 +10,34 @@ import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 import 'package:hearatale_literacy_app/one/StreakOne.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 
+import 'package:hearatale_literacy_app/UserDataModel.dart';
+import 'package:http/http.dart' as http;
+
+
+
+
+//Each question should be considered a focus item
+Future<UserModel> pushUserDataForFocusItem() async {
+  final response = await http.post(
+      Uri.http("http://localhost:3000/", "/api/analytics/application"),
+      body: {
+        "student": "dp", //replace with actual student identifier
+        "program": "Third Grade Literacy App",
+        "focus_item_unit": "Quiz 1",
+        "focus_item_subunit": "Unit Quiz",
+        "correct_on": -1,
+        "time_spent": DateTime.now(),
+      });
+
+  if(response.body[0] == "success") {
+    return userModelFromJson(response.body);
+  } else {
+    print("Unable to upload Quiz 1 Unit data to DAP");
+    return null;
+  }
+}
+
+
 class QuizOne extends StatefulWidget {
   @override
   QuizState createState() => QuizState();

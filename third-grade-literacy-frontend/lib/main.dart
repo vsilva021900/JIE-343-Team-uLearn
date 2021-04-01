@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
 import 'WordStructures.dart';
 
+import 'package:hearatale_literacy_app/UserDataModel.dart';
+import 'package:http/http.dart' as http;
+
+
+Future<UserModel> logInStudent(String id) async {
+  final response = await http.post(
+      Uri.https("10.0.0.2:3000", "/api/session/student"),  //TODO: only runs on local machine --> change to ip + port of server
+      body: {
+        "id": id,
+      });
+
+  if(response.body[0] == "ok") {
+    return userModelFromJson(response.body[1]);
+  } else {
+    print("UNABLE TO LOGIN");
+    return null;
+  }
+
+}
+
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
@@ -853,7 +873,26 @@ class LogIn extends State<LogInScreen> {
                       padding: const EdgeInsets.only(left: 5, right: 5)
                   ),
                   GestureDetector(
+
                     onTap: () {
+                      Future<UserModel> student = null;
+                      if(letters.length == 5) {
+                        student = logInStudent(letters);
+                      }
+
+                      if(student != null) {
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => MyApp(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
+                      } else {
+                        print("CANNOT LOG IN");
+                      }
+
+                      /*
                       if (letters == "ccccc") {
                         Navigator.push(
                           context,
@@ -863,6 +902,8 @@ class LogIn extends State<LogInScreen> {
                           )
                         );
                       }
+
+                       */
                     },
                     child: Container(
                         decoration: boxDecoration(const Color(0xFF80CDC4)),
