@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
-import 'testing.dart';
+import 'package:hearatale_literacy_app/six/SixPointOneLesson.dart';
+import 'package:hearatale_literacy_app/six/SixPointTwoLesson.dart';
+import 'package:hearatale_literacy_app/six/SixPointThreeLesson.dart';
+import 'package:hearatale_literacy_app/six/SixPointFourLesson.dart';
+import 'package:hearatale_literacy_app/six/SixPointFiveLesson.dart';
+import 'package:hearatale_literacy_app/six/SixPointSixLesson.dart';
+import 'package:hearatale_literacy_app/six/SixPointSevenLesson.dart';
+//import 'package:hearatale_literacy_app/six/SixPointEightLesson.dart';
+import 'package:hearatale_literacy_app/six/ScoreMenuSix.dart';
+import 'package:hearatale_literacy_app/six/quiz/QuizSix.dart';
 import 'WordStructures.dart';
+//import 'six/SixPointEightLesson.dart';
+import 'six/SixPointFiveLesson.dart';
+import 'six/SixPointFourLesson.dart';
+import 'six/SixPointOneLesson.dart';
+import 'six/SixPointSevenLesson.dart';
+import 'six/SixPointSixLesson.dart';
+import 'six/SixPointThreeLesson.dart';
+import 'six/SixPointTwoLesson.dart';
+import 'testing.dart';
 
 class MainSix extends StatelessWidget {
   @override
@@ -124,7 +141,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointOneLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -147,7 +164,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointTwoLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -168,7 +185,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointThreeLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -185,7 +202,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointFourLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -202,7 +219,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointFiveLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -223,7 +240,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointSixLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -240,7 +257,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointSevenLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
