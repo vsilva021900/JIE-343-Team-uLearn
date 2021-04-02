@@ -241,6 +241,7 @@ flutter:
     - assets/dropbox/SectionNine/NinePointFive/
     - assets/dropbox/SectionNine/NinePointSix/
     - assets/dropbox/SectionNine/NinePointSeven/
+    - assets/dropbox/SectionTen/
     - assets/dropbox/wordStructuresMenu/
     - assets/stars/
   fonts:

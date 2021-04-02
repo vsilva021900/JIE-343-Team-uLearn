@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'testing.dart';
 import 'WordStructures.dart';
+import 'ten/TenAllLesson.dart';
+import 'ten/TenOneLesson.dart';
+import 'ten/TenTwoLesson.dart';
+import 'ten/TenThreeLesson.dart';
+import 'ten/TenFourLesson.dart';
 
 class MainTen extends StatelessWidget {
   @override
@@ -93,9 +98,23 @@ Widget subSections(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-              height: screenHeight * 0.65,
-              child: Image.asset('assets/dropbox/Cropped/BigTriangle_10_fix.png',
-                fit: BoxFit.fitHeight,
+              width: screenWidth / 10,
+          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                        pageBuilder: (context, _, __) => TenAllLesson(),
+                        transitionDuration: Duration(seconds: 0)
+                    )
+                );
+              },
+              child: Container(
+                  height: screenHeight * 0.65,
+                  child: Image.asset('assets/dropbox/Cropped/BigTriangle_10_fix.png',
+                    fit: BoxFit.fitHeight,
+                  )
               )
           ),
           Row(
@@ -109,7 +128,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => TenOneLesson(),
                             transitionDuration: Duration(seconds: 0)
                         )
                     );
@@ -131,7 +150,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => TenTwoLesson(),
                             transitionDuration: Duration(seconds: 0)
                         )
                     );
@@ -155,7 +174,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => TenThreeLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -185,7 +204,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => TenFourLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
