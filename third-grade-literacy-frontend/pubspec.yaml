@@ -233,6 +233,24 @@ flutter:
     - assets/dropbox/sectionFive/FivePointOne/
     - assets/dropbox/sectionFive/FivePointTwo/
     - assets/dropbox/sectionFive/FivePointThree/
+    - assets/dropbox/SectionSix/SixPointOne/
+    - assets/dropbox/SectionSix/SixPointTwo/
+    - assets/dropbox/SectionSix/SixPointThree/
+    - assets/dropbox/SectionSix/SixPointFour/
+    - assets/dropbox/SectionSix/SixPointFive/
+    - assets/dropbox/SectionSix/SixPointSix/
+    - assets/dropbox/SectionSix/SixPointSeven/
+    - assets/dropbox/SectionSix/SixPointEight/
+    - assets/dropbox/sectionSeven/
+    - assets/dropbox/SectionEight/EightPointOne/
+    - assets/dropbox/SectionEight/EightPointTwo/
+    - assets/dropbox/SectionEight/EightPointThree/
+    - assets/dropbox/SectionEight/EightPointFour/
+    - assets/dropbox/SectionEight/EightPointFive/
+    - assets/dropbox/SectionEight/EightPointSix/
+    - assets/dropbox/SectionEight/EightPointSeven/
+    - assets/dropbox/SectionEight/EightPointEight/
+    - assets/dropbox/SectionEight/EightPointNine/
     - assets/dropbox/SectionNine/NinePointZero/
     - assets/dropbox/SectionNine/NinePointOne/
     - assets/dropbox/SectionNine/NinePointTwo/

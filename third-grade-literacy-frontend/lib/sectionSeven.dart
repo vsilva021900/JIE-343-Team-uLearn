@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
-import 'testing.dart';
+import 'package:hearatale_literacy_app/seven/SevenPointOneLesson.dart';
 import 'WordStructures.dart';
+import 'seven/SevenPointOneLesson.dart';
 
 class MainSeven extends StatelessWidget {
   @override
@@ -105,7 +105,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SevenPointOneLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -136,7 +136,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SevenPointOneLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -158,7 +158,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SevenPointOneLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
