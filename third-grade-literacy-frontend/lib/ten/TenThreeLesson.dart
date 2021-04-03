@@ -2,8 +2,8 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointFive.dart';
-import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
+import 'package:hearatale_literacy_app/ten/quiz/QuizTenThree.dart';
+import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 
 void main() {
@@ -17,27 +17,52 @@ class TenThreeLesson extends StatefulWidget {
   TenThree createState() => TenThree();
 }
 class TenThree extends State<TenThreeLesson> {
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointFive/crash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/fish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/push.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/vanish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wish.png')];
-  var words = [['crash', 'crashes'], ['fish', 'fishes'],
-    ['push', 'pushes'], ['vanish', 'vanishes'], ['wash', 'washes'],
-    ['wish', 'wishes']];
-  var music = ["crash_crashes.mp3",
-    "fish_fishes.mp3",
-    "push_pushes.mp3",
-    "vanish_vanishes.mp3",
-    "wash_washes.mp3",
-    "wish_wishes.mp3"];
+  var pictures = [Image.asset('assets/dropbox/SectionTen/1_3_grandfather.png'),
+    Image.asset('assets/dropbox/SectionTen/2_3_grandmother.png'),
+    Image.asset('assets/dropbox/SectionTen/3_3_principal.png'),
+    Image.asset('assets/dropbox/SectionTen/4_3_basketball.png'),
+    Image.asset('assets/dropbox/SectionTen/5_3_gorilla.png'),
+    Image.asset('assets/dropbox/SectionTen/6_3_teddybear.png'),
+    Image.asset('assets/dropbox/SectionTen/7_3_kangaroo.png'),
+    Image.asset('assets/dropbox/SectionTen/8_3_sunglasses.png'),
+    Image.asset('assets/dropbox/SectionTen/9_3_cardinal.png'),
+    Image.asset('assets/dropbox/SectionTen/10_3_bulldozer.png'),
+    Image.asset('assets/dropbox/SectionTen/11_3_dalmation.png'),
+    Image.asset('assets/dropbox/SectionTen/12_3_physician.png'),
+    Image.asset('assets/dropbox/SectionTen/13_3_pineapple.png'),
+    Image.asset('assets/dropbox/SectionTen/14_3_hamburger.png'),
+    Image.asset('assets/dropbox/SectionTen/15_3_bicycle.png'),
+    Image.asset('assets/dropbox/SectionTen/16_3_rattlesnake.png'),
+    Image.asset('assets/dropbox/SectionTen/17_3_centipede.png')];
+  var words = [['grandfather	', 'grand-fa-ther	'], ['grandmother', 'grand-mo-ther'],
+    ['principal', 'prin-ci-pal'], ['basketball', 'bas-ket-ball'], ['gorilla', 'go-ril-la'],
+    ['teddybear', 'ted-dy-bear'], ['kangaroo', 'kan-ga-roo'], ['sunglasses', 'sun-glass-es'],
+    ['cardinal', 'car-di-nal'], ['bulldozer', 'bull-do-zer'], ['dalmation', 'dal-ma-tion'],
+    ['physician', 'phy-si-cian'], ['pineapple', 'pine-ap-ple'], ['hamburger', 'ham-bur-ger'],
+    ['bicycle', 'bi-cy-cle'], ['rattlesnake', 'rat-tle-snake'], ['centipede', 'cen-ti-pede']];
+  var music = ['dropbox/SectionTen/1_3_grandfather.mp3',
+    'dropbox/SectionTen/2_3_grandmother.mp3',
+    'dropbox/SectionTen/3_3_principal.mp3',
+    'dropbox/SectionTen/4_3_basketball.mp3',
+    'dropbox/SectionTen/5_3_gorilla.mp3',
+    'dropbox/SectionTen/6_3_teddybear.mp3',
+    'dropbox/SectionTen/7_3_kangaroo.mp3',
+    'dropbox/SectionTen/8_3_sunglasses.mp3',
+    'dropbox/SectionTen/9_3_cardinal.mp3',
+    'dropbox/SectionTen/10_3_bulldozer.mp3',
+    'dropbox/SectionTen/11_3_dalmation.mp3',
+    'dropbox/SectionTen/12_3_physician.mp3',
+    'dropbox/SectionTen/13_3_pineapple.mp3',
+    'dropbox/SectionTen/14_3_hamburger.mp3',
+    'dropbox/SectionTen/15_3_bicycle.mp3',
+    'dropbox/SectionTen/16_3_rattlesnake.mp3',
+    'dropbox/SectionTen/17_3_centipede.mp3'];
   int tracker = 0;
   bool marker = true;
 
   AudioCache audioCache = new AudioCache();
   AudioPlayer audioPlayer = new AudioPlayer();
-  String questionAudio = '#2.5_wordsthatendSHaddES.mp3';
+  String questionAudio = 'dropbox/SectionTen/#10_Syllables_Intro.mp3';
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
@@ -100,7 +125,7 @@ class TenThree extends State<TenThreeLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizTwoPointFive(),
+                                pageBuilder: (context, _, __) => QuizTenThree(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -125,7 +150,7 @@ class TenThree extends State<TenThreeLesson> {
                       Navigator.push(
                           context,
                           PageRouteBuilder(
-                              pageBuilder: (context, _, __) => ScoreTwo(),
+                              pageBuilder: (context, _, __) => ScoreTen(),
                               transitionDuration: Duration(seconds: 0)
                           )
                       );
@@ -155,30 +180,24 @@ class TenThree extends State<TenThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words,',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('Syllables are different sound parts that go together like',
+                      style: textStyle(Colors.black, screenWidth / 30)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('to say someone or something does something,',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('puzzle pieces to make a word. Every syllable has one or',
+                      style: textStyle(Colors.black, screenWidth / 30)
                   )
                 ],
               ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('base words that end with sh add ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('es',
-                        style: textStyle(Colors.red, screenWidth / 24)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, screenWidth / 24)
+                    Text('more vowels, and usually has one or more consonants.',
+                        style: textStyle(Colors.black, screenWidth / 30)
                     ),
                   ]
               ),

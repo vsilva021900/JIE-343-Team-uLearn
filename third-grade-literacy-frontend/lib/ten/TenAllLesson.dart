@@ -2,8 +2,8 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointFive.dart';
-import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
+import 'package:hearatale_literacy_app/ten/quiz/QuizTenAll.dart';
+import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 
 void main() {
@@ -91,9 +91,9 @@ class TenAll extends State<TenAllLesson> {
     ['teacher', 'tea-cher'], ['football', 'foot-ball'], ['baboon', 'ba-boon'],
     ['robot', 'ro-bot'], ['giraffe', 'gi-raffe'], ['spyglass', 'spy-glass'],
     ['parrot	', 'par-rot	'], ['firetruck', 'fire-truck'], ['poodle', 'poo-dle'],
-    ['doctor', 'doc-tor'], ['apple ', 'ap-ple '], ['taco', 'ta-co'],
+    ['doctor', 'doc-tor'], ['apple', 'ap-ple'], ['taco', 'ta-co'],
     ['wagon', 'wa-gon'], ['tiger', 'ti-ger'], ['spider', 'spi-der']];
-  var words3 = [['grandfather	', 'grand-fa-ther	'], ['grandmother', 'grand-mo-ther'],
+  var words3 = [['grandfather', 'grand-fa-ther'], ['grandmother', 'grand-mo-ther'],
     ['principal', 'prin-ci-pal'], ['basketball', 'bas-ket-ball'], ['gorilla', 'go-ril-la'],
     ['teddybear', 'ted-dy-bear'], ['kangaroo', 'kan-ga-roo'], ['sunglasses', 'sun-glass-es'],
     ['cardinal', 'car-di-nal'], ['bulldozer', 'bull-do-zer'], ['dalmation', 'dal-ma-tion'],
@@ -178,12 +178,29 @@ class TenAll extends State<TenAllLesson> {
     'dropbox/SectionTen/16_4_alligator.mp3',
     'dropbox/SectionTen/17_4_caterpillar.mp3'];
 
+  var music5 = ['dropbox/SectionTen/Unit1.mp3',
+    'dropbox/SectionTen/Unit2.mp3',
+    'dropbox/SectionTen/Unit3.mp3',
+    'dropbox/SectionTen/Unit4.mp3',
+    'dropbox/SectionTen/Unit5.mp3',
+    'dropbox/SectionTen/Unit6.mp3',
+    'dropbox/SectionTen/Unit7.mp3',
+    'dropbox/SectionTen/Unit8.mp3',
+    'dropbox/SectionTen/Unit9.mp3',
+    'dropbox/SectionTen/Unit10.mp3',
+    'dropbox/SectionTen/Unit11.mp3',
+    'dropbox/SectionTen/Unit12.mp3',
+    'dropbox/SectionTen/Unit13.mp3',
+    'dropbox/SectionTen/Unit14.mp3',
+    'dropbox/SectionTen/Unit15.mp3',
+    'dropbox/SectionTen/Unit16.mp3',
+    'dropbox/SectionTen/Unit17.mp3'];
   int tracker = 0;
   bool marker = true;
 
   AudioCache audioCache = new AudioCache();
   AudioPlayer audioPlayer = new AudioPlayer();
-  String questionAudio = 'dropbox/SectionTen/#10_Syllables_Intro.mp3';
+  String questionAudio = 'dropbox/SectionTen/StartAudio.mp3';
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
@@ -246,7 +263,7 @@ class TenAll extends State<TenAllLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizTwoPointFive(),
+                                pageBuilder: (context, _, __) => QuizTenAll(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -271,7 +288,7 @@ class TenAll extends State<TenAllLesson> {
                       Navigator.push(
                           context,
                           PageRouteBuilder(
-                              pageBuilder: (context, _, __) => ScoreTwo(),
+                              pageBuilder: (context, _, __) => ScoreTen(),
                               transitionDuration: Duration(seconds: 0)
                           )
                       );
@@ -454,7 +471,7 @@ class TenAll extends State<TenAllLesson> {
                         icon: Image.asset('assets/placeholder_back_button_reversed.png'),
                         onPressed: () {
                           setState(() { tracker = (tracker == pictures1.length - 1)? 0 : tracker + 1;});
-                          playAudio2();
+                          playAudio6();
                         },
                       ),
                     ),
@@ -487,16 +504,7 @@ class TenAll extends State<TenAllLesson> {
   }
   playAudio6() async {
     stopAudio();
-    audioPlayer = await audioCache.play(music1[tracker]);
-    while(audioPlayer.state != AudioPlayerState.STOPPED) {
-    }
-    audioPlayer = await audioCache.play(music2[tracker]);
-    while(audioPlayer.state != AudioPlayerState.STOPPED) {
-    }
-    audioPlayer = await audioCache.play(music3[tracker]);
-    while(audioPlayer.state != AudioPlayerState.STOPPED) {
-    }
-    audioPlayer = await audioCache.play(music3[tracker]);
+    audioPlayer = await audioCache.play(music5[tracker]);
   }
   stopAudio() {
     audioPlayer.stop();

@@ -2,8 +2,8 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointFive.dart';
-import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
+import 'package:hearatale_literacy_app/ten/quiz/QuizTenOne.dart';
+import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 
 void main() {
@@ -17,27 +17,48 @@ class TenOneLesson extends StatefulWidget {
   TenOne createState() => TenOne();
 }
 class TenOne extends State<TenOneLesson> {
-  var pictures = [Image.asset('assets/dropbox/sectionTwo/TwoPointFive/crash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/fish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/push.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/vanish.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wash.png'),
-    Image.asset('assets/dropbox/sectionTwo/TwoPointFive/wish.png')];
-  var words = [['crash', 'crashes'], ['fish', 'fishes'],
-    ['push', 'pushes'], ['vanish', 'vanishes'], ['wash', 'washes'],
-    ['wish', 'wishes']];
-  var music = ["crash_crashes.mp3",
-    "fish_fishes.mp3",
-    "push_pushes.mp3",
-    "vanish_vanishes.mp3",
-    "wash_washes.mp3",
-    "wish_wishes.mp3"];
+  var pictures = [Image.asset('assets/dropbox/SectionTen/1_1_boy.png'),
+    Image.asset('assets/dropbox/SectionTen/2_1_girl.png'),
+    Image.asset('assets/dropbox/SectionTen/3_1_kid.png'),
+    Image.asset('assets/dropbox/SectionTen/4_1_bat.png'),
+    Image.asset('assets/dropbox/SectionTen/5_1_chimp.png'),
+    Image.asset('assets/dropbox/SectionTen/6_1_doll.png'),
+    Image.asset('assets/dropbox/SectionTen/7_1_elk.png'),
+    Image.asset('assets/dropbox/SectionTen/8_1_eye.png'),
+    Image.asset('assets/dropbox/SectionTen/9_1_hawk.png'),
+    Image.asset('assets/dropbox/SectionTen/10_1_jeep.png'),
+    Image.asset('assets/dropbox/SectionTen/11_1_mutt.png'),
+    Image.asset('assets/dropbox/SectionTen/12_1_nurse.png'),
+    Image.asset('assets/dropbox/SectionTen/13_1_plum.png'),
+    Image.asset('assets/dropbox/SectionTen/14_1_soup.png'),
+    Image.asset('assets/dropbox/SectionTen/15_1_trike.png'),
+    Image.asset('assets/dropbox/SectionTen/16_1_wolf.png'),
+    Image.asset('assets/dropbox/SectionTen/17_1_wasp.png')];
+  var words = ['boy', 'girl', 'kid', 'bat', 'chimp', 'doll', 'elk', 'eye', 'hawk',
+    'jeep', 'mutt', 'nurse', 'plum', 'soup', 'trike', 'wolf', 'wasp'];
+  var music = ['dropbox/SectionTen/1_1_boy.mp3',
+    'dropbox/SectionTen/2_1_girl.mp3',
+    'dropbox/SectionTen/3_1_kid.mp3',
+    'dropbox/SectionTen/4_1_bat.mp3',
+    'dropbox/SectionTen/5_1_chimp.mp3',
+    'dropbox/SectionTen/6_1_doll.mp3',
+    'dropbox/SectionTen/7_1_elk.mp3',
+    'dropbox/SectionTen/8_1_eye.mp3',
+    'dropbox/SectionTen/9_1_hawk.mp3',
+    'dropbox/SectionTen/10_1_jeep.mp3',
+    'dropbox/SectionTen/11_1_mutt.mp3',
+    'dropbox/SectionTen/12_1_nurse.mp3',
+    'dropbox/SectionTen/13_1_plum.mp3',
+    'dropbox/SectionTen/14_1_soup.mp3',
+    'dropbox/SectionTen/15_1_trike.mp3',
+    'dropbox/SectionTen/16_1_wolf.mp3',
+    'dropbox/SectionTen/17_1_wasp.mp3'];
   int tracker = 0;
   bool marker = true;
 
   AudioCache audioCache = new AudioCache();
   AudioPlayer audioPlayer = new AudioPlayer();
-  String questionAudio = '#2.5_wordsthatendSHaddES.mp3';
+  String questionAudio = 'dropbox/SectionTen/#10_Syllables_Intro.mp3';
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
@@ -100,7 +121,7 @@ class TenOne extends State<TenOneLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizTwoPointFive(),
+                                pageBuilder: (context, _, __) => QuizTenOne(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -125,7 +146,7 @@ class TenOne extends State<TenOneLesson> {
                       Navigator.push(
                           context,
                           PageRouteBuilder(
-                              pageBuilder: (context, _, __) => ScoreTwo(),
+                              pageBuilder: (context, _, __) => ScoreTen(),
                               transitionDuration: Duration(seconds: 0)
                           )
                       );
@@ -155,33 +176,28 @@ class TenOne extends State<TenOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // can probably simplify with RichText
-                  Text('For third person singular action words,',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('Syllables are different sound parts that go together like',
+                      style: textStyle(Colors.black, screenWidth / 30)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('to say someone or something does something,',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('puzzle pieces to make a word. Every syllable has one or',
+                      style: textStyle(Colors.black, screenWidth / 30)
                   )
                 ],
               ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('base words that end with sh add ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('es',
-                        style: textStyle(Colors.red, screenWidth / 24)
-                    ),
-                    Text('.',
-                        style: textStyle(Colors.black, screenWidth / 24)
+                    Text('more vowels, and usually has one or more consonants.',
+                        style: textStyle(Colors.black, screenWidth / 30)
                     ),
                   ]
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -223,12 +239,8 @@ class TenOne extends State<TenOneLesson> {
                 children: [
                   Container(
                       child:
-                      Text(words[tracker][0], style: textStyle(Colors.black, 30))
+                      Text(words[tracker], style: textStyle(Colors.black, 30))
                   ),
-                  Container (
-                      child:
-                      Text(words[tracker][1], style: textStyle(Colors.black, 30))
-                  )
                 ],
               )
             ]
