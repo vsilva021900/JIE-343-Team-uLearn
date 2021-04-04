@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
-import 'testing.dart';
 import 'WordStructures.dart';
+import 'ten/TenAllLesson.dart';
+import 'ten/TenOneLesson.dart';
+import 'ten/TenTwoLesson.dart';
+import 'ten/TenThreeLesson.dart';
+import 'ten/TenFourLesson.dart';
+import 'package:hearatale_literacy_app/ten/quiz/QuizTenAll.dart';
+import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
 
 class MainTen extends StatelessWidget {
   @override
@@ -56,7 +62,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => QuizTenAll(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    }
                 )
             ),
             Material(
@@ -64,13 +78,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                     Navigator.push(
+                         context,
+                         PageRouteBuilder(
+                             pageBuilder: (context, _, __) => ScoreTen(),
+                             transitionDuration: Duration(seconds: 0)
+                         )
+                     );
                   },
                 )
             ),
@@ -93,9 +107,23 @@ Widget subSections(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-              height: screenHeight * 0.65,
-              child: Image.asset('assets/dropbox/Cropped/BigTriangle_10_fix.png',
-                fit: BoxFit.fitHeight,
+              width: screenWidth / 10,
+          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                        pageBuilder: (context, _, __) => TenAllLesson(),
+                        transitionDuration: Duration(seconds: 0)
+                    )
+                );
+              },
+              child: Container(
+                  height: screenHeight * 0.65,
+                  child: Image.asset('assets/dropbox/Cropped/BigTriangle_10_fix.png',
+                    fit: BoxFit.fitHeight,
+                  )
               )
           ),
           Row(
@@ -109,7 +137,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => TenOneLesson(),
                             transitionDuration: Duration(seconds: 0)
                         )
                     );
@@ -131,7 +159,7 @@ Widget subSections(BuildContext context) {
                     Navigator.push(
                         context,
                         PageRouteBuilder(
-                            pageBuilder: (context, _, __) => Test(),
+                            pageBuilder: (context, _, __) => TenTwoLesson(),
                             transitionDuration: Duration(seconds: 0)
                         )
                     );
@@ -155,7 +183,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => TenThreeLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -185,7 +213,7 @@ Widget subSections(BuildContext context) {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => Test(),
+                                pageBuilder: (context, _, __) => TenFourLesson(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
