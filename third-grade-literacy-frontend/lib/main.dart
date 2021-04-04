@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 import 'WordStructures.dart';
+import 'dart:io';
 
 import 'package:hearatale_literacy_app/UserDataModel.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
+import 'package:hearatale_literacy_app/globals.dart' as globals;
+import 'dart:convert';
+import 'dart:async';
 
 
-Future<UserModel> logInStudent(String id) async {
+
+logInStudent(String id) async {
   final response = await http.post(
-      Uri.https("10.0.0.2:3000", "/api/session/student"),  //TODO: only runs on local machine --> change to ip + port of server
+      Uri.https("teacherportal.hearatale.com", "/api/session/student"),
       body: {
-        "id": id,
+        "id": id,   // The 5-digit conjoined teacher_id + student_id --> gx4aa
       });
+  var convertDataToJson = json.decode(response.body);
+  if(convertDataToJson["status"] == "ok") {
+    globals.studentID = id.substring(3, 5);
+    globals.teacherID = id.substring(0, 3);
+    print("Logged in on " + globals.studentID + globals.teacherID);
 
-  if(response.body[0] == "ok") {
-    return userModelFromJson(response.body[1]);
   } else {
     print("UNABLE TO LOGIN");
-    return null;
   }
-
 }
 
 void main() {
@@ -813,13 +820,13 @@ class LogIn extends State<LogInScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                      onTap: () {
-                        if (letters.length == 1) {
-                          letters = "";
-                          setState(() {});
-                        }
-                      },
-                      child: setLetterBoxOne(),
+                    onTap: () {
+                      if (letters.length == 1) {
+                        letters = "";
+                        setState(() {});
+                      }
+                    },
+                    child: setLetterBoxOne(),
                   ),
                   Padding(
                       padding: const EdgeInsets.only(left: 5, right: 5)
@@ -873,14 +880,15 @@ class LogIn extends State<LogInScreen> {
                       padding: const EdgeInsets.only(left: 5, right: 5)
                   ),
                   GestureDetector(
-
-                    onTap: () {
-                      Future<UserModel> student = null;
-                      if(letters.length == 5) {
-                        student = logInStudent(letters);
+                      onTap: () async {
+                      globals.teacherID = null;
+                      globals.studentID = null;
+                      if (letters.length == 5) {
+                        await logInStudent(letters);
                       }
 
-                      if(student != null) {
+
+                      if(globals.studentID != null){
                         Navigator.push(
                             context,
                             PageRouteBuilder(
@@ -889,21 +897,8 @@ class LogIn extends State<LogInScreen> {
                             )
                         );
                       } else {
-                        print("CANNOT LOG IN");
+                        print("student id = null");
                       }
-
-                      /*
-                      if (letters == "ccccc") {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          )
-                        );
-                      }
-
-                       */
                     },
                     child: Container(
                         decoration: boxDecoration(const Color(0xFF80CDC4)),
@@ -1039,7 +1034,6 @@ class LogIn extends State<LogInScreen> {
       return getLetter(4);
     }
   }
-
   Container getLetter(int index) {
     return Container(
         decoration: boxDecoration(const Color(0xffffffff)),

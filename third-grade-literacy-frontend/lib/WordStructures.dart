@@ -11,6 +11,7 @@ import 'sectionNine.dart';
 import 'sectionTen.dart';
 import 'MainScoreMenu.dart';
 import 'main.dart';
+import 'package:hearatale_literacy_app/globals.dart' as globals;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
