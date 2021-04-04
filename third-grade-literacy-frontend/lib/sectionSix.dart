@@ -6,11 +6,11 @@ import 'package:hearatale_literacy_app/six/SixPointFourLesson.dart';
 import 'package:hearatale_literacy_app/six/SixPointFiveLesson.dart';
 import 'package:hearatale_literacy_app/six/SixPointSixLesson.dart';
 import 'package:hearatale_literacy_app/six/SixPointSevenLesson.dart';
-//import 'package:hearatale_literacy_app/six/SixPointEightLesson.dart';
+import 'package:hearatale_literacy_app/six/SixPointEightLesson.dart';
 import 'package:hearatale_literacy_app/six/ScoreMenuSix.dart';
 import 'package:hearatale_literacy_app/six/quiz/QuizSix.dart';
 import 'WordStructures.dart';
-//import 'six/SixPointEightLesson.dart';
+import 'six/SixPointEightLesson.dart';
 import 'six/SixPointFiveLesson.dart';
 import 'six/SixPointFourLesson.dart';
 import 'six/SixPointOneLesson.dart';
@@ -274,7 +274,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointEightLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
