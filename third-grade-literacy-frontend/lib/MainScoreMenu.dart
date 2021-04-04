@@ -7,6 +7,7 @@ import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
 import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
 import 'package:hearatale_literacy_app/nine/ScoreMenuNine.dart';
+import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
 
 
 class MainScore extends StatelessWidget {
@@ -266,13 +267,13 @@ Widget sub(BuildContext context) {
                 starsAndCheck(9),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageRouteBuilder(
-                    //     pageBuilder: (context, _, __) => Test(),
-                    //     transitionDuration: Duration(seconds: 0)
-                    //   )
-                    // );
+                    Navigator.push(
+                       context,
+                       PageRouteBuilder(
+                         pageBuilder: (context, _, __) => ScoreTen(),
+                         transitionDuration: Duration(seconds: 0)
+                       )
+                     );
                   },
                   child: Text('10   Syllables',
                       style: textStyle(Colors.black, screenWidth / 35)
