@@ -1,5 +1,32 @@
 import 'package:flutter/material.dart';
 import 'WordStructures.dart';
+import 'dart:io';
+
+import 'package:hearatale_literacy_app/UserDataModel.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
+import 'package:hearatale_literacy_app/globals.dart' as globals;
+import 'dart:convert';
+import 'dart:async';
+
+
+
+logInStudent(String id) async {
+  final response = await http.post(
+      Uri.https("teacherportal.hearatale.com", "/api/session/student"),
+      body: {
+        "id": id,   // The 5-digit conjoined teacher_id + student_id --> gx4aa
+      });
+  var convertDataToJson = json.decode(response.body);
+  if(convertDataToJson["status"] == "ok") {
+    globals.studentID = id.substring(3, 5);
+    globals.teacherID = id.substring(0, 3);
+    print("Logged in on " + globals.studentID + globals.teacherID);
+
+  } else {
+    print("UNABLE TO LOGIN");
+  }
+}
 
 void main() {
   runApp(MaterialApp(
@@ -793,13 +820,13 @@ class LogIn extends State<LogInScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                      onTap: () {
-                        if (letters.length == 1) {
-                          letters = "";
-                          setState(() {});
-                        }
-                      },
-                      child: setLetterBoxOne(),
+                    onTap: () {
+                      if (letters.length == 1) {
+                        letters = "";
+                        setState(() {});
+                      }
+                    },
+                    child: setLetterBoxOne(),
                   ),
                   Padding(
                       padding: const EdgeInsets.only(left: 5, right: 5)
@@ -853,15 +880,24 @@ class LogIn extends State<LogInScreen> {
                       padding: const EdgeInsets.only(left: 5, right: 5)
                   ),
                   GestureDetector(
-                    onTap: () {
-                      if (letters == "ccccc") {
+                      onTap: () async {
+                      globals.teacherID = null;
+                      globals.studentID = null;
+                      if (letters.length == 5) {
+                        await logInStudent(letters);
+                      }
+
+
+                      if(globals.studentID != null){
                         Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          )
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => MyApp(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
                         );
+                      } else {
+                        print("student id = null");
                       }
                     },
                     child: Container(
@@ -998,7 +1034,6 @@ class LogIn extends State<LogInScreen> {
       return getLetter(4);
     }
   }
-
   Container getLetter(int index) {
     return Container(
         decoration: boxDecoration(const Color(0xffffffff)),
