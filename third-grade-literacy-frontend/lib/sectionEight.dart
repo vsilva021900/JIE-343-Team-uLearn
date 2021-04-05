@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
-import 'testing.dart';
+import 'package:hearatale_literacy_app/eight/EightPointOneLesson.dart';
+import 'package:hearatale_literacy_app/eight/EightPointTwoLesson.dart';
+import 'package:hearatale_literacy_app/eight/EightPointThreeLesson.dart';
+import 'package:hearatale_literacy_app/eight/EightPointFourLesson.dart';
+import 'package:hearatale_literacy_app/eight/EightPointFiveLesson.dart';
+import 'package:hearatale_literacy_app/eight/EightPointSixLesson.dart';
+import 'package:hearatale_literacy_app/eight/EightPointSevenLesson.dart';
+import 'package:hearatale_literacy_app/eight/ScoreMenuEight.dart';
+import 'package:hearatale_literacy_app/eight/quiz/QuizEight.dart';
 import 'WordStructures.dart';
+import 'eight/EightPointEightLesson.dart';
+import 'eight/EightPointEightLesson.dart';
+import 'eight/EightPointEightLesson.dart';
+import 'eight/EightPointFiveLesson.dart';
+import 'eight/EightPointFiveLesson.dart';
+import 'eight/EightPointNineLesson.dart';
+import 'eight/EightPointOneLesson.dart';
+import 'eight/EightPointSevenLesson.dart';
+import 'eight/EightPointSixLesson.dart';
+import 'eight/EightPointThreeLesson.dart';
+import 'eight/EightPointTwoLesson.dart';
+import 'eight/EightPointTwoLesson.dart';
 
 class MainEight extends StatelessWidget {
   @override
@@ -102,7 +121,7 @@ Widget subSections(BuildContext context) {
                       Navigator.push(
                           context,
                           PageRouteBuilder(
-                              pageBuilder: (context, _, __) => Test(),
+                              pageBuilder: (context, _, __) => EightPointOneLesson(),
                               transitionDuration: Duration(seconds: 0)
                           )
                       );
@@ -127,7 +146,7 @@ Widget subSections(BuildContext context) {
                           Navigator.push(
                               context,
                               PageRouteBuilder(
-                                  pageBuilder: (context, _, __) => Test(),
+                                  pageBuilder: (context, _, __) => EightPointFourLesson(),
                                   transitionDuration: Duration(seconds: 0)
                               )
                           );
@@ -146,7 +165,7 @@ Widget subSections(BuildContext context) {
                       Navigator.push(
                           context,
                           PageRouteBuilder(
-                              pageBuilder: (context, _, __) => Test(),
+                              pageBuilder: (context, _, __) => EightPointEightLesson(),
                               transitionDuration: Duration(seconds: 0)
                           )
                       );
@@ -209,7 +228,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => EightPointTwoLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -235,7 +254,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => EightPointFiveLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -321,7 +340,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => EightPointThreeLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -344,7 +363,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => EightPointSixLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -388,7 +407,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => EightPointSevenLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -421,7 +440,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => EightPointNineLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
