@@ -143,19 +143,13 @@ class QuizState extends State<QuizEightPointFive> {
           children: [
             Column(
               children: [
-                Text('The prefix ',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('re ',
-                        style: textStyle(Colors.green, screenWidth / 24)
-                    ),
-                    Text('can mean ',
+                    Text('Which word has a prefix that can mean ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text('again',
+                    Text('again?',
                         style: textStyle(Colors.red, screenWidth / 24)
                     )
                   ],

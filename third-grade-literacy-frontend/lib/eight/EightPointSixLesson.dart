@@ -21,7 +21,7 @@ class EightPointSix extends State<EightPointSixLesson> {
     "assets/dropbox/SectionEight/EightPointSix/misplace.png",
     "assets/dropbox/SectionEight/EightPointSix/misspell.png",
     "assets/dropbox/SectionEight/EightPointSix/mistrust.png",
-    "assets/dropbox/SectionEight/EightPointSix/mismuse.png",
+    "assets/dropbox/SectionEight/EightPointSix/misuse.png",
   ];
   var words = [
     ["mis", "kick", "miskick"],
@@ -29,15 +29,15 @@ class EightPointSix extends State<EightPointSixLesson> {
     ["mis", "place", "misplace"],
     ["mis", "spell", "misspell"],
     ["mis", "trust", "mistrust"],
-    ["mis", "muse", "mismuse"]
+    ["mis", "use", "misuse"]
   ];
   var wordsAudio = [
-    "assets/dropbox/SectionEight/EightPointSix/mis_kick_miskick.mp3",
-    "assets/dropbox/SectionEight/EightPointSix/mis_match_mismatch.mp3",
-    "assets/dropbox/SectionEight/EightPointSix/mis_place_misplace.mp3",
-    "assets/dropbox/SectionEight/EightPointSix/mis_spell_misspell.mp3",
-    "assets/dropbox/SectionEight/EightPointSix/mis_trust_mistrust.mp3",
-    "assets/dropbox/SSectionEight/EightPointSix/mis_muse_mismuse.mp3",
+    "dropbox/SectionEight/EightPointSix/mis_kick_miskick.mp3",
+    "dropbox/SectionEight/EightPointSix/mis_match_mismatch.mp3",
+    "dropbox/SectionEight/EightPointSix/mis_place_misplace.mp3",
+    "dropbox/SectionEight/EightPointSix/mis_spell_misspell.mp3",
+    "dropbox/SectionEight/EightPointSix/mis_trust_mistrust.mp3",
+    "dropbox/SectionEight/EightPointSix/mis_use_misuse.mp3",
   ];
 
   int tracker = 0;

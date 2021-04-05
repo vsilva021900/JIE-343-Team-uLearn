@@ -22,19 +22,19 @@ class SixPointTwo extends State<SixPointTwoLesson> {
     "assets/dropbox/SectionSix/SixPointTwo/who's.png",
   ];
   var words = [
-    ["He is", "He's", "He's thinking up a wonderful story"],
-    ["It is", "It's", "It's not an easy knot to undue"],
-    ["She is", "She's", "I think she's checking her website"],
-    ["That it", "That's", "That's not as easy as it looks"],
-    ["There is", "There's", "There's a surprise for Jack at the end of the bean stalk"],
-    ["Where is", "Where's ", "WHere's a good place to take his pet to play?"],
-    ["Who is", "Who's", "Who's in front and who's in back?"],
+    ["he is", "he's", "He's thinking up a wonderful story"],
+    ["it is", "it's", "It's not an easy knot to undue"],
+    ["she is", "she's", "I think she's checking her website"],
+    ["that is", "that's", "That's not as easy as it looks"],
+    ["there is", "there's", "There's a surprise for Jack at the end of the bean stalk"],
+    ["where is", "where's ", "Where's a good place to take his pet to play?"],
+    ["who is", "who's", "Who's in front and who's in back?"],
   ];
   var wordsAudio = [
     "dropbox/SectionSix/SixPointTwo/1b_heis_he's_He'sthinkingup.mp3",
     "dropbox/SectionSix/SixPointTwo/2b_itis_it's_It'snotaneasyknot.mp3",
-    "dropbox/SectionSix/SixPointTwo/3b_she_is_she's_Ithinkshe'schedking.mp3",
-    "dropbox/SectionSix/SixPointTwo/4b_thatis_that's_Thats'notaseasy.mp3",
+    "dropbox/SectionSix/SixPointTwo/3b_she_is_she's_Ithinkshe'schecking.mp3",
+    "dropbox/SectionSix/SixPointTwo/4b_thatis_that's_That'snotaseasy.mp3",
     "dropbox/SectionSix/SixPointTwo/5b_there_is_there's_there'sasurprise.mp3",
     "dropbox/SectionSix/SixPointTwo/6b_whereis_where's_Where'sagoodplacetotake.mp3",
     "dropbox/SectionSix/SixPointTwo/7b_whois_who's_Who'sinfrontandwho'sinback.mp3",
@@ -158,6 +158,7 @@ class SixPointTwo extends State<SixPointTwoLesson> {
   }
 
   Widget sub(BuildContext context) {
+    double textFontSize = screenWidth / 29;
     return Container(
         color: const Color(0xFFFFFF),
         child: Column(
@@ -165,7 +166,7 @@ class SixPointTwo extends State<SixPointTwoLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Pronoun contractions with  ',
+                  Text('Pronoun contractions with ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   ),
                   Text('is ',
@@ -174,7 +175,7 @@ class SixPointTwo extends State<SixPointTwoLesson> {
                   Text('add ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   ),
-                  Text('s ',
+                  Text('\'s',
                       style: textStyle(Colors.red, screenWidth / 24)
                   )
                 ],
@@ -219,21 +220,19 @@ class SixPointTwo extends State<SixPointTwoLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(words[tracker][0],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
                   Text(words[tracker][1],
-                      style: textStyle(Colors.black, 30)
-                  ),
-                  Text(words[tracker][2],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   )
                 ],
+              ),
+              Text(words[tracker][2],
+                  style: textStyle(Colors.black, textFontSize)
               )
             ]
         )
     );
-
-
   }
 
   playSentenceAudio() async {

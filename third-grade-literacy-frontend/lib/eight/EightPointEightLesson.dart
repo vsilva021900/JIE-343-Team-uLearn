@@ -32,12 +32,12 @@ class EightPointEight extends State<EightPointEightLesson> {
     ["over", "grow", "overgrow"],
   ];
   var wordsAudio = [
-    "assets/dropbox/SectionEight/EightPointEight/over_sged_overaged.mp3",
-    "assets/dropbox/SectionEight/EightPointEight/over_cook_overcook.mp3",
-    "assets/dropbox/SectionEight/EightPointEight/over_do_overdo.mp3",
-    "assets/dropbox/SectionEight/EightPointEight/over_fill_overfill.mp3",
-    "assets/dropbox/SectionEight/EightPointEight/over_flow_overflow.mp3",
-    "assets/dropbox/SSectionEight/EightPointEight/over_grow_overgrow.mp3",
+    "dropbox/SectionEight/EightPointEight/over_aged_overaged.mp3",
+    "dropbox/SectionEight/EightPointEight/over_cook_overcook.mp3",
+    "dropbox/SectionEight/EightPointEight/over_do_overdo.mp3",
+    "dropbox/SectionEight/EightPointEight/over_fill_overfill.mp3",
+    "dropbox/SectionEight/EightPointEight/over_flow_overflow.mp3",
+    "dropbox/SectionEight/EightPointEight/over_grow_overgrow.mp3",
   ];
 
   int tracker = 0;

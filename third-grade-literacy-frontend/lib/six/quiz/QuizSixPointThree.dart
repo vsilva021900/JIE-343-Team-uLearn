@@ -14,7 +14,7 @@ class QuizSixPointThree extends StatefulWidget {
 
 class QuizState extends State<QuizSixPointThree> {
   var answers = [
-    ["he'll", "shel'll", "they'll", "we'll", "you'll"], // 6.3
+    ["he'll", "she'll", "they'll", "we'll", "you'll"], // 6.3
     ["I'm", "you're", "we're", "they're"],
     ["he", "she", "them", "him", "her", "it", "us", "me"], // 1.4
     ["he's", "it's", "she's", "that's", "there's", "where's", "who's"],  // 6.2
@@ -135,15 +135,18 @@ class QuizState extends State<QuizSixPointThree> {
           children: [
             Column(
               children: [
-                Text('Which word is a contraction with ',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('will?',
+                    Text('Which word is a contraction with ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
+                    Text('will',
                         style: textStyle(Colors.green, screenWidth / 24)
-                    )
+                    ),
+                    Text('?',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
                   ],
                 ),
               ],

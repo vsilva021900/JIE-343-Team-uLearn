@@ -16,7 +16,7 @@ class QuizState extends State<QuizSixPointSeven> {
   var answers = [
     ["boy's", "creature", "dog's", "girl's", "neighbor's","slide's", "wheel's", "woman's"],
     ["boots'", "dogs'", "dresses'", "elves'", "fireflies'", "flowers'", "foxes'"],
-    ["peaches'", "workers'", "children's", "feet's", "geese's", "men's", "mice's", "people's", "teth's"],
+    ["peaches'", "workers'", "children's", "feet's", "geese's", "men's", "mice's", "people's", "teeth's"],
     ["guesses" , "hisses", "kisses", "misses", "passes", "tosses", "crashes", "fishes", "pushes",
      "vanishes", "washes", "wishes", "boxes", "fixes", "mixes", "relaxes", "waxes"]// 6.4
   ];
@@ -135,12 +135,12 @@ class QuizState extends State<QuizSixPointSeven> {
           children: [
             Column(
               children: [
-                Text('Which word is a contraction with ',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Text('Which word is a contraction with ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
                     Text('is?',
                         style: textStyle(Colors.green, screenWidth / 24)
                     )

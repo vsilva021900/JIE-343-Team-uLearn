@@ -32,12 +32,12 @@ class EightPointSeven extends State<EightPointSevenLesson> {
     ["pre", "wash", "prewash"],
   ];
   var wordsAudio = [
-    "assets/dropbox/SectionEight/EightPointSeven/pre_fix_prefix.mp3",
-    "assets/dropbox/SectionEight/EightPointSeven/pre_heat_preheat.mp3",
-    "assets/dropbox/SectionEight/EightPointSeven/pre_school_preschool.mp3",
-    "assets/dropbox/SectionEight/EightPointSeven/pre_sliced_presliced.mp3",
-    "assets/dropbox/SectionEight/EightPointSeven/pre_teen_preteen.mp3",
-    "assets/dropbox/SSectionEight/EightPointSeven/pre_wash_prewash.mp3",
+    "dropbox/SectionEight/EightPointSeven/pre_fix_prefix.mp3",
+    "dropbox/SectionEight/EightPointSeven/pre_heat_preheat.mp3",
+    "dropbox/SectionEight/EightPointSeven/pre_school_preschool.mp3",
+    "dropbox/SectionEight/EightPointSeven/pre_sliced_presliced j.mp3",
+    "dropbox/SectionEight/EightPointSeven/pre_teen_preteen.mp3",
+    "dropbox/SectionEight/EightPointSeven/pre_wash_prewash.mp3",
   ];
 
   int tracker = 0;

@@ -22,22 +22,22 @@ class SixPointFive extends State<SixPointFiveLesson> {
     "assets/dropbox/SectionSix/SixPointFive/you've.png",
   ];
   var words = [
-    ["could have", "could've", "they could've been friends"],
+    ["could have", "could've", "They could've been friends if they tried"],
     ["I have", "I've", "I've never seen so many twins"],
-    ["should have", "should've", "they should've talked things out first"],
-    ["they have", "they've", "they've all found something they're good at"],
-    ["we have", "we've", "I think we've had our picture drawn, Duck said to Rabbit"],
-    ["would have", "would've", "bigfoot would've if he could've"],
-    ["you have", "you've", "if you've got to cough, please cough in your elbow"],
+    ["should have", "should've", "They should've talked things out first"],
+    ["they have", "they've", "They've all found something they're good at"],
+    ["we have", "we've", "\"I think we've had our picture drawn,\" Duck said to Rabbit"],
+    ["would have", "would've", "Bigfoot would've if he could've"],
+    ["you have", "you've", "If you've got to cough, please cough in your elbow"],
   ];
   var wordsAudio = [
-    "dropbox/SectionSix/SixPointFive/1b_couldhave_could've_theycould'vebeenfriends.mp3",
+    "dropbox/SectionSix/SixPointFive/1b_could_have_could've_theycould'vebeenfriends.mp3",
     "dropbox/SectionSix/SixPointFive/4b_Ihave_I've_I'veneverseensomanytwins.mp3",
     "dropbox/SectionSix/SixPointFive/2b_shouldhave_should've_theyshould'vetalked.mp3",
     "dropbox/SectionSix/SixPointFive/7b_theyhave_they've_they'veallfoundsomething.mp3",
     "dropbox/SectionSix/SixPointFive/6b_wehave_we've_Ithinkwe'vehadourpicture.mp3",
     "dropbox/SectionSix/SixPointFive/3b_wouldhave_would've_Bigfootwould've.mp3",
-    "dropbox/SectionSix/SixPointFive/5b_youhave_you've_Ifyou'vegottocouph.mp3",
+    "dropbox/SectionSix/SixPointFive/5b_youhave_you've_Ifyou'vegottocough.mp3",
   ];
 
   int tracker = 0;
@@ -158,6 +158,7 @@ class SixPointFive extends State<SixPointFiveLesson> {
   }
 
   Widget sub(BuildContext context) {
+    double textFontSize = screenWidth / 30;
     return Container(
         color: const Color(0xFFFFFF),
         child: Column(
@@ -165,7 +166,7 @@ class SixPointFive extends State<SixPointFiveLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Contractions with  ',
+                  Text('Contractions with ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   ),
                   Text('have ',
@@ -174,7 +175,7 @@ class SixPointFive extends State<SixPointFiveLesson> {
                   Text('add ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   ),
-                  Text('ve ',
+                  Text('\'ve ',
                       style: textStyle(Colors.red, screenWidth / 24)
                   )
                 ],
@@ -219,15 +220,15 @@ class SixPointFive extends State<SixPointFiveLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(words[tracker][0],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
                   Text(words[tracker][1],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
-                  Text(words[tracker][2],
-                      style: textStyle(Colors.black, 30)
-                  )
                 ],
+              ),
+              Text(words[tracker][2],
+                  style: textStyle(Colors.black, textFontSize)
               )
             ]
         )

@@ -17,8 +17,8 @@ class QuizState extends State<QuizSixPointOne> {
     ["I'm", "you're", "we're", "they're"],
     ["he", "she", "them", "him", "her", "it", "us", "me"], // 1.4
     ["he's", "it's", "she's", "that's", "there's", "where's", "who's"],  // 6.2
-    ["he'll", "shel'll", "they'll", "we'll", "you'll", // 6.3
-  "he'd", "I'd", "she'd", "they'd", "we'd", "you'd"]// 6.4
+    ["he'll", "she'll", "they'll", "we'll", "you'll", // 6.3
+      "he'd", "I'd", "she'd", "they'd", "we'd", "you'd"]// 6.4
   ];
 
   String questionAudio = "dropbox/SectionSix/SixPointOne/#6.1_Q_AREorAM_whichisacontraction.mp3";
@@ -147,8 +147,11 @@ class QuizState extends State<QuizSixPointOne> {
                     Text(' or with ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text('am? ',
+                    Text('am',
                         style: textStyle(Colors.green, screenWidth / 24)
+                    ),
+                    Text('?',
+                        style: textStyle(Colors.black, screenWidth / 24)
                     )
                   ],
                 ),

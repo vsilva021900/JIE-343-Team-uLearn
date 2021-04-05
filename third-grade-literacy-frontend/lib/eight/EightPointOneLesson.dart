@@ -20,7 +20,7 @@ class EightPointOne extends State<EightPointOneLesson> {
     "assets/dropbox/SectionEight/EightPointOne/unafraid.png",
     "assets/dropbox/SectionEight/EightPointOne/uncertain.png",
     "assets/dropbox/SectionEight/EightPointOne/unequal.png",
-    "assets/dropbox/SectionEight/EightPointOne/uneven.png",
+    "assets/dropbox/SectionEight/EightPointOne/uneven 2.png",
     "assets/dropbox/SectionEight/EightPointOne/unplug.png",
   ];
   var words = [

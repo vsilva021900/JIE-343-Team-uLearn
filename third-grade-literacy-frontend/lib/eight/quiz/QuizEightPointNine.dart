@@ -143,25 +143,19 @@ class QuizState extends State<QuizEightPointNine> {
           children: [
             Column(
               children: [
-                Text('The prefix ',
+                Text('Which word has a prefix that means ',
                     style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Text('under ',
-                    style: textStyle(Colors.green, screenWidth / 24)
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
                     Text('too little ',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),
                     Text('or ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
-                    Text('below ',
+                    Text('below?',
                         style: textStyle(Colors.red, screenWidth / 24)
                     )
                   ],
