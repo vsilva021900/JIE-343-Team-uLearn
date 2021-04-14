@@ -14,21 +14,21 @@ class SixPointOneLesson extends StatefulWidget {
 class SixPointOne extends State<SixPointOneLesson> {
   var pictures = [
     "assets/dropbox/SectionSix/SixPointOne/I'm.png",
-    "assets/dropbox/SectionSix/SixPointOne/they're.png",
-    "assets/dropbox/SectionSix/SixPointOne/we're.png",
     "assets/dropbox/SectionSix/SixPointOne/you're.png",
+    "assets/dropbox/SectionSix/SixPointOne/we're.png",
+    "assets/dropbox/SectionSix/SixPointOne/they're.png"
   ];
   var words = [
     ["I am", "I'm", "I'm confused"],
-    ["They are", "They're", "They're his secret ticke spots"],
-    ["We are", "We're", "Scientists say we're all related"],
-    ["You are", "You're", "I wonder if you're hopping what I'm hopping"],
+    ["you are", "you're", "I wonder if you're hoping what I'm hoping"],
+    ["we are", "we're", "Scientists say we're all related"],
+    ["they are", "they're", "They're his secret tickle spots"]
   ];
   var wordsAudio = [
     "dropbox/SectionSix/SixPointOne/1b_Iam_I'm_I'mconfused.mp3",
-    "dropbox/SectionSix/SixPointOne/4b_theyare_they're_They'rehissecret.mp3",
+    "dropbox/SectionSix/SixPointOne/2b_youare_you're_Iwonderifyou'rehoping.mp3",
     "dropbox/SectionSix/SixPointOne/3b_weare_we're_Scientistssaywe'reall.mp3",
-    "dropbox/SectionSix/SixPointOne/2b_youare_you're_Iwonderifyou'rehopping.mp3",
+    "dropbox/SectionSix/SixPointOne/4b_theyare_they're_They'rehissecret.mp3"
   ];
 
   int tracker = 0;
@@ -149,6 +149,8 @@ class SixPointOne extends State<SixPointOneLesson> {
   }
 
   Widget sub(BuildContext context) {
+    double titleFontSize = screenWidth / 26;
+    double textFontSize = screenWidth / 30;
     return Container(
         color: const Color(0xFFFFFF),
         child: Column(
@@ -156,34 +158,34 @@ class SixPointOne extends State<SixPointOneLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Pronoun contractions with  ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('Pronoun contractions with ',
+                      style: textStyle(Colors.black, titleFontSize)
                   ),
                   Text('am ',
-                      style: textStyle(Colors.green, screenWidth / 24)
+                      style: textStyle(Colors.green, titleFontSize)
                   ),
                   Text('and ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                      style: textStyle(Colors.black, titleFontSize)
                   ),
-                  Text(' m ',
-                      style: textStyle(Colors.red, screenWidth / 24)
+                  Text('\'m',
+                      style: textStyle(Colors.red, titleFontSize)
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('and contractions with  ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                  Text('and contractions with ',
+                      style: textStyle(Colors.black, titleFontSize)
                   ),
                   Text('are ',
-                      style: textStyle(Colors.green, screenWidth / 24)
+                      style: textStyle(Colors.green, titleFontSize)
                   ),
                   Text('add ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                      style: textStyle(Colors.black, titleFontSize)
                   ),
-                  Text(' re ',
-                      style: textStyle(Colors.red, screenWidth / 24)
+                  Text('\'re',
+                      style: textStyle(Colors.red, titleFontSize)
                   )
                 ],
               ),
@@ -227,13 +229,13 @@ class SixPointOne extends State<SixPointOneLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(words[tracker][0],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
                   Text(words[tracker][1],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
                   Text(words[tracker][2],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   )
                 ],
               )

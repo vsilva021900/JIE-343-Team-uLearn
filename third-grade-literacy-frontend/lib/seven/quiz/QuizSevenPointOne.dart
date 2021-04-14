@@ -137,12 +137,12 @@ class QuizState extends State<QuizSevenPointOne> {
           children: [
             Column(
               children: [
-                Text('Which word is ',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Text('Which word is ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
                     Text('not ',
                         style: textStyle(Colors.red, screenWidth / 24)
                     ),

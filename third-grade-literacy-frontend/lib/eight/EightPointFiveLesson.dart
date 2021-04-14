@@ -21,7 +21,7 @@ class EightPointFive extends State<EightPointFiveLesson> {
     "assets/dropbox/SectionEight/EightPointFive/remove.png",
     "assets/dropbox/SectionEight/EightPointFive/repaint.png",
     "assets/dropbox/SectionEight/EightPointFive/replace.png",
-    "assets/dropbox/SSectionEight/EightPointFive/reread.png",
+    "assets/dropbox/SectionEight/EightPointFive/reread.png",
   ];
   var words = [
     ["re", "done", "redone"],
@@ -32,12 +32,12 @@ class EightPointFive extends State<EightPointFiveLesson> {
     ["re", "read", "reread"],
   ];
   var wordsAudio = [
-    "assets/dropbox/SectionEight/EightPointFive/re_done_redone.mp3",
-    "assets/dropbox/SectionEight/EightPointFive/re_light_relight.mp3",
-    "assets/dropbox/SectionEight/EightPointFive/re_move_remove.mp3",
-    "assets/dropbox/SectionEight/EightPointFive/re_paint_repaint.mp3",
-    "assets/dropbox/SectionEight/EightPointFive/re_place_replace.mp3",
-    "assets/dropbox/SectionEight/EightPointFive/re_read_reread.mp3",
+    "dropbox/SectionEight/EightPointFive/re_done_redone.mp3",
+    "dropbox/SectionEight/EightPointFive/re_light_relight.mp3",
+    "dropbox/SectionEight/EightPointFive/re_move_remove.mp3",
+    "dropbox/SectionEight/EightPointFive/re_paint_repaint.mp3",
+    "dropbox/SectionEight/EightPointFive/re_place_replace.mp3",
+    "dropbox/SectionEight/EightPointFive/re_read_reread.mp3",
   ];
 
   int tracker = 0;

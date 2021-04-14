@@ -21,7 +21,7 @@ class EightPointNine extends State<EightPointNineLesson> {
     "assets/dropbox/SectionEight/EightPointNine/undergrown.png",
     "assets/dropbox/SectionEight/EightPointNine/underripe.png",
     "assets/dropbox/SectionEight/EightPointNine/undershoot.png",
-    "assets/dropbox/SSectionEight/EightPointNine/undersize.png",
+    "assets/dropbox/SectionEight/EightPointNine/undersize.png",
   ];
   var words = [
     ["under", "age", "underage"],
@@ -32,12 +32,12 @@ class EightPointNine extends State<EightPointNineLesson> {
     ["under", "size", "undersize"],
   ];
   var wordsAudio = [
-    "assets/dropbox/SectionEight/EightPointNine/under_age_underage.mp3",
-    "assets/dropbox/SectionEight/EightPointNine/under_count_undercount.mp3",
-    "assets/dropbox/SectionEight/EightPointNine/under_grown_undergrown.mp3",
-    "assets/dropbox/SectionEight/EightPointNine/under_ripe_underripe.mp3",
-    "assets/dropbox/SectionEight/EightPointNine/under_shoot_undershoot.mp3",
-    "assets/dropbox/SectionEight/EightPointNine/under_size_undersize.mp3",
+    "dropbox/SectionEight/EightPointNine/under_age_underage.mp3",
+    "dropbox/SectionEight/EightPointNine/under_count_undercount.mp3",
+    "dropbox/SectionEight/EightPointNine/under_grown_undergrown.mp3",
+    "dropbox/SectionEight/EightPointNine/under_ripe_underripe.mp3",
+    "dropbox/SectionEight/EightPointNine/under_shoot_undershoot.mp3",
+    "dropbox/SectionEight/EightPointNine/under_size_undersize.mp3",
   ];
 
   int tracker = 0;

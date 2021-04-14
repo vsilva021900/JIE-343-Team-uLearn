@@ -19,23 +19,25 @@ class SixPointSeven extends State<SixPointSevenLesson> {
     "assets/dropbox/SectionSix/SixPointSeven/girl's.png",
     "assets/dropbox/SectionSix/SixPointSeven/neighbor's.png",
     "assets/dropbox/SectionSix/SixPointSeven/slide's.png",
-    "assets/dropbox/SectionSix/SixPointSeven/wheel's.png",
+    "assets/dropbox/SectionSix/SixPointSeven/wheel's_REPLACEMENT.png",
     "assets/dropbox/SectionSix/SixPointSeven/woman's.png",
   ];
   var words = [
-    ["boy is", "boy is", "the boy's very good"],
-    ["creature is ", "creature's", "do you think the creature's dancing?"],
-    ["dog is", "dog's", "the dog's making a friend"],
-    ["girl is", "girl's", "the girl's trying to look like a rock star"],
-    ["slide is", "slide's", "the slide's kind of wavy"],
-    ["wheel is", "wheel's", "the front wheel's off"],
-    ["woman is", "woman's", "the women's very careful"],
+    ["boy is", "boy's", "The boy's very good"],
+    ["creature is ", "creature's", "Do you think the creature's dancing?"],
+    ["dog is", "dog's", "The dog's making a friend"],
+    ["girl is", "girl's", "The girl's trying to look like a rock star"],
+    ["neighbor is", "neighbor's", "Our neighbor's being cranky"],
+    ["slide is", "slide's", "The slide's kind of wavy"],
+    ["wheel is", "wheel's", "The front wheel's off"],
+    ["woman is", "woman's", "The women's very careful"],
   ];
   var wordsAudio = [
     "dropbox/SectionSix/SixPointSeven/boyis_boy's_theboy'sverygood.mp3",
     "dropbox/SectionSix/SixPointSeven/creatureis_creature's_doyouthinkthecreature's.mp3",
-    "dropbox/SectionSix/SixPointSeven/dogis_dosg's_thedog'smakingafriend.mp3",
+    "dropbox/SectionSix/SixPointSeven/dogis_dog's_thedog'smakingafriend.mp3",
     "dropbox/SectionSix/SixPointSeven/girlis_girl's_thegirl'stryingtolooklikearockstar.mp3",
+    "dropbox/SectionSix/SixPointSeven/neighboris_neighbor's_ourneighbor'sbeingcranky.mp3",
     "dropbox/SectionSix/SixPointSeven/slideis_slide's_thisslide'skindofwavy.mp3",
     "dropbox/SectionSix/SixPointSeven/wheelis_wheel's_thefrontwheel'soff.mp3",
     "dropbox/SectionSix/SixPointSeven/womanis_woman's_thewoman'sverycareful.mp3",
@@ -159,6 +161,7 @@ class SixPointSeven extends State<SixPointSevenLesson> {
   }
 
   Widget sub(BuildContext context) {
+    double textFontSize = screenWidth / 30;
     return Container(
         color: const Color(0xFFFFFF),
         child: Column(
@@ -166,7 +169,7 @@ class SixPointSeven extends State<SixPointSevenLesson> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Noun contractions with  ',
+                  Text('Noun contractions with ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   ),
                   Text('is ',
@@ -175,7 +178,7 @@ class SixPointSeven extends State<SixPointSevenLesson> {
                   Text('add ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   ),
-                  Text('\' s ',
+                  Text('\'s ',
                       style: textStyle(Colors.red, screenWidth / 24)
                   )
                 ],
@@ -220,15 +223,15 @@ class SixPointSeven extends State<SixPointSevenLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(words[tracker][0],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
                   Text(words[tracker][1],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
-                  Text(words[tracker][2],
-                      style: textStyle(Colors.black, 30)
-                  )
                 ],
+              ),
+              Text(words[tracker][2],
+                  style: textStyle(Colors.black, textFontSize)
               )
             ]
         )

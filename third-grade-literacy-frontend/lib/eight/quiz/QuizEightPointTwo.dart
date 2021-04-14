@@ -14,7 +14,7 @@ class QuizEightPointTwo extends StatefulWidget {
 
 class QuizState extends State<QuizEightPointTwo> {
   var answers = [
-    ["painful", "hopeful", "careful", "joyful", "cheerful", "colorful"], // 8.2
+    ["disagree", "dislike", "distrust", "disappear", "disobey", "dishonest"], // 8.2
     ['fix', 'help', 'jump', 'own', 'paint', 'talk', // 1.1
       'nap', 'skip', 'hug', 'drop', 'fib', 'stop', // 1.2
       'dance', 'excite', 'tickle', 'bake', 'move', 'tumble', // 1.3
@@ -143,21 +143,19 @@ class QuizState extends State<QuizEightPointTwo> {
           children: [
             Column(
               children: [
-                Text('The prefix',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(' dis ',
-                        style: textStyle(Colors.green, screenWidth / 24)
-                    ),
-                    Text('means ',
+                    Text('Which word has a prefix that means ',
                         style: textStyle(Colors.black, screenWidth / 24)
                     ),
                     Text('not',
                         style: textStyle(Colors.red, screenWidth / 24)
-                    )
+                    ),
+                    Text('?',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
                   ],
                 ),
               ],

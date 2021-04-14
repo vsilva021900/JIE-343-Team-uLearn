@@ -21,15 +21,15 @@ class SixPointThree extends State<SixPointThreeLesson> {
     "assets/dropbox/SectionSix/SixPointThree/you'll.png",
   ];
   var words = [
-  ["He will", "He'll", "He'll be better off juggling balls"],
-  ["I will", "I'll", "Maybe I'll diet tomorrow, Elephant thinks"],
-  ["She will", "She'll", "She'll blush if you say something nice about her"],
-  ["They will", "They'll", "They'll be best friends forever"],
-  ["We will", "We'll", "In a minute maybe we'll remember what we forgot "],
-  ["You will", "You'll ", "You'll not often seen a busier vet"],
+    ["he will", "he'll", "He'll be better off juggling balls"],
+    ["I will", "I'll", "\"Maybe I'll diet tomorrow,\" Elephant thinks"],
+    ["she will", "she'll", "She'll blush if you say something nice about her"],
+    ["they will", "they'll", "They'll be best friends forever"],
+    ["we will", "we'll", "In a minute maybe we'll remember what we forgot"],
+    ["you will", "you'll ", "You'll not often seen a busier vet"],
   ];
   var wordsAudio = [
-    "dropbox/SectionSix/SixPointThree/1b_hewill_he'll_He'llbebettteroffifhe.mp3",
+    "dropbox/SectionSix/SixPointThree/1b_hewill_he'll_He'llbebetteroffifhe.mp3",
     "dropbox/SectionSix/SixPointThree/2b_Iwill_I'll_MaybeI'lldiettomorrow.mp3",
     "dropbox/SectionSix/SixPointThree/3b_shewill_She'll_she'llblushifyousay.mp3",
     "dropbox/SectionSix/SixPointThree/4b_theywill_they'll_They'llbebestfriendsforever.mp3",
@@ -155,6 +155,7 @@ class SixPointThree extends State<SixPointThreeLesson> {
   }
 
   Widget sub(BuildContext context) {
+    double textFontSize = screenWidth / 26;
     return Container(
         color: const Color(0xFFFFFF),
         child: Column(
@@ -171,7 +172,7 @@ class SixPointThree extends State<SixPointThreeLesson> {
                   Text('add ',
                       style: textStyle(Colors.black, screenWidth / 24)
                   ),
-                  Text('ll ',
+                  Text('\'ll',
                       style: textStyle(Colors.red, screenWidth / 24)
                   )
                 ],
@@ -216,15 +217,15 @@ class SixPointThree extends State<SixPointThreeLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(words[tracker][0],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
                   Text(words[tracker][1],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
-                  Text(words[tracker][2],
-                      style: textStyle(Colors.black, 30)
-                  )
                 ],
+              ),
+              Text(words[tracker][2],
+                  style: textStyle(Colors.black, textFontSize)
               )
             ]
         )

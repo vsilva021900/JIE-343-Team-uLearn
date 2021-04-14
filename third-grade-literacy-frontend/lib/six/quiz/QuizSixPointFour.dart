@@ -18,7 +18,7 @@ class QuizState extends State<QuizSixPointFour> {
     ["I'm", "you're", "we're", "they're"],
     ["he", "she", "them", "him", "her", "it", "us", "me"], // 1.4
     ["he's", "it's", "she's", "that's", "there's", "where's", "who's"],  // 6.2
-    ["he'll", "shel'll", "they'll", "we'll", "you'll"] // 6.3
+    ["he'll", "she'll", "they'll", "we'll", "you'll"] // 6.3
   ];
 
   String questionAudio = "dropbox/SectionSix/SixPointFour/#6.4_Q_WOULD_whichwordiscontractionwithwould.mp3";
@@ -135,15 +135,18 @@ class QuizState extends State<QuizSixPointFour> {
           children: [
             Column(
               children: [
-                Text('Which word is a contraction with ',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('would?',
+                    Text('Which word is a contraction with ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
+                    Text('would',
                         style: textStyle(Colors.green, screenWidth / 24)
-                    )
+                    ),
+                    Text('?',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
                   ],
                 ),
               ],

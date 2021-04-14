@@ -21,20 +21,20 @@ class SixPointFour extends State<SixPointFourLesson> {
     "assets/dropbox/SectionSix/SixPointFour/you'd.png",
   ];
   var words = [
-    ["he would", "he'd", "he'd work faster if he used legos"],
+    ["he would", "he'd", "He'd work faster if he used legos"],
     ["I would", "I'd", "I'd love some!"],
-    ["she would", "she'd", "she'd pick all three if she could"],
-    ["they would", "they'd", "they'd better be careful not to get tangled up"],
-    ["we would", "we'd", "we'd better keep our stingers aimed away from the beach"],
-    ["you would", "you'd", "pick the place you'd like to go first"],
+    ["she would", "she'd", "She'd pick all three if she could"],
+    ["they would", "they'd", "They'd better be careful not to get tangled up"],
+    ["we would", "we'd", "We'd better keep our stingers aimed away from each other"],
+    ["you would", "you'd", "Pick the place you'd like to go first"],
   ];
   var wordsAudio = [
     "dropbox/SectionSix/SixPointFour/1b_hewould_he'd_he'dworkfaster.mp3",
     "dropbox/SectionSix/SixPointFour/2b_Iwould_I'd_I'dlovesome.mp3",
-    "dropbox/SectionSix/SixPointFour/3b_shewould_she'd_she'dpickleallthree.mp3",
+    "dropbox/SectionSix/SixPointFour/3b_shewould_she'd_she'dpickallthree.mp3",
     "dropbox/SectionSix/SixPointFour/4b_theywould_they'd_they'dbetterbe.mp3",
     "dropbox/SectionSix/SixPointFour/5b_wewould_we'd_we'dbetterkeep.mp3",
-    "dropbox/SectionSix/SixPointFour/6b_youwould_you'd_you'dpicktheplace.mp3",
+    "dropbox/SectionSix/SixPointFour/6b_youwould_you'd_picktheplace.mp3",
   ];
 
   int tracker = 0;
@@ -155,6 +155,8 @@ class SixPointFour extends State<SixPointFourLesson> {
   }
 
   Widget sub(BuildContext context) {
+    double titleFontSize = screenWidth / 26;
+    double textFontSize = screenWidth / 30;
     return Container(
         color: const Color(0xFFFFFF),
         child: Column(
@@ -163,13 +165,13 @@ class SixPointFour extends State<SixPointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('To make a contraction with ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                      style: textStyle(Colors.black, titleFontSize)
                   ),
                   Text('would ',
-                      style: textStyle(Colors.green, screenWidth / 24)
+                      style: textStyle(Colors.green, titleFontSize)
                   ),
                   Text('just add ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                      style: textStyle(Colors.black, titleFontSize)
                   ),
                 ],
               ),
@@ -177,10 +179,10 @@ class SixPointFour extends State<SixPointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('\'d ',
-                      style: textStyle(Colors.red, screenWidth / 24)
+                      style: textStyle(Colors.red, titleFontSize)
                   ),
                   Text('at the end of the pronoun ',
-                      style: textStyle(Colors.black, screenWidth / 24)
+                      style: textStyle(Colors.black, titleFontSize)
                   )
                 ],
               ),
@@ -188,7 +190,7 @@ class SixPointFour extends State<SixPointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.55,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -205,12 +207,12 @@ class SixPointFour extends State<SixPointFourLesson> {
                     ),
                   ),
                   Container(
-                      height: screenHeight * 0.6,
+                      height: screenHeight * 0.55,
                       child: Image.asset(pictures[tracker]),
                       width: 200
                   ),
                   Container(
-                    height: screenHeight * 0.6,
+                    height: screenHeight * 0.55,
                     child: Transform.scale(
                       scale: 1,
                       child: IconButton(
@@ -233,15 +235,15 @@ class SixPointFour extends State<SixPointFourLesson> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(words[tracker][0],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
                   Text(words[tracker][1],
-                      style: textStyle(Colors.black, 30)
+                      style: textStyle(Colors.black, textFontSize)
                   ),
-                  Text(words[tracker][2],
-                      style: textStyle(Colors.black, 30)
-                  )
                 ],
+              ),
+              Text(words[tracker][2],
+                  style: textStyle(Colors.black, textFontSize)
               )
             ]
         )

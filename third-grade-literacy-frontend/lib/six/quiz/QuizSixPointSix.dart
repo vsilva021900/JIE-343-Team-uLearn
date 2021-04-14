@@ -17,7 +17,7 @@ class QuizState extends State<QuizSixPointSix> {
   ["can't", "couldn't", "didn't", "doesn't", "don't", "isn't", "shouldn't", "wasn't", "weren't", "won't", "wouldn't"],
   ["he", "she", "them", "him", "her", "it", "us", "me"], // 1.4
   ["he's", "it's", "she's", "that's", "there's", "where's", "who's"],  // 6.2
-  ["he'll", "shel'll", "they'll", "we'll", "you'll", // 6.3
+  ["he'll", "she'll", "they'll", "we'll", "you'll", // 6.3
   "he'd", "I'd", "she'd", "they'd", "we'd", "you'd"]// 6.4
   ];
 
@@ -135,12 +135,12 @@ class QuizState extends State<QuizSixPointSix> {
           children: [
             Column(
               children: [
-                Text('Which word is a contraction with ',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Text('Which word is a contraction with ',
+                        style: textStyle(Colors.black, screenWidth / 24)
+                    ),
                     Text('not?',
                         style: textStyle(Colors.green, screenWidth / 24)
                     )
