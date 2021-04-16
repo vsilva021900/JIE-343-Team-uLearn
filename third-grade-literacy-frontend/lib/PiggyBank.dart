@@ -5,7 +5,7 @@ import 'WordStructures.dart';
 import 'MainScoreMenu.dart';
 import 'Rewards.dart';
 
-bool test = true;
+bool test = false;
 void main() {
   if (test) {
     Rewards.addSilverCoin();
