@@ -1,9 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'WordStructures.dart';
 import 'MainScoreMenu.dart';
 import 'Rewards.dart';
 
-bool test = false;
+bool test = true;
 void main() {
   if (test) {
     Rewards.addSilverCoin();
@@ -96,12 +98,13 @@ Widget sideBar(BuildContext context) {
   );
 }
 Widget section(BuildContext context) {
+  double titleFontSize = min(screenWidth / 25, screenHeight * 0.07);
   return Container(
     color: const Color(0xffddf6f8),
     child: Column(
       children: [
         Text('Total Coins: ' + Rewards.total_coins.toString(),
-          style: textStyle(Colors.black, screenWidth / 25)
+          style: textStyle(Colors.black, titleFontSize)
         ),
         Expanded(
           child: Column(
@@ -133,11 +136,12 @@ Widget gold_coins() {
 // *coin* *coin* *coin* *coin* *coin* + *coin* x# (num of coins not displayed)
 List<Widget> row_gold_coins() {
   List<Widget> list = [];
+  double textFontSize = min(screenWidth / 30, screenHeight * 0.08);
   for (int i = 0; i < Rewards.gold_coins; i++) {
     if (i == 5) {
       list.add(
         Text(' + ',
-          style: textStyle(Colors.black, screenWidth / 25)
+          style: textStyle(Colors.black, textFontSize)
         )
       );
     }
@@ -145,7 +149,7 @@ List<Widget> row_gold_coins() {
       pad(Container(
         constraints: BoxConstraints(
           maxWidth: screenWidth * 0.09,
-          maxHeight: screenHeight * 0.10
+          maxHeight: screenHeight * 0.07
         ),
         child: Image.asset("assets/rewards/coin_gold.png"),
       ), 6, 6, 0, 0)
@@ -153,7 +157,7 @@ List<Widget> row_gold_coins() {
     if (i == 5) {
       list.add(
         Text('x' + (Rewards.gold_coins - i).toString(),
-          style: textStyle(Colors.black, screenWidth / 30)
+          style: textStyle(Colors.black, textFontSize)
         )
       );
       break;
@@ -175,7 +179,7 @@ List<Widget> row_silver_coins() {
       pad(Container(
         constraints: BoxConstraints(
           maxWidth: screenWidth * 0.09,
-          maxHeight: screenHeight * 0.10
+          maxHeight: screenHeight * 0.07
         ),
         child: Image.asset("assets/rewards/silver_coin.png"),
       ), 4, 4, 0, 0)
@@ -197,7 +201,7 @@ List<Widget> row_gold_stacks() {
       pad(Container(
         constraints: BoxConstraints(
           maxWidth: screenWidth * 0.09,
-          maxHeight: screenHeight * 0.14
+          maxHeight: screenHeight * 0.13
         ),
         child: Image.asset("assets/rewards/stack_of_coins.png")
       ), 6, 6, 0, 0)
@@ -241,7 +245,7 @@ List<Widget> row_armor_cars() {
       pad(Container(
         constraints: BoxConstraints(
           maxWidth: screenWidth * 0.18,
-          maxHeight: screenHeight * 0.20
+          maxHeight: screenHeight * 0.17
         ),
         child: Image.asset("assets/rewards/armored_car.png"),
       ), 1, 1, 0, 0)
