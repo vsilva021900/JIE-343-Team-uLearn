@@ -264,6 +264,7 @@ flutter:
     - assets/dropbox/SectionTen/
     - assets/dropbox/wordStructuresMenu/
     - assets/stars/
+    - assets/rewards/
   fonts:
     - family: Comic
       fonts:
