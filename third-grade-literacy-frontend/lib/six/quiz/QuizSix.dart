@@ -2,9 +2,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
-import 'package:hearatale_literacy_app/StreakMain.dart';
-import 'package:hearatale_literacy_app/six/ScoreMenuSix.dart';
+
+import '../../WordStructures.dart';
+import '../../StreakMain.dart';
+import '../ScoreMenuSix.dart';
 
 
 class QuizSix extends StatefulWidget {
@@ -25,25 +26,25 @@ class QuizState extends State<QuizSix> {
       'guess', 'hiss', 'kiss', 'miss', 'pass', 'toss', // 2.4
       'crash', 'fish', 'push', 'vanish', 'wash', 'wish', // 2.5
       'box', 'fix', 'mix', 'relax', 'wax'], // 2.6
-    // incorrect answers from 9.1 - 9.7 divided into 3 parts
+    // incorrect answers from 6.1 - 6.7 divided into 3 parts
     ["I'm", "you're", "we're", "they're", // 6.1
+      "he'll", "she'll", "they'll", "we'll", "you'll", // 6.3
       "could've", "should've", "would've", "I've", "we've", "you've", "they've", // 6.5
     ],
     ["he'd", "I'd", "she'd", "they'd", "we'd", "you'd", // 6.4
       "can't", "couldn't", "didn't", "doesn't", "don't", "isn't", "shouldn't", "wasn't", "weren't", "won't", "wouldn't", // 6.6
     ],
-    ["he'll", "shel'll", "they'll", "we'll", "you'll", // 6.3
-      "he's", "it's", "she's", "that's", "there's", "where's", "who's",  // 6.2
+    ["he's", "it's", "she's", "that's", "there's", "where's", "who's",  // 6.2
       "boy's", "creature", "dog's", "girl's", "neighbor's","slide's", "wheel's", "woman's", // 6.7
     ]
   ];
-  String questionAudio = "dropbox/SectionSix/SixPointZero/#9.0_QwhichworddoesNOThaveasuffix.mp3";
+  String questionAudio = "dropbox/SectionSix/SixPointZero/#6_QwhichwordisNOTacontraction.mp3";
   AudioCache audioCache = new AudioCache();
   AudioPlayer audioPlayer = new AudioPlayer();
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int index = 8; // for calling StreakMain methods
+  int index = 5; // for calling StreakMain methods
   int attempt = 0; // how many tries before answering correctly
 
   @override
@@ -151,17 +152,14 @@ class QuizState extends State<QuizSix> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Which word is a contraction with ',
+                Text('Which word is ',
                     style: textStyle(Colors.black, screenWidth / 24)
                 ),
-                Text('are ',
-                    style: textStyle(Colors.green, screenWidth / 24)
+                Text('not ',
+                    style: textStyle(Colors.red, screenWidth / 24)
                 ),
-                Text('or with',
+                Text('a contraction?',
                     style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Text('am',
-                    style: textStyle(Colors.green, screenWidth / 24)
                 )
               ],
             ),

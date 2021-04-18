@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/eight/EightPointOneLesson.dart';
-import 'package:hearatale_literacy_app/eight/EightPointTwoLesson.dart';
-import 'package:hearatale_literacy_app/eight/EightPointThreeLesson.dart';
-import 'package:hearatale_literacy_app/eight/EightPointFourLesson.dart';
-import 'package:hearatale_literacy_app/eight/EightPointFiveLesson.dart';
-import 'package:hearatale_literacy_app/eight/EightPointSixLesson.dart';
-import 'package:hearatale_literacy_app/eight/EightPointSevenLesson.dart';
-import 'package:hearatale_literacy_app/eight/ScoreMenuEight.dart';
-import 'package:hearatale_literacy_app/eight/quiz/QuizEight.dart';
+
 import 'WordStructures.dart';
-import 'eight/EightPointEightLesson.dart';
-import 'eight/EightPointEightLesson.dart';
-import 'eight/EightPointEightLesson.dart';
-import 'eight/EightPointFiveLesson.dart';
-import 'eight/EightPointFiveLesson.dart';
-import 'eight/EightPointNineLesson.dart';
 import 'eight/EightPointOneLesson.dart';
-import 'eight/EightPointSevenLesson.dart';
-import 'eight/EightPointSixLesson.dart';
+import 'eight/EightPointTwoLesson.dart';
 import 'eight/EightPointThreeLesson.dart';
-import 'eight/EightPointTwoLesson.dart';
-import 'eight/EightPointTwoLesson.dart';
+import 'eight/EightPointFourLesson.dart';
+import 'eight/EightPointFiveLesson.dart';
+import 'eight/EightPointSixLesson.dart';
+import 'eight/EightPointSevenLesson.dart';
+import 'eight/EightPointEightLesson.dart';
+import 'eight/EightPointNineLesson.dart';
+import 'eight/ScoreMenuEight.dart';
+import 'eight/quiz/QuizEight.dart';
 
 class MainEight extends StatelessWidget {
   @override
@@ -75,7 +66,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => QuizEight(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    }
                 )
             ),
             Material(
@@ -83,13 +82,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreEight(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
                   },
                 )
             ),

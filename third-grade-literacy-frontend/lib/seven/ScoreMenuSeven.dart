@@ -80,142 +80,19 @@ Widget sub(BuildContext context) {
                       )
                   );
                 },
-                child: Text('Suffixes',
+                child: Text('Compound Words',
                     style: textStyle(Colors.black, 30)
                 )
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                starsAndCheck(0),
-                Row(
-                  children: [
-                    Text('8.1 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('un ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('not',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    )
-                  ],
-                )
-              ],
+            Container(
+                height: screenHeight / 12
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                starsAndCheck(1),
-                Row(
-                  children: [
-                    Text('8.2 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('dis ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('not',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    )
-                  ],
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                starsAndCheck(2),
-                Row(
-                  children: [
-                    Text('8.3 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('in ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('not',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    )
-                  ],
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                starsAndCheck(3),
-                Row(
-                  children: [
-                    Text('8.4 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('im ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('not ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    )
-                  ],
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                starsAndCheck(4),
-                Row(
-                  children: [
-                    Text('8.5 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('re ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('can mean ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('again ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    )
-                  ],
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                starsAndCheck(5),
-                Row(
-                  children: [
-                    Text('8.6 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('mis ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('poorly ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    ),
-                    Text('or ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    )
-                  ],
+                starsAndCheck(),
+                Text('7  compounds words combine',
+                    style: textStyle(Colors.black, screenWidth / 30)
                 )
               ],
             ),
@@ -227,91 +104,19 @@ Widget sub(BuildContext context) {
                 Container(
                     width: (screenWidth / 5) + (screenHeight / 12)
                 ),
-                Text('badly',
-                    style: textStyle(Colors.red, screenWidth / 30)
+                Text('          two to make one',
+                    style: textStyle(Colors.black, screenWidth / 30)
                 ),
               ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                starsAndCheck(6),
-                Row(
-                  children: [
-                    Text('8.7 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('pre ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('before ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    )
-                  ],
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                starsAndCheck(6),
-                Row(
-                  children: [
-                    Text('8.8 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('over ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('too much ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    )
-                  ],
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                starsAndCheck(6),
-                Row(
-                  children: [
-                    Text('8.9 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('under ',
-                        style: textStyle(Colors.green, screenWidth / 30)
-                    ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('too little ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    ),
-                    Text('or ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('below ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    )
-                  ],
-                )
-              ],
-            ),
+            )
           ]
       )
   );
 }
 
-Row starsAndCheck(int index) {
+Row starsAndCheck() {
   Container checkmark;
-  if (StreakSeven.checkmark[index]) {
+  if (StreakSeven.checkmark) {
     checkmark = Container(
         constraints: BoxConstraints(maxWidth: screenHeight / 12, maxHeight: screenHeight / 12),
         child: Image.asset("assets/stars/placeholder_checkmark.png",
@@ -333,7 +138,7 @@ Row starsAndCheck(int index) {
           width: screenWidth / 40,
           height: screenHeight / 12
       ),
-      starImage(index),
+      starImage(),
       Container(
           width: screenWidth * 0.01,
           height: screenHeight / 12
@@ -347,8 +152,8 @@ Row starsAndCheck(int index) {
   );
 }
 
-Container starImage(int index) {
-  String imagePath = StreakSeven.getImagePath(index);
+Container starImage() {
+  String imagePath = StreakSeven.getImagePath();
   if (imagePath.length == 0) {
     return Container(
         width: screenWidth / 5,
@@ -358,7 +163,7 @@ Container starImage(int index) {
 
   return Container(
       constraints: BoxConstraints(maxWidth: screenWidth / 5),
-      child: Image.asset(StreakSeven.getImagePath(index),
+      child: Image.asset(StreakSeven.getImagePath(),
         fit: BoxFit.contain,
       )
   );

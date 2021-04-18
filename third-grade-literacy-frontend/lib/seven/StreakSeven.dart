@@ -1,33 +1,33 @@
 class StreakSeven {
 
-  static List<int> streak = [0, 0, 0, 0, 0, 0, 0];
-  static List<int> maxStreak = [0, 0, 0, 0, 0, 0, 0];
-  static List<bool> checkmark = [false, false, false, false, false, false, false];
+  static int streak = 0;
+  static int maxStreak = 0;
+  static bool checkmark = false;
 
-  static correct(int index) {
-    if (!checkmark[index]) {
-      if (maxStreak[index] == streak[index]) {
-        maxStreak[index] += 1;
+  static correct() {
+    if (!checkmark) {
+      if (maxStreak == streak) {
+        maxStreak += 1;
       }
-      streak[index] += 1;
+      streak += 1;
 
-      if (streak[index] == 5 && maxStreak[index] == 5) {
-        checkmark[index] = true;
-      }
-    }
-  }
-
-  static incorrect(int index) {
-    if (!checkmark[index]) {
-      if (streak[index] > 0) {
-        streak[index] -= 1;
+      if (streak == 5 && maxStreak == 5) {
+        checkmark = true;
       }
     }
   }
 
-  static String getImagePath(int index) {
-    int s = streak[index];
-    int maxS = maxStreak[index];
+  static incorrect() {
+    if (!checkmark) {
+      if (streak > 0) {
+        streak -= 1;
+      }
+    }
+  }
+
+  static String getImagePath() {
+    int s = streak;
+    int maxS = maxStreak;
 
     return _imagePaths[s][maxS - s];
   }

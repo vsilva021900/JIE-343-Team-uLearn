@@ -36,7 +36,7 @@ class QuizState extends State<QuizEightPointFour> {
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int index = 0; // for calling StreakNine methods
+  int index = 3; // for calling StreakNine methods
   int attempt = 0; // how many tries before answering correctly
 
   @override
