@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
-import 'testing.dart';
+
 import 'WordStructures.dart';
+import 'six/SixPointOneLesson.dart';
+import 'six/SixPointTwoLesson.dart';
+import 'six/SixPointThreeLesson.dart';
+import 'six/SixPointFourLesson.dart';
+import 'six/SixPointFiveLesson.dart';
+import 'six/SixPointSixLesson.dart';
+import 'six/SixPointSevenLesson.dart';
+import 'six/SixPointEightLesson.dart';
+import 'six/quiz/QuizSix.dart';
+import 'six/ScoreMenuSix.dart';
+
 
 class MainSix extends StatelessWidget {
   @override
@@ -56,7 +66,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_quiz_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, _, __) => QuizSix(),
+                          transitionDuration: Duration(seconds: 0)
+                        )
+                      );
+                    }
                 )
             ),
             Material(
@@ -64,13 +82,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                   icon: Image.asset('assets/star_button.png'),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageRouteBuilder(
-                    //         pageBuilder: (context, _, __) => Test(),
-                    //         transitionDuration: Duration(seconds: 0)
-                    //     )
-                    // );
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (context, _, __) => ScoreSix(),
+                            transitionDuration: Duration(seconds: 0)
+                        )
+                    );
                   },
                 )
             ),
@@ -124,7 +142,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointOneLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -147,7 +165,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointTwoLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -168,7 +186,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointThreeLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -185,7 +203,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointFourLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -202,7 +220,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointFiveLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -223,7 +241,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointSixLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -240,7 +258,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointSevenLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
@@ -257,7 +275,7 @@ Widget subSections(BuildContext context) {
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                    pageBuilder: (context, _, __) => Test(),
+                                    pageBuilder: (context, _, __) => SixPointEightLesson(),
                                     transitionDuration: Duration(seconds: 0)
                                 )
                             );
