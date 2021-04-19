@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
-import 'package:hearatale_literacy_app/MainScoreMenu.dart';
-import 'package:hearatale_literacy_app/six/StreakSix.dart';
+
+import '../WordStructures.dart';
+import '../MainScoreMenu.dart';
+import 'StreakSix.dart';
 
 
 class ScoreSix extends StatelessWidget {
@@ -67,6 +68,7 @@ Widget sideBar(BuildContext context) {
 }
 
 Widget sub(BuildContext context) {
+  double textFontSize = screenWidth / 31.5;
   return Container(
       child: Column(
           children: [
@@ -80,8 +82,8 @@ Widget sub(BuildContext context) {
                       )
                   );
                 },
-                child: Text('Suffixes',
-                    style: textStyle(Colors.black, 30)
+                child: Text('Contractions',
+                    style: textStyle(Colors.black, screenWidth / 25)
                 )
             ),
             Row(
@@ -90,21 +92,21 @@ Widget sub(BuildContext context) {
                 starsAndCheck(0),
                 Row(
                   children: [
-                    Text('9.1 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('6.1  pronouns with ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('er ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                    Text('am ',
+                        style: textStyle(Colors.green, textFontSize)
                     ),
-                    Text('or ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('add ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('or ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                    Text('\'m',
+                        style: textStyle(Colors.red, textFontSize)
                     ),
-                    Text('a person who',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    ),
+                    Text(',',
+                        style: textStyle(Colors.black, textFontSize)
+                    )
                   ],
                 )
               ],
@@ -117,9 +119,15 @@ Widget sub(BuildContext context) {
                 Container(
                     width: (screenWidth / 5) + (screenHeight / 12)
                 ),
-                Text('          does something',
-                    style: textStyle(Colors.red, screenWidth / 30)
+                Text('          with ',
+                    style: textStyle(Colors.black, textFontSize)
                 ),
+                Text('are ',
+                    style: textStyle(Colors.green, textFontSize)
+                ),
+                Text('\'re',
+                    style: textStyle(Colors.red, screenWidth / 30)
+                )
               ],
             ),
             Row(
@@ -128,17 +136,17 @@ Widget sub(BuildContext context) {
                 starsAndCheck(1),
                 Row(
                   children: [
-                    Text('9.2 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('6.2  pronouns with ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('ful ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                    Text('is ',
+                        style: textStyle(Colors.green, textFontSize)
                     ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('add ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('full of',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                    Text('\'s',
+                        style: textStyle(Colors.red, textFontSize)
                     )
                   ],
                 )
@@ -150,17 +158,17 @@ Widget sub(BuildContext context) {
                 starsAndCheck(2),
                 Row(
                   children: [
-                    Text('9.3 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('6.3  pronouns with ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('less ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                    Text('will ',
+                        style: textStyle(Colors.green, textFontSize)
                     ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('add ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('without',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                    Text('\'ll',
+                        style: textStyle(Colors.red, textFontSize)
                     )
                   ],
                 )
@@ -172,23 +180,17 @@ Widget sub(BuildContext context) {
                 starsAndCheck(3),
                 Row(
                   children: [
-                    Text('9.4 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('6.4  pronouns with ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('able ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                    Text('would ',
+                        style: textStyle(Colors.green, textFontSize)
                     ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('add ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('can be ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    ),
-                    Text('or ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('able to be',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                    Text('\'d',
+                        style: textStyle(Colors.red, textFontSize)
                     )
                   ],
                 )
@@ -200,23 +202,17 @@ Widget sub(BuildContext context) {
                 starsAndCheck(4),
                 Row(
                   children: [
-                    Text('9.5 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('6.5  with ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('en ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                    Text('have ',
+                        style: textStyle(Colors.green, textFontSize)
                     ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('add ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('made of ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    ),
-                    Text('or ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('to make',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                    Text('\'ve',
+                        style: textStyle(Colors.red, textFontSize)
                     )
                   ],
                 )
@@ -228,19 +224,19 @@ Widget sub(BuildContext context) {
                 starsAndCheck(5),
                 Row(
                   children: [
-                    Text('9.6 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('6.6  verbs with ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('ly ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                    Text('not ',
+                        style: textStyle(Colors.green, textFontSize)
                     ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('add ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('done ',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                    Text('n\'t',
+                        style: textStyle(Colors.red, textFontSize)
                     ),
-                    Text('or ',
+                    Text(',',
                         style: textStyle(Colors.black, screenWidth / 30)
                     )
                   ],
@@ -255,9 +251,15 @@ Widget sub(BuildContext context) {
                 Container(
                     width: (screenWidth / 5) + (screenHeight / 12)
                 ),
-                Text('          happens a certain way',
-                    style: textStyle(Colors.red, screenWidth / 30)
+                Text('          will ',
+                    style: textStyle(Colors.blue, textFontSize)
                 ),
+                Text('to ',
+                    style: textStyle(Colors.black, textFontSize)
+                ),
+                Text('won\'t',
+                    style: textStyle(Colors.red, textFontSize)
+                )
               ],
             ),
             Row(
@@ -266,28 +268,44 @@ Widget sub(BuildContext context) {
                 starsAndCheck(6),
                 Row(
                   children: [
-                    Text('9.7 ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('6.7  noun contractions with ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('y ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                    Text('is ',
+                        style: textStyle(Colors.green, textFontSize)
                     ),
-                    Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                    Text('add ',
+                        style: textStyle(Colors.black, textFontSize)
                     ),
-                    Text('being ',
-                        style: textStyle(Colors.red, screenWidth / 30)
-                    ),
-                    Text('or ',
-                        style: textStyle(Colors.black, screenWidth / 30)
-                    ),
-                    Text('having',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                    Text('\'s',
+                        style: textStyle(Colors.red, textFontSize)
                     )
                   ],
                 )
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                starsAndCheck(7),
+                Text('6.8  noun contractions and',
+                    style: textStyle(Colors.black, textFontSize)
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                    width: (2 * screenWidth / 40) + (screenWidth * 0.01)
+                ),
+                Container(
+                    width: (screenWidth / 5) + (screenHeight / 12)
+                ),
+                Text('          noun possessives',
+                    style: textStyle(Colors.black, textFontSize)
+                )
+              ],
+            )
           ]
       )
   );

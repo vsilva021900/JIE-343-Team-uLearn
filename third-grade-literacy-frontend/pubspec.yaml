@@ -235,6 +235,7 @@ flutter:
     - assets/dropbox/sectionFive/FivePointOne/
     - assets/dropbox/sectionFive/FivePointTwo/
     - assets/dropbox/sectionFive/FivePointThree/
+    - assets/dropbox/SectionSix/SixPointZero/
     - assets/dropbox/SectionSix/SixPointOne/
     - assets/dropbox/SectionSix/SixPointTwo/
     - assets/dropbox/SectionSix/SixPointThree/
@@ -244,6 +245,7 @@ flutter:
     - assets/dropbox/SectionSix/SixPointSeven/
     - assets/dropbox/SectionSix/SixPointEight/
     - assets/dropbox/sectionSeven/
+    - assets/dropbox/SectionEight/EightPointZero/
     - assets/dropbox/SectionEight/EightPointOne/
     - assets/dropbox/SectionEight/EightPointTwo/
     - assets/dropbox/SectionEight/EightPointThree/
@@ -264,6 +266,7 @@ flutter:
     - assets/dropbox/SectionTen/
     - assets/dropbox/wordStructuresMenu/
     - assets/stars/
+    - assets/rewards/
   fonts:
     - family: Comic
       fonts:

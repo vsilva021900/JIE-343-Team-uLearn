@@ -28,7 +28,7 @@ class QuizState extends State<QuizSixPointSeven> {
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int index = 0; // for calling StreakSix methods
+  int index = 6; // for calling StreakSix methods
   int attempt = 0; // how many tries before answering correctly
 
   @override
@@ -133,19 +133,15 @@ class QuizState extends State<QuizSixPointSeven> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Which word is a contraction with ',
-                        style: textStyle(Colors.black, screenWidth / 24)
-                    ),
-                    Text('is?',
-                        style: textStyle(Colors.green, screenWidth / 24)
-                    )
-                  ],
+                Text('Which word is a contraction with ',
+                    style: textStyle(Colors.black, screenWidth / 24)
                 ),
+                Text('is?',
+                    style: textStyle(Colors.green, screenWidth / 24)
+                )
               ],
             ),
             Row(

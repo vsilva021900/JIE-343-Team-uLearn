@@ -1,8 +1,8 @@
 class StreakEight {
 
-  static List<int> streak = [0, 0, 0, 0, 0, 0, 0];
-  static List<int> maxStreak = [0, 0, 0, 0, 0, 0, 0];
-  static List<bool> checkmark = [false, false, false, false, false, false, false];
+  static List<int> streak = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  static List<int> maxStreak = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  static List<bool> checkmark = [false, false, false, false, false, false, false, false, false];
 
   static correct(int index) {
     if (!checkmark[index]) {
