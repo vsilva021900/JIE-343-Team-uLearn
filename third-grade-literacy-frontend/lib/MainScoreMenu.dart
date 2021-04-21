@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'WordStructures.dart';
 import 'StreakMain.dart';
-import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
-import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
-import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
-import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
-import 'package:hearatale_literacy_app/five/ScoreMenuFive.dart';
-import 'package:hearatale_literacy_app/nine/ScoreMenuNine.dart';
-import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
+import 'one/ScoreMenuOne.dart';
+import 'two/ScoreMenuTwo.dart';
+import 'three/ScoreMenuThree.dart';
+import 'four/ScoreMenuFour.dart';
+import 'five/ScoreMenuFive.dart';
+import 'six/ScoreMenuSix.dart';
+import 'seven/ScoreMenuSeven.dart';
+import 'eight/ScoreMenuEight.dart';
+import 'nine/ScoreMenuNine.dart';
+import 'ten/ScoreMenuTen.dart';
+import 'PiggyBank.dart';
 
 
 class MainScore extends StatelessWidget {
@@ -63,7 +68,13 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, _, __) => PiggyBank(),
+                          transitionDuration: Duration(seconds: 0)
+                        ), (route) => false);
+                    }
                 )
             ),
           ]
@@ -187,13 +198,13 @@ Widget sub(BuildContext context) {
                 starsAndCheck(5),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageRouteBuilder(
-                    //     pageBuilder: (context, _, __) => Test(),
-                    //     transitionDuration: Duration(seconds: 0)
-                    //   )
-                    // );
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, _, __) => ScoreSix(),
+                        transitionDuration: Duration(seconds: 0)
+                      )
+                    );
                   },
                   child: Text('6   Contractions',
                       style: textStyle(Colors.black, screenWidth / 35)
@@ -207,13 +218,13 @@ Widget sub(BuildContext context) {
                 starsAndCheck(6),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageRouteBuilder(
-                    //     pageBuilder: (context, _, __) => Test(),
-                    //     transitionDuration: Duration(seconds: 0)
-                    //   )
-                    // );
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, _, __) => ScoreSeven(),
+                        transitionDuration: Duration(seconds: 0)
+                      )
+                    );
                   },
                   child: Text('7   Compound Words',
                       style: textStyle(Colors.black, screenWidth / 35)
@@ -227,13 +238,13 @@ Widget sub(BuildContext context) {
                 starsAndCheck(7),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageRouteBuilder(
-                    //     pageBuilder: (context, _, __) => Test(),
-                    //     transitionDuration: Duration(seconds: 0)
-                    //   )
-                    // );
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, _, __) => ScoreEight(),
+                        transitionDuration: Duration(seconds: 0)
+                      )
+                    );
                   },
                   child: Text('8   Prefixes',
                       style: textStyle(Colors.black, screenWidth / 35)

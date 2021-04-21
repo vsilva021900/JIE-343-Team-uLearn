@@ -10,7 +10,9 @@ import 'sectionEight.dart';
 import 'sectionNine.dart';
 import 'sectionTen.dart';
 import 'MainScoreMenu.dart';
+import 'PiggyBank.dart';
 import 'main.dart';
+import 'package:hearatale_literacy_app/globals.dart' as globals;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -79,7 +81,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, _, __) => PiggyBank(),
+                          transitionDuration: Duration(seconds: 0)
+                        )
+                      );
+                    }
                 )
             ),
           ]
