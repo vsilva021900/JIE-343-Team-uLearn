@@ -5,6 +5,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/nine/ScoreMenuNine.dart';
 import 'package:hearatale_literacy_app/nine/StreakNine.dart';
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 
 class QuizNinePointThree extends StatefulWidget {
@@ -134,6 +136,13 @@ class QuizState extends State<QuizNinePointThree> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),
@@ -173,6 +182,9 @@ class QuizState extends State<QuizNinePointThree> {
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakNine.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -197,6 +209,9 @@ class QuizState extends State<QuizNinePointThree> {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
                           StreakNine.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -223,6 +238,9 @@ class QuizState extends State<QuizNinePointThree> {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
                           StreakNine.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -244,6 +262,9 @@ class QuizState extends State<QuizNinePointThree> {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
                           StreakNine.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
