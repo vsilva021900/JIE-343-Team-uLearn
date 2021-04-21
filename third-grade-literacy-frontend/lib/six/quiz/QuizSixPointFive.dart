@@ -5,6 +5,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/six/ScoreMenuSix.dart';
 import 'package:hearatale_literacy_app/six/StreakSix.dart';
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 
 class QuizSixPointFive extends StatefulWidget {
@@ -120,6 +122,13 @@ class QuizState extends State<QuizSixPointFive> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),
@@ -159,6 +168,10 @@ class QuizState extends State<QuizSixPointFive> {
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakSix.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
+
                         }
                         stopAudio();
                         setState(() {});
@@ -183,6 +196,10 @@ class QuizState extends State<QuizSixPointFive> {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
                           StreakSix.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
+
                         }
                         stopAudio();
                         setState(() {});
@@ -209,6 +226,10 @@ class QuizState extends State<QuizSixPointFive> {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
                           StreakSix.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
+
                         }
                         stopAudio();
                         setState(() {});
@@ -230,6 +251,10 @@ class QuizState extends State<QuizSixPointFive> {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
                           StreakSix.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
+
                         }
                         stopAudio();
                         setState(() {});

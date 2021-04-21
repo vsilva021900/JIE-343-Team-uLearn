@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../WordStructures.dart';
 import '../MainScoreMenu.dart';
 import 'StreakSix.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 
 class ScoreSix extends StatelessWidget {
@@ -59,7 +60,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => PiggyBank(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    }
                 )
             ),
           ]
@@ -68,7 +77,7 @@ Widget sideBar(BuildContext context) {
 }
 
 Widget sub(BuildContext context) {
-  double textFontSize = screenWidth / 31.5;
+  double textFontSize = screenWidth / 50;
   return Container(
       child: Column(
           children: [

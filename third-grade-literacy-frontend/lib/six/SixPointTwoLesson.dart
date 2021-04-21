@@ -4,6 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/six/ScoreMenuSix.dart';
 import 'package:hearatale_literacy_app/six/quiz/QuizSixPointTwo.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 
 class SixPointTwoLesson extends StatefulWidget {
@@ -149,6 +150,13 @@ class SixPointTwo extends State<SixPointTwoLesson> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),

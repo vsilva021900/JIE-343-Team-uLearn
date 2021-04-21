@@ -6,6 +6,8 @@ import 'package:audioplayers/audioplayers.dart';
 import '../../WordStructures.dart';
 import '../../StreakMain.dart';
 import '../ScoreMenuSix.dart';
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 
 class QuizSix extends StatefulWidget {
@@ -175,6 +177,9 @@ class QuizState extends State<QuizSix> {
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -199,6 +204,9 @@ class QuizState extends State<QuizSix> {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -225,6 +233,9 @@ class QuizState extends State<QuizSix> {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -246,6 +257,9 @@ class QuizState extends State<QuizSix> {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});

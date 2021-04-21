@@ -7,6 +7,8 @@ import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/StreakMain.dart';
 import 'package:hearatale_literacy_app/eight/ScoreMenuEight.dart';
 
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 class QuizEight extends StatefulWidget {
   @override
@@ -180,6 +182,9 @@ class QuizState extends State<QuizEight> {
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -204,6 +209,9 @@ class QuizState extends State<QuizEight> {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -230,6 +238,9 @@ class QuizState extends State<QuizEight> {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -251,6 +262,9 @@ class QuizState extends State<QuizEight> {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});

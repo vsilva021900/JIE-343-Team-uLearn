@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 import '../../WordStructures.dart';
 import '../../StreakMain.dart';
@@ -124,6 +126,13 @@ class QuizState extends State<QuizSevenPointOne> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),
@@ -168,6 +177,9 @@ class QuizState extends State<QuizSevenPointOne> {
                           // increase correct answer streak
                           StreakSeven.correct();
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -194,6 +206,9 @@ class QuizState extends State<QuizSevenPointOne> {
                         if (attempt == 0) {
                           StreakSeven.correct();
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -222,6 +237,9 @@ class QuizState extends State<QuizSevenPointOne> {
                         if (attempt == 0) {
                           StreakSeven.correct();
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -245,6 +263,9 @@ class QuizState extends State<QuizSevenPointOne> {
                         if (attempt == 0) {
                           StreakSeven.correct();
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
