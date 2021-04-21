@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/four/StreakFour.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
+import 'package:hearatale_literacy_app/Rewards.dart';
 
 class QuizFourPointNine extends StatefulWidget {
   @override
@@ -122,6 +124,13 @@ class QuizState extends State<QuizFourPointNine> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),
@@ -185,6 +194,10 @@ class QuizState extends State<QuizFourPointNine> {
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakFour.correct(index);
+                          Rewards.addGoldCoin();
+                        }
+                        else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -209,6 +222,10 @@ class QuizState extends State<QuizFourPointNine> {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
                           StreakFour.correct(index);
+                          Rewards.addGoldCoin();
+                        }
+                        else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -235,6 +252,10 @@ class QuizState extends State<QuizFourPointNine> {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
                           StreakFour.correct(index);
+                          Rewards.addGoldCoin();
+                        }
+                        else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -256,6 +277,10 @@ class QuizState extends State<QuizFourPointNine> {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
                           StreakFour.correct(index);
+                          Rewards.addGoldCoin();
+                        }
+                        else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
