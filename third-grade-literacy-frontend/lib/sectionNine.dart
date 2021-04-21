@@ -9,7 +9,8 @@ import 'package:hearatale_literacy_app/nine/NinePointSixLesson.dart';
 import 'package:hearatale_literacy_app/nine/NinePointSevenLesson.dart';
 import 'package:hearatale_literacy_app/nine/ScoreMenuNine.dart';
 import 'package:hearatale_literacy_app/nine/quiz/QuizNine.dart';
-
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 class MainNine extends StatelessWidget {
   @override
@@ -94,7 +95,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => PiggyBank(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    }
                 )
             ),
           ]

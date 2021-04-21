@@ -4,7 +4,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/nine/ScoreMenuNine.dart';
 import 'package:hearatale_literacy_app/nine/quiz/QuizNinePointOne.dart';
-
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 class NinePointOneLesson extends StatefulWidget {
   @override
@@ -152,6 +153,13 @@ class NinePointOne extends State<NinePointOneLesson> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),
