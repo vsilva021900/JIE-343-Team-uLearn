@@ -5,6 +5,8 @@ import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointFive.dart';
 import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -113,6 +115,13 @@ class TwoPointFive extends State<TwoPointFiveLesson> {
                       icon: Image.asset('assets/placeholder_replay_button.png'),
                       onPressed: () {
                         playAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),

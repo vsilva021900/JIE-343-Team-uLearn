@@ -69,11 +69,13 @@ Widget sideBar(BuildContext context) {
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_piggy_button.png'),
                     onPressed: () {
-                      Navigator.pushAndRemoveUntil(context,
-                        PageRouteBuilder(
-                          pageBuilder: (context, _, __) => PiggyBank(),
-                          transitionDuration: Duration(seconds: 0)
-                        ), (route) => false);
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => PiggyBank(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     }
                 )
             ),
