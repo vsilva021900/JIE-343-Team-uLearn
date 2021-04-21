@@ -28,7 +28,7 @@ class QuizState extends State<QuizSixPointEight> {
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int index = 0; // for calling StreakSix methods
+  int index = 7; // for calling StreakSix methods
   int attempt = 0; // how many tries before answering correctly
 
   @override
@@ -133,7 +133,6 @@ class QuizState extends State<QuizSixPointEight> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

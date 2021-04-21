@@ -2,9 +2,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
-import 'package:hearatale_literacy_app/seven/ScoreMenuSeven.dart';
-import 'package:hearatale_literacy_app/seven/StreakSeven.dart';
+
+import '../../WordStructures.dart';
+import '../../StreakMain.dart';
+import '../ScoreMenuSeven.dart';
+import '../StreakSeven.dart';
 
 
 class QuizSevenPointOne extends StatefulWidget {
@@ -17,10 +19,10 @@ class QuizState extends State<QuizSevenPointOne> {
     ["driver", "juggler", "painter", "flier",  "sailor", "educator", "visitor", "protector", // 9.1
       "leader", "dancer", "singer", "teacher"],
     ["backpack", "basketball", "bathtub", "bigfoot", "cowboy", "dragonfly", "flashlight", "hummingbird",
-      "nightgown", "popcorn", "rattlesnake", "spaceship", "stepladder", "sunglasses", "toothbrush", "wheelchair"], // 1.4
-    ["candlestick", "crosswalk", "fingernail", "football", "jellyfish", "pigtails", "rainbow", "sandbox"], // 2.6
+      "nightgown", "popcorn", "rattlesnake", "spaceship", "stepladder", "sunglasses", "toothbrush", "wheelchair"],
+    ["candlestick", "crosswalk", "fingernail", "football", "jellyfish", "pigtails", "rainbow", "sandbox"],
     ["spyglass", "sunrise", "teaspoon", "waterfall", "windmill", "chainsaw", "cupcake", "firetruck",
-      "grasshopper", "lawnmover", "playground", "raincoat", "skateboard", "starfish", "sunset", "toenail", "watermelon"] // 9.3
+      "grasshopper", "lawnmower", "playground", "raincoat", "skateboard", "starfish", "sunset", "toenail", "watermelon"]
   ];
 
   String questionAudio = "dropbox/SectionSeven/#7.0_QwhichwordisNOTacompoundword.mp3";
@@ -30,7 +32,7 @@ class QuizState extends State<QuizSevenPointOne> {
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int index = 0; // for calling StreakSeven methods
+  int index = 6; // for calling StreakMain methods
   int attempt = 0; // how many tries before answering correctly
 
   @override
@@ -164,7 +166,8 @@ class QuizState extends State<QuizSevenPointOne> {
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
-                          StreakSeven.correct(index);
+                          StreakSeven.correct();
+                          StreakMain.correct(index);
                         }
                         stopAudio();
                         setState(() {});
@@ -174,7 +177,8 @@ class QuizState extends State<QuizSevenPointOne> {
                         // increment attempt counter
                         attempt += 1;
                         // reset correct answer streak
-                        StreakSeven.incorrect(index);
+                        StreakSeven.incorrect();
+                        StreakMain.incorrect(index);
                       }
                     },
                     child: Container(
@@ -188,14 +192,16 @@ class QuizState extends State<QuizSevenPointOne> {
                     onTap: () {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
-                          StreakSeven.correct(index);
+                          StreakSeven.correct();
+                          StreakMain.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        StreakSeven.incorrect(index);
+                        StreakSeven.incorrect();
+                        StreakMain.incorrect(index);
                       }
                     },
                     child: Container(
@@ -214,14 +220,16 @@ class QuizState extends State<QuizSevenPointOne> {
                     onTap: () {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
-                          StreakSeven.correct(index);
+                          StreakSeven.correct();
+                          StreakMain.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        StreakSeven.incorrect(index);
+                        StreakSeven.incorrect();
+                        StreakMain.incorrect(index);
                       }
                     },
                     child: Container(
@@ -235,14 +243,16 @@ class QuizState extends State<QuizSevenPointOne> {
                     onTap: () {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
-                          StreakSeven.correct(index);
+                          StreakSeven.correct();
+                          StreakMain.correct(index);
                         }
                         stopAudio();
                         setState(() {});
                       }
                       else {
                         attempt += 1;
-                        StreakSeven.incorrect(index);
+                        StreakSeven.incorrect();
+                        StreakMain.incorrect(index);
                       }
                     },
                     child: Container(

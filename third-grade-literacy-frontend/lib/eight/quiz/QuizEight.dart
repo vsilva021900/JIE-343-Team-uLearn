@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+
 import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/StreakMain.dart';
 import 'package:hearatale_literacy_app/eight/ScoreMenuEight.dart';
@@ -14,38 +15,52 @@ class QuizEight extends StatefulWidget {
 
 class QuizState extends State<QuizEight> {
   var answers = [
-    // correct answers from section 1 and 2
-    ['fix', 'help', 'jump', 'own', 'paint', 'talk', // 1.1
-      'nap', 'skip', 'hug', 'drop', 'fib', 'stop', // 1.2
-      'dance', 'excite', 'tickle', 'bake', 'move', 'tumble', // 1.3
-      'cry', 'try', 'carry', 'fry', 'empty', // 1.4
-      'help', 'jump', 'kick', 'sing', 'sleep', 'talk', 'think', 'work', // 2.1
-      'bully', 'carry', 'cry', 'fly', 'spy', 'try', // 2.2
-      'catch', 'hitch', 'scratch', 'teach', 'touch', 'watch', // 2.3
-      'guess', 'hiss', 'kiss', 'miss', 'pass', 'toss', // 2.4
-      'crash', 'fish', 'push', 'vanish', 'wash', 'wish', // 2.5
-      'box', 'fix', 'mix', 'relax', 'wax'], // 2.6
-    // incorrect answers from 8.1 - 8.7 divided into 3 parts
-    ["unable", "unequeal", "unplug", "uneven", "unafraid", "uncertain", // 8.1
-      "redone", "repaint", "relight", "remove", "reread", "replace", // 8.5
-      "overflow", "overdo", "overaged", "overgrow", "overcook", "overfill", //8.8
-    ],
-    ["impolite", "impossible", "impure", "imbalance", "immature", "impatient", // 8.4
-      "mismatch", "misuse", "miskick", "misplace", "mistrust", "misspell", // 8.6
-      "underage", "underripe", "undersize", "undershoot", "undercount", "undergown", //8.9
-    ],
-    ["incomplete", "incorrect", "invisible", "inhuman", "inactive", "incapable" // 8.3
+    // correct answers from 8.1 - 8.9
+    ["unable", "unequal", "unplug", "uneven", "unafraid", "uncertain", // 8.1
       "disagree", "dislike", "distrust", "disappear", "disobey", "dishonest", // 8.2
+      "incomplete", "incorrect", "invisible", "inhuman", "inactive", "incapable" // 8.3
+      "impolite", "impossible", "impure", "imbalance", "immature", "impatient", // 8.4
+      "redone", "repaint", "relight", "remove", "reread", "replace", // 8.5
+      "mismatch", "misuse", "miskick", "misplace", "mistrust", "misspell", // 8.6
       "prefix" , "preschool", "preteen", "preheat", "presliced", "prewash",// 8.7
+      "overflow", "overdo", "overaged", "overgrow", "overcook", "overfill", //8.8
+      "underage", "underripe", "undersize", "undershoot", "undercount", "undergown" //8.9
+    ],
+    // incorrect answers
+    ["acrobat", "adult", "aerialist", "agile", "alien", "align", "android", "around",
+      "babies", "bald", "burger",
+      "cake", "call", "camp", "camping", "cat", "champ", "champion", "chocolate", "cocoon",
+        "collision", "cologne", "confusion", "consult", "cost", "crawl", "crumbs", "cute",
+      "diamond", "diesel", "difficult", "division", "dusk",
+      "explode", "explore"
+    ],
+    ["farm", "field", "fold", "foreign", "freight", "fridge", "frost", "frosting",
+      "gift", "gnarly", "gnat", "gnome", "gossip", "ground", "gymnast",
+      "halt", "haunt", "hound",
+      "icicle", "icicles", "illusion",
+      "kite", "kitty", "kneel", "knob",
+      "machete", "machine", "muscles", "muzzle",
+      "napped",
+      "pepper", "phantom", "photo", "picnic", "picture", "pixie", "postage",
+      "zero", "zoo"
+    ],
+    ["referee", "rhino", "rhyme", "rhythm", "riddles",
+      "scare", "scold", "scribble", "scrub", "shave", "shelf", "shell", "silence",
+        "silent", "skater", "skeleton", "slither", "smart", "smear", "smooth",
+        "splinter", "spread", "spring", "stick", "structures", "swift", "sword",
+      "tennis", "theft",
+      "umpire", "uniforms",
+      "vanilla", "vision",
+      "whisper", "wiggle", "wink", "wreck", "wrinkled", "wrinkles",
     ]
   ];
-  String questionAudio = "dropbox/SectionEight/EightPointZero/#9.0_PrefixTtitle.mp3";
+  String questionAudio = "dropbox/SectionEight/EightPointZero/#8.0_Q_WhichWordHasAPrefix.mp3";
   AudioCache audioCache = new AudioCache();
   AudioPlayer audioPlayer = new AudioPlayer();
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
 
-  int index = 8; // for calling StreakMain methods
+  int index = 7; // for calling StreakMain methods
   int attempt = 0; // how many tries before answering correctly
 
   @override
@@ -150,22 +165,8 @@ class QuizState extends State<QuizEight> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('The prefix  ',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Text('un ',
-                    style: textStyle(Colors.green, screenWidth / 24)
-                ),
-                Text('means ',
-                    style: textStyle(Colors.black, screenWidth / 24)
-                ),
-                Text('not ',
-                    style: textStyle(Colors.red, screenWidth / 24)
-                )
-              ],
+            Text('Which word has a prefix?',
+                style: textStyle(Colors.black, screenWidth / 24)
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

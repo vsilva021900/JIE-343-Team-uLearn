@@ -14,7 +14,7 @@ class QuizEightPointOne extends StatefulWidget {
 
 class QuizState extends State<QuizEightPointOne> {
   var answers = [
-    ["unable", "unequeal", "unplug", "uneven", "unafraid", "uncertain"], // 8.1
+    ["unable", "unequal", "unplug", "uneven", "unafraid", "uncertain"], // 8.1
     ['fix', 'help', 'jump', 'own', 'paint', 'talk', // 1.1
       'nap', 'skip', 'hug', 'drop', 'fib', 'stop', // 1.2
       'dance', 'excite', 'tickle', 'bake', 'move', 'tumble', // 1.3
