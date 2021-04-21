@@ -6,6 +6,7 @@ import 'five/FivePointThreeLesson.dart';
 import 'five/ScoreMenuFive.dart';
 import 'package:flutter/material.dart';
 import 'WordStructures.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 class MainFive extends StatelessWidget {
   @override
@@ -82,7 +83,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => PiggyBank(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    }
                 )
             ),
           ]
