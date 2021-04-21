@@ -7,6 +7,7 @@ import 'ScoreMenuEight.dart';
 import 'quiz/QuizEightPointOne.dart';
 import 'package:hearatale_literacy_app/eight/ScoreMenuEight.dart';
 import 'package:hearatale_literacy_app/eight/quiz/QuizEightPointOne.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 
 class EightPointOneLesson extends StatefulWidget {
@@ -149,6 +150,13 @@ class EightPointOne extends State<EightPointOneLesson> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),
