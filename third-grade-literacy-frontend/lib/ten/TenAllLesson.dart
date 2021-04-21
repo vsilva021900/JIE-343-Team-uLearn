@@ -5,6 +5,8 @@ import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/ten/quiz/QuizTenAll.dart';
 import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -301,6 +303,13 @@ class TenAll extends State<TenAllLesson> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),

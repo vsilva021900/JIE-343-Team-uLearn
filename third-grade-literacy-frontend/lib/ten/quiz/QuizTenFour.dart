@@ -7,6 +7,8 @@ import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
 import 'package:hearatale_literacy_app/ten/StreakTen.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 class QuizTenFour extends StatefulWidget {
   @override
@@ -123,6 +125,13 @@ class QuizState extends State<QuizTenFour> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),
@@ -155,6 +164,9 @@ class QuizState extends State<QuizTenFour> {
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakTen.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -179,6 +191,9 @@ class QuizState extends State<QuizTenFour> {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
                           StreakTen.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -205,6 +220,9 @@ class QuizState extends State<QuizTenFour> {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
                           StreakTen.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -226,6 +244,9 @@ class QuizState extends State<QuizTenFour> {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
                           StreakTen.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});

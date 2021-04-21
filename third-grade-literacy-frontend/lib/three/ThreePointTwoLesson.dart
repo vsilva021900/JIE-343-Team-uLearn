@@ -5,6 +5,8 @@ import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/three/quiz/QuizThreePointTwo.dart';
 import 'package:hearatale_literacy_app/three/ScoreMenuThree.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -142,6 +144,11 @@ class ThreePointTwo extends State<ThreePointTwoLesson> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.pushAndRemoveUntil(context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            ), (route) => false);
                       }
                   )
               ),
