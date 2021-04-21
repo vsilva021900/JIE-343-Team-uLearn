@@ -9,6 +9,8 @@ import 'package:hearatale_literacy_app/StreakMain.dart';
 import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 import 'package:hearatale_literacy_app/one/StreakOne.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
+import 'package:hearatale_literacy_app/Rewards.dart';
 
 import 'package:hearatale_literacy_app/UserDataModel.dart';
 import 'package:http/http.dart' as http;
@@ -196,6 +198,13 @@ class QuizState extends State<QuizOne> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),
@@ -222,6 +231,9 @@ class QuizState extends State<QuizOne> {
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -246,6 +258,9 @@ class QuizState extends State<QuizOne> {
                       if (answerOrder[1] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -272,6 +287,9 @@ class QuizState extends State<QuizOne> {
                       if (answerOrder[2] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -293,6 +311,9 @@ class QuizState extends State<QuizOne> {
                       if (answerOrder[3] == 0) {
                         if (attempt == 0) {
                           StreakMain.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});

@@ -5,6 +5,8 @@ import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/one/quiz/QuizOnePointTwo.dart';
 import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -142,6 +144,13 @@ Widget sideBarWithReplay(BuildContext context) {
                     icon: Image.asset('assets/placeholder_piggy_button.png'),
                     onPressed: () {
                       stopAudio();
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => PiggyBank(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
                     }
                 )
             ),
