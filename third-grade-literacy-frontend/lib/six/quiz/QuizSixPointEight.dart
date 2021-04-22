@@ -17,12 +17,12 @@ class QuizSixPointEight extends StatefulWidget {
 class QuizState extends State<QuizSixPointEight> {
   var answers = [true, false];
 
-  String questionAudio = "dropbox/SectionSix/SixPointEight/#6.8_QclickYESifiscontractionNOifnot_useifquizsentencecuedafterquizgegins.mp3";
+  String questionAudio = "dropbox/SectionSix/SixPointEight/#6.8_QclickYESifiscontractionNOifnot_useifquizsententcecuedafterquizgegins.mp3";
   AudioCache audioCache = new AudioCache();
   AudioPlayer audioPlayer = new AudioPlayer();
 
   var answerOrder = [0, 1, 2, 3];
-  int prevCorrect = -1; // prevent same correct answer multiple times in a row
+  bool first = true; // to determine whether to play question audio
 
   int index = 7; // for calling StreakSix methods
   int attempt = 0; // how many tries before answering correctly
@@ -35,10 +35,11 @@ class QuizState extends State<QuizSixPointEight> {
     answerOrder.shuffle();
     attempt = 0;
 
-    if (prevCorrect < 0) {
+    if (first) {
       audioCache.load(questionAudio);
       playAudio(questionAudio);
     }
+    first = false;
 
     return MaterialApp(
         home: Material(
