@@ -4,7 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/seven/ScoreMenuSeven.dart';
 import 'package:hearatale_literacy_app/seven/quiz/QuizSevenPointOne.dart';
-//import 'package:hearatale_literacy_app/nine/quiz/QuizNinePointOne.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 
 class SevenPointOneLesson extends StatefulWidget {
@@ -252,6 +252,13 @@ class SevenPointOne extends State<SevenPointOneLesson> {
                       icon: Image.asset('assets/placeholder_piggy_button.png'),
                       onPressed: () {
                         stopAudio();
+                        Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (context, _, __) => PiggyBank(),
+                                transitionDuration: Duration(seconds: 0)
+                            )
+                        );
                       }
                   )
               ),

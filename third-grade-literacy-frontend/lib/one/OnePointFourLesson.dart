@@ -7,6 +7,7 @@ import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/PiggyBank.dart';
 
+
 void main() {
   runApp(MaterialApp(
       title: '3rd Grade Literacy App',
