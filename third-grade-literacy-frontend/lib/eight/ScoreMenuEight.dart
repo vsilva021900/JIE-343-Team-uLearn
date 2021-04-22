@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/MainScoreMenu.dart';
 import 'package:hearatale_literacy_app/eight/StreakEight.dart';
+import 'package:hearatale_literacy_app/PiggyBank.dart';
 
 
 class ScoreEight extends StatelessWidget {
@@ -58,7 +59,15 @@ Widget sideBar(BuildContext context) {
                 color: const Color(0xffc4e8e6),
                 child: IconButton(
                     icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (context, _, __) => PiggyBank(),
+                              transitionDuration: Duration(seconds: 0)
+                          )
+                      );
+                    }
                 )
             ),
           ]
@@ -81,7 +90,7 @@ Widget sub(BuildContext context) {
                   );
                 },
                 child: Text('Prefixes',
-                    style: textStyle(Colors.black, 30)
+                    style: textStyle(Colors.black, 40)
                 )
             ),
             Row(
@@ -91,16 +100,16 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.1  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('un ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('not',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     )
                   ],
                 )
@@ -113,16 +122,16 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.2  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('dis ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('not',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     )
                   ],
                 )
@@ -135,16 +144,16 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.3  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('in ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('not',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     )
                   ],
                 )
@@ -157,16 +166,16 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.4  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('im ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('not',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     )
                   ],
                 )
@@ -179,16 +188,16 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.5  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('re ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('can mean ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('again',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     )
                   ],
                 )
@@ -201,22 +210,22 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.6  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('mis ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('wrongly ',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     ),
                     Text('or ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('badly',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     ),
                   ],
                 )
@@ -229,16 +238,16 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.7  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('pre ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('before',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     )
                   ],
                 )
@@ -251,16 +260,16 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.8  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('over ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('too much',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     )
                   ],
                 )
@@ -273,22 +282,22 @@ Widget sub(BuildContext context) {
                 Row(
                   children: [
                     Text('8.9  ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('under ',
-                        style: textStyle(Colors.green, screenWidth / 30)
+                        style: textStyle(Colors.green, screenWidth / 40)
                     ),
                     Text('means ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('too little ',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     ),
                     Text('or ',
-                        style: textStyle(Colors.black, screenWidth / 30)
+                        style: textStyle(Colors.black, screenWidth / 40)
                     ),
                     Text('below',
-                        style: textStyle(Colors.red, screenWidth / 30)
+                        style: textStyle(Colors.red, screenWidth / 40)
                     )
                   ],
                 )
