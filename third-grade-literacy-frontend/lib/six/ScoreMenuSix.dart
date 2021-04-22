@@ -135,7 +135,7 @@ Widget sub(BuildContext context) {
                     style: textStyle(Colors.green, textFontSize)
                 ),
                 Text('\'re',
-                    style: textStyle(Colors.red, screenWidth / 30)
+                    style: textStyle(Colors.red, textFontSize)
                 )
               ],
             ),
