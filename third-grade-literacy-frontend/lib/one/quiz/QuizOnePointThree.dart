@@ -1,14 +1,8 @@
-import 'dart:math';
-
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/one/StreakOne.dart';
-import 'package:hearatale_literacy_app/PiggyBank.dart';
 import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/helper.dart';
 
 
 class QuizOnePointThree extends StatefulWidget {
@@ -29,14 +23,11 @@ class QuizState extends State<QuizOnePointThree> {
   int index = 1; // first try correct answer streak
   int attempt = 0; // how many tries before answering correctly
 
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
   String questionAudio = 'dropbox/sectionOne/OnePointThree/#1.3_QdropsfinalletterandaddsEDorING.mp3';
 
   @override
   Widget build(BuildContext context) {
-    screenHeight = MediaQuery.of(context).size.height;
-    screenWidth = MediaQuery.of(context).size.width;
+    setWidthHeight(context);
 
     answerOrder.shuffle();
     attempt = 0;
@@ -66,30 +57,8 @@ class QuizState extends State<QuizOnePointThree> {
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pushAndRemoveUntil(context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          ), (route) => false);
-                    },
-                  )
-              ),
+              backButton(context),
+              homeButton(context),
               Spacer(flex: 5),
               Material(
                   color: const Color(0xffc4e8e6),
@@ -116,22 +85,7 @@ class QuizState extends State<QuizOnePointThree> {
                     },
                   )
               ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {
-                        stopAudio();
-                        Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (context, _, __) => PiggyBank(),
-                                transitionDuration: Duration(seconds: 0)
-                            )
-                        );
-                      }
-                  )
-              ),
+              pinkPigButton(context)
             ]
         )
     );
@@ -198,8 +152,8 @@ class QuizState extends State<QuizOnePointThree> {
                     },
                     child: Container(
                         width: screenWidth * 0.3,
-                        decoration: boxDecoration(),
-                        child: padding(getChoice(0), screenWidth / 24)
+                        decoration: answerDecoration(),
+                        child: answerPadding(getChoice(0), screenWidth / 24)
                     )
                 ),
                 // Box 1
@@ -222,8 +176,8 @@ class QuizState extends State<QuizOnePointThree> {
                     },
                     child: Container(
                         width: screenWidth * 0.3,
-                        decoration: boxDecoration(),
-                        child: padding(getChoice(1), screenWidth / 24)
+                        decoration: answerDecoration(),
+                        child: answerPadding(getChoice(1), screenWidth / 24)
                     )
                 ),
               ],
@@ -251,8 +205,8 @@ class QuizState extends State<QuizOnePointThree> {
                     },
                     child: Container(
                         width: screenWidth * 0.3,
-                        decoration: boxDecoration(),
-                        child: padding(getChoice(2), screenWidth / 24)
+                        decoration: answerDecoration(),
+                        child: answerPadding(getChoice(2), screenWidth / 24)
                     )
                 ),
                 // Box 3
@@ -275,8 +229,8 @@ class QuizState extends State<QuizOnePointThree> {
                     },
                     child: Container(
                         width: screenWidth * 0.3,
-                        decoration: boxDecoration(),
-                        child: padding(getChoice(3), screenWidth / 24)
+                        decoration: answerDecoration(),
+                        child: answerPadding(getChoice(3), screenWidth / 24)
                     )
                 ),
               ],
@@ -302,37 +256,4 @@ class QuizState extends State<QuizOnePointThree> {
     stopAudio();
     audioPlayer = await audioCache.play(questionAudio);
   }
-  stopAudio() {
-    audioPlayer.stop();
-  }
-}
-
-
-double screenHeight, screenWidth;
-var random = new Random();
-
-
-Padding padding(String text, double size) {
-  return Padding(
-      padding: const EdgeInsets.only(top: 12, bottom: 12),
-      child: Text(
-        text,
-        style: textStyle(Colors.black, size),
-        textAlign: TextAlign.center,
-      )
-  );
-}
-BoxDecoration boxDecoration() {
-  return BoxDecoration(
-    color: const Color(0xff00eeff),
-    border: Border.all(color: const Color(0xff008cb3), width: 3),
-    borderRadius: BorderRadius.all(Radius.circular(15)),
-  );
-}
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
-  );
 }

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/nine/ScoreMenuNine.dart';
 import 'package:hearatale_literacy_app/nine/quiz/QuizNinePointTwo.dart';
-import 'package:hearatale_literacy_app/Rewards.dart';
-import 'package:hearatale_literacy_app/PiggyBank.dart';
+import 'package:hearatale_literacy_app/helper.dart';
+
 
 class NinePointTwoLesson extends StatefulWidget {
   @override
@@ -47,14 +44,11 @@ class NinePointTwo extends State<NinePointTwoLesson> {
   int tracker = 0;
   bool marker = true;
 
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
   String sentenceAudio = "dropbox/SectionNine/NinePointTwo/#9.2_SuffixFULmeansFullOf_changeYtoI.mp3";
 
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    setWidthHeight(context);
 
     if (marker) {
       marker = false;
@@ -81,30 +75,8 @@ class NinePointTwo extends State<NinePointTwoLesson> {
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pushAndRemoveUntil(context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          ), (route) => false);
-                    },
-                  )
-              ),
+              backButton(context),
+              homeButton(context),
               Spacer(flex: 5),
               Material(
                   color: const Color(0xffc4e8e6),
@@ -147,22 +119,7 @@ class NinePointTwo extends State<NinePointTwoLesson> {
                     },
                   )
               ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {
-                        stopAudio();
-                        Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (context, _, __) => PiggyBank(),
-                                transitionDuration: Duration(seconds: 0)
-                            )
-                        );
-                      }
-                  )
-              ),
+              pinkPigButton(context)
             ]
         )
     );
@@ -263,17 +220,4 @@ class NinePointTwo extends State<NinePointTwoLesson> {
     stopAudio();
     audioPlayer = await audioCache.play(wordsAudio[tracker]);
   }
-
-  stopAudio() {
-    audioPlayer.stop();
-  }
-}
-
-double screenHeight, screenWidth;
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
-  );
 }
