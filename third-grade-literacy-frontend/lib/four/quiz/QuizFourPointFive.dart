@@ -3,6 +3,8 @@ import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
 import 'package:hearatale_literacy_app/four/StreakFour.dart';
 import 'package:hearatale_literacy_app/Rewards.dart';
 import 'package:hearatale_literacy_app/helper.dart';
+import 'package:hearatale_literacy_app/globals.dart' as globals;
+
 
 
 class QuizFourPointFive extends StatefulWidget {
@@ -135,6 +137,7 @@ class QuizState extends State<QuizFourPointFive> {
                     onTap: () {
                       // if the choice is correct
                       if (answerOrder[0] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 4.5");
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
@@ -165,6 +168,7 @@ class QuizState extends State<QuizFourPointFive> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[1] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 4.5");
                         if (attempt == 0) {
                           StreakFour.correct(index);
                           Rewards.addGoldCoin();
@@ -195,6 +199,7 @@ class QuizState extends State<QuizFourPointFive> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[2] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 4.5");
                         if (attempt == 0) {
                           StreakFour.correct(index);
                           Rewards.addGoldCoin();
@@ -220,6 +225,7 @@ class QuizState extends State<QuizFourPointFive> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[3] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 4.5");
                         if (attempt == 0) {
                           StreakFour.correct(index);
                           Rewards.addGoldCoin();

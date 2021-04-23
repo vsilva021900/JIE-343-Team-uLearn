@@ -3,55 +3,9 @@ import 'package:hearatale_literacy_app/StreakMain.dart';
 import 'package:hearatale_literacy_app/one/ScoreMenuOne.dart';
 import 'package:hearatale_literacy_app/Rewards.dart';
 import '../../helper.dart';
-
-import 'package:hearatale_literacy_app/UserDataModel.dart';
-import 'package:http/http.dart' as http;
 import 'package:hearatale_literacy_app/globals.dart' as globals;
-import 'dart:convert';
-import 'package:intl/intl.dart';
-String _parseHtmlString(String htmlString) {
-  RegExp exp = RegExp(
-      r"<[^>]*>",
-      multiLine: true,
-      caseSensitive: true
-  );
-
-  return htmlString.replaceAll(exp, '').replaceAll("\n", " ");
-}
-/*
-//Each question should be considered a focus item
-Future<StudentModel> pushUserDataForFocusItem(int correcton, String question) async {
-  print("Attempting to push quiz 1 data to DAP");
-  DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
-  final response = await http.post(
-      Uri.https("teacherportal.hearatale.com", "/api/session/student/" + globals.teacherID + globals.studentID),
-      body: {
-        "student": globals.studentID, //replace with actual student identifier
-        "program": "Third Grade Literacy App",
-        "focus_item_unit": "Quiz 1",
-        "focus_item_subunit": question,
-        "correct_on": correcton.toString(),
-        "time_spent": dateFormat.format(DateTime.now()),
-      },);
 
 
-  //print(_parseHtmlString(response.body));
-  var convertDataToJson = json.decode(json.encode(response.body.toString()));
-  //var parsedString = _parseHtmlString(convertDataToJson);
-
-  //print("here5");
-  //print(convertDataToJson);
-  //print("here1");
-
-  print(response.body);
-  if(convertDataToJson[0] == "success") {
-    print("Uploaded to upload Quiz 1 Unit data to DAP");
-  } else {
-    print("Unable to upload Quiz 1 Unit data to DAP");
-    return null;
-  }
-}
-*/
 
 class QuizOne extends StatefulWidget {
   @override
@@ -180,6 +134,7 @@ class QuizState extends State<QuizOne> {
                     onTap: () {
                       // if the choice is correct
                       if (answerOrder[0] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 1");
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
@@ -209,6 +164,7 @@ class QuizState extends State<QuizOne> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[1] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 1");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();
@@ -238,6 +194,7 @@ class QuizState extends State<QuizOne> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[2] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 1");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();
@@ -262,6 +219,7 @@ class QuizState extends State<QuizOne> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[3] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 1");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();

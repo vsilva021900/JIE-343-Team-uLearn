@@ -3,7 +3,7 @@ import '../../StreakMain.dart';
 import '../ScoreMenuSix.dart';
 import 'package:hearatale_literacy_app/Rewards.dart';
 import '../../helper.dart';
-
+import 'package:hearatale_literacy_app/globals.dart' as globals;
 
 class QuizSix extends StatefulWidget {
   @override
@@ -136,6 +136,7 @@ class QuizState extends State<QuizSix> {
                     onTap: () {
                       // if the choice is correct
                       if (answerOrder[0] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 6");
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
@@ -165,6 +166,7 @@ class QuizState extends State<QuizSix> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[1] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 6");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();
@@ -194,6 +196,7 @@ class QuizState extends State<QuizSix> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[2] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 6");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();
@@ -218,6 +221,7 @@ class QuizState extends State<QuizSix> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[3] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 6");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();

@@ -4,6 +4,7 @@ import '../../StreakMain.dart';
 import '../ScoreMenuSeven.dart';
 import '../StreakSeven.dart';
 import '../../helper.dart';
+import 'package:hearatale_literacy_app/globals.dart' as globals;
 
 
 class QuizSeven extends StatefulWidget {
@@ -127,6 +128,7 @@ class QuizState extends State<QuizSeven> {
                     onTap: () {
                       // if the choice is correct
                       if (answerOrder[0] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 7");
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
@@ -158,6 +160,7 @@ class QuizState extends State<QuizSeven> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[1] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 7");
                         if (attempt == 0) {
                           StreakSeven.correct();
                           StreakMain.correct(index);
@@ -189,6 +192,7 @@ class QuizState extends State<QuizSeven> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[2] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 7");
                         if (attempt == 0) {
                           StreakSeven.correct();
                           StreakMain.correct(index);
@@ -215,6 +219,7 @@ class QuizState extends State<QuizSeven> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[3] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 7");
                         if (attempt == 0) {
                           StreakSeven.correct();
                           StreakMain.correct(index);

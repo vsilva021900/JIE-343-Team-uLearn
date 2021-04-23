@@ -3,6 +3,7 @@ import 'package:hearatale_literacy_app/StreakMain.dart';
 import 'package:hearatale_literacy_app/eight/ScoreMenuEight.dart';
 import 'package:hearatale_literacy_app/Rewards.dart';
 import 'package:hearatale_literacy_app/helper.dart';
+import 'package:hearatale_literacy_app/globals.dart' as globals;
 
 
 class QuizEight extends StatefulWidget {
@@ -142,6 +143,7 @@ class QuizState extends State<QuizEight> {
                       // if the choice is correct
                       if (answerOrder[0] == 0) {
                         // if this is the first try
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8");
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakMain.correct(index);
@@ -170,6 +172,7 @@ class QuizState extends State<QuizEight> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[1] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();
@@ -199,6 +202,7 @@ class QuizState extends State<QuizEight> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[2] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();
@@ -223,6 +227,7 @@ class QuizState extends State<QuizEight> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[3] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8");
                         if (attempt == 0) {
                           StreakMain.correct(index);
                           Rewards.addGoldCoin();

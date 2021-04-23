@@ -3,7 +3,7 @@ import 'package:hearatale_literacy_app/six/ScoreMenuSix.dart';
 import 'package:hearatale_literacy_app/six/StreakSix.dart';
 import 'package:hearatale_literacy_app/Rewards.dart';
 import '../../helper.dart';
-
+import 'package:hearatale_literacy_app/globals.dart' as globals;
 
 class QuizSixPointEight extends StatefulWidget {
   @override
@@ -103,6 +103,7 @@ class QuizState extends State<QuizSixPointEight> {
                     onTap: () {
                       // if the choice is correct
                       if (randNum % 2 == 1) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 6.8");
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
@@ -132,6 +133,7 @@ class QuizState extends State<QuizSixPointEight> {
                 GestureDetector(
                     onTap: () {
                       if (randNum % 2 == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 6.8");
                         if (attempt == 0) {
                           StreakSix.correct(index);
                           Rewards.addGoldCoin();

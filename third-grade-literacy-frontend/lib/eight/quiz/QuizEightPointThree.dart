@@ -3,7 +3,7 @@ import 'package:hearatale_literacy_app/eight/ScoreMenuEight.dart';
 import 'package:hearatale_literacy_app/eight/StreakEight.dart';
 import 'package:hearatale_literacy_app/Rewards.dart';
 import 'package:hearatale_literacy_app/helper.dart';
-
+import 'package:hearatale_literacy_app/globals.dart' as globals;
 
 class QuizEightPointThree extends StatefulWidget {
   @override
@@ -131,6 +131,7 @@ class QuizState extends State<QuizEightPointThree> {
                       if (answerOrder[0] == 0) {
                         // if this is the first try
                         if (attempt == 0) {
+                          globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8.3");
                           // increase correct answer streak
                           StreakEight.correct(index);
                           Rewards.addGoldCoin();
@@ -158,6 +159,7 @@ class QuizState extends State<QuizEightPointThree> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[1] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8.3");
                         if (attempt == 0) {
                           StreakEight.correct(index);
                           Rewards.addGoldCoin();
@@ -187,6 +189,7 @@ class QuizState extends State<QuizEightPointThree> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[2] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8.3");
                         if (attempt == 0) {
                           StreakEight.correct(index);
                           Rewards.addGoldCoin();
@@ -211,6 +214,7 @@ class QuizState extends State<QuizEightPointThree> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[3] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8.3");
                         if (attempt == 0) {
                           StreakEight.correct(index);
                           Rewards.addGoldCoin();
