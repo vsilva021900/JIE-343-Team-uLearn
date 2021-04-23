@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../MainScoreMenu.dart';
 import 'StreakSix.dart';
-import '../../helper.dart';
+import '../helper.dart';
 
 
 class ScoreSix extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/MainScoreMenu.dart';
 import 'package:hearatale_literacy_app/four/StreakFour.dart';
-import '../../helper.dart';
+import '../helper.dart';
 
 
 class ScoreFour extends StatelessWidget {
