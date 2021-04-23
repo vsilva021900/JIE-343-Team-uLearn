@@ -1,11 +1,7 @@
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/two/ScoreMenuTwo.dart';
 import 'package:hearatale_literacy_app/two/quiz/QuizTwoPointOne.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
-import 'package:hearatale_literacy_app/PiggyBank.dart';
+import '../helper.dart';
 
 
 void main() {
@@ -42,13 +38,11 @@ class TwoPointOne extends State<TwoPointOneLesson> {
   int tracker = 0;
   bool marker = true;
 
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
   String questionAudio = '#2.1_mostbasewordsjustaddS.mp3';
   @override
   Widget build(BuildContext context) {
-    screenHeight = MediaQuery.of(context).size.height;
-    screenWidth = MediaQuery.of(context).size.width;
+    setWidthHeight(context);
+
     if (marker) {
       playAudio();
     }
@@ -73,30 +67,8 @@ class TwoPointOne extends State<TwoPointOneLesson> {
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pushAndRemoveUntil(context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          ), (route) => false);
-                    },
-                  )
-              ),
+              backButton(context),
+              homeButton(context),
               Spacer(flex: 5),
               Material(
                   color: const Color(0xffc4e8e6),
@@ -139,22 +111,7 @@ class TwoPointOne extends State<TwoPointOneLesson> {
                     },
                   )
               ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {
-                        stopAudio();
-                        Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (context, _, __) => PiggyBank(),
-                                transitionDuration: Duration(seconds: 0)
-                            )
-                        );
-                      }
-                  )
-              ),
+              pinkPigButton(context)
             ]
         )
     );
@@ -256,16 +213,5 @@ class TwoPointOne extends State<TwoPointOneLesson> {
   playAudio2() async {
     stopAudio();
     audioPlayer = await audioCache.play(music[tracker]);
-  }
-  stopAudio() {
-    audioPlayer.stop();
-  }
-  double screenHeight, screenWidth;
-  TextStyle textStyle(Color col, double size) {
-    return TextStyle(
-      color: col,
-      fontFamily: 'Comic',
-      fontSize: size,
-    );
   }
 }

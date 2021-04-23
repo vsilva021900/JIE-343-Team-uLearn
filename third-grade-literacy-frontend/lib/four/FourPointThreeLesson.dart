@@ -1,15 +1,8 @@
-import 'dart:async';
-//import 'dart:html';
-import 'dart:io';
-
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:hearatale_literacy_app/four/ScoreMenuFour.dart';
-import 'package:hearatale_literacy_app/main.dart';
 import 'package:hearatale_literacy_app/four/quiz/QuizFourPointThree.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
-import 'package:hearatale_literacy_app/PiggyBank.dart';
+import 'package:hearatale_literacy_app/helper.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -48,13 +41,12 @@ class FourPointThree extends State<FourPointThreeLesson> {
   ];
   int tracker = 0;
   bool marker = true;
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
+
   String questionAudio = '#4.3_wordsendSHjustaddES.mp3';
   @override
   Widget build(BuildContext context) {
-    screenHeight = MediaQuery.of(context).size.height;
-    screenWidth = MediaQuery.of(context).size.width;
+    setWidthHeight(context);
+
     if (marker) {
       playAudio();
     }
@@ -79,30 +71,8 @@ class FourPointThree extends State<FourPointThreeLesson> {
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pushAndRemoveUntil(context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          ), (route) => false);
-                    },
-                  )
-              ),
+              backButton(context),
+              homeButton(context),
               Spacer(flex: 5),
               Material(
                   color: const Color(0xffc4e8e6),
@@ -145,26 +115,12 @@ class FourPointThree extends State<FourPointThreeLesson> {
                     },
                   )
               ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {
-                        stopAudio();
-                        Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (context, _, __) => PiggyBank(),
-                                transitionDuration: Duration(seconds: 0)
-                            )
-                        );
-                      }
-                  )
-              ),
+              pinkPigButton(context)
             ]
         )
     );
   }
+
   Widget sub(BuildContext context) {
     return Container(
         color: const Color(0xFFFFFF),
@@ -258,16 +214,5 @@ class FourPointThree extends State<FourPointThreeLesson> {
   playAudio2() async {
     stopAudio();
     audioPlayer = await audioCache.play(music[tracker]);
-  }
-  stopAudio() {
-    audioPlayer.stop();
-  }
-  double screenHeight, screenWidth;
-  TextStyle textStyle(Color col, double size) {
-    return TextStyle(
-      color: col,
-      fontFamily: 'Comic',
-      fontSize: size,
-    );
   }
 }
