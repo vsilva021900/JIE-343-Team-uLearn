@@ -27,7 +27,7 @@ class StreakTen {
   static incorrect(int index) {
     if (!checkmark[index]) {
       if (streak[index] > 0) {
-        streak[index] -= 1;
+        streak[index] = 0;
       }
     }
   }
