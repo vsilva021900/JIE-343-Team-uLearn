@@ -22,7 +22,7 @@ class StreakSeven {
   static incorrect() {
     if (!checkmark) {
       if (streak > 0) {
-        streak -= 1;
+        streak = 0;
       }
     }
   }
