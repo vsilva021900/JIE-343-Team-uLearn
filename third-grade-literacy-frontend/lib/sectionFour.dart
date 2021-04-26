@@ -1,8 +1,4 @@
-import 'package:hearatale_literacy_app/main.dart';
-
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:audioplayers/audio_cache.dart';
 import 'four/FourPointOneLesson.dart';
 import 'four/FourPointTwoLesson.dart';
 import 'four/FourPointThreeLesson.dart';
@@ -14,15 +10,17 @@ import 'four/FourPointEightLesson.dart';
 import 'four/FourPointNineLesson.dart';
 import 'four/FourPointTenLesson.dart';
 import 'four/ScoreMenuFour.dart';
-import 'package:hearatale_literacy_app/four/quiz/QuizFour.dart';
-import 'WordStructures.dart';
-import 'package:hearatale_literacy_app/PiggyBank.dart';
+import 'four/quiz/QuizFour.dart';
+import 'helper.dart';
+
 
 class MainFour extends StatelessWidget {
+  String questionAudio = '4.10_somewordsdontchange.mp3';
+
   @override
   Widget build(BuildContext context) {
-    screenHeight = MediaQuery.of(context).size.height;
-    screenWidth = MediaQuery.of(context).size.width;
+    setWidthHeight(context);
+
     return MaterialApp(
         home: Material(
             child: Row(
@@ -37,39 +35,15 @@ class MainFour extends StatelessWidget {
         )
     );
   }
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = AudioPlayer();
-  String questionAudio = '4.10_somewordsdontchange.mp3';
 }
-
 
 Widget sideBar(BuildContext context) {
   return Container(
       color: const Color(0xffc4e8e6),
       child: Column(
           children: <Widget>[
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-            ),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(context,
-                        PageRouteBuilder(
-                            pageBuilder: (context, _, __) => MyApp(),
-                            transitionDuration: Duration(seconds: 0)
-                        ), (route) => false);
-                  },
-                )
-            ),
+            backButton(context),
+            homeButton(context),
             Spacer(flex: 5),
             Material(
                 color: const Color(0xffc4e8e6),
@@ -100,29 +74,13 @@ Widget sideBar(BuildContext context) {
                   },
                 )
             ),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => PiggyBank(),
-                              transitionDuration: Duration(seconds: 0)
-                          )
-                      );
-                    }
-                )
-            ),
+            pinkPigButton(context)
           ]
       )
   );
 }
 
 Widget subSections(BuildContext context) {
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = AudioPlayer();
   String questionAudio = '4.10_somewordsdontchange.mp3';
   stopAudio() {
     audioPlayer.stop();
@@ -354,15 +312,5 @@ Widget subSections(BuildContext context) {
           )
         ],
       )
-  );
-}
-
-/* helper functions and variables */
-double screenHeight, screenWidth;
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
   );
 }

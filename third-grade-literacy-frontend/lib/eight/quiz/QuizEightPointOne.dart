@@ -1,11 +1,9 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/eight/ScoreMenuEight.dart';
 import 'package:hearatale_literacy_app/eight/StreakEight.dart';
-
+import 'package:hearatale_literacy_app/Rewards.dart';
+import 'package:hearatale_literacy_app/helper.dart';
+import 'package:hearatale_literacy_app/globals.dart' as globals;
 
 class QuizEightPointOne extends StatefulWidget {
   @override
@@ -30,8 +28,6 @@ class QuizState extends State<QuizEightPointOne> {
   ];
 
   String questionAudio = "dropbox/SectionEight/EightPointOne/##8.1_Q_WhichWordHasAPrefixThatMeansNot.mp3";
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
 
   var answerOrder = [0, 1, 2, 3];
   int prevCorrect = -1; // prevent same correct answer multiple times in a row
@@ -41,8 +37,7 @@ class QuizState extends State<QuizEightPointOne> {
 
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    setWidthHeight(context);
 
     answerOrder.shuffle();
     attempt = 0;
@@ -72,30 +67,8 @@ class QuizState extends State<QuizEightPointOne> {
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pushAndRemoveUntil(context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          ), (route) => false);
-                    },
-                  )
-              ),
+              backButton(context),
+              homeButton(context),
               Spacer(flex: 5),
               Material(
                   color: const Color(0xffc4e8e6),
@@ -122,15 +95,7 @@ class QuizState extends State<QuizEightPointOne> {
                     },
                   )
               ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {
-                        stopAudio();
-                      }
-                  )
-              ),
+              pinkPigButton(context)
             ]
         )
     );
@@ -167,10 +132,14 @@ class QuizState extends State<QuizEightPointOne> {
                     onTap: () {
                       // if the choice is correct
                       if (answerOrder[0] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8.1");
                         // if this is the first try
                         if (attempt == 0) {
                           // increase correct answer streak
                           StreakEight.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -185,16 +154,20 @@ class QuizState extends State<QuizEightPointOne> {
                     },
                     child: Container(
                         width: screenWidth * 0.3,
-                        decoration: boxDecoration(),
-                        child: padding(getChoice(0), screenWidth / 24)
+                        decoration: answerDecoration(),
+                        child: answerPadding(getChoice(0), screenWidth / 24)
                     )
                 ),
                 // Box 1
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[1] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8.1");
                         if (attempt == 0) {
                           StreakEight.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -206,8 +179,8 @@ class QuizState extends State<QuizEightPointOne> {
                     },
                     child: Container(
                         width: screenWidth * 0.3,
-                        decoration: boxDecoration(),
-                        child: padding(getChoice(1), screenWidth / 24)
+                        decoration: answerDecoration(),
+                        child: answerPadding(getChoice(1), screenWidth / 24)
                     )
                 ),
               ],
@@ -219,8 +192,12 @@ class QuizState extends State<QuizEightPointOne> {
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[2] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8.1");
                         if (attempt == 0) {
                           StreakEight.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -232,16 +209,20 @@ class QuizState extends State<QuizEightPointOne> {
                     },
                     child: Container(
                         width: screenWidth * 0.3,
-                        decoration: boxDecoration(),
-                        child: padding(getChoice(2), screenWidth / 24)
+                        decoration: answerDecoration(),
+                        child: answerPadding(getChoice(2), screenWidth / 24)
                     )
                 ),
                 // Box 3
                 GestureDetector(
                     onTap: () {
                       if (answerOrder[3] == 0) {
+                        globals.pushUserDataForFocusItem(attempt + 1, "Quiz 8.1");
                         if (attempt == 0) {
                           StreakEight.correct(index);
+                          Rewards.addGoldCoin();
+                        } else if (attempt == 1) {
+                          Rewards.addSilverCoin();
                         }
                         stopAudio();
                         setState(() {});
@@ -253,8 +234,8 @@ class QuizState extends State<QuizEightPointOne> {
                     },
                     child: Container(
                         width: screenWidth * 0.3,
-                        decoration: boxDecoration(),
-                        child: padding(getChoice(3), screenWidth / 24)
+                        decoration: answerDecoration(),
+                        child: answerPadding(getChoice(3), screenWidth / 24)
                     )
                 ),
               ],
@@ -280,35 +261,4 @@ class QuizState extends State<QuizEightPointOne> {
     stopAudio();
     audioPlayer = await audioCache.play(path);
   }
-  stopAudio() {
-    audioPlayer.stop();
-  }
-}
-
-double screenHeight, screenWidth;
-var random = new Random();
-
-Padding padding(String text, double size) {
-  return Padding(
-      padding: const EdgeInsets.only(top: 12, bottom: 12),
-      child: Text(
-        text,
-        style: textStyle(Colors.black, size),
-        textAlign: TextAlign.center,
-      )
-  );
-}
-BoxDecoration boxDecoration() {
-  return BoxDecoration(
-    color: const Color(0xff00eeff),
-    border: Border.all(color: const Color(0xff008cb3), width: 3),
-    borderRadius: BorderRadius.all(Radius.circular(15)),
-  );
-}
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
-  );
 }

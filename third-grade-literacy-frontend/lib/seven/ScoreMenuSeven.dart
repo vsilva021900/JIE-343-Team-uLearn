@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/MainScoreMenu.dart';
 import 'package:hearatale_literacy_app/seven/StreakSeven.dart';
+import '../helper.dart';
 
 
 class ScoreSeven extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    setWidthHeight(context);
 
     return MaterialApp(
         home: Material(
@@ -31,36 +30,10 @@ Widget sideBar(BuildContext context) {
       color: const Color(0xffc4e8e6),
       child: Column(
           children: <Widget>[
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-            ),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(context,
-                        PageRouteBuilder(
-                            pageBuilder: (context, _, __) => MyApp(),
-                            transitionDuration: Duration(seconds: 0)
-                        ), (route) => false);
-                  },
-                )
-            ),
+            backButton(context),
+            homeButton(context),
             Spacer(flex: 5),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
-                )
-            ),
+            pinkPigButton(context)
           ]
       )
   );
@@ -81,7 +54,7 @@ Widget sub(BuildContext context) {
                   );
                 },
                 child: Text('Compound Words',
-                    style: textStyle(Colors.black, 30)
+                    style: textStyle(Colors.black, 40)
                 )
             ),
             Container(
@@ -92,7 +65,7 @@ Widget sub(BuildContext context) {
               children: [
                 starsAndCheck(),
                 Text('7  compounds words combine',
-                    style: textStyle(Colors.black, screenWidth / 30)
+                    style: textStyle(Colors.black, screenWidth / 40)
                 )
               ],
             ),
@@ -105,7 +78,7 @@ Widget sub(BuildContext context) {
                     width: (screenWidth / 5) + (screenHeight / 12)
                 ),
                 Text('          two to make one',
-                    style: textStyle(Colors.black, screenWidth / 30)
+                    style: textStyle(Colors.black, screenWidth / 40)
                 ),
               ],
             )
@@ -166,14 +139,5 @@ Container starImage() {
       child: Image.asset(StreakSeven.getImagePath(),
         fit: BoxFit.contain,
       )
-  );
-}
-
-double screenHeight, screenWidth;
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
   );
 }

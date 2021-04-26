@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:hearatale_literacy_app/main.dart';
-import 'WordStructures.dart';
 import 'ten/TenAllLesson.dart';
 import 'ten/TenOneLesson.dart';
 import 'ten/TenTwoLesson.dart';
 import 'ten/TenThreeLesson.dart';
 import 'ten/TenFourLesson.dart';
-import 'package:hearatale_literacy_app/ten/quiz/QuizTenAll.dart';
-import 'package:hearatale_literacy_app/ten/ScoreMenuTen.dart';
-import 'package:hearatale_literacy_app/Rewards.dart';
-import 'package:hearatale_literacy_app/PiggyBank.dart';
+import 'ten/quiz/QuizTenAll.dart';
+import 'ten/ScoreMenuTen.dart';
+import 'helper.dart';
 
 
 class MainTen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    screenHeight = MediaQuery.of(context).size.height;
-    screenWidth = MediaQuery.of(context).size.width;
+    setWidthHeight(context);
+
     return MaterialApp(
         home: Material(
             child: Row(
@@ -38,28 +35,8 @@ Widget sideBar(BuildContext context) {
       color: const Color(0xffc4e8e6),
       child: Column(
           children: <Widget>[
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-            ),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(context,
-                        PageRouteBuilder(
-                            pageBuilder: (context, _, __) => MyApp(),
-                            transitionDuration: Duration(seconds: 0)
-                        ), (route) => false);
-                  },
-                )
-            ),
+            backButton(context),
+            homeButton(context),
             Spacer(flex: 5),
             Material(
                 color: const Color(0xffc4e8e6),
@@ -91,21 +68,7 @@ Widget sideBar(BuildContext context) {
                   },
                 )
             ),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => PiggyBank(),
-                              transitionDuration: Duration(seconds: 0)
-                          )
-                      );
-                    }
-                )
-            ),
+            pinkPigButton(context)
           ]
       )
   );
@@ -248,14 +211,5 @@ Widget subSections(BuildContext context) {
           ),
         ],
       )
-  );
-}
-
-double screenHeight, screenWidth;
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
   );
 }

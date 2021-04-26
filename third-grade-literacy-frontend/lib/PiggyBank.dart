@@ -1,9 +1,10 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'WordStructures.dart';
 import 'MainScoreMenu.dart';
 import 'Rewards.dart';
+import 'helper.dart';
+
 
 bool test = false;
 void main() {
@@ -30,8 +31,7 @@ void main() {
 class PiggyBank extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    setWidthHeight(context);
 
     return MaterialApp(
       home: Material(
@@ -97,6 +97,7 @@ Widget sideBar(BuildContext context) {
       )
   );
 }
+
 Widget section(BuildContext context) {
   double titleFontSize = min(screenWidth / 25, screenHeight * 0.07);
   return Container(
@@ -276,19 +277,9 @@ List<Widget> row_banks() {
   return list;
 }
 
-
-double screenWidth, screenHeight;
-
 Padding pad(Widget c, double l, double r, double t, double b) {
   return Padding(
     padding: EdgeInsets.only(left: l, right: r, top: t, bottom: b),
     child: c
-  );
-}
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
   );
 }

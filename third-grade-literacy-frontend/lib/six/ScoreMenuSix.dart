@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-
-import '../WordStructures.dart';
 import '../MainScoreMenu.dart';
 import 'StreakSix.dart';
+import '../helper.dart';
 
 
 class ScoreSix extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    setWidthHeight(context);
 
     return MaterialApp(
         home: Material(
@@ -32,43 +30,17 @@ Widget sideBar(BuildContext context) {
       color: const Color(0xffc4e8e6),
       child: Column(
           children: <Widget>[
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-            ),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(context,
-                        PageRouteBuilder(
-                            pageBuilder: (context, _, __) => MyApp(),
-                            transitionDuration: Duration(seconds: 0)
-                        ), (route) => false);
-                  },
-                )
-            ),
+            backButton(context),
+            homeButton(context),
             Spacer(flex: 5),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
-                )
-            ),
+            pinkPigButton(context)
           ]
       )
   );
 }
 
 Widget sub(BuildContext context) {
-  double textFontSize = screenWidth / 31.5;
+  double textFontSize = screenWidth / 50;
   return Container(
       child: Column(
           children: [
@@ -126,7 +98,7 @@ Widget sub(BuildContext context) {
                     style: textStyle(Colors.green, textFontSize)
                 ),
                 Text('\'re',
-                    style: textStyle(Colors.red, screenWidth / 30)
+                    style: textStyle(Colors.red, textFontSize)
                 )
               ],
             ),
@@ -363,14 +335,5 @@ Container starImage(int index) {
       child: Image.asset(StreakSix.getImagePath(index),
         fit: BoxFit.contain,
       )
-  );
-}
-
-double screenHeight, screenWidth;
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
   );
 }

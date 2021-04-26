@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-
-import 'WordStructures.dart';
 import 'seven/SevenPointOneLesson.dart';
-import 'seven/quiz/QuizSevenPointOne.dart';
+import 'seven/quiz/QuizSeven.dart';
 import 'seven/ScoreMenuSeven.dart';
+import 'helper.dart';
+
 
 class MainSeven extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    screenHeight = MediaQuery.of(context).size.height;
-    screenWidth = MediaQuery.of(context).size.width;
+    setWidthHeight(context);
+
     return MaterialApp(
         home: Material(
             child: Row(
@@ -31,28 +31,8 @@ Widget sideBar(BuildContext context) {
       color: const Color(0xffc4e8e6),
       child: Column(
           children: <Widget>[
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_back_button.png'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                )
-            ),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                  icon: Image.asset('assets/placeholder_home_button.png'),
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(context,
-                        PageRouteBuilder(
-                            pageBuilder: (context, _, __) => MyApp(),
-                            transitionDuration: Duration(seconds: 0)
-                        ), (route) => false);
-                  },
-                )
-            ),
+            backButton(context),
+            homeButton(context),
             Spacer(flex: 5),
             Material(
                 color: const Color(0xffc4e8e6),
@@ -62,7 +42,7 @@ Widget sideBar(BuildContext context) {
                       Navigator.push(
                           context,
                           PageRouteBuilder(
-                              pageBuilder: (context, _, __) => QuizSevenPointOne(),
+                              pageBuilder: (context, _, __) => QuizSeven(),
                               transitionDuration: Duration(seconds: 0)
                           )
                       );
@@ -84,13 +64,7 @@ Widget sideBar(BuildContext context) {
                   },
                 )
             ),
-            Material(
-                color: const Color(0xffc4e8e6),
-                child: IconButton(
-                    icon: Image.asset('assets/placeholder_piggy_button.png'),
-                    onPressed: () {}
-                )
-            ),
+            pinkPigButton(context)
           ]
       )
   );
@@ -186,14 +160,5 @@ Widget subSections(BuildContext context) {
             )
           ]
       )
-  );
-}
-
-double screenHeight, screenWidth;
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
   );
 }

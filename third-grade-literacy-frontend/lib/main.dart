@@ -18,6 +18,8 @@ logInStudent(String id) async {
         "id": id,   // The 5-digit conjoined teacher_id + student_id --> gx4aa
       });
   var convertDataToJson = json.decode(response.body);
+
+  globals.studentJWT = "Bearer " + convertDataToJson["token"];
   if(convertDataToJson["status"] == "ok") {
     globals.studentID = id.substring(3, 5);
     globals.teacherID = id.substring(0, 3);

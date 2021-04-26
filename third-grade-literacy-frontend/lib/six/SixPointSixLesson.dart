@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
 import 'package:hearatale_literacy_app/six/ScoreMenuSix.dart';
 import 'package:hearatale_literacy_app/six/quiz/QuizSixPointSix.dart';
+import 'package:hearatale_literacy_app/helper.dart';
 
 
 class SixPointSixLesson extends StatefulWidget {
@@ -56,14 +54,11 @@ class SixPointSix extends State<SixPointSixLesson> {
   int tracker = 0;
   bool marker = true;
 
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
   String sentenceAudio = "dropbox/SectionSix/SixPointSix/#6.6_Intro_ContractionsWithNot.mp3";
 
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    setWidthHeight(context);
 
     if (marker) {
       marker = false;
@@ -90,30 +85,8 @@ class SixPointSix extends State<SixPointSixLesson> {
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pushAndRemoveUntil(context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          ), (route) => false);
-                    },
-                  )
-              ),
+              backButton(context),
+              homeButton(context),
               Spacer(flex: 5),
               Material(
                   color: const Color(0xffc4e8e6),
@@ -156,15 +129,7 @@ class SixPointSix extends State<SixPointSixLesson> {
                     },
                   )
               ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {
-                        stopAudio();
-                      }
-                  )
-              ),
+              pinkPigButton(context)
             ]
         )
     );
@@ -280,17 +245,4 @@ class SixPointSix extends State<SixPointSixLesson> {
     stopAudio();
     audioPlayer = await audioCache.play(wordsAudio[tracker]);
   }
-
-  stopAudio() {
-    audioPlayer.stop();
-  }
-}
-
-double screenHeight, screenWidth;
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
-  );
 }

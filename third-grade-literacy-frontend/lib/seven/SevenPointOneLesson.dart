@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:hearatale_literacy_app/WordStructures.dart';
-import 'package:hearatale_literacy_app/seven/ScoreMenuSeven.dart';
-import 'package:hearatale_literacy_app/seven/quiz/QuizSevenPointOne.dart';
-//import 'package:hearatale_literacy_app/nine/quiz/QuizNinePointOne.dart';
+import 'quiz/QuizSeven.dart';
+import 'ScoreMenuSeven.dart';
+import '../helper.dart';
 
 
 class SevenPointOneLesson extends StatefulWidget {
@@ -146,14 +143,11 @@ class SevenPointOne extends State<SevenPointOneLesson> {
   int tracker = 0;
   bool marker = true;
 
-  AudioCache audioCache = new AudioCache();
-  AudioPlayer audioPlayer = new AudioPlayer();
   String sentenceAudio = "dropbox/SectionSeven/##7.0_compoundwordsaretwowords.mp3";
 
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    setWidthHeight(context);
 
     if (marker) {
       marker = false;
@@ -180,30 +174,8 @@ class SevenPointOne extends State<SevenPointOneLesson> {
         color: const Color(0xffc4e8e6),
         child: Column(
             children: <Widget>[
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_back_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pop(context);
-                    },
-                  )
-              ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                    icon: Image.asset('assets/placeholder_home_button.png'),
-                    onPressed: () {
-                      stopAudio();
-                      Navigator.pushAndRemoveUntil(context,
-                          PageRouteBuilder(
-                              pageBuilder: (context, _, __) => MyApp(),
-                              transitionDuration: Duration(seconds: 0)
-                          ), (route) => false);
-                    },
-                  )
-              ),
+              backButton(context),
+              homeButton(context),
               Spacer(flex: 5),
               Material(
                   color: const Color(0xffc4e8e6),
@@ -214,7 +186,7 @@ class SevenPointOne extends State<SevenPointOneLesson> {
                         Navigator.push(
                             context,
                             PageRouteBuilder(
-                                pageBuilder: (context, _, __) => QuizSevenPointOne(),
+                                pageBuilder: (context, _, __) => QuizSeven(),
                                 transitionDuration: Duration(seconds: 0)
                             )
                         );
@@ -246,15 +218,7 @@ class SevenPointOne extends State<SevenPointOneLesson> {
                     },
                   )
               ),
-              Material(
-                  color: const Color(0xffc4e8e6),
-                  child: IconButton(
-                      icon: Image.asset('assets/placeholder_piggy_button.png'),
-                      onPressed: () {
-                        stopAudio();
-                      }
-                  )
-              ),
+              pinkPigButton(context)
             ]
         )
     );
@@ -347,17 +311,4 @@ class SevenPointOne extends State<SevenPointOneLesson> {
     stopAudio();
     audioPlayer = await audioCache.play(wordsAudio[tracker]);
   }
-
-  stopAudio() {
-    audioPlayer.stop();
-  }
-}
-
-double screenHeight, screenWidth;
-TextStyle textStyle(Color col, double size) {
-  return TextStyle(
-    color: col,
-    fontFamily: 'Comic',
-    fontSize: size,
-  );
 }
